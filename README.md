@@ -1,4 +1,4 @@
-Fish360CRM
+Fish360Journal
 ==========
 
-Fish360 CRM
+Fish360Journal
