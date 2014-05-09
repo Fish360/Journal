@@ -125,7 +125,7 @@ var SampleApp = function() {
         };
         
         self.routes['/trip/:id'] = function(req, res) {
-            var trips = db.trip.findOne({_id: req.params.id}, function(err, trip){
+            var trips = db.trip.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, trip){
                 res.json(trip);
             });
         };
