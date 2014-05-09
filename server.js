@@ -135,6 +135,7 @@ var SampleApp = function() {
     			res.json(fishes);
     		});
         });
+
         
         self.app.get("/fish/:id", function(req, res){
     		db.fish.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, fishes){
