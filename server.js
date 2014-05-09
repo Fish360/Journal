@@ -15,7 +15,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
   process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = mongojs(connection_string, ['trip']);
+var db = mongojs(connection_string, ['trip', 'fish']);
 
 /**
  *  Define the sample application.
