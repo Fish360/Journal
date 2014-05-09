@@ -140,6 +140,10 @@ var SampleApp = function() {
         self.createRoutes();
         self.app = express.createServer();
 
+        self.app.get("/fish", function(req, res){
+        	res.json({message: "hello"});
+        });
+        
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
