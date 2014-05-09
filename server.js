@@ -2,6 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
+var mongojs = require('mongojs');
 
 //default to a 'localhost' configuration:
 var connection_string = '127.0.0.1:27017/f360';
@@ -13,6 +14,8 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
   process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
   process.env.OPENSHIFT_APP_NAME;
 }
+
+var db = mongojs(connection_string, ['trip']);
 
 /**
  *  Define the sample application.
@@ -114,6 +117,15 @@ var SampleApp = function() {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
+        
+        self.routes['/trip'] = function(req, res) {
+            db.trip.find({}).limit(10).forEach(function(err, doc) {
+          	  if (err) throw err;
+          	  if (doc) { res.json(doc); }
+          	});
+        };
+        
+        
     };
 
 
