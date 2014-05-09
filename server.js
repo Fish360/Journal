@@ -129,6 +129,11 @@ var SampleApp = function() {
                 res.json(trip);
             });
         };
+        
+        self.app.get("/fish", function(req, res){
+        	res.json({message: "hello !!!!"});
+        });
+
     };
 
 
@@ -137,12 +142,8 @@ var SampleApp = function() {
      *  the handlers.
      */
     self.initializeServer = function() {
-        self.createRoutes();
         self.app = express.createServer();
-
-        self.app.get("/fish", function(req, res){
-        	res.json({message: "hello"});
-        });
+        self.createRoutes();
         
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
