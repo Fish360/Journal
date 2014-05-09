@@ -125,15 +125,46 @@ var SampleApp = function() {
         };
         
         self.routes['/trip/:id'] = function(req, res) {
-            var trips = db.trip.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, trip){
+            db.trip.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, trip){
                 res.json(trip);
             });
         };
         
         self.app.get("/fish", function(req, res){
-        	res.json({message: "hello !!!!"});
+    		db.fish.find(function(err, fishes){
+    			res.json(fishes);
+    		});
         });
-
+        
+        self.app.get("/fish/:id", function(req, res){
+    		db.fish.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, fishes){
+    			res.json(fishes);
+    		});
+        });
+        
+        self.app.post("/fish", function(req, res){
+        	db.fish.insert(req.body, function(err, newFish){
+        		db.fish.find(function(err, fishes){
+        			res.json(fishes);
+        		});
+        	});
+        });
+        
+        self.app.delete("/fish/:id", function(req, res){
+        	db.fish.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, newFish){
+        		db.fish.find(function(err, fishes){
+        			res.json(fishes);
+        		});
+        	});
+        });
+        
+        self.app.put("/fish/:id", function(req, res){
+        	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
+        		db.fish.find(function(err, fishes){
+        			res.json(fishes);
+        		});
+        	});
+        });
     };
 
 
