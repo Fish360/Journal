@@ -119,12 +119,9 @@ var SampleApp = function() {
         };
         
         self.routes['/trip'] = function(req, res) {
-            var trips = db.trip.find({});
-            res.json(trips);
-      //      db.trip.find({}).limit(10).forEach(function(err, doc) {
-    //        	  if (err) throw err;
-  //          	  if (doc) { res.json(doc); }
-//            	});
+            var trips = db.trip.find(function(err, trips){
+                res.json(trips);
+            });
         };
         
         
