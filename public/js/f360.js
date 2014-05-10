@@ -27,7 +27,7 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	{
 		templateUrl: function(ewq) {
 			console.log(ewq);
-			return "templates/trip.html"},
+			return "templates/trip/list.html"},
 		controller: "TripListController"
 	})
 	.when("/:username/trip/:tripId/fish/list",
