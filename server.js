@@ -64,7 +64,7 @@ var SampleApp = function() {
      *  Retrieve entry (content) from cache.
      *  @param {string} key  Key identifying content to retrieve from cache.
      */
-//    self.cache_get = function(key) { return self.zcache[key]; };
+    self.cache_get = function(key) { return self.zcache[key]; };
 
 
     /**
@@ -106,7 +106,6 @@ var SampleApp = function() {
      *  Create the routing table entries + handlers for the application.
      */
     self.createRoutes = function() {
-    	/*
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
@@ -130,12 +129,7 @@ var SampleApp = function() {
                 res.json(trip);
             });
         };
-*/        
-    	self.app.configure(function() {
-    		self.app.use(express.static(__dirname + '/public'));
-    		self.app.use(express.bodyParser());
-    	});
-    	
+        
         self.app.get("/fish", function(req, res){
     		db.fish.find(function(err, fishes){
     			res.json(fishes);
@@ -195,7 +189,7 @@ var SampleApp = function() {
      */
     self.initialize = function() {
         self.setupVariables();
-//      self.populateCache();
+        self.populateCache();
         self.setupTerminationHandlers();
 
         // Create the express server and routes.
