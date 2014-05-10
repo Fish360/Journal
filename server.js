@@ -4,7 +4,7 @@ var express = require('express');
 var fs      = require('fs');
 var mongojs = require('mongojs');
 
-//default to a 'localhost' configuration:
+// default to a 'localhost' configuration:
 var connection_string = '127.0.0.1:27017/f360';
 // if OPENSHIFT env variables are present, use the available connection info:
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
@@ -58,9 +58,6 @@ var SampleApp = function() {
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
-        self.zcache['css/bootstrap.css'] = fs.readFileSync('./css/bootstrap.css');
-        self.zcache['js/angular.min.js'] = fs.readFileSync('./js/angular.min.js');
-        self.zcache['js/angular-route.min.js'] = fs.readFileSync('./js/angular-route.min.js');
     };
 
 
