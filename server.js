@@ -57,6 +57,9 @@ var SampleApp = function() {
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
+        self.zcache['css/bootstrap.css'] = fs.readFileSync('./css/bootstrap.css');
+        self.zcache['js/angular.min.js'] = fs.readFileSync('./js/angular.min.js');
+        self.zcache['js/angular-route.min.js'] = fs.readFileSync('./js/angular-route.min.js');
     };
 
 
