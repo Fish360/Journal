@@ -189,7 +189,7 @@ var SampleApp = function() {
      */
     self.initialize = function() {
         self.setupVariables();
-        self.populateCache();
+//      self.populateCache();
         self.setupTerminationHandlers();
 
         // Create the express server and routes.
