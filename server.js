@@ -106,6 +106,7 @@ var SampleApp = function() {
      *  Create the routing table entries + handlers for the application.
      */
     self.createRoutes = function() {
+    	/*
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
@@ -129,7 +130,12 @@ var SampleApp = function() {
                 res.json(trip);
             });
         };
-        
+*/        
+    	self.app.configure(function() {
+    		self.app.use(express.static(__dirname + '/public'));
+    		self.app.use(express.bodyParser());
+    	});
+    	
         self.app.get("/fish", function(req, res){
     		db.fish.find(function(err, fishes){
     			res.json(fishes);
