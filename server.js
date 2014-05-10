@@ -180,7 +180,7 @@ var SampleApp = function() {
         self.app = express.createServer();
         self.createRoutes();
         
-        self.app.use(express.static(process.env.OPENSHIFT_REPO_DIR + '/public' ));
+//        self.app.use(express.static(process.env.OPENSHIFT_REPO_DIR + '/public' ));
         
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
