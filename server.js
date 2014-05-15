@@ -61,14 +61,14 @@ app.put("/fish/:id", function(req, res){
 	});
 });
 
-app.get('/trip', function(req, res) {
+app.get('api/:username/trip', function(req, res) {
     db.trip.find(function(err, trips){
         res.json(trips);
     });
 });
 
-app.get('/trip/:id', function(req, res) {
-    db.trip.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, trip){
+app.get('/trip/:username/trip/:tripid', function(req, res) {
+    db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip){
         res.json(trip);
     });
 });
