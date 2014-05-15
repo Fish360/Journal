@@ -45,7 +45,7 @@ app.post("/fish", function(req, res){
 	});
 });
 
-app.delete("/fish/:id", function(req, res){
+app.delete("/api/:username/fish/:id", function(req, res){
 	db.fish.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, newFish){
 		db.fish.find(function(err, fishes){
 			res.json(fishes);
@@ -53,7 +53,7 @@ app.delete("/fish/:id", function(req, res){
 	});
 });
 
-app.put("/fish/:id", function(req, res){
+app.put("/api/:username/fish/:id", function(req, res){
 	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
 		db.fish.find(function(err, fishes){
 			res.json(fishes);
@@ -61,7 +61,7 @@ app.put("/fish/:id", function(req, res){
 	});
 });
 
-app.get('api/:username/trip', function(req, res) {
+app.get('/api/:username/trip', function(req, res) {
     db.trip.find(function(err, trips){
         res.json(trips);
     });
@@ -71,6 +71,10 @@ app.get('/trip/:username/trip/:tripid', function(req, res) {
     db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip){
         res.json(trip);
     });
+});
+
+app.post('/trip/:username/trip', function(req, res) {
+	db.trip.insert(res.body);
 });
 
 app.listen(port, ipaddress);
