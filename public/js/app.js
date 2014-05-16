@@ -5,17 +5,17 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	$routeProvider
 	.when("/",
 	{
-		templateUrl: "templates/login.html",
+		templateUrl: "templates/user/login.html",
 		controller: "LoginController"
 	})
 	.when("/login",
 	{
-		templateUrl: "templates/login.html",
+		templateUrl: "templates/user/login.html",
 		controller: "LoginController"
 	})
 	.when("/register",
 	{
-		templateUrl: "templates/register.html",
+		templateUrl: "templates/user/register.html",
 		controller: "RegisterController"
 	})
 	.when("/:username/trip/new",

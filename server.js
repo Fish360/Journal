@@ -15,7 +15,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = mongojs(connection_string, ['trip', 'fish']);
+var db = mongojs(connection_string, ['user', 'trip', 'fish']);
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -23,6 +23,12 @@ app.configure(function() {
 	app.use(express.bodyParser()); 							// pull information from html in POST
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
+
+app.post("/api/user", function(req, res) {
+	db.user.insert(req.body);
+});
+
+
 
 app.get("/fish", function(req, res){
 	db.fish.find(function(err, fishes){
