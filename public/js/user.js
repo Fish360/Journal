@@ -8,8 +8,10 @@ f360.controller("LoginController", function($scope, $routeParams, $http)
 		$scope.message = "";
 		$http.get("/api/user/"+$scope.username+"/"+$scope.password)
 		.success(function(user){
-			if(user == null)
+			if(user.length == 0)
 				$scope.message = "Username and/or password does not exist. Try again";
+			else
+				$location.path( $scope.username+"/trip/list" );
 		});
 	}
 });
