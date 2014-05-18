@@ -71,7 +71,7 @@ app.put('/api/:username/trip/:tripid', function(req, res)
 // Delete trip
 app.delete('/api/:username/trip/:tripid', function(req, res)
 {
-	db.trip.delete({_id:mongojs.ObjectId(req.params.tripid)},
+	db.trip.remove({_id:mongojs.ObjectId(req.params.tripid)},
 	function(err, trip){
 		res.json(trip);
 	});
