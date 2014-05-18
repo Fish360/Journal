@@ -46,7 +46,9 @@ app.get('/api/:username/trip/:tripid', function(req, res) {
 
 // Create a new trip for username
 app.post('/api/:username/trip', function(req, res) {
-	db.trip.insert(res.body);
+	db.trip.insert(res.body, function(err, newTrip){
+		res.json(newTrip);
+	});
 });
 
 
