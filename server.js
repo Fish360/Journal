@@ -62,7 +62,7 @@ app.put('/api/:username/trip/:tripid', function(req, res)
 {
 	db.trip.update(
 		{_id:mongojs.ObjectId(req.params.tripid)},
-		{ req.body },
+		req.body,
 		{multi: false},
 		function(err,trip) {
 			res.json(trip);
