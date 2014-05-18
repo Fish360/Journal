@@ -50,7 +50,7 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		controller: "EditFishController"
 	})
 	.otherwise({
-		templateUrl: "templates/login.html",
+		templateUrl: "templates/user/login.html",
 		controller: "LoginController"
 	})
 	;
