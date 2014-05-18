@@ -24,6 +24,33 @@ app.configure(function() {
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
 
+
+
+/*
+ *	Trips
+ */
+
+// Get all trips for username
+app.get('/api/:username/trip', function(req, res) {
+    db.trip.find(function(err, trips){
+        res.json(trips);
+    });
+});
+
+// Get a specific trip for a username
+app.get('/api/:username/trip/:tripid', function(req, res) {
+    db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip){
+        res.json(trip);
+    });
+});
+
+// Create a new trip for username
+app.post('/api/:username/trip', function(req, res) {
+	db.trip.insert(res.body);
+});
+
+
+
 /* Register a user
 	includes new username and password
 */
@@ -86,22 +113,6 @@ app.put("/api/:username/fish/:id", function(req, res){
 			res.json(fishes);
 		});
 	});
-});
-
-app.get('/api/:username/trip', function(req, res) {
-    db.trip.find(function(err, trips){
-        res.json(trips);
-    });
-});
-
-app.get('/trip/:username/trip/:tripid', function(req, res) {
-    db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip){
-        res.json(trip);
-    });
-});
-
-app.post('/trip/:username/trip', function(req, res) {
-	db.trip.insert(res.body);
 });
 
 app.listen(port, ipaddress);
