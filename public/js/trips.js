@@ -14,7 +14,7 @@ f360.controller("NewTripController", function($scope, $routeParams, $http, $loca
 	var username = $routeParams.username;
 	$scope.create = function()
 	{
-//		$scope.newTrip.username = username
+		$scope.newTrip.username = username
 		$http.post("api/"+username+"/trip", $scope.newTrip)
 		.success(function(trips)
 		{
