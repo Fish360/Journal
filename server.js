@@ -60,10 +60,11 @@ app.post('/api/:username/trip', function(req, res)
 // Update trip
 app.put('/api/:username/trip/:tripid', function(req, res)
 {
-	db.trip.update({_id:mongojs.ObjectId(req.params.tripid)}, req.body, function(err,trip)
-	{
-		res.json(trip);
-	});
+	res.json({editTrip: req.body});
+//	db.trip.update({_id:mongojs.ObjectId(req.params.tripid)}, req.body, function(err,trip)
+//	{
+//		res.json(trip);
+//	});
 });
 
 /* Register a user
