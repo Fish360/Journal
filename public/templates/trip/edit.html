@@ -1,1 +1,14 @@
-﻿<h2>New Trip</h2>
+﻿<h2>Edit Trip</h2>
+<input ng-model="editTrip.name" class="form-control"/>
+<input ng-model="editTrip.start" class="form-control" type="date" />
+<input ng-model="editTrip.end" class="form-control" type="date"/>
+<!--a	href="#/{{editTrip.username}}/trip/{{editTrip._id}}/edit"-->
+<a	href="#"
+	class="btn btn-success btn-block"
+	ng-click="update()">
+	Update
+</a>
+<a	href="#/{{editTrip.username}}/trip/list"
+	class="btn btn-danger btn-block">
+	Cancel
+</a>

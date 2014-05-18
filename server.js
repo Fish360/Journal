@@ -62,8 +62,10 @@ app.post('/api/:username/trip', function(req, res)
 /* Register a user
 	includes new username and password
 */
-app.post("/api/user", function(req, res) {
-	db.user.insert(req.body, function(err, newUser){
+app.post("/api/user", function(req, res)
+{
+	db.user.insert(req.body, function(err, newUser)
+	{
 		res.json(newUser);
 	});
 });
@@ -71,8 +73,10 @@ app.post("/api/user", function(req, res) {
 /* Find user by username
 	used for registering to see if username already exists
 */
-app.get("/api/user/:username", function(req, res) {
-	db.user.find({username: req.params.username}, function(err, user){
+app.get("/api/user/:username", function(req, res)
+{
+	db.user.find({username: req.params.username}, function(err, user)
+	{
 		res.json(user);
 	});
 });
@@ -80,11 +84,17 @@ app.get("/api/user/:username", function(req, res) {
 /* Find user by username and password
 	used for login to check username and password
 */
-app.get("/api/user/:username/:password", function(req, res) {
-	db.user.find({username: req.params.username, password: req.params.password}, function(err, user){
+app.get("/api/user/:username/:password", function(req, res)
+{
+	db.user.find({username: req.params.username, password: req.params.password}, function(err, user)
+	{
 		res.json(user);
 	});
 });
+
+/*
+ *	Fish
+ */
 
 app.get("/fish", function(req, res){
 	db.fish.find(function(err, fishes){

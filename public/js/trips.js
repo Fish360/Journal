@@ -22,3 +22,14 @@ f360.controller("NewTripController", function($scope, $routeParams, $http, $loca
 		});
 	}
 });
+
+f360.controller("EditTripController", function($scope, $routeParams, $http, $location)
+{
+	var username = $routeParams.username;
+	var tripid = $routeParams.tripid;
+	$http.get("api/"+username+"/trip/"+tripid)
+	.success(function(trip)
+	{
+		$scope.editTrip = trip;
+	});
+});
