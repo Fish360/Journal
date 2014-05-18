@@ -42,4 +42,12 @@ f360.controller("EditTripController", function($scope, $routeParams, $http, $loc
 				$location.path( username+"/trip/list" );
 			});
 	}
+	
+	$scope.delete = function()
+	{
+		$http.delete("api/"+username+"/trip/"+tripid)
+			.success(function(trip){
+				$location.path( username+"/trip/list" );
+			});
+	}
 });
