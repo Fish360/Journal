@@ -62,7 +62,9 @@ app.put('/api/:username/trip/:tripid', function(req, res)
 {
 	db.trip.findAndModify( {
 	   query: {_id:mongojs.ObjectId(req.params.tripid)},
-	   update: { $set: req.body }
+	   update: { $set: {name: req.body.name }}
+	}, function(err, trip){
+		res.json(trip);
 	});
 //	db.trip.update(
 //		{_id:mongojs.ObjectId(req.params.tripid)},
