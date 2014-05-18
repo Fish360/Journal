@@ -60,13 +60,17 @@ app.post('/api/:username/trip', function(req, res)
 // Update trip
 app.put('/api/:username/trip/:tripid', function(req, res)
 {
-	db.trip.update(
-		{_id:mongojs.ObjectId(req.params.tripid)},
-		req.body,
-		{multi: false},
-		function(err,trip) {
-			res.json(trip);
+	db.trip.findAndModify( {
+	   query: {_id:mongojs.ObjectId(req.params.tripid)},
+	   update: { req.body }
 	});
+//	db.trip.update(
+//		{_id:mongojs.ObjectId(req.params.tripid)},
+//		req.body,
+//		{multi: false},
+//		function(err,trip) {
+//			res.json(trip);
+//	});
 //	db.trip.findAndModify({
 //		query: {_id:mongojs.ObjectId(req.params.tripid)},
 //		update: { $set: req.body },
