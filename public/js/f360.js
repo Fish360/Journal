@@ -18,6 +18,9 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		templateUrl: "templates/user/register.html",
 		controller: "RegisterController"
 	})
+	/*
+	*	Trips
+	*/
 	.when("/:username/trip/new",
 	{
 		templateUrl: "templates/trip/new.html",
@@ -28,11 +31,14 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		templateUrl: "templates/trip/list.html",
 		controller: "TripListController"
 	})
-	.when("/:username/trip/:tripid/edit", // <--
+	.when("/:username/trip/:tripid/edit",
 	{
 		templateUrl: "templates/trip/edit.html",
 		controller: "EditTripController"
 	})
+	/*
+	*	Fish
+	*/
 	.when("/:username/trip/:tripId/fish/list",
 	{
 		templateUrl: "templates/fish/list.html",

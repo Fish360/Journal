@@ -77,9 +77,7 @@ app.delete('/api/:username/trip/:tripid', function(req, res)
 	});
 });
 
-/* Register a user
-	includes new username and password
-*/
+// Register a user includes new username and password
 app.post("/api/user", function(req, res)
 {
 	db.user.insert(req.body, function(err, newUser)
@@ -88,9 +86,7 @@ app.post("/api/user", function(req, res)
 	});
 });
 
-/* Find user by username
-	used for registering to see if username already exists
-*/
+// Find user by username used for registering to see if username already exists
 app.get("/api/user/:username", function(req, res)
 {
 	db.user.find({username: req.params.username}, function(err, user)
@@ -99,9 +95,7 @@ app.get("/api/user/:username", function(req, res)
 	});
 });
 
-/* Find user by username and password
-	used for login to check username and password
-*/
+// Find user by username and password used for login to check username and password
 app.get("/api/user/:username/:password", function(req, res)
 {
 	db.user.find({username: req.params.username, password: req.params.password}, function(err, user)
@@ -114,29 +108,32 @@ app.get("/api/user/:username/:password", function(req, res)
  *	Fish
  */
 
-app.get("/fish", function(req, res){
-	db.fish.find(function(err, fishes){
+app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
+{
+	db.fish.find({trip_id: mongojs.ObjectId(req.params.tripid)}, function(err, fishes)
+	{
 		res.json(fishes);
 	});
 });
 
+app.post("/api/user/:username/trip/:tripid/fish", function(req, res)
+{
+	var newFish = req.body;
+	newFish.trip_id: mongojs.ObjectId(req.params.tripid);
+	db.fish.insert(newFish, function(err, newFish)
+	{
+		res.json(newFish);
+	});
+});
 
-app.get("/fish/:id", function(req, res){
-	db.fish.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, fishes){
+app.get("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
+	db.fish.findOne({_id: mongojs.ObjectId(req.params.fishid)}, function(err, fishes){
 		res.json(fishes);
 	});
 });
 
-app.post("/fish", function(req, res){
-	db.fish.insert(req.body, function(err, newFish){
-		db.fish.find(function(err, fishes){
-			res.json(fishes);
-		});
-	});
-});
-
-app.delete("/api/:username/fish/:id", function(req, res){
-	db.fish.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, newFish){
+app.delete("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
+	db.fish.remove({_id: mongojs.ObjectId(req.params.fishid)}, function(err, newFish){
 		db.fish.find(function(err, fishes){
 			res.json(fishes);
 		});
