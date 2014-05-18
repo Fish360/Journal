@@ -27,9 +27,18 @@ f360.controller("EditTripController", function($scope, $routeParams, $http, $loc
 {
 	var username = $routeParams.username;
 	var tripid = $routeParams.tripid;
+	
 	$http.get("api/"+username+"/trip/"+tripid)
-	.success(function(trip)
+		.success(function(trip)
+		{
+			$scope.editTrip = trip;
+		});
+	
+	$scope.update = function()
 	{
-		$scope.editTrip = trip;
-	});
+		$http.put("api/"+username+"/trip/"+tripid, $scope.editTrip)
+			.success(function(trip){
+				$location.path( username+"/trip/list" );
+			});
+	}
 });
