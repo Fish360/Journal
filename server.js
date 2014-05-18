@@ -31,24 +31,28 @@ app.configure(function() {
  */
 
 // Get all trips for username
-app.get('/api/:username/trip', function(req, res) {
-    db.trip.find(function(err, trips){
-        res.json(trips);
-    });
+app.get('/api/:username/trip', function(req, res)
+{
+	db.trip.find({username: req.params.username}, function(err, trips)
+	{
+		res.json(trips);
+	});
 });
 
 // Get a specific trip for a username
-app.get('/api/:username/trip/:tripid', function(req, res) {
-    db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip){
-        res.json(trip);
-    });
+app.get('/api/:username/trip/:tripid', function(req, res)
+{
+	db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip)
+	{
+		res.json(trip);
+	});
 });
 
 // Create a new trip for username
-app.post('/api/:username/trip', function(req, res) {
-	
-//	res.json({message: "A OK"});
-	db.trip.insert(req.body, function(err, newTrip){
+app.post('/api/:username/trip', function(req, res)
+{
+	db.trip.insert(req.body, function(err, newTrip)
+	{
 		res.json(newTrip);
 	});
 });
