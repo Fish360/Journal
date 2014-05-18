@@ -25,13 +25,13 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 			$http.get("/api/user/"+$scope.newUser.username)
 			.success(function(newUser) {
 				// if user does not exist, create it new
-				if(user == null) {
+				if(newUser == null) {
 					$http.post("/api/user", $scope.newUser)
 					.success(function(newUser){
 						if(user == null)
 							$scope.message = "Unable to register user";
 						else
-							$location.path( "/:username/trip/list" );
+							$location.path( $scope.newUser.username+"/trip/list" );
 					});
 				}
 				else
