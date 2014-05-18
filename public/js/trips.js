@@ -36,6 +36,7 @@ f360.controller("EditTripController", function($scope, $routeParams, $http, $loc
 	
 	$scope.update = function()
 	{
+		$scope.editTrip.username = username;
 		$http.put("api/"+username+"/trip/"+tripid, $scope.editTrip)
 			.success(function(trip){
 				$location.path( username+"/trip/list" );
