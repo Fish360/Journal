@@ -5,17 +5,17 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	$routeProvider
 	.when("/",
 	{
-		templateUrl: "templates/login.html",
+		templateUrl: "templates/user/login.html",
 		controller: "LoginController"
 	})
 	.when("/login",
 	{
-		templateUrl: "templates/login.html",
+		templateUrl: "templates/user/login.html",
 		controller: "LoginController"
 	})
 	.when("/register",
 	{
-		templateUrl: "templates/register.html",
+		templateUrl: "templates/user/register.html",
 		controller: "RegisterController"
 	})
 	.when("/:username/trip/new",
@@ -25,9 +25,7 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	})
 	.when("/:username/trip/list",
 	{
-		templateUrl: function(ewq) {
-			console.log(ewq);
-			return "templates/trip/list.html"},
+		templateUrl: "templates/trip/list.html",
 		controller: "TripListController"
 	})
 	.when("/:username/trip/:tripId/fish/list",
@@ -46,7 +44,7 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		controller: "EditFishController"
 	})
 	.otherwise({
-		templateUrl: "templates/login.html",
+		templateUrl: "templates/user/login.html",
 		controller: "LoginController"
 	})
 	;
