@@ -24,11 +24,30 @@ app.configure(function() {
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
 
+/* Register a user
+	includes new username and password
+*/
 app.post("/api/user", function(req, res) {
 	db.user.insert(req.body);
 });
 
+/* Find user by username
+	used for registering to see if username already exists
+*/
+app.get("/api/user/:username", function(req, res) {
+	db.user.find({username: req.params.username}, function(err, user){
+		res.json(user);
+	});
+});
 
+/* Find user by username and password
+	used for login to check username and password
+*/
+app.get("/api/user/:username/:password", function(req, res) {
+	db.user.find({username: req.params.username, password: req.params.password}, function(err, user){
+		res.json(user);
+	});
+});
 
 app.get("/fish", function(req, res){
 	db.fish.find(function(err, fishes){
