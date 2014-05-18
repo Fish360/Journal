@@ -1,6 +1,7 @@
 
 f360.controller("LoginController", function($scope, $routeParams, $http)
 {
+	$scope.message = "";
 	$scope.username = "user1";
 	console.log("LoginController");
 	$scope.login = function() {
@@ -15,17 +16,28 @@ f360.controller("LoginController", function($scope, $routeParams, $http)
 
 f360.controller("RegisterController", function($scope, $routeParams, $http, $location)
 {
-	console.log("RegisterController");
+	$scope.message = "";
 	$scope.register = function() {
 		$scope.message = "";
 		if($scope.newUser.password == $scope.newUser.password2)
 		{
-			$http.post("/api/user", $scope.newUser)
-			.success(function(newUser){
-				if(user == null)
-					$scope.message = "Unable to register user";
+			// search for the user to see if it already exists
+			$http.get("/api/user/"+$scope.newUser.username)
+			.success(function(newUser) {
+				// if user does not exist, create it new
+				if(user == null) {
+					$http.post("/api/user", $scope.newUser)
+					.success(function(newUser){
+						if(user == null)
+							$scope.message = "Unable to register user";
+						else
+							$location.path( "/:username/trip/list" );
+					});
+				}
 				else
-					$location.path( "/:username/trip/list" );
+				{
+					$scope.message = "User already exists";
+				}
 			});
 		}
 		else
