@@ -28,7 +28,7 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 				if(newUser.length == 0) {
 					$http.post("/api/user", $scope.newUser)
 					.success(function(newUser){
-						if(user == null)
+						if(newUser == null)
 							$scope.message = "Unable to register user";
 						else
 							$location.path( $scope.newUser.username+"/trip/list" );
