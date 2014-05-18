@@ -25,7 +25,7 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 			$http.get("/api/user/"+$scope.newUser.username)
 			.success(function(newUser) {
 				// if user does not exist, create it new
-				if(newUser == null) {
+				if(newUser.length == 0) {
 					$http.post("/api/user", $scope.newUser)
 					.success(function(newUser){
 						if(user == null)

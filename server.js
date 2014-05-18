@@ -28,7 +28,9 @@ app.configure(function() {
 	includes new username and password
 */
 app.post("/api/user", function(req, res) {
-	db.user.insert(req.body);
+	db.user.insert(req.body, function(err, newUser){
+		res.json(newUser);
+	});
 });
 
 /* Find user by username
