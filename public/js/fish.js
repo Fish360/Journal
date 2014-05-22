@@ -33,9 +33,9 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 
 f360.controller("EditFishController", function($scope, $routeParams, $http, $location)
 {
-	var $scope.username = $routeParams.username;
-	var $scope.tripId = $routeParams.tripId;
-	var $scope.fishId = $routeParams.fishId;
+	$scope.username = $routeParams.username;
+	$scope.tripId = $routeParams.tripId;
+	$scope.fishId = $routeParams.fishId;
 	
 	$http.get("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 		.success(function(fish)
