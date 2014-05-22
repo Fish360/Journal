@@ -26,7 +26,7 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		.success(function(trips)
 		{
 			console.log("NewFishController.create() post callback");
-			$location.path( username+"/trip/"+$scope.tripId+"/fish/list" );
+			$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 		});
 	}
 });
