@@ -18,12 +18,11 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 	$scope.create = function()
 	{
 		console.log("NewFishController.create()");
-		$scope.newTrip.trip_id = $scope.tripId;
 		console.log($routeParams.username);
 		console.log($routeParams.tripId);
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 		console.log(url);
-		$http.post(url)
+		$http.post(url, $scope.newFish)
 		.success(function(trips)
 		{
 			console.log("NewFishController.create() post callback");
