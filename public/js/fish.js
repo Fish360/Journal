@@ -30,3 +30,32 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		});
 	}
 });
+
+f360.controller("EditFishController", function($scope, $routeParams, $http, $location)
+{
+	var username = $routeParams.username;
+	var tripid = $routeParams.tripId;
+	var fishid = $routeParams.fishId;
+	
+	$http.get("api/"+username+"/trip/"+tripId+"/fish/"+fishId)
+		.success(function(fish)
+		{
+			$scope.editFish = fish;
+		});
+	
+	$scope.update = function()
+	{
+		$http.put("api/"+username+"/trip/"+tripId+"/fish/"+fishId, $scope.editFish)
+			.success(function(fish){
+				$location.path( username+"/trip/"+tripId+"/fish/list" );
+			});
+	}
+	
+	$scope.delete = function()
+	{
+		$http.delete("api/"+username+"/trip/"+tripId+"/fish/"+fishId)
+			.success(function(fish){
+				$location.path( username+"/trip/"+tripId+"/fish/list" );
+			});
+	}
+});
