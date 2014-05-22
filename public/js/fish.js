@@ -22,7 +22,7 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		$scope.newTrip.trip_id = $scope.tripId;
 		console.log($routeParams.username);
 		console.log($routeParams.tripId);
-		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish", $scope.newTrip;
+		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 		console.log(url);
 		$http.post(url)
 		.success(function(trips)
