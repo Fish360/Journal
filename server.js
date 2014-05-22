@@ -143,6 +143,7 @@ app.put("/api/user/:username/trip/:tripId/fish/:id", function(req, res){
 	console.log(req.params.id);
 	console.log(req.body);
 	delete req.body._id;
+	delete req.body.trip_id;
 	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
 		console.log("err:");
 		console.log(err);
