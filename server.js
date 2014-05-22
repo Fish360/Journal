@@ -118,7 +118,7 @@ app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 app.post("/api/user/:username/trip/:tripid/fish", function(req, res)
 {
 	var newFish = req.body;
-//	newFish.trip_id: mongojs.ObjectId(req.params.tripid);
+	newFish.trip_id = mongojs.ObjectId(req.params.tripid);
 	db.fish.insert(newFish, function(err, newFish)
 	{
 		res.json(newFish);
