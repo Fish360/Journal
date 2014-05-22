@@ -55,7 +55,7 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	{
 		$http.delete("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
 			.success(function(fish){
-				$back();
+				window.history.back();
 //				$location.path( username+"/trip/"+tripId+"/fish/list" );
 			});
 	}
