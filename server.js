@@ -28,7 +28,7 @@ app.configure(function() {
 /*
  *	Trips
  */
-/*
+
 // Get all trips for username
 app.get('/api/:username/trip', function(req, res)
 {
@@ -102,7 +102,7 @@ app.get("/api/user/:username/:password", function(req, res)
 		res.json(user);
 	});
 });
-*/
+
 /*
  *	Fish
  */
