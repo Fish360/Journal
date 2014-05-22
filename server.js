@@ -139,7 +139,7 @@ app.delete("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 	});
 });
 // Update a fish
-app.put("/api/:username/fish/:id", function(req, res){
+app.put("/api/user/:username/trip/:tripId/fish/:id", function(req, res){
 	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
 		db.fish.find(function(err, fishes){
 			res.json(fishes);
