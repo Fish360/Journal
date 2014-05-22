@@ -37,7 +37,7 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	var tripId = $routeParams.tripId;
 	var fishId = $routeParams.fishId;
 	
-	$http.get("api/"+username+"/trip/"+tripId+"/fish/"+fishId)
+	$http.get("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
 		.success(function(fish)
 		{
 			$scope.editFish = fish;
@@ -45,7 +45,7 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	
 	$scope.update = function()
 	{
-		$http.put("api/"+username+"/trip/"+tripId+"/fish/"+fishId, $scope.editFish)
+		$http.put("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId, $scope.editFish)
 			.success(function(fish){
 				$location.path( username+"/trip/"+tripId+"/fish/list" );
 			});
@@ -53,7 +53,7 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	
 	$scope.delete = function()
 	{
-		$http.delete("api/"+username+"/trip/"+tripId+"/fish/"+fishId)
+		$http.delete("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
 			.success(function(fish){
 				$location.path( username+"/trip/"+tripId+"/fish/list" );
 			});
