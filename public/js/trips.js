@@ -25,10 +25,10 @@ f360.controller("NewTripController", function($scope, $routeParams, $http, $loca
 
 f360.controller("EditTripController", function($scope, $routeParams, $http, $location)
 {
-	var username = $routeParams.username;
+	$scope.username = $routeParams.username;
 	var tripid = $routeParams.tripid;
 	
-	$http.get("api/"+username+"/trip/"+tripid)
+	$http.get("api/"+$scope.username+"/trip/"+tripid)
 		.success(function(trip)
 		{
 			$scope.editTrip = trip;
@@ -36,18 +36,18 @@ f360.controller("EditTripController", function($scope, $routeParams, $http, $loc
 	
 	$scope.update = function()
 	{
-		$scope.editTrip.username = username;
-		$http.put("api/"+username+"/trip/"+tripid, $scope.editTrip)
+		$scope.editTrip.username = $scope.username;
+		$http.put("api/"+$scope.username+"/trip/"+tripid, $scope.editTrip)
 			.success(function(trip){
-				$location.path( username+"/trip/list" );
+				$location.path( $scope.username+"/trip/list" );
 			});
 	}
 	
-	$scope.delete = function()
+	$scope.remove = function()
 	{
-		$http.delete("api/"+username+"/trip/"+tripid)
+		$http.delete("api/"+$scope.username+"/trip/"+tripid)
 			.success(function(trip){
-				$location.path( username+"/trip/list" );
+				$location.path( $scope.username+"/trip/list" );
 			});
 	}
 });

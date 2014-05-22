@@ -3,13 +3,12 @@
 <input ng-model="newFish.weight" class="form-control" placeholder="weight"/>
 <input ng-model="newFish.caught" class="form-control" type="date"/>
 <input type="hidden" ng-model="newFish.trip_id"/>
-<a	href="#/{{username}}/trip/{{tripId}}/fish/list"
+<a	href="#"
 	class="btn btn-success btn-block"
 	ng-click="create()">
 	Create
 </a>
-<a	href="#"
-	ng-click="window.history.back();"
+<a	href="#/{{username}}/trip/{{tripId}}/fish/list"
 	class="btn btn-danger btn-block">
 	Cancel
 </a>

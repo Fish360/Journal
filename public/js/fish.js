@@ -33,11 +33,11 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 
 f360.controller("EditFishController", function($scope, $routeParams, $http, $location)
 {
-	var username = $routeParams.username;
-	var tripId = $routeParams.tripId;
-	var fishId = $routeParams.fishId;
+	var $scope.username = $routeParams.username;
+	var $scope.tripId = $routeParams.tripId;
+	var $scope.fishId = $routeParams.fishId;
 	
-	$http.get("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
+	$http.get("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 		.success(function(fish)
 		{
 			$scope.editFish = fish;
@@ -45,18 +45,18 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	
 	$scope.update = function()
 	{
-		$http.put("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId, $scope.editFish)
+		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){
-				$location.path( username+"/trip/"+tripId+"/fish/list" );
+				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 			});
 	}
 	
 	$scope.remove = function()
 	{
-		$http.delete("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
+		$http.delete("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 			.success(function(fish){
-				window.history.back();
-//				$location.path( username+"/trip/"+tripId+"/fish/list" );
+//				window.history.back();
+				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 			});
 	}
 });
