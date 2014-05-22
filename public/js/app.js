@@ -1,5 +1,11 @@
 var f360 = angular.module("f360", ["ngRoute"]);
 
+f360.controller('AppCtrl', ['$scope', function($scope) {
+  $scope.$back = function() { 
+    window.history.back();
+  };
+}]);
+
 f360.config(["$routeProvider", function($routeProvider, $http)
 {
 	$routeProvider

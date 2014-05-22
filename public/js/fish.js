@@ -51,11 +51,12 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 			});
 	}
 	
-	$scope.delete = function()
+	$scope.remove = function()
 	{
 		$http.delete("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
 			.success(function(fish){
-				$location.path( username+"/trip/"+tripId+"/fish/list" );
+				$back();
+//				$location.path( username+"/trip/"+tripId+"/fish/list" );
 			});
 	}
 });
