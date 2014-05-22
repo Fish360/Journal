@@ -18,7 +18,6 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 	$scope.create = function()
 	{
 		console.log("NewFishController.create()");
-		$scope.newTrip.username = $scope.username;
 		$scope.newTrip.trip_id = $scope.tripId;
 		console.log($routeParams.username);
 		console.log($routeParams.tripId);
