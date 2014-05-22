@@ -11,14 +11,14 @@ f360.controller("TripListController", function($scope, $routeParams, $http)
 
 f360.controller("NewTripController", function($scope, $routeParams, $http, $location)
 {
-	var username = $routeParams.username;
+	$scope.username = $routeParams.username;
 	$scope.create = function()
 	{
-		$scope.newTrip.username = username
-		$http.post("api/"+username+"/trip", $scope.newTrip)
+		$scope.newTrip.username = $scope.username
+		$http.post("api/"+$scope.username+"/trip", $scope.newTrip)
 		.success(function(trips)
 		{
-			$location.path( username+"/trip/list" );
+			$location.path( $scope.username+"/trip/list" );
 		});
 	}
 });
