@@ -106,7 +106,7 @@ app.get("/api/user/:username/:password", function(req, res)
 /*
  *	Fish
  */
-
+// Get all fish for a given trip ID
 app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 {
 	db.fish.find({trip_id: mongojs.ObjectId(req.params.tripid)}, function(err, fishes)
@@ -114,23 +114,23 @@ app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 		res.json(fishes);
 	});
 });
-
+// Create a new Fish
 app.post("/api/user/:username/trip/:tripid/fish", function(req, res)
 {
 	var newFish = req.body;
-	newFish.trip_id: mongojs.ObjectId(req.params.tripid);
+//	newFish.trip_id: mongojs.ObjectId(req.params.tripid);
 	db.fish.insert(newFish, function(err, newFish)
 	{
 		res.json(newFish);
 	});
 });
-
+// Get a particular fish
 app.get("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 	db.fish.findOne({_id: mongojs.ObjectId(req.params.fishid)}, function(err, fishes){
 		res.json(fishes);
 	});
 });
-
+// Delete a particular fish
 app.delete("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 	db.fish.remove({_id: mongojs.ObjectId(req.params.fishid)}, function(err, newFish){
 		db.fish.find(function(err, fishes){
@@ -138,7 +138,7 @@ app.delete("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 		});
 	});
 });
-
+// Update a fish
 app.put("/api/:username/fish/:id", function(req, res){
 	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
 		db.fish.find(function(err, fishes){
