@@ -25,11 +25,10 @@ app.configure(function() {
 });
 
 
-
 /*
  *	Trips
  */
-
+/*
 // Get all trips for username
 app.get('/api/:username/trip', function(req, res)
 {
@@ -103,11 +102,11 @@ app.get("/api/user/:username/:password", function(req, res)
 		res.json(user);
 	});
 });
-
+*/
 /*
  *	Fish
  */
-
+/*
 app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 {
 	db.fish.find({trip_id: mongojs.ObjectId(req.params.tripid)}, function(err, fishes)
@@ -147,5 +146,5 @@ app.put("/api/:username/fish/:id", function(req, res){
 		});
 	});
 });
-
+*/
 app.listen(port, ipaddress);
