@@ -12,7 +12,14 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 
 f360.controller("NewFishController", function($scope, $routeParams, $http, $location)
 {
-	console.log("NewFishController");
+	$scope.species = [
+		{name: "Species 1"},
+		{name: "Species 2"},
+		{name: "Species 3"},
+		{name: "Species 4"},
+		{name: "Species 5"},
+		{name: "Species 6"}
+	];
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	$scope.create = function()
@@ -33,6 +40,15 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 
 f360.controller("EditFishController", function($scope, $routeParams, $http, $location)
 {
+	$scope.species = [
+		{name: "Species 1"},
+		{name: "Species 2"},
+		{name: "Species 3"},
+		{name: "Species 4"},
+		{name: "Species 5"},
+		{name: "Species 6"}
+	];
+
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	$scope.fishId = $routeParams.fishId;

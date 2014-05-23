@@ -4,9 +4,20 @@
 	Back
 </a>
 New Fish</h2>
-<input ng-model="newFish.length" class="form-control" placeholder="length"/>
-<input ng-model="newFish.weight" class="form-control" placeholder="weight"/>
 <input ng-model="newFish.caught" class="form-control" type="date"/>
+<select ng-model="newFish.species" ng-options="species.name for species in species" class="form-control">
+</select>
+<input ng-model="newFish.weight" class="form-control" placeholder="Weight"/>
+<input ng-model="newFish.length" class="form-control" placeholder="Length"/>
+<input ng-model="newFish.girth" class="form-control" placeholder="Girth"/>
+<input ng-model="newFish.spot" class="form-control" placeholder="Spot"/>
+<input ng-model="newFish.presentation" class="form-control" placeholder="Presentation"/>
+<input ng-model="newFish.waterDepth" class="form-control" placeholder="Water Depth" type="number"/>
+<input ng-model="newFish.waterTemperature" class="form-control" placeholder="Water Temperature" type="number"/>
+<input ng-model="newFish.waterClarity" class="form-control" placeholder="Water Clarity" type="number"/>
+<textarea ng-model="newFish.notes" class="form-control" placeholder="Notes">
+
+</textarea>
 <input type="hidden" ng-model="newFish.trip_id"/>
 <a	href="#"
 	class="btn btn-success btn-block"
