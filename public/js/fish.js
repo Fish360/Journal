@@ -12,7 +12,7 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 
 f360.controller("NewFishController", function($scope, $routeParams, $http, $location)
 {
-	$scope.species = [
+	$scope.speciess = [
 		{name: "Species 1"},
 		{name: "Species 2"},
 		{name: "Species 3"},
