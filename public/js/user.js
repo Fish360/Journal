@@ -44,7 +44,7 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 		}
 		else
 		{
-			$scope.message = "Username and/or password does not exist. Try again";
+			$scope.message = "Passwords must match. Try again";
 		}
 	}
 });
