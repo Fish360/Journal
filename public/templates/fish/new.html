@@ -6,7 +6,7 @@
 New Fish</h2>
 <input ng-model="newFish.caught" class="form-control" type="date"/>
 <select ng-model="newFish.species" class="form-control" placeholder="Species">
-	<option ng-repeat="species in speciess">{{species.common}} ({{species.scientific}})</option>
+	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
 <input ng-model="newFish.weight" class="form-control" placeholder="Weight"/>
 <input ng-model="newFish.length" class="form-control" placeholder="Length"/>
