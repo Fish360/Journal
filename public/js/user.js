@@ -24,7 +24,7 @@ f360.controller("TermsController", function($scope, $routeParams, $http, $locati
 		console.log($scope.accept);
 		if($scope.accept)
 		{
-			$location.path( "/register" );
+			$location.path( "#register" );
 		}
 	}
 });
