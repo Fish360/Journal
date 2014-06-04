@@ -15,6 +15,11 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	})
 	.when("/register",
 	{
+		templateUrl: "templates/user/terms.html",
+		controller: "TermsController"
+	})
+	.when("/registerAccept",
+	{
 		templateUrl: "templates/user/register.html",
 		controller: "RegisterController"
 	})
