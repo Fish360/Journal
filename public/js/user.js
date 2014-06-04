@@ -19,6 +19,13 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 f360.controller("TermsController", function($scope, $routeParams, $http, $location)
 {
 	console.log("TermsController");
+	$scope.iAccept = function()
+	{
+		if($scope.accept)
+		{
+			$location.path( "/registerAccept" );
+		}
+	}
 });
 
 f360.controller("RegisterController", function($scope, $routeParams, $http, $location)
