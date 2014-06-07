@@ -4,18 +4,29 @@
 	Back
 </a>
 Edit Fish</h2>
+Caught Date
 <input ng-model="editFish.caught" class="form-control" type="date"/>
+Species
 <select ng-model="editFish.species" class="form-control" placeholder="Species">
 	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
+Weight
 <input ng-model="editFish.weight" class="form-control" placeholder="Weight"/>
+Length
 <input ng-model="editFish.length" class="form-control" placeholder="Length"/>
+Girth
 <input ng-model="editFish.girth" class="form-control" placeholder="Girth"/>
+Spot
 <input ng-model="editFish.spot" class="form-control" placeholder="Spot"/>
+Presentation
 <input ng-model="editFish.presentation" class="form-control" placeholder="Presentation"/>
+Water Depth
 <input ng-model="editFish.waterDepth" class="form-control" placeholder="Water Depth" type="number"/>
+Water Temperature
 <input ng-model="editFish.waterTemperature" class="form-control" placeholder="Water Temperature" type="number"/>
+Water Clarity
 <input ng-model="editFish.waterClarity" class="form-control" placeholder="Water Clarity" type="number"/>
+Notes
 <textarea ng-model="editFish.notes" class="form-control" placeholder="Notes">
 
 </textarea>
