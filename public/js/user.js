@@ -2,7 +2,7 @@
 f360.controller("LoginController", function($scope, $routeParams, $http, $location)
 {
 	$scope.message = "";
-	$scope.username = "user1";
+	$scope.username = "";
 	console.log("LoginController");
 	$scope.login = function() {
 		$scope.message = "";
