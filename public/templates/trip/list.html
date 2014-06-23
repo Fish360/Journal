@@ -32,8 +32,8 @@
 			</a>
 			<a href="#/{{username}}/trip/{{trip._id}}/fish/list">
 				<span>{{trip.title}}</span><br/>
-				<span>{{trip.start}}</span>
-				<span>{{trip.end}}</span>
+				<span>{{trip.start | date : MMMdyyy}}</span> - 
+				<span>{{trip.end | date : MMMdyyy}}</span>
 			</a>
 		</tr>
 	</tr>
