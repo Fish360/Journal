@@ -1,10 +1,22 @@
-﻿<h2>
-<a	href="#/{{username}}/trip/list"
-	class="btn btn-danger">
-	Back
-</a>
-New Trip
-</h2>
+﻿<style>
+	.navbar-form {
+		padding-left : 0px;
+	}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<form class="navbar-form navbar-left" role="search">
+			<a	href="#/{{username}}/trip/list" class="btn btn-danger">Back</a>
+		</form>
+		<div class="navbar-header">
+			<span class="navbar-brand">New Trip</span>
+		</div>
+	</div>
+</div>
+<br/>
+<br/>
+<br/>
 Title
 <input ng-model="newTrip.title" class="form-control" placeholder="Title"/>
 Start Date
