@@ -8,7 +8,7 @@ Caught Date
 <input ng-model="editFish.caught" class="form-control" type="date"/>
 Species
 <select ng-model="editFish.species" class="form-control" placeholder="Species">
-	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
+	<option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
 Weight
 <input ng-model="editFish.weight" class="form-control" placeholder="Weight"/>
