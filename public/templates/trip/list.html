@@ -41,5 +41,7 @@
 </table>
 
 <script>
-	$(window).scrollTop(1000);
+	setTimeout(function(){
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
+	}, 1000);
 </script>
