@@ -1,6 +1,11 @@
 
 f360.controller("TripListController", function($scope, $routeParams, $http)
 {
+	setTimeout(function(){
+		document.body.scrollTop = document.documentElement.scrollTop = -1000;
+		alert("done");
+	}, 3000);
+
 	$scope.username = $routeParams.username;
 	$http.get("api/"+$scope.username+"/trip")
 	.success(function(trips)
