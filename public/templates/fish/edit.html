@@ -1,9 +1,27 @@
-﻿<h2>
-<a	href="#/{{username}}/trip/{{tripId}}/fish/list"
-	class="btn btn-danger">
-	Back
-</a>
-Edit Fish</h2>
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<a	href="#/{{username}}/trip/{{tripId}}/fish/list" class="btn btn-danger pull-left f360-navbar-button">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a	href="#" class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Edit Fish</span>
+		</div>
+	</div>
+</div>
+<br/>
+<br/>
+<br/>
+
 Caught Date
 <input ng-model="editFish.caught" class="form-control" type="date"/>
 Caught Time
@@ -40,11 +58,6 @@ Notes
 <textarea ng-model="editFish.notes" class="form-control" placeholder="Notes">
 
 </textarea>
-<a	href="#"
-	class="btn btn-success btn-block"
-	ng-click="update()">
-	Update
-</a>
 <a	href="#"
 	ng-click="remove()"
 	class="btn btn-danger btn-block">

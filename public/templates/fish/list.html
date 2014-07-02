@@ -1,13 +1,30 @@
-﻿<h2>
-<a	href="#/{{username}}/trip/list"
-	class="btn btn-danger">
-	Back
-</a>
-Fish</h2>
-<a	href="#/{{username}}/trip/{{tripId}}/fish/new"
-	class="btn btn-success btn-block">
-	Add
-</a>
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	.f360-right-arrow {
+		font-size: 1.5em;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<a href="#/{{username}}/trip/list" class="btn btn-danger pull-left f360-navbar-button">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a href="#/{{username}}/trip/{{tripId}}/fish/new" class="btn btn-success pull-right f360-navbar-button">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Fish</span>
+		</div>
+	</div>
+</div>
+<br/>
+<br/>
+<br/>
+
+
 <table class="table">
 	<tr ng-repeat="fsh in fish">
 		<td>
