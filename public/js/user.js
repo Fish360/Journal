@@ -10,8 +10,10 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 		.success(function(user){
 			if(user.length == 0)
 				$scope.message = "Username and/or password does not exist. Try again";
-			else
+			else {
 				$location.path( $scope.username+"/trip/list" );
+				localStorage.setItem("user", JSON.stringify(user[0]));
+			}
 		});
 	}
 });

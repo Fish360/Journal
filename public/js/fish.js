@@ -20,15 +20,33 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		console.log("NewFishController.create()");
 		console.log($routeParams.username);
 		console.log($routeParams.tripId);
-//		$scope.newFish.species = $scope.newFish.species.name;
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 		console.log(url);
 		$http.post(url, $scope.newFish)
-		.success(function(trips)
-		{
-			console.log("NewFishController.create() post callback");
-			$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
-		});
+			.success(function(trips)
+			{
+				var preferences = {
+					species : $scope.newFish.species
+				};
+
+				var user = localStorage.getItem("user");
+				if(user != null && user != "") {
+					user = JSON.parse(user);
+					user.preferences = preferences;
+				}
+				localStorage.setItem("user", JSON.stringify(user));
+				url = "api/user/"+$scope.username+"/preferences";
+				$http.post(url, preferences);
+				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
+			});
+	}
+
+	$scope.newFish = {};
+	$scope.newFish.species = "";
+	var user = localStorage.getItem("user");
+	if(user != null && user != "") {
+		user = JSON.parse(user);
+		$scope.newFish.species = user.preferences.species;
 	}
 });
 
@@ -39,6 +57,15 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	$scope.fishId = $routeParams.fishId;
+/*
+	$scope.editFish = {};
+	$scope.editFish.species = "";
+	var user = localStorage.getItem("user");
+	if(user != null && user != "") {
+		user = JSON.parse(user);
+		$scope.editFish.species = user.preferences.species;
+	}
+*/
 	
 	$http.get("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 		.success(function(fish)
@@ -52,6 +79,20 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 //		$scope.editFish.species = $scope.editFish.species.name;
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){
+				var preferences = {
+					species : $scope.editFish.species
+				};
+
+				var user = localStorage.getItem("user");
+				if(user != null && user != "") {
+					user = JSON.parse(user);
+					user.preferences = preferences;
+				}
+				localStorage.setItem("user", JSON.stringify(user));
+
+				url = "api/user/"+$scope.username+"/preferences";
+				$http.post(url, preferences);
+
 				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 			});
 	}

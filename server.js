@@ -84,6 +84,10 @@ app.delete('/api/:username/trip/:tripid', function(req, res)
 	});
 });
 
+/*
+ * User
+ */
+
 // Register a user includes new username and password
 app.post("/api/user", function(req, res)
 {
@@ -108,6 +112,21 @@ app.get("/api/user/:username/:password", function(req, res)
 	db.user.find({username: req.params.username, password: req.params.password}, function(err, user)
 	{
 		res.json(user);
+	});
+});
+
+app.post("/api/user/:username/preferences", function(req, res)
+{
+	console.log("Preferences");
+
+	db.user.findAndModify({
+		query: {username: req.params.username},
+		update: {$set : {preferences: req.body	}},
+		new: false}, function(err, doc, lastErrorObject)
+	{
+		console.log(err);
+		console.log(doc);
+		console.log(lastErrorObject);
 	});
 });
 
