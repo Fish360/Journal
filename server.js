@@ -68,7 +68,8 @@ app.put('/api/:username/trip/:tripid', function(req, res)
 		   end: req.body.end,
 		   endTime: req.body.endTime,
 		   notes: req.body.notes,
-		   username: req.body.username
+		   username: req.body.username,
+		   lastUpdated: req.body.lastUpdated
 		}
 	}, function(err, trip){
 		res.json(trip);

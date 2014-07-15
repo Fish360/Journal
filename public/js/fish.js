@@ -22,6 +22,7 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		console.log($routeParams.tripId);
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 		console.log(url);
+		$scope.newFish["lastUpdated"] = new Date();
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
@@ -77,6 +78,7 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	$scope.update = function()
 	{
 //		$scope.editFish.species = $scope.editFish.species.name;
+		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){
 				var preferences = {

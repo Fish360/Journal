@@ -19,6 +19,7 @@ f360.controller("NewTripController", function($scope, $routeParams, $http, $loca
 	$scope.create = function()
 	{
 		$scope.newTrip.username = $scope.username
+		$scope.newTrip["lastUpdated"] = new Date();
 		$http.post("api/"+$scope.username+"/trip", $scope.newTrip)
 		.success(function(trips)
 		{
@@ -41,6 +42,7 @@ f360.controller("EditTripController", function($scope, $routeParams, $http, $loc
 	$scope.update = function()
 	{
 		$scope.editTrip.username = $scope.username;
+		$scope.editTrip["lastUpdated"] = new Date();
 		$http.put("api/"+$scope.username+"/trip/"+tripid, $scope.editTrip)
 			.success(function(trip){
 				$location.path( $scope.username+"/trip/list" );
