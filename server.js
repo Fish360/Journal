@@ -84,6 +84,7 @@ app.put('/api/:username/trip/:tripid', function(req, res)
 		   end: req.body.end,
 		   endTime: req.body.endTime,
 		   notes: req.body.notes,
+		   type: "TRIP",
 		   username: req.body.username,
 		   lastUpdated: req.body.lastUpdated
 		}
@@ -200,6 +201,7 @@ app.put("/api/user/:username/trip/:tripId/fish/:id", function(req, res){
 	console.log(req.body);
 	delete req.body._id;
 	req.body.trip_id = mongojs.ObjectId(req.params.tripId);
+	req.body.type = "FISH";
 	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
 		console.log("err:");
 		console.log(err);
