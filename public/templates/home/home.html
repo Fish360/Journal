@@ -1,0 +1,59 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	.f360-right-arrow {
+		font-size: 1.5em;
+	}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="#">Home</a>
+</div>
+<div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#{{username}}/trip/list">Trips</a></li>
+    <li><a href="#{{username}}/fish/list">Fish</a></li>
+  </ul>
+</div><!--/.nav-collapse -->
+</div>
+</div>
+
+<table class="table">
+	<tr ng-repeat="event in events | orderBy : 'lastUpdated' : true">
+		<td ng-switch="event.type">
+			
+			<span ng-switch-when="TRIP">
+				<a class="pull-right" href="#/{{event.username}}/trip/{{event._id}}/edit">
+					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+				</a>
+				<!--a href="#/{{event.username}}/trip/{{event._id}}/fish/list"-->
+				<a href="#/{{event.username}}/trip/{{event._id}}/edit">
+					<span>{{event.title}}</span><br/>
+					<span>{{event.start | date : MMMdyyy}}</span> - 
+					<span>{{event.end | date : MMMdyyy}}</span>
+				</a>
+			</span>
+			
+			<span ng-switch-when="FISH">
+				<a class="pull-right" href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/edit">
+					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+				</a>
+				<a href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/edit">
+				{{event.species}}<br/>{{event.weight}}lbs {{event.length}}in
+				</a>
+			</span>
+			
+		</td>
+	</tr>
+</table>
