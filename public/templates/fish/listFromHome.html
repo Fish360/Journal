@@ -20,10 +20,10 @@
 <table class="table">
 	<tr ng-repeat="fsh in fish | orderBy : 'lastUpdated' : true">
 		<td>
-			<a class="pull-right" href="#/{{username}}/trip/{{tripId}}/fish/{{fsh._id}}/edit">
+			<a class="pull-right" href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
-			<a href="#/{{username}}/trip/{{tripId}}/fish/{{fsh._id}}/edit">
+			<a href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
 			{{fsh.species}}<br/>{{fsh.weight}}lbs {{fsh.length}}in
 			</a>
 		</tr>
