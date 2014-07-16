@@ -11,7 +11,8 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 			if(user.length == 0)
 				$scope.message = "Username and/or password does not exist. Try again";
 			else {
-				$location.path( $scope.username+"/trip/list" );
+//				$location.path( $scope.username+"/trip/list" );
+				$location.path( $scope.username+"/home" );
 				localStorage.setItem("user", JSON.stringify(user[0]));
 			}
 		});
@@ -48,7 +49,8 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 						if(newUser == null)
 							$scope.message = "Unable to register user";
 						else
-							$location.path( $scope.newUser.username+"/trip/list" );
+//							$location.path( $scope.newUser.username+"/trip/list" );
+							$location.path( $scope.newUser.username+"/home" );
 					});
 				}
 				else

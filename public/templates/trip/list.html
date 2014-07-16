@@ -9,7 +9,7 @@
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<a href="#/login" class="btn btn-danger pull-left f360-navbar-button">
+		<a href="#/{{username}}/home" class="btn btn-danger pull-left f360-navbar-button">
 			<span class="glyphicon glyphicon-chevron-left"></span>
 		</a>
 		<a href="#/{{username}}/trip/new" class="btn btn-success pull-right f360-navbar-button">
@@ -20,10 +20,6 @@
 		</div>
 	</div>
 </div>
-<br/>
-<br/>
-<br/>
-
 <table class="table">
 	<tr ng-repeat="trip in trips | orderBy : 'lastUpdated' : true">
 		<td>
@@ -38,9 +34,3 @@
 		</tr>
 	</tr>
 </table>
-
-<div class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-</div>

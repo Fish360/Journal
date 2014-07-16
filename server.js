@@ -24,6 +24,21 @@ app.configure(function() {
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
 
+app.get('/api/:username/events', function(req, res)
+{
+	db.trip.find({username: req.params.username}, function(err, trips)
+	{
+		var events = trips;
+		db.fish.find({username: req.params.username}, function(err, fish) {
+			if(typeof fish != "undefined" && fish != null) {
+				for(var i=0; i<fish.length; i++) {
+					events.push(fish[i]);
+				}
+			}
+			res.json(events);
+		});
+	});
+});
 
 /*
  *	Trips
@@ -50,6 +65,7 @@ app.get('/api/:username/trip/:tripid', function(req, res)
 // Create a new trip for username
 app.post('/api/:username/trip', function(req, res)
 {
+	req.body.type = "TRIP";
 	db.trip.insert(req.body, function(err, newTrip)
 	{
 		res.json(newTrip);
@@ -142,11 +158,23 @@ app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 		res.json(fishes);
 	});
 });
+// Get all fish for a user
+app.get("/api/allFish/:username", function(req, res)
+{
+	console.log("Get all fish for user " + req.params.username);
+	db.fish.find({username: req.params.username}, function(err, fish)
+	{
+		res.json(fish);
+	});
+});
 // Create a new Fish
 app.post("/api/user/:username/trip/:tripid/fish", function(req, res)
 {
 	var newFish = req.body;
+	newFish.type = "FISH";
+	var username = req.params.username;
 	newFish.trip_id = mongojs.ObjectId(req.params.tripid);
+	newFish.username = username;
 	db.fish.insert(newFish, function(err, newFish)
 	{
 		res.json(newFish);

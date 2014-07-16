@@ -1,3 +1,12 @@
+f360.controller("FishHomeListController", function($scope, $routeParams, $http)
+{
+	$scope.username = $routeParams.username;
+	$http.get("api/allFish/"+$scope.username)
+		.success(function(fish)
+		{
+			$scope.fish = fish;
+		});
+});
 
 f360.controller("FishListController", function($scope, $routeParams, $http)
 {

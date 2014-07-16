@@ -24,6 +24,14 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		controller: "RegisterController"
 	})
 	/*
+	*	Home
+	*/
+	.when("/:username/home",
+	{
+		templateUrl: "templates/home/home.html",
+		controller: "HomeController"
+	})
+	/*
 	*	Trips
 	*/
 	.when("/:username/trip/new",
@@ -48,6 +56,11 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	{
 		templateUrl: "templates/fish/list.html",
 		controller: "FishListController"
+	})
+	.when("/:username/fish/list",
+	{
+		templateUrl: "templates/fish/listFromHome.html",
+		controller: "FishHomeListController"
 	})
 	.when("/:username/trip/:tripId/fish/new",
 	{
