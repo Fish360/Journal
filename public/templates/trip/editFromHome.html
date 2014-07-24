@@ -1,0 +1,40 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<a	href="#/{{username}}/home" class="btn btn-danger pull-left f360-navbar-button">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a	href="#" class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Edit Trip</span>
+		</div>
+	</div>
+</div>
+Title
+<input ng-model="editTrip.title" class="form-control" placeholder="Title"/>
+Start Date
+<input ng-model="editTrip.start" class="form-control" type="date" />
+Start Time
+<input ng-model="editTrip.startTime" class="form-control" type="time" />
+End Date
+<input ng-model="editTrip.end" class="form-control" type="date"/>
+End Time
+<input ng-model="editTrip.endTime" class="form-control" type="time"/>
+Notes
+<textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes">
+
+</textarea>
+<!--a	href="#/{{editTrip.username}}/trip/{{editTrip._id}}/edit"-->
+<a	href="#"
+	class="btn btn-warning btn-block"
+	ng-click="remove()">
+	Delete
+</a>

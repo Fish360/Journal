@@ -49,6 +49,11 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		templateUrl: "templates/trip/edit.html",
 		controller: "EditTripController"
 	})
+	.when("/:username/trip/:tripid/editFromHome",
+	{
+		templateUrl: "templates/trip/editFromHome.html",
+		controller: "EditTripController"
+	})
 	/*
 	*	Fish
 	*/
@@ -70,6 +75,11 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	.when("/:username/trip/:tripId/fish/:fishId/edit",
 	{
 		templateUrl: "templates/fish/edit.html",
+		controller: "EditFishController"
+	})
+	.when("/:username/trip/:tripId/fish/:fishId/editFromHome",
+	{
+		templateUrl: "templates/fish/editFromHome.html",
 		controller: "EditFishController"
 	})
 	.otherwise({
