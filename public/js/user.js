@@ -5,9 +5,13 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 	$scope.username = $routeParams.username;
 	console.log($scope.username);
 	$scope.updateProfile = function() {
-		$http.put("/api/user/"+$scope.username, $scope.user)
-		.success(function(newUser){
-		});
+		if($scope.user.password == "" || $scope.user.password != $scope.user.password2 || typeof $scope.user.password == "undefined") {
+			alert("Passwords must match. Please try again.");
+		} else {
+			$http.put("/api/user/"+$scope.username, $scope.user)
+			.success(function(newUser){
+			});
+		}
 	}
 	var url = "/api/user/"+$scope.username;
 	console.log(url);
