@@ -15,6 +15,7 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 	.success(function(user) {
 		$scope.user = user[0];
 		$scope.user.password = "";
+		$scope.user.password2 = "";
 		console.log(user);
 	})
 	.error(function(err) {
