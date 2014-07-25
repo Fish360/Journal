@@ -1,4 +1,28 @@
 
+f360.controller("ProfileController", function($scope, $routeParams, $http, $location)
+{
+	console.log("ProfileController");
+	$scope.username = $routeParams.username;
+	console.log($scope.username);
+	$scope.updateProfile = function() {
+		$http.put("/api/user/"+$scope.username, $scope.user)
+		.success(function(newUser){
+		});
+	}
+	var url = "/api/user/"+$scope.username;
+	console.log(url);
+	$http.get(url)
+	.success(function(user) {
+		$scope.user = user[0];
+		$scope.user.password = "";
+		console.log(user);
+	})
+	.error(function(err) {
+		console.log("Failed");
+		console.log(err);
+	});
+});
+
 f360.controller("LoginController", function($scope, $routeParams, $http, $location)
 {
 	$scope.message = "";

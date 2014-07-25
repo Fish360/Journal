@@ -1,0 +1,36 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<a	href="#/{{username}}/home" class="btn btn-danger pull-left f360-navbar-button">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<button class="btn btn-success pull-right f360-navbar-button" ng-click="updateProfile()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</button>
+		<div class="navbar-header">
+			<span class="navbar-brand">Profile</span>
+		</div>
+	</div>
+</div>
+Username
+<input ng-model="user.username" class="form-control" readonly="readonly"/>
+Email
+<input ng-model="user.email" class="form-control" type="email"/>
+First Name
+<input ng-model="user.firstName" class="form-control"/>
+Last Name
+<input ng-model="user.lastName" class="form-control"/>
+Date of Birth
+<input ng-model="user.dateOfBirth" class="form-control" type="date"/>
+<!--
+New Password
+<input ng-model="user.password" class="form-control" type="password"/>
+Confirm New Password
+<input ng-model="user.password1" class="form-control" type="password"/>
+-->

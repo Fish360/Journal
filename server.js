@@ -147,6 +147,17 @@ app.post("/api/user/:username/preferences", function(req, res)
 		console.log(lastErrorObject);
 	});
 });
+// update profile
+app.put("/api/user/:username", function(req, res)
+{
+	console.log(req.body);
+	delete req.body._id;
+	db.user.update({username: req.params.username}, req.body, function(err, doc)
+	{
+		console.log(err);
+		console.log(doc);
+	});
+});
 
 /*
  *	Fish

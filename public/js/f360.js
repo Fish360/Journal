@@ -23,6 +23,11 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		templateUrl: "templates/user/register.html",
 		controller: "RegisterController"
 	})
+	.when("/:username/profile",
+	{
+		templateUrl: "templates/user/profile.html",
+		controller: "ProfileController"
+	})
 	/*
 	*	Home
 	*/
