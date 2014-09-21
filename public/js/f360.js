@@ -61,8 +61,8 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	})
 	.when("/:username/trip/:tripid/listFromHome",
 	{
-		templateUrl: "templates/trip/listFromHome.html",
-		controller: "TripListController"
+		templateUrl: "templates/fish/listFromHome.html",
+		controller: "FishListController"
 	})
 	/*
 	*	Fish
