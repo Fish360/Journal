@@ -5,8 +5,11 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 	$scope.username = $routeParams.username;
 	console.log($scope.username);
 	$scope.updateProfile = function() {
-		if($scope.user.password != $scope.user.password2 || typeof $scope.user.password == "undefined") {
+		if(	$scope.user.password != $scope.user.password2 ||
+			typeof $scope.user.password == "undefined") {
+			
 			alert("Passwords must match. Please try again.");
+				
 		} else {
 			$http.put("/api/user/"+$scope.username, $scope.user)
 			.success(function(newUser){
