@@ -49,6 +49,9 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 				url = "api/user/"+$scope.username+"/preferences";
 				$http.post(url, preferences);
 				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
+				
+				$location.replace(); // <----
+				
 			});
 	}
 
