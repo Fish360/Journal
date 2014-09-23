@@ -53,6 +53,7 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 //				$location.replace(); // <----
 				
 				history.back();
+				history.back();
 			});
 	}
 
