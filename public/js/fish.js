@@ -52,8 +52,8 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 				
 //				$location.replace(); // <----
 				
-				history.back();
-				history.back();
+				window.history.go(-2);
+//				history.back();
 			});
 	}
 
