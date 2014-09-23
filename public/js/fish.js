@@ -110,7 +110,10 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 				url = "api/user/"+$scope.username+"/preferences";
 				$http.post(url, preferences);
 
-				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
+//				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
+				
+				window.history.go(-2);
+
 			});
 	}
 	
