@@ -4,10 +4,11 @@ var f360 = angular.module("f360", ["ngRoute"]);
 f360.directive('backButton', function () {
     return {
         restrict: 'E',
-        template: '<button class="btn">{{back}}</button><button class="btn">{{forward}}</button>',
+//        template: '<button class="btn">{{back}}</button><button class="btn">{{forward}}</button>',
+        template: '<a class="btn btn-danger pull-left f360-navbar-button"><span class="glyphicon glyphicon-chevron-left"></span></a>',
         scope: {
             back: '@back',
-            forward: '@forward',
+//            forward: '@forward',
             icons: '@icons'
         },
         link: function(scope, element, attrs) {
@@ -15,10 +16,10 @@ f360.directive('backButton', function () {
                 history.back();
                 scope.$apply();
             });
-            $(element[1]).on('click', function() {
-                history.forward();
-                scope.$apply();
-            });
+//            $(element[1]).on('click', function() {
+//                history.forward();
+//                scope.$apply();
+//            });
         }
     };
 });
