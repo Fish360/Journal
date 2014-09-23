@@ -48,10 +48,11 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 				localStorage.setItem("user", JSON.stringify(user));
 				url = "api/user/"+$scope.username+"/preferences";
 				$http.post(url, preferences);
-				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
+//				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 				
-				$location.replace(); // <----
+//				$location.replace(); // <----
 				
+				history.back();
 			});
 	}
 
