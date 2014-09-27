@@ -128,7 +128,6 @@ app.put("/api/user/:username", function(req, res)
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				email: req.body.email,
-				password: req.body.password,
 				dateOfBirth: req.body.dateOfBirth,
 				units: req.body.units
 			}
