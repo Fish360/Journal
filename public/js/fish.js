@@ -82,7 +82,6 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 		$scope.editFish.species = user.preferences.species;
 	}
 */
-	
 	$http.get("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 		.success(function(fish)
 		{

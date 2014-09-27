@@ -115,11 +115,10 @@ app.post("/api/user", function(req, res)
 	});
 });
 
-// change user profile << jga
+// update profile
 app.put("/api/user/:username", function(req, res)
 {
-	var username = req.params.username;
-	
+	var username = req.params.username;	
 	
 	db.user.findAndModify({
 		query: {username: req.params.username},
@@ -174,28 +173,6 @@ app.post("/api/user/:username/preferences", function(req, res)
 		console.log(doc);
 		console.log(lastErrorObject);
 	});
-});
-// update profile
-app.put("/api/user/:username", function(req, res)
-{
-	console.log(req.body);
-	delete req.body._id;
-	if(req.body.password != req.body.password2 || req.body.password == "" || typeof req.body.password == "undefined" )
-		delete req.body.password;
-	delete req.body.password2;
-	db.user.findAndModify({
-		query: {username: req.params.username},
-		update: {
-			$set : req.body
-		}
-	});
-	/*
-	db.user.update({username: req.params.username}, req.body, function(err, doc)
-	{
-		console.log(err);
-		console.log(doc);
-	});
-	*/
 });
 
 /*

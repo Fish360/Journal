@@ -27,7 +27,7 @@ Species
 	<option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
 Weight
-<input ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
+<input jga-decimal ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
 Length
 <input ng-model="editFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
 Girth
