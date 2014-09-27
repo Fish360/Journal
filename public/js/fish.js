@@ -27,12 +27,14 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 	$scope.tripId = $routeParams.tripId;
 	$scope.create = function()
 	{
-		console.log("NewFishController.create()");
-		console.log($routeParams.username);
-		console.log($routeParams.tripId);
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 		console.log(url);
 		$scope.newFish["lastUpdated"] = new Date();
+		
+		for(var i=0; i<species.length; i++)
+			if(species[i].scientific == $scope.newFish.species)
+				$scope.newFish.commonName = species[i].common;
+		
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
