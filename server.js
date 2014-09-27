@@ -115,6 +115,36 @@ app.post("/api/user", function(req, res)
 	});
 });
 
+// change user profile << jga
+app.put("/api/user/:username", function(req, res)
+{
+	var username = req.params.username;
+	
+	
+	db.user.findAndModify({
+		query: {username: req.params.username},
+		update: {
+			$set : {
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
+				email: req.body.email,
+				password: req.body.password,
+				email: req.body.email,
+				dateOfBirth: req.body.dateOfBirth,
+				units: req.body.units
+			}
+		},
+		new: false}, function(err, doc, lastErrorObject)
+		{
+
+		});
+		
+	db.user.find({username: req.params.username}, function(err, user)
+	{
+		res.json(user);
+	});
+});
+
 // Find user by username used for registering to see if username already exists
 app.get("/api/user/:username", function(req, res)
 {
