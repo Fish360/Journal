@@ -224,18 +224,12 @@ app.delete("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 });
 // Update a fish
 app.put("/api/user/:username/trip/:tripId/fish/:id", function(req, res){
-	console.log(req.params.id);
-	console.log(req.body);
 	delete req.body._id;
 	req.body.trip_id = mongojs.ObjectId(req.params.tripId);
 	req.body.type = "FISH";
 	req.body.username = req.params.username;
 
 	db.fish.update({_id: mongojs.ObjectId(req.params.id)}, req.body, function(err, newFish){
-		console.log("err:");
-		console.log(err);
-		console.log("newFish:");
-		console.log(newFish);
 		db.fish.find(function(err, fishes){
 			res.json(fishes);
 		});
