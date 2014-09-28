@@ -93,7 +93,10 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	
 	$scope.update = function()
 	{
-//		$scope.editFish.species = $scope.editFish.species.name;
+		for(var i=0; i<species.length; i++)
+			if(species[i].scientific == $scope.editFish.species)
+				$scope.editFish.commonName = species[i].common;
+
 		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){
