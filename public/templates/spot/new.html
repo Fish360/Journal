@@ -25,44 +25,19 @@ Latitude
 <input ng-model="newSpot.latitude" class="form-control" placeholder="Latitude" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]"/>
 Longitude
 <input ng-model="newSpot.longitude" class="form-control" placeholder="Longitude" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]"/>
-
-
-
-
-Date Caught
-<input ng-model="newFish.caught" class="form-control" type="date"/>
-Time Caught
-<input ng-model="newFish.caughtTime" class="form-control" type="time"/>
+Street
+<input ng-model="newSpot.street" class="form-control" placeholder="Street" type="text"/>
+City
+<input ng-model="newSpot.city" class="form-control" placeholder="City" type="text"/>
+State
+<input ng-model="newSpot.state" class="form-control" placeholder="State" type="text"/>
+Country
+<input ng-model="newSpot.country" class="form-control" placeholder="Country" type="text"/>
+Water
+<input ng-model="newSpot.water" class="form-control" placeholder="Water" type="text"/>
 Species
-<select ng-model="newFish.species" class="form-control" placeholder="Species">
-	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
-</select>
-Weight
-<input ng-model="newFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
-Length
-<input ng-model="newFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
-Girth
-<input ng-model="newFish.girth" class="form-control" placeholder="Girth" type="number" pattern="[0-9]*"/>
-Spot
-<input ng-model="newFish.spot" class="form-control" placeholder="Spot"/>
-Presentation
-<input ng-model="newFish.presentation" class="form-control" placeholder="Presentation"/>
-Water Depth
-<input ng-model="newFish.waterDepth" class="form-control" placeholder="Water Depth" type="number" pattern="[0-9]*"/>
-Water Temperature
-<input ng-model="newFish.waterTemperature" class="form-control" placeholder="Water Temperature" type="number" pattern="[0-9]*"/>
-Water Clarity
-<input ng-model="newFish.waterClarity" class="form-control" placeholder="Water Clarity" type="number" pattern="[0-9]*"/>
-Sunrise Time
-<input ng-model="newFish.sunriseTime" class="form-control" type="time"/>
-Sunset Time
-<input ng-model="newFish.sunsetTime" class="form-control" type="time"/>
-Moonrise Time
-<input ng-model="newFish.moonriseTime" class="form-control" type="time"/>
-Moonset Time
-<input ng-model="newFish.moonsetTime" class="form-control" type="time"/>
+<input ng-model="newSpot.species" class="form-control" placeholder="Spieces" type="text"/>
 Notes
 <textarea ng-model="newFish.notes" class="form-control" placeholder="Notes">
 
 </textarea>
-<input type="hidden" ng-model="newFish.trip_id"/>
