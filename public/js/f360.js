@@ -89,6 +89,14 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		controller: "FishListController"
 	})
 	/*
+	*	Spots
+	*/
+	.when("/:username/spot/list",
+	{
+		templateUrl: "templates/spot/list.html",
+		controller: "SpotListController"
+	})
+	/*
 	*	Fish
 	*/
 	.when("/:username/trip/:tripId/fish/list",
