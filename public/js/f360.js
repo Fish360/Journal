@@ -12,6 +12,7 @@ f360.directive('backButton', function () {
             icons: '@icons'
         },
         link: function(scope, element, attrs) {
+		console.log(999);
             $(element[0]).on('click', function() {
                 history.back();
                 scope.$apply();
@@ -99,7 +100,7 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	.when("/:username/spot/new",
 	{
 		templateUrl: "templates/spot/new.html",
-		controller: "SpotNewController"
+		controller: "NewSpotController"
 	})
 	/*
 	*	Fish
