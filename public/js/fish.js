@@ -31,9 +31,10 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		console.log(url);
 		$scope.newFish["lastUpdated"] = new Date();
 		
-		for(var i=0; i<species.length; i++)
-			if(species[i].scientific == $scope.newFish.species)
-				$scope.newFish.commonName = species[i].common;
+//		for(var i=0; i<species.length; i++)
+//			if(species[i].scientific == $scope.newFish.species)
+//				$scope.newFish.commonName = species[i].common;
+		$scope.newFish.commonName = "Test Common Name";
 		
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
@@ -93,10 +94,12 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 	
 	$scope.update = function()
 	{
-		for(var i=0; i<species.length; i++)
-			if(species[i].scientific == $scope.editFish.species)
-				$scope.editFish.commonName = species[i].common;
+//		for(var i=0; i<species.length; i++)
+//			if(species[i].scientific == $scope.editFish.species)
+//				$scope.editFish.commonName = species[i].common;
 
+		$scope.editFish.commonName = "Test Common Name";
+		
 		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){
