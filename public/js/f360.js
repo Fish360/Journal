@@ -92,14 +92,14 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	/*
 	*	Spots
 	*/
-	.when("/:username/spot/list",
+	.when("/:username/spots/list",
 	{
-		templateUrl: "templates/spot/list.html",
+		templateUrl: "features/spots/list.html",
 		controller: "SpotListController"
 	})
-	.when("/:username/spot/new",
+	.when("/:username/spots/new",
 	{
-		templateUrl: "templates/spot/new.html",
+		templateUrl: "features/spots/new.html",
 		controller: "NewSpotController"
 	})
 	/*

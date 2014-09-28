@@ -5,6 +5,8 @@ var app       = express(); 								// create our app w/ express
 var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 
+var spots		= require('./public/features/spots/server.js');
+
 var connection_string = '127.0.0.1:27017/f360';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
@@ -15,7 +17,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = mongojs(connection_string, ['user', 'trip', 'fish']);
+var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots']);
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -23,6 +25,8 @@ app.configure(function() {
 	app.use(express.bodyParser()); 							// pull information from html in POST
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
+
+spots(app, db);
 
 app.get('/api/:username/events', function(req, res)
 {

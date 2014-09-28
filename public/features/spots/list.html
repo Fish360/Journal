@@ -10,7 +10,7 @@
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<back-button></back-button>
-		<a href="#/{{username}}/spot/new" class="btn btn-success pull-right f360-navbar-button">
+		<a href="#/{{username}}/spots/new" class="btn btn-success pull-right f360-navbar-button">
 			<span class="glyphicon glyphicon-plus"></span>
 		</a>
 		<div class="navbar-header">
@@ -19,7 +19,7 @@
 	</div>
 </div>
 <table class="table">
-	<tr ng-repeat="spot in Spots | orderBy : 'lastUpdated' : true">
+	<tr ng-repeat="spot in spots | orderBy : 'lastUpdated' : true">
 		<td>
 			<a class="pull-right" href="#/{{username}}/spot/{{spot._id}}/edit">
 				<span class="glyphicon glyphicon-chevron-right"></span>
