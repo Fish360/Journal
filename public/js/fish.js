@@ -20,7 +20,7 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 	});
 });
 
-f360.controller("NewFishController", function($scope, $routeParams, $http, $location)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
@@ -54,7 +54,7 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 				
 //				$location.replace(); // <----
 				
-				window.history.go(-2);
+				window.history.go(-1);
 //				history.back();
 			});
 	}
@@ -63,12 +63,17 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 	$scope.newFish.species = "";
 	var user = localStorage.getItem("user");
 	if(user != null && user != "") {
-		user = JSON.parse(user);
+	    user = JSON.parse(user);
 //		$scope.newFish.species = user.preferences.species;
 	}
+
+	SpotService.findAll($scope.username, function (response) {
+	    $scope.newFish.spots = response;
+	});
+
 });
 
-f360.controller("EditFishController", function($scope, $routeParams, $http, $location)
+f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService)
 {
 	$scope.speciess = species;
 
@@ -83,12 +88,16 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 		user = JSON.parse(user);
 		$scope.editFish.species = user.preferences.species;
 	}
+
 */
-	$http.get("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
+
+    $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
 		.success(function(fish)
 		{
-			$scope.editFish = fish;
-//			$scope.editFish.species = {name: fish.species};
+		    $scope.editFish = fish;
+		    SpotService.findAll($scope.username, function (response) {
+		        $scope.editFish.spots = response;
+		    });
 		});
 	
 	$scope.update = function()
@@ -118,7 +127,7 @@ f360.controller("EditFishController", function($scope, $routeParams, $http, $loc
 
 //				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 				
-				window.history.go(-2);
+				window.history.go(-1);
 
 			});
 	}

@@ -10,7 +10,7 @@
 		<a	href="#/{{username}}/trip/{{tripId}}/fish/list" class="btn btn-danger pull-left f360-navbar-button">
 			<span class="glyphicon glyphicon-chevron-left"></span>
 		</a>
-		<a	href="#" class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
+		<a	class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
 			<span class="glyphicon glyphicon-ok"></span>
 		</a>
 		<div class="navbar-header">
@@ -24,7 +24,11 @@ Caught Time
 <input ng-model="editFish.caughtTime" class="form-control" type="time"/>
 Species
 <select ng-model="editFish.species" class="form-control" placeholder="Species">
-	<option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
+    <option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
+</select>
+Spots
+<select ng-model="editFish.spot" class="form-control" placeholder="Species">
+    <option ng-repeat="spot in editFish.spots | orderBy" value="{{spot.name}}">{{spot.name}}</option>
 </select>
 Weight
 <input jga-decimal ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
@@ -54,8 +58,7 @@ Notes
 <textarea ng-model="editFish.notes" class="form-control" placeholder="Notes">
 
 </textarea>
-<a	href="#"
-	ng-click="remove()"
+<a	ng-click="remove()"
 	class="btn btn-danger btn-block">
 	Delete
 </a>

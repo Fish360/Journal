@@ -30,6 +30,10 @@ Species
 <select ng-model="newFish.species" class="form-control" placeholder="Species">
 	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
+Spots
+<select ng-model="newFish.spot" class="form-control" placeholder="Species">
+    <option ng-repeat="spot in newFish.spots | orderBy" value="{{spot.name}}">{{spot.name}}</option>
+</select>
 Weight
 <input ng-model="newFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
 Length
