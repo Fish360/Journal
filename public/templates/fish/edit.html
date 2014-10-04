@@ -30,14 +30,14 @@ Spots
 <select ng-model="editFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in editFish.spots | orderBy" value="{{spot.name}}">{{spot.name}}</option>
 </select>
+Spot
+<input ng-model="editFish.spot" class="form-control" placeholder="Spot" />
 Weight
 <input jga-decimal ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
 Length
 <input ng-model="editFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
 Girth
 <input ng-model="editFish.girth" class="form-control" placeholder="Girth" type="number" pattern="[0-9]*"/>
-Spot
-<input ng-model="editFish.spot" class="form-control" placeholder="Spot"/>
 Presentation
 <input ng-model="editFish.presentation" class="form-control" placeholder="Presentation"/>
 Water Depth
