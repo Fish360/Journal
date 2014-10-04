@@ -2,35 +2,35 @@ f360.cache = {};
 
 f360.factory('SpotService', function($http){
 	
-	var create = function(spot, callback) {
-		console.log(spot);
-		$http.post("/api/spots", spot)
+	var create = function(username, spot, callback) {
+	    console.log(spot);
+		$http.post("/api/"+username+"/spots", spot)
 		.success(callback);
 	};
 
 	var findAll = function(username, callback) {
-		$http.get("/api/spots/"+username)
+	    $http.get("/api/"+username+"/spots")
 		.success(callback);
 	};
 	
-	var find = function(id, callback) {
-		$http.get("/api/spots/" + id)
+	var findOne = function (username, id, callback) {
+		$http.get("/api/"+username+"/spots/" + id)
 		.success(callback);
 	};
 
-	var update = function(spot) {
-		$http.get("/api/spots/"+spot._id, spot)
+	var update = function(username, id, spot, callback) {
+		$http.put("/api/"+username+"/spots/"+spot._id, spot)
 		.success(callback);
 	};
 	
-	var remove = function(id) {
-		$http.delete("/api/spots/"+spot._id)
+	var remove = function(username, id, callback) {
+		$http.delete("/api/"+username+"/spots/"+id)
 		.success(callback);
 	};
 		
 	return {
 		create : create,
-		find : find,
+		findOne: findOne,
 		findAll : findAll,
 		update : update,
 		remove : remove

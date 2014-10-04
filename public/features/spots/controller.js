@@ -12,24 +12,23 @@ f360.controller("SpotHomeListController", function($scope, $routeParams, $http, 
 	*/
 });
 
-f360.controller("SpotListController", function($scope, $routeParams, $http, SpotService)
+f360.controller("SpotListController", function ($scope, $routeParams, $http, SpotService)
 {
 	$scope.username = $routeParams.username;
-	$http.get("api/spots/"+$scope.username)
-	.success(function(spots)
+	SpotService.findAll($scope.username, function(spots)
 	{
-		$scope.spots = spots;
+	    $scope.spots = spots;
 	});
 });
 
-f360.controller("NewSpotController", function($scope, $routeParams, $http, $location, SpotService)
+f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService)
 {
 	$scope.username = $routeParams.username;
 	$scope.create = function()
 	{
 		if(typeof $scope.newSpot != "undefined") {
 			$scope.newSpot.username = $scope.username;
-			SpotService.create($scope.newSpot,function(){
+			SpotService.create($scope.username, $scope.newSpot, function () {
 				console.log("rew");
 				history.back();
 			});
@@ -38,9 +37,28 @@ f360.controller("NewSpotController", function($scope, $routeParams, $http, $loca
 	$scope.speciess = species;
 });
 
-f360.controller("EditSpotController", function($scope, $routeParams, $http, $location, SpotService)
+f360.controller("SpotEditController", function ($scope, $routeParams, $http, $location, SpotService)
 {
-	console.log("EditSpotController" + SpotService);
+    $scope.username = $routeParams.username;
+    SpotService.findOne($scope.username, $routeParams.id, function (response) {
+        $scope.spot = response;
+//        console.log(response);
+    });
+
+    $scope.update = function () {
+        console.log($scope.spot);
+        SpotService.update($scope.username, $routeParams.id, $scope.spot, function (response) {
+            window.history.go(-1);
+        });
+    };
+
+    $scope.remove = function () {
+        SpotService.remove($scope.username, $routeParams.id, function (response) {
+            window.history.go(-1);
+        });
+    }
+
+//    console.log("SpotEditController" + SpotService);
 	/*
 	$scope.speciess = species;
 

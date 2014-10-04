@@ -3,59 +3,44 @@
 		position: relative;
 		top: 7px;
 	}
+	input[type=date] {
+		width: 100%;
+	}
 </style>
-
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<a	href="#/{{username}}/trip/{{tripId}}/fish/list" class="btn btn-danger pull-left f360-navbar-button">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a>
-		<a	href="#" class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
+		<back-button></back-button>
+		<a	class="btn btn-success pull-right f360-navbar-button"
+			ng-click="update()">
 			<span class="glyphicon glyphicon-ok"></span>
 		</a>
 		<div class="navbar-header">
-			<span class="navbar-brand">Edit Fish</span>
+			<span class="navbar-brand">Edit Spot</span>
 		</div>
 	</div>
 </div>
-Caught Date
-<input ng-model="editFish.caught" class="form-control" type="date"/>
-Caught Time
-<input ng-model="editFish.caughtTime" class="form-control" type="time"/>
+Name
+<input ng-model="spot.name" class="form-control" placeholder="Name" type="text"/>
+Latitude
+<input ng-model="spot.latitude" class="form-control" placeholder="Latitude" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]"/>
+Longitude
+<input ng-model="spot.longitude" class="form-control" placeholder="Longitude" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]"/>
+Street
+<input ng-model="spot.street" class="form-control" placeholder="Street" type="text"/>
+City
+<input ng-model="spot.city" class="form-control" placeholder="City" type="text"/>
+State
+<input ng-model="spot.state" class="form-control" placeholder="State" type="text"/>
+Country
+<input ng-model="spot.country" class="form-control" placeholder="Country" type="text"/>
+Water
+<input ng-model="spot.water" class="form-control" placeholder="Water" type="text"/>
 Species
-<select ng-model="editFish.species" class="form-control" placeholder="Species">
-	<option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
-</select>
-Weight
-<input jga-decimal ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
-Length
-<input ng-model="editFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
-Girth
-<input ng-model="editFish.girth" class="form-control" placeholder="Girth" type="number" pattern="[0-9]*"/>
-Spot
-<input ng-model="editFish.spot" class="form-control" placeholder="Spot"/>
-Presentation
-<input ng-model="editFish.presentation" class="form-control" placeholder="Presentation"/>
-Water Depth
-<input ng-model="editFish.waterDepth" class="form-control" placeholder="Water Depth" type="number" pattern="[0-9]*"/>
-Water Temperature
-<input ng-model="editFish.waterTemperature" class="form-control" placeholder="Water Temperature" type="number" pattern="[0-9]*"/>
-Water Clarity
-<input ng-model="editFish.waterClarity" class="form-control" placeholder="Water Clarity" type="number" pattern="[0-9]*"/>
-Sunrise Time
-<input ng-model="editFish.sunriseTime" class="form-control" type="time"/>
-Sunset Time
-<input ng-model="editFish.sunsetTime" class="form-control" type="time"/>
-Moonrise Time
-<input ng-model="editFish.moonriseTime" class="form-control" type="time"/>
-Moonset Time
-<input ng-model="editFish.moonsetTime" class="form-control" type="time"/>
+<input ng-model="spot.species" class="form-control" placeholder="Spieces" type="text"/>
 Notes
-<textarea ng-model="editFish.notes" class="form-control" placeholder="Notes">
+<textarea ng-model="spot.notes" class="form-control" placeholder="Notes">
 
 </textarea>
-<a	href="#"
-	ng-click="remove()"
-	class="btn btn-danger btn-block">
-	Delete
+<a ng-click="remove()" class="btn btn-danger btn-block">
+    Delete
 </a>

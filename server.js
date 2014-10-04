@@ -5,7 +5,8 @@ var app       = express(); 								// create our app w/ express
 var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 
-var spots		= require('./public/features/spots/server.js');
+var spots = require('./public/features/spots/server.js');
+var fish = require('./public/features/spots/server.js');
 
 var connection_string = '127.0.0.1:27017/f360';
 
@@ -26,7 +27,7 @@ app.configure(function() {
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
 
-spots(app, db);
+spots(app, db, mongojs);
 
 app.get('/api/:username/events', function(req, res)
 {

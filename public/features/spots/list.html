@@ -21,12 +21,12 @@
 <table class="table">
 	<tr ng-repeat="spot in spots | orderBy : 'lastUpdated' : true">
 		<td>
-			<a class="pull-right" href="#/{{username}}/spot/{{spot._id}}/edit">
+			<a class="pull-right" href="#/{{username}}/spots/{{spot._id}}/edit">
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
-			<a href="#/{{username}}/trip/{{tripId}}/fish/{{fsh._id}}/edit">
-			{{spot.name}}
-			</a>
+            <a href="#/{{username}}/spots/{{spot._id}}/edit">
+                {{spot.name}}
+            </a>
 		</tr>
 	</tr>
 </table>
