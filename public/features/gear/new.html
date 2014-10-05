@@ -1,0 +1,97 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	input[type=date] {
+		width: 100%;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<a	class="btn btn-success pull-right f360-navbar-button"
+			ng-click="create()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">New Gear</span>
+		</div>
+	</div>
+</div>
+
+Gear Type
+<select ng-model="gear.gearType" class="form-control">
+    <option>Rod</option>
+    <option>Reel</option>
+    <option>Line</option>
+    <option>Leader</option>
+</select>
+<div ng-show="gear.gearType != 'Leader'">
+    Manufacturer
+    <input ng-model="gear.manufacturer" class="form-control" placeholder="Name" type="text" />
+
+    Model
+    <input ng-model="gear.model" class="form-control" placeholder="Name" type="text" />
+
+    <!-- !LEADER { -->
+    Type
+    <select ng-model="gear.type" class="form-control">
+        <!-- ROD || REEL { -->
+        <option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel'">Spinning</option>
+        <option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel'">Casting</option>
+        <!-- } ROD || REEL -->
+        <!-- ROD || REEL || LINE { -->
+        <option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel' || gear.gearType == 'Line'">Fly</option>
+        <!-- } ROD || REEL || LINE -->
+        <!-- LINE { -->
+        <option ng-show="gear.gearType == 'Line'">Monofilament</option>
+        <option ng-show="gear.gearType == 'Line'">Braid</option>
+        <option ng-show="gear.gearType == 'Line'">Fluorocarbon</option>
+        <!-- } LINE -->
+    </select>
+    <!-- } !LEADER -->
+</div>
+
+<!-- ROD { -->
+<div ng-show="gear.gearType == 'Rod'">
+    Length
+    <input ng-model="gear.length" class="form-control" placeholder="Name" type="text" />
+    Action
+    <input ng-model="gear.action" class="form-control" placeholder="Name" type="text" />
+    Power
+    <input ng-model="gear.power" class="form-control" placeholder="Name" type="text" />
+    Pieces
+    <input ng-model="gear.pieces" class="form-control" placeholder="Name" type="text" />
+</div>
+<!-- } ROD -->
+
+<div ng-show="gear.gearType == 'Reel'">
+    Weight
+    <input ng-model="gear.weight" class="form-control" placeholder="Weight" type="text" />
+    Gear Ratio
+    <input ng-model="gear.gearRatio" class="form-control" placeholder="Gear Ratio" type="text" />
+    Line Capacity
+    <input ng-model="gear.lineCapacity" class="form-control" placeholder="Line Capacity" type="text" />
+    Max Drag
+    <input ng-model="gear.maxDrag" class="form-control" placeholder="Max Drag" type="text" />
+</div>
+
+<div ng-show="gear.gearType=='Line'">
+    Strength
+    <input ng-model="gear.strength" class="form-control" placeholder="Strength" type="text" />
+    Color
+    <input ng-model="gear.color" class="form-control" placeholder="Color" type="text" />
+</div>
+
+<div ng-show="gear.gearType == 'Leader'">
+    Description
+    <textarea ng-model="gear.description" class="form-control" placeholder="Description">
+
+    </textarea>
+    Line
+    <input ng-model="gear.line" class="form-control" placeholder="Line" type="text" />
+</div>
+
+Notes
+<textarea ng-model="gear.notes" class="form-control" placeholder="Notes"></textarea>

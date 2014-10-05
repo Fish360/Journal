@@ -1,0 +1,32 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	.f360-right-arrow {
+		font-size: 1.5em;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<a href="#/{{username}}/gear/new" class="btn btn-success pull-right f360-navbar-button">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Gear</span>
+		</div>
+	</div>
+</div>
+<table class="table">
+	<tr ng-repeat="gear in gears | orderBy : 'lastUpdated' : true">
+		<td>
+			<a class="pull-right" href="#/{{username}}/gear/{{gear._id}}/edit">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+            <a href="#/{{username}}/gear/{{gear._id}}/edit">
+                {{gear.manufacturer}}
+            </a>
+		</tr>
+	</tr>
+</table>
