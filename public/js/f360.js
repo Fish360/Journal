@@ -94,8 +94,8 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	*/
 	.when("/:username/spots/list",
 	{
-		templateUrl: "features/spots/list.html",
-		controller: "SpotListController"
+	    templateUrl: "features/spots/list.html",
+	    controller: "SpotListController"
 	})
 	.when("/:username/spots/new",
 	{
@@ -106,6 +106,24 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	{
 	    templateUrl: "features/spots/edit.html",
 	    controller: "SpotEditController"
+	})
+	/*
+	*	Gear
+	*/
+	.when("/:username/gear/list",
+	{
+	    templateUrl: "features/gear/list.html",
+	    controller: "GearListController"
+	})
+	.when("/:username/gear/new",
+	{
+	    templateUrl: "features/gear/new.html",
+	    controller: "GearNewController"
+	})
+	.when("/:username/gear/:id/edit",
+	{
+	    templateUrl: "features/gear/edit.html",
+	    controller: "GearEditController"
 	})
 	/*
 	*	Fish
