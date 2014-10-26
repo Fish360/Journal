@@ -91,14 +91,14 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 
 */
 
-    $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
+	SpotService.findAll($scope.username, function (spots) {
+		$scope.spots = spots;
+		$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
 		.success(function(fish)
 		{
-		    $scope.editFish = fish;
-		    SpotService.findAll($scope.username, function (response) {
-		        $scope.editFish.spots = response;
-		    });
+			$scope.editFish = fish;
 		});
+	});
 	
 	$scope.update = function()
 	{
