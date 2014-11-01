@@ -1,0 +1,76 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	input[type=date] {
+		width: 100%;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<a	class="btn btn-success pull-right f360-navbar-button"
+			ng-click="create()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">New Presentation</span>
+		</div>
+	</div>
+</div>
+
+Name
+<input ng-model="presentation.name" class="form-control" placeholder="Name" type="text" />
+
+Presentation Type
+<select ng-model="presentation.presentationType" class="form-control">
+    <option>Lure</option>
+    <option>Fly</option>
+    <option>Bait</option>
+    <option>Leader</option>
+</select>
+<div ng-show="presentation.presentationType == 'Lure'">
+
+    Description
+    <input ng-model="presentation.description" class="form-control" placeholder="Description" type="text" />
+
+    Manufacturer
+    <input ng-model="presentation.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
+
+    Model
+    <input ng-model="presentation.model" class="form-control" placeholder="Model" type="text" />
+
+    Color
+    <input ng-model="presentation.color" class="form-control" placeholder="Color" type="text" />
+
+    Length
+    <input ng-model="presentation.length" class="form-control" placeholder="Length" type="text" />
+
+    Weight
+    <input ng-model="presentation.weight" class="form-control" placeholder="Weight" type="text" />
+    
+</div>
+
+<div ng-show="presentation.presentationType == 'Fly'">
+
+    Description
+    <input ng-model="presentation.description" class="form-control" placeholder="Description" type="text" />
+
+    Pattern
+    <input ng-model="presentation.pattern" class="form-control" placeholder="Pattern" type="text" />
+
+    Color
+    <input ng-model="presentation.color" class="form-control" placeholder="Color" type="text" />
+
+</div>
+
+<div ng-show="presentation.presentationType == 'Bait'">
+
+    Description
+    <input ng-model="presentation.description" class="form-control" placeholder="Description" type="text" />
+
+</div>
+
+Notes
+<textarea ng-model="presentation.notes" class="form-control" placeholder="Notes"></textarea>

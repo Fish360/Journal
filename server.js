@@ -6,6 +6,7 @@ var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 
 var spots = require('./public/features/spots/server.js');
+var spots = require('./public/features/presentations/server.js');
 var gear = require('./public/features/gear/server.js');
 var fish = require('./public/features/spots/server.js');
 
@@ -19,7 +20,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear']);
+var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations']);
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users

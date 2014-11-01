@@ -108,6 +108,24 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	    controller: "SpotEditController"
 	})
 	/*
+	*	Presentations
+	*/
+	.when("/:username/presentations/list",
+	{
+	    templateUrl: "features/presentations/list.html",
+	    controller: "PresentationsListController"
+	})
+	.when("/:username/presentations/new",
+	{
+	    templateUrl: "features/presentations/new.html",
+	    controller: "PresentationsNewController"
+	})
+	.when("/:username/presentations/:id/edit",
+	{
+	    templateUrl: "features/presentations/edit.html",
+	    controller: "PresentationsEditController"
+	})
+	/*
 	*	Gear
 	*/
 	.when("/:username/gear/list",
