@@ -32,10 +32,16 @@ Species
 </select>
 Spots
 <select ng-model="newFish.spot" class="form-control" placeholder="Species">
-    <option ng-repeat="spot in newFish.spots | orderBy" value="{{spot.name}}">{{spot.name}}</option>
+    <option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
 </select>
+Gear
+<select ng-model="editFish.gear" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
+</select>
+<!--
 Spot
 <input ng-model="newFish.spot" class="form-control" placeholder="Spot" />
+-->
 Weight
 <input ng-model="newFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
 Length

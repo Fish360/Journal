@@ -20,6 +20,9 @@
 	</div>
 </div>
 
+Name
+<input ng-model="gear.name" class="form-control" placeholder="Name" type="text" />
+
 Gear Type
 <select ng-model="gear.gearType" class="form-control">
     <option>Rod</option>
@@ -29,10 +32,10 @@ Gear Type
 </select>
 <div ng-show="gear.gearType != 'Leader'">
     Manufacturer
-    <input ng-model="gear.manufacturer" class="form-control" placeholder="Name" type="text" />
+    <input ng-model="gear.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
 
     Model
-    <input ng-model="gear.model" class="form-control" placeholder="Name" type="text" />
+    <input ng-model="gear.model" class="form-control" placeholder="Model" type="text" />
 
     <!-- !LEADER { -->
     Type

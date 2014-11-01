@@ -18,9 +18,9 @@
 		</div>
 	</div>
 </div>
-Caught Date
+Date Caught
 <input ng-model="editFish.caught" class="form-control" type="date"/>
-Caught Time
+Time Caught
 <input ng-model="editFish.caughtTime" class="form-control" type="time"/>
 Species
 <select ng-model="editFish.species" class="form-control" placeholder="Species">
@@ -32,7 +32,7 @@ Spots
 </select>
 Gear
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
-    <option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
+	<option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
 </select>
 Weight
 <input jga-decimal ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
