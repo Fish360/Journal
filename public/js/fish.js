@@ -20,7 +20,7 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 	});
 });
 
-f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
@@ -33,6 +33,11 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	GearService.findAll($scope.username, function(gears)
 	{
 		$scope.gears = gears;
+	});
+	
+	PresentationsService.findAll($scope.username, function(presentations)
+	{
+		$scope.presentations = presentations;
 	});
 	
 	$scope.create = function()
@@ -83,7 +88,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 });
 
-f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService)
+f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
 {
 	$scope.speciess = species;
 
@@ -96,10 +101,14 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 		GearService.findAll($scope.username, function(gears)
 		{
 			$scope.gears = gears;
-			$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
-			.success(function(fish)
+			PresentationsService.findAll($scope.username, function(presentations)
 			{
-				$scope.editFish = fish;
+				$scope.presentations = presentations;
+				$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
+				.success(function(fish)
+				{
+					$scope.editFish = fish;
+				});
 			});
 		});
 	});

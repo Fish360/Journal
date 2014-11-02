@@ -34,6 +34,10 @@ Gear
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
 </select>
+Presentations
+<select ng-model="editFish.presentation" class="form-control" placeholder="Presentation">
+	<option ng-repeat="presentation in presentations" value="{{presentation.name}}">{{presentation.name}}</option>
+</select>
 Weight
 <input jga-decimal ng-model="editFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
 Length

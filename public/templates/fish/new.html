@@ -35,8 +35,12 @@ Spots
     <option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
 </select>
 Gear
-<select ng-model="editFish.gear" class="form-control" placeholder="Gear">
+<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
+</select>
+Presentations
+<select ng-model="newFish.presentation" class="form-control" placeholder="Presentation">
+	<option ng-repeat="presentation in presentations" value="{{presentation.name}}">{{presentation.name}}</option>
 </select>
 <!--
 Spot
