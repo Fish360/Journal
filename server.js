@@ -6,7 +6,7 @@ var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 
 var spots = require('./public/features/spots/server.js');
-var spots = require('./public/features/presentations/server.js');
+var presentations = require('./public/features/presentations/server.js');
 var gear = require('./public/features/gear/server.js');
 var fish = require('./public/features/spots/server.js');
 
@@ -29,6 +29,7 @@ app.configure(function() {
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
 
+presentations(app, db, mongojs);
 spots(app, db, mongojs);
 gear(app, db, mongojs);
 
