@@ -31,23 +31,23 @@ Spots
 <select ng-model="editFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
 </select>
-Rod
+Rods
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
-Reel
+Reels
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
-Line
+Lines
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
-Leader
+Leaders
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
-Presentation
+Presentations
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
