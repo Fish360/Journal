@@ -31,30 +31,77 @@ Gear Type
     <option>Leader</option>
     <option>Presentation</option>
 </select>
-<div ng-show="gear.gearType != 'Leader'">
-    Manufacturer
-    <input ng-model="gear.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
 
-    Model
-    <input ng-model="gear.model" class="form-control" placeholder="Model" type="text" />
 
-    <!-- !LEADER { -->
-    Type
-    <select ng-model="gear.type" class="form-control">
-        <!-- ROD || REEL { -->
-        <option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel'">Spinning</option>
-        <option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel'">Casting</option>
-        <!-- } ROD || REEL -->
-        <!-- ROD || REEL || LINE { -->
-        <option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel' || gear.gearType == 'Line'">Fly</option>
-        <!-- } ROD || REEL || LINE -->
-        <!-- LINE { -->
-        <option ng-show="gear.gearType == 'Line'">Monofilament</option>
-        <option ng-show="gear.gearType == 'Line'">Braid</option>
-        <option ng-show="gear.gearType == 'Line'">Fluorocarbon</option>
-        <!-- } LINE -->
-    </select>
-    <!-- } !LEADER -->
+<div ng-show="gear.gearType == 'Presentation'">
+	Presentation Type
+	<select ng-model="gear.presentation.presentationType" class="form-control">
+		<option>Lure</option>
+		<option>Fly</option>
+		<option>Bait</option>
+	</select>
+	<div ng-show="gear.presentation.presentationType == 'Lure'">
+		Description
+		<input ng-model="gear.presentation.description" class="form-control" placeholder="Description" type="text" />
+<!--		Manufacturer
+		<input ng-model="gear.presentation.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
+-->
+		Model
+		<input ng-model="gear.presentation.model" class="form-control" placeholder="Model" type="text" />
+		Color
+		<input ng-model="gear.presentation.color" class="form-control" placeholder="Color" type="text" />
+		Length
+		<input ng-model="gear.presentation.length" class="form-control" placeholder="Length" type="text" />
+		Weight
+		<input ng-model="gear.presentation.weight" class="form-control" placeholder="Weight" type="text" />
+	</div>
+	<div ng-show="gear.presentation.presentationType == 'Fly'">
+		Description
+		<input ng-model="gear.presentation.description" class="form-control" placeholder="Description" type="text" />
+		Pattern
+		<input ng-model="gear.presentation.pattern" class="form-control" placeholder="Pattern" type="text" />
+		Color
+		<input ng-model="gear.presentation.color" class="form-control" placeholder="Color" type="text" />
+	</div>
+	<div ng-show="gear.presentation.presentationType == 'Bait'">
+		Description
+		<input ng-model="gear.presentation.description" class="form-control" placeholder="Description" type="text" />
+	</div>
+</div>
+
+<div ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel' || gear.gearType == 'Line' || gear.presentation.presentationType == 'Lure'">
+	Manufacturer
+	<input ng-model="gear.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
+	Model
+	<input ng-model="gear.model" class="form-control" placeholder="Model" type="text" />
+</div>
+
+
+<div ng-show="gear.gearType != 'Leader' && gear.gearType != 'Presentation'">
+<!--
+	Manufacturer
+	<input ng-model="gear.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
+	Model
+	<input ng-model="gear.model" class="form-control" placeholder="Model" type="text" />
+-->
+
+	<!-- !LEADER { -->
+	Type
+	<select ng-model="gear.type" class="form-control">
+		<!-- ROD || REEL { -->
+		<option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel'">Spinning</option>
+		<option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel'">Casting</option>
+		<!-- } ROD || REEL -->
+		<!-- ROD || REEL || LINE { -->
+		<option ng-show="gear.gearType == 'Rod' || gear.gearType == 'Reel' || gear.gearType == 'Line'">Fly</option>
+		<!-- } ROD || REEL || LINE -->
+		<!-- LINE { -->
+		<option ng-show="gear.gearType == 'Line'">Monofilament</option>
+		<option ng-show="gear.gearType == 'Line'">Braid</option>
+		<option ng-show="gear.gearType == 'Line'">Fluorocarbon</option>
+		<!-- } LINE -->
+	</select>
+	<!-- } !LEADER -->
 </div>
 
 <!-- ROD { -->

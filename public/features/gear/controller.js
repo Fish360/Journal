@@ -3,8 +3,9 @@ f360.controller("GearListController", function ($scope, $routeParams, $http, Gea
 	$scope.username = $routeParams.username;
 	GearService.findAll($scope.username, function(gears)
 	{
-	    $scope.gears = gears;
+		$scope.gears = gears;
 	});
+	$scope.presentationType = "Lure";
 });
 
 f360.controller("GearNewController", function ($scope, $routeParams, $http, $location, GearService)
