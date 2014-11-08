@@ -19,9 +19,16 @@
 	</div>
 </div>
 <select ng-model="presentationType" class="form-control" style="margin-top:5px">
+	<option>Rod</option>
+	<option>Reel</option>
+	<option>Line</option>
+	<option>Leader</option>
+	<option>Presentation</option>
+	<!--
 	<option>Lure</option>
 	<option>Fly</option>
 	<option>Bait</option>
+	-->
 </select>
 <table class="table">
 	<tr ng-repeat="gear in gears | orderBy : 'lastUpdated' : true | filter : gear.gearType = presentationType">

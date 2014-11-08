@@ -5,7 +5,7 @@ f360.controller("GearListController", function ($scope, $routeParams, $http, Gea
 	{
 		$scope.gears = gears;
 	});
-	$scope.presentationType = "Lure";
+	$scope.presentationType = "Rod";
 });
 
 f360.controller("GearNewController", function ($scope, $routeParams, $http, $location, GearService)

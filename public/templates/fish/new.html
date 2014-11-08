@@ -34,15 +34,36 @@ Spots
 <select ng-model="newFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
 </select>
-Gear
+Rod
 <select ng-model="newFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
+Reel
+<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear.name}}">{{gear.name}}</option>
+</select>
+Line
+<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear.name}}">{{gear.name}}</option>
+</select>
+Leader
+<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear.name}}">{{gear.name}}</option>
+</select>
+Presentation
+<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear.name}}">{{gear.name}}</option>
+</select>
+<!--
+
+
+-->
+<!--
 Presentation
 <select ng-model="newFish.presentation" class="form-control" placeholder="Presentation">
 	<option ng-repeat="presentation in presentations" value="{{presentation.name}}">{{presentation.name}}</option>
 </select>
-<!--
+--><!--
 Spot
 <input ng-model="newFish.spot" class="form-control" placeholder="Spot" />
 -->
