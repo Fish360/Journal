@@ -32,27 +32,27 @@ Species
 </select>
 Spots
 <select ng-model="newFish.spot" class="form-control" placeholder="Species">
-    <option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
+    <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 Rods
-<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear.name}}">{{gear.name}}</option>
+<select ng-model="newFish.rod" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear._id}}">{{gear.name}}</option>
 </select>
 Reels
-<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear.name}}">{{gear.name}}</option>
+<select ng-model="newFish.reel" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear._id}}">{{gear.name}}</option>
 </select>
 Lines
-<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear.name}}">{{gear.name}}</option>
+<select ng-model="newFish.line" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear._id}}">{{gear.name}}</option>
 </select>
 Leaders
-<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear.name}}">{{gear.name}}</option>
+<select ng-model="newFish.leader" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear._id}}">{{gear.name}}</option>
 </select>
 Presentations
-<select ng-model="newFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear.name}}">{{gear.name}}</option>
+<select ng-model="newFish.presentation" class="form-control" placeholder="Gear">
+	<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear._id}}">{{gear.name}}</option>
 </select>
 <!--
 
@@ -73,8 +73,6 @@ Length
 <input ng-model="newFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
 Girth
 <input ng-model="newFish.girth" class="form-control" placeholder="Girth" type="number" pattern="[0-9]*"/>
-Presentation
-<input ng-model="newFish.presentation" class="form-control" placeholder="Presentation"/>
 Water Depth
 <input ng-model="newFish.waterDepth" class="form-control" placeholder="Water Depth" type="number" pattern="[0-9]*"/>
 Water Temperature
@@ -85,6 +83,19 @@ Sunrise Time
 <input ng-model="newFish.sunriseTime" class="form-control" type="time"/>
 Sunset Time
 <input ng-model="newFish.sunsetTime" class="form-control" type="time"/>
+
+Moon Phase
+<select ng-model="newFish.moonphase" class="form-control">
+	<option>New Moon</option>
+	<option>Waxing Crescent</option>
+	<option>First Quarter</option>
+	<option>Waxing Gibbous</option>
+	<option>Full Moon</option>
+	<option>Waning Gibbous</option>
+	<option>Third Quarter</option>
+	<option>Waning Crescent</option>
+</select>
+
 Moonrise Time
 <input ng-model="newFish.moonriseTime" class="form-control" type="time"/>
 Moonset Time

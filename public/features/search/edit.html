@@ -1,0 +1,166 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	input[type=date] {
+		width: 100%;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<a	class="btn btn-success pull-right f360-navbar-button"
+			ng-click="update()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Edit Search</span>
+		</div>
+	</div>
+</div>
+
+Search Name
+<input ng-model="search.name" class="form-control" placeholder="Search" type="text" style="margin-top : 5px"/>
+
+Search For
+<select ng-model="search.searchType" class="form-control">
+	<option>All</option>
+	<option>Trips</option>
+	<option>Fish</option>
+	<option>Spots</option>
+	<option>Rods</option>
+	<option>Reels</option>
+	<option>Lines</option>
+	<option>Leaders</option>
+	<option>Presentations</option>
+</select>
+<div ng-show="search.searchType == 'Trips'">
+	Trip Title
+	<input type="text" class="form-control" placeholder="Title" ng-model="search.trips.title"/>
+	Start Date/Time
+	<div class="row">
+		<div class="col-xs-2">
+			<select ng-model="search.trips.fromDateComparator" class="form-control">
+				<option value=''>Any</option>
+				<option>Before</option>
+				<option>On</option>
+				<option>After</option>
+			</select>
+		</div>
+		<div class="col-xs-5">
+			<input type="date" class="form-control" ng-model="search.trips.fromDate"/>
+		</div>
+		<div class="col-xs-5">
+			<input type="time" class="form-control" ng-model="search.trips.fromTime"/>
+		</div>
+	</div>
+	End Date/Time
+	<div class="row">
+		<div class="col-xs-2">
+			<select ng-model="search.trips.toDateComparator" class="form-control">
+				<option value=''>Any</option>
+				<option>Before</option>
+				<option>On</option>
+				<option>After</option>
+			</select>
+		</div>
+		<div class="col-xs-5">
+			<input type="date" class="form-control" ng-model="search.trips.toDate"/>
+		</div>
+		<div class="col-xs-5">
+			<input type="time" class="form-control" ng-model="search.trips.toTime"/>
+		</div>
+	</div>
+</div>
+<div ng-show="search.searchType == 'Fish'">
+	From Date/Time
+	<div class="row">
+		<div class="col-xs-6">
+			<input ng-model="search.fish.caughtFromDate" class="form-control" type="date"/>
+		</div>
+		<div class="col-xs-6">
+			<input ng-model="search.fish.caughtFromTime" class="form-control" type="time"/>
+		</div>
+	</div>
+	To Date/Time
+	<div class="row">
+		<div class="col-xs-6">
+			<input ng-model="search.fish.caughtToDate" class="form-control" type="date"/>
+		</div>
+		<div class="col-xs-6">
+			<input ng-model="search.fish.caughtToTime" class="form-control" type="time"/>
+		</div>
+	</div>
+	Species
+	<select ng-model="search.fish.species" class="form-control">
+		<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
+	</select>
+	Weight
+	<div class="row">
+		<div class="col-xs-6">
+			<select class="form-control" ng-model="search.fish.weightComparator">
+				<option value=''>Any</option>
+				<option>Less Than</option>
+				<option>Equal To</option>
+				<option>Greater Than</option>
+			</select>
+		</div>
+		<div class="col-xs-6">
+			<input ng-model="search.fish.weightValue" class="form-control" placeholder="Weight"/>
+		</div>
+	</div>
+	Length
+	<div class="row">
+		<div class="col-xs-6">
+			<select ng-model="search.fish.lengthComparator" class="form-control">
+				<option value=''>Any</option>
+				<option>Less Than</option>
+				<option>Equal To</option>
+				<option>Greater Than</option>
+			</select>
+		</div>
+		<div class="col-xs-6">
+			<input ng-model="search.fish.lengthValue" class="form-control" placeholder="Length"/>
+		</div>
+	</div>
+	Girth
+	<div class="row">
+		<div class="col-xs-6">
+			<select class="form-control" ng-model="search.fish.girthComparator">
+				<option value=''>Any</option>
+				<option>Less Than</option>
+				<option>Equal To</option>
+				<option>Greater Than</option>
+			</select>
+		</div>
+		<div class="col-xs-6">
+			<input ng-model="search.fish.girthValue" class="form-control" placeholder="Girth"/>
+		</div>
+	</div>
+	Presentation
+	<select ng-model="search.fish.presentation" class="form-control">
+		<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear.name}}">{{gear.name}}</option>
+	</select>
+	Spot
+	<select ng-model="search.fish.spot" class="form-control">
+		<option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
+	</select>
+	Moon Phase
+	<select ng-model="search.fish.moonphase" class="form-control">
+		<option>New Moon</option>
+		<option>Waxing Crescent</option>
+		<option>First Quarter</option>
+		<option>Waxing Gibbous</option>
+		<option>Full Moon</option>
+		<option>Waning Gibbous</option>
+		<option>Third Quarter</option>
+		<option>Waning Crescent</option>
+	</select>
+</div>
+
+<a ng-click="remove()" class="btn btn-danger btn-block">
+    Delete
+</a>
+
+

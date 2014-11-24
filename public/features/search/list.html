@@ -1,0 +1,43 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	.f360-right-arrow {
+		font-size: 1.5em;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<a href="#/{{username}}/search/new" class="btn btn-success pull-right f360-navbar-button">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Saved Searches</span>
+		</div>
+	</div>
+</div>
+<select ng-model="searchType" class="form-control" style="margin-top:5px">
+	<option value=''>All</option>
+	<option>Trips</option>
+	<option>Fish</option>
+	<option>Spots</option>
+	<option>Rods</option>
+	<option>Reels</option>
+	<option>Lines</option>
+	<option>Leaders</option>
+	<option>Presentations</option>
+</select>
+<table class="table">
+	<tr ng-repeat="search in searches | orderBy : 'lastUpdated' : true | filter : search.searchType = searchType">
+		<td>
+			<a class="pull-right" href="#/{{username}}/search/{{search._id}}/edit">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+			<a href="#/{{username}}/searchResults/{{search._id}}">
+				{{search.name}}
+			</a>
+		</td>
+	</tr>
+</table>

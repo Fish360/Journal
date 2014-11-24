@@ -9,6 +9,8 @@ var spots = require('./public/features/spots/server.js');
 var presentations = require('./public/features/presentations/server.js');
 var gear = require('./public/features/gear/server.js');
 var fish = require('./public/features/spots/server.js');
+var search = require('./public/features/search/server.js');
+var searchResults = require('./public/features/searchResults/server.js');
 
 var connection_string = '127.0.0.1:27017/f360';
 
@@ -20,7 +22,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations']);
+var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search']);
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -32,6 +34,8 @@ app.configure(function() {
 presentations(app, db, mongojs);
 spots(app, db, mongojs);
 gear(app, db, mongojs);
+search(app, db, mongojs);
+searchResults(app, db, mongojs);
 
 app.get('/api/:username/events', function(req, res)
 {

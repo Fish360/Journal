@@ -144,6 +144,32 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	    controller: "GearEditController"
 	})
 	/*
+	*	Search Results
+	*/
+	.when("/:username/searchResults/:searchId",
+	{
+	    templateUrl: "features/searchResults/list.html",
+	    controller: "SearchResultsListController"
+	})
+	/*
+	*	Search
+	*/
+	.when("/:username/search/list",
+	{
+	    templateUrl: "features/search/list.html",
+	    controller: "SearchListController"
+	})
+	.when("/:username/search/new",
+	{
+	    templateUrl: "features/search/new.html",
+	    controller: "SearchNewController"
+	})
+	.when("/:username/search/:id/edit",
+	{
+	    templateUrl: "features/search/edit.html",
+	    controller: "SearchEditController"
+	})
+	/*
 	*	Fish
 	*/
 	.when("/:username/trip/:tripId/fish/list",

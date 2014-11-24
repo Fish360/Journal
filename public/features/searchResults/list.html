@@ -1,0 +1,33 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	.f360-right-arrow {
+		font-size: 1.5em;
+	}
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<div class="navbar-header">
+			<span class="navbar-brand">Search Results</span>
+		</div>
+	</div>
+</div>
+<table class="table">
+	<tr ng-repeat="searchResult in searchResults | orderBy : 'lastUpdated' : true | filter : search.searchType = searchType">
+		<td ng-switch="searchResult.type">
+			<a ng-switch-when="TRIP" href="#/{{username}}/trip/{{searchResult._id}}/edit">
+				{{searchResult.title}}
+			</a>
+			<a ng-switch-when="FISH" class="pull-right" href="#/{{username}}/trip/{{searchResult.trip_id}}/fish/{{searchResult._id}}/edit">
+				<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+			</a>
+			<a ng-switch-when="FISH" href="#/{{username}}/trip/{{searchResult.trip_id}}/fish/{{searchResult._id}}/edit">
+				{{searchResult.species}}<br/>{{searchResult.weight}}lbs {{searchResult.length}}in
+			</a>
+
+		</td>
+	</tr>
+</table>
