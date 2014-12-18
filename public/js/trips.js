@@ -51,9 +51,14 @@ f360.controller("EditTripController", function($scope, $routeParams, $http, $loc
 	
 	$scope.remove = function()
 	{
+		var removeConfirm = confirm("Are you sure you want to remove this trip?");
+		if(removeConfirm) {
 		$http.delete("api/"+$scope.username+"/trip/"+tripid)
 			.success(function(trip){
 				$location.path( $scope.username+"/trip/list" );
 			});
+		} else {
+			return false;
+		}
 	}
 });

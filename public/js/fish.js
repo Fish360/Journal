@@ -145,11 +145,16 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 	
 	$scope.remove = function()
 	{
+		var removeConfirm = confirm("Are you sure you want to remove this trip?");
+		if(removeConfirm) {
 		$http.delete("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 			.success(function(fish){
 //				window.history.back();
 //				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 				window.history.go(-2);
 			});
+		} else {
+			return false;
+		}
 	}
 });
