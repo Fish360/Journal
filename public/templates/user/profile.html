@@ -31,10 +31,25 @@ Password
 <input ng-model="user.password" class="form-control" type="password" readonly="readonly"/>
 Confirm Password
 <input ng-model="user.password2" class="form-control" type="password" readonly="readonly"/>
+Edition
+<select ng-model="user.edition" class="form-control">
+	<option value="">Community</option>
+	<option>Angler</option>
+	<option>Professional</option>
+</select>
 Date of Birth
 <input ng-model="user.dateOfBirth" class="form-control" type="date"/>
 Units
 <select ng-model="user.units" class="form-control">
+	<option value="">Standard</option>
 	<option>Metric</option>
-	<option>Standard</option>
 </select>
+Sort Fish By
+<select ng-model="user.sortFishBy" class="form-control">
+	<option value="">Date Caught</option>
+	<option>Length</option>
+	<option>Weight</option>
+	<option>Species</option>
+</select>
+<a href="#/termsReadOnly" class="btn btn-success btn-block">User Agreement
+</a>
