@@ -90,6 +90,11 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
 {
+
+	var numeric = jQuery('.f360-number');
+	console.log(numeric);
+	numeric.autoNumeric('init',{aDec: '.', aPad: true});
+	
 	$scope.speciess = species;
 
 	$scope.username = $routeParams.username;
