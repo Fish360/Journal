@@ -1,5 +1,22 @@
 var f360 = angular.module("f360", ["ngRoute"]);
 
+f360.directive('f360Decimal', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			element = $(element[0]);
+			$(element).on("keyup", function(){
+				var value = element.val();
+				value = value.toString();
+				value = value.replace(".", "");
+				value = value.replace(",", "");
+				value = (value / 100.0).toFixed(2);
+				element.val(value);
+			});
+		}
+	}
+});
+
 //f360.directive('siteHeader', function () {
 f360.directive('backButton', function () {
     return {
@@ -207,3 +224,4 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	})
 	;
 }]);
+

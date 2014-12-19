@@ -43,7 +43,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	$scope.create = function()
 	{
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
-		console.log(url);
+//		console.log(url);
 		$scope.newFish["lastUpdated"] = new Date();
 		
 		for(var i=0; i<species.length; i++)
@@ -91,8 +91,6 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
 {
 
-	f360Number();
-	
 	$scope.speciess = species;
 
 	$scope.username = $routeParams.username;
@@ -111,6 +109,7 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 				.success(function(fish)
 				{
 					$scope.editFish = fish;
+//					f360Number($scope);
 				});
 			});
 		});
@@ -118,10 +117,22 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 	
 	$scope.update = function()
 	{
+//		console.log("UPDATE");
 		for(var i=0; i<species.length; i++)
 			if(species[i].scientific == $scope.editFish.species)
 				$scope.editFish["commonName"] = species[i].common;
 
+//		console.log($scope.editFish);
+
+//		$scope.editFish.weight = $scope.editFish.weight.replace
+		//$scope.editFish.weight += "";
+/*		$scope.editFish.weight *= 10.0;
+		$scope.editFish.length *= 10.0;
+		$scope.editFish.girth *= 10.0;
+		$scope.editFish.waterDepth *= 10.0;
+		$scope.editFish.waterTemperature *= 10.0;
+		$scope.editFish.waterClarity *= 10.0;
+*/		
 		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){

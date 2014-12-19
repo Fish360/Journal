@@ -6,6 +6,8 @@ module.exports = function(app, db, mongojs) {
 			var query = {};
 			if(search.searchType == "Fish")
 			{
+				query.username = req.params.username;
+
 				if(search.fish.moonphase) {
 					query.moonphase = search.fish.moonphase;
 				}
