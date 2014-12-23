@@ -35,6 +35,103 @@ Search For
 	<option>Leaders</option>
 	<option>Presentations</option>
 </select>
+<div ng-show="search.searchType == 'Presentations'">
+	Presentation Name
+	<input type="text" class="form-control" placeholder="Title" ng-model="search.presentations.name"/>
+	Presentation Type
+	<select class="form-control" placeholder="Title" ng-model="search.presentations.type">
+		<option>Lure</option>
+		<option>Fly</option>
+		<option>Bate</option>
+	</select>
+	<div ng-show="search.presentations.type == 'Lure'">
+		Lure Model
+		<input type="text" class="form-control" placeholder="Lure Model" ng-model="search.presentations.model"/>
+		Lure Color
+		<input type="text" class="form-control" placeholder="Lure Color" ng-model="search.presentations.color"/>
+		Lure Length
+		<input type="text" class="form-control" placeholder="Lure Length" ng-model="search.presentations.length"/>
+		Lure Weight
+		<input type="text" class="form-control" placeholder="Lure Weight" ng-model="search.presentations.weight"/>
+		Lure Manufacturer
+		<input type="text" class="form-control" placeholder="Lure Manufacturer" ng-model="search.presentations.manufacturer"/>
+	</div>
+	<div ng-show="search.presentations.type == 'Fly'">
+		Fly Pattern
+		<input type="text" class="form-control" placeholder="Fly Pattern" ng-model="search.presentations.pattern"/>
+		Fly Color
+		<input type="text" class="form-control" placeholder="Fly Color" ng-model="search.presentations.color"/>
+	</div>
+	<div ng-show="search.presentations.type == 'Bate'">
+		&nbsp;
+	</div>
+</div>
+<div ng-show="search.searchType == 'Leaders'">
+	Leader Name
+	<input type="text" class="form-control" placeholder="Leader Name" ng-model="search.leaders.name"/>
+	Line
+	<input type="text" class="form-control" placeholder="Line" ng-model="search.leaders.line"/>
+</div>
+<div ng-show="search.searchType == 'Reels'">
+	Line Name
+	<input type="text" class="form-control" placeholder="Line Name" ng-model="search.lines.name"/>
+	Manufacturer
+	<input type="text" class="form-control" placeholder="Manufacturer" ng-model="search.lines.manufacturer"/>
+	Model
+	<input type="text" class="form-control" placeholder="Model" ng-model="search.lines.model"/>
+	Strength
+	<input type="text" class="form-control" placeholder="Strength" ng-model="search.lines.strength"/>
+	Color
+	<input type="text" class="form-control" placeholder="Color" ng-model="search.lines.color"/>
+</div>
+<div ng-show="search.searchType == 'Reels'">
+	Reel Name
+	<input type="text" class="form-control" placeholder="Reel Name" ng-model="search.reels.name"/>
+	Manufacturer
+	<input type="text" class="form-control" placeholder="Manufacturer" ng-model="search.reels.manufacturer"/>
+	Model
+	<input type="text" class="form-control" placeholder="Model" ng-model="search.reels.model"/>
+	Weight
+	<input type="text" class="form-control" placeholder="Weight" ng-model="search.reels.weight"/>
+	Gear Ratio
+	<input type="text" class="form-control" placeholder="Gear Ratio" ng-model="search.reels.gearRatio"/>
+	Line Capacity
+	<input type="text" class="form-control" placeholder="Line Capacity" ng-model="search.reels.lineCapacity"/>
+	Max Drag
+	<input type="text" class="form-control" placeholder="Max Drag" ng-model="search.reels.maxDrag"/>
+</div>
+<div ng-show="search.searchType == 'Rods'">
+	Rod Name
+	<input type="text" class="form-control" placeholder="Rod Name" ng-model="search.rods.name"/>
+	Manufacturer
+	<input type="text" class="form-control" placeholder="Manufacturer" ng-model="search.rods.manufacturer"/>
+	Model
+	<input type="text" class="form-control" placeholder="Model" ng-model="search.rods.model"/>
+	Length
+	<input class="form-control" placeholder="Length" ng-model="search.rods.length" type="number" pattern="[0-9]*"/>
+	Action
+	<input type="text" class="form-control" placeholder="Title" ng-model="search.rods.action"/>
+	Power
+	<input type="text" class="form-control" placeholder="Title" ng-model="search.rods.power"/>
+	Pieces
+	<input type="text" class="form-control" placeholder="Title" ng-model="search.rods.pieces"/>
+</div>
+<div ng-show="search.searchType == 'Spots'">
+	Spot Name
+	<input type="text" class="form-control" placeholder="Spot Name" ng-model="search.spots.name"/>
+	Street
+	<input type="text" class="form-control" placeholder="Street" ng-model="search.spots.street"/>
+	City
+	<input type="text" class="form-control" placeholder="Boston" ng-model="search.spots.city"/>
+	State
+	<input type="text" class="form-control" placeholder="MA" ng-model="search.spots.state"/>
+	ZIP
+	<input class="form-control" placeholder="01234" ng-model="search.spots.zip" type="number" pattern="[0-9][0-9][0-9][0-9][0-9]"/>
+	Country
+	<input type="text" class="form-control" placeholder="USA" ng-model="search.spots.country"/>
+	Water
+	<input type="text" class="form-control" placeholder="Water" ng-model="search.spots.water"/>
+</div>
 <div ng-show="search.searchType == 'Trips'">
 	Trip Title
 	<input type="text" class="form-control" placeholder="Title" ng-model="search.trips.title"/>
@@ -162,5 +259,3 @@ Search For
 <a ng-click="remove()" class="btn btn-danger btn-block">
     Delete
 </a>
-
-

@@ -18,6 +18,9 @@
 <table class="table">
 	<tr ng-repeat="searchResult in searchResults | orderBy : 'lastUpdated' : true | filter : search.searchType = searchType">
 		<td ng-switch="searchResult.type">
+			<a ng-switch-when="SPOT" href="#/{{username}}/spots/{{searchResult._id}}/edit">
+				{{searchResult.name}}
+			</a>
 			<a ng-switch-when="TRIP" href="#/{{username}}/trip/{{searchResult._id}}/edit">
 				{{searchResult.title}}
 			</a>

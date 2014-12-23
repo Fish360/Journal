@@ -4,10 +4,37 @@ module.exports = function(app, db, mongojs) {
 		db.search.findOne({ _id: mongojs.ObjectId(req.params.searchId)}, function (err, search) {
 			console.log(search);
 			var query = {};
-			if(search.searchType == "Fish")
+			query.username = req.params.username;
+			if(search.searchType == "Spots")
 			{
-				query.username = req.params.username;
-
+				if(search.spots.zip) {
+					query.zip = search.spots.zip;
+				}
+				if(search.spots.name) {
+					query.name = {$regex: search.spots.name};
+				}
+				if(search.spots.street) {
+					query.street = {$regex: search.spots.street};
+				}
+				if(search.spots.city) {
+					query.city = {$regex: search.spots.city};
+				}
+				if(search.spots.state) {
+					query.state = {$regex: search.spots.state};
+				}
+				if(search.spots.country) {
+					query.country = {$regex: search.spots.country};
+				}
+				if(search.spots.water) {
+					query.water = {$regex: search.spots.water};
+				}
+				db.spots.find(query, function(err, spots) {
+					console.log(spots);
+					res.json(spots);
+				});
+			}
+			else if(search.searchType == "Fish")
+			{
 				if(search.fish.moonphase) {
 					query.moonphase = search.fish.moonphase;
 				}
