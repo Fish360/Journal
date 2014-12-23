@@ -5,7 +5,23 @@ module.exports = function(app, db, mongojs) {
 			console.log(search);
 			var query = {};
 			query.username = req.params.username;
-			if(search.searchType == "Spots")
+			if(search.searchType == "Leaders")
+			{
+				query.gearType = "Leader";
+				if(search.leaders) {
+					if(search.leaders.name) {
+						query.name = {$regex: search.leaders.name};
+					}
+					if(search.leaders.line) {
+						query.line = {$regex: search.leaders.line};
+					}
+				}
+				db.gear.find(query, function(err, gear) {
+					console.log(gear);
+					res.json(gear);
+				});
+			}
+			else if(search.searchType == "Spots")
 			{
 				if(search.spots.zip) {
 					query.zip = search.spots.zip;
