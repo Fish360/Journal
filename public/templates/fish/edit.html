@@ -19,10 +19,15 @@
 		</div>
 	</div>
 </div>
-Date Caught
-<input ng-model="editFish.caught" class="form-control" type="date"/>
-Time Caught
-<input ng-model="editFish.caughtTime" class="form-control" type="time"/>
+Caught Date/Time
+<div class="row">
+    <div class="col-xs-6">
+        <input ng-model="editFish.caught" class="form-control" type="date" />
+    </div>
+    <div class="col-xs-6">
+        <input ng-model="editFish.caughtTime" class="form-control" type="time" />
+    </div>
+</div>
 Species
 <select ng-model="editFish.species" class="form-control" placeholder="Species">
     <option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>

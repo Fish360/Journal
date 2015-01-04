@@ -21,14 +21,24 @@
 </div>
 Title
 <input ng-model="editTrip.title" class="form-control" placeholder="Title"/>
-Start Date
-<input ng-model="editTrip.start" class="form-control" type="date" />
-Start Time
-<input ng-model="editTrip.startTime" class="form-control" type="time" />
-End Date
-<input ng-model="editTrip.end" class="form-control" type="date"/>
-End Time
-<input ng-model="editTrip.endTime" class="form-control" type="time"/>
+Start Date/Time
+<div class="row">
+    <div class="col-xs-6">
+        <input ng-model="editTrip.start" class="form-control" type="date" />
+    </div>
+    <div class="col-xs-6">
+        <input ng-model="editTrip.startTime" class="form-control" type="time" />
+    </div>
+</div>
+End Date/Time
+<div class="row">
+    <div class="col-xs-6">
+        <input ng-model="editTrip.end" class="form-control" type="date" />
+    </div>
+    <div class="col-xs-6">
+        <input ng-model="editTrip.endTime" class="form-control" type="time" />
+    </div>
+</div>
 Notes
 <textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes">
 
