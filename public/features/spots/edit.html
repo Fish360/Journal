@@ -24,21 +24,27 @@ Name
 <div class="row">
     <div class="col-xs-6">
         Latitude
-        <input ng-model="spot.latitude" class="form-control" placeholder="Latitude" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]" />
+        <input ng-model="spot.latitude" class="form-control" placeholder="0.00" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]" />
     </div>
     <div class="col-xs-6">
         Longitude
-        <input ng-model="spot.longitude" class="form-control" placeholder="Longitude" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]" />
+        <input ng-model="spot.longitude" class="form-control" placeholder="0.00" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]" />
     </div>
 </div>
 Street
 <input ng-model="spot.street" class="form-control" placeholder="Street" type="text"/>
 City
 <input ng-model="spot.city" class="form-control" placeholder="City" type="text"/>
-State
-<input ng-model="spot.state" class="form-control" placeholder="State" type="text"/>
-ZIP
-<input ng-model="spot.zip" class="form-control" placeholder="ZIP" type="number" pattern="[0-9][0-9][0-9][0-9][0-9]"/>
+<div class="row">
+    <div class="col-xs-6">
+        State
+        <input ng-model="spot.state" class="form-control" placeholder="State" type="text" />
+    </div>
+    <div class="col-xs-6">
+        ZIP
+        <input ng-model="spot.zip" class="form-control" placeholder="01234" type="number" pattern="[0-9][0-9][0-9][0-9][0-9]" />
+    </div>
+</div>
 Country
 <input ng-model="spot.country" class="form-control" placeholder="Country" type="text"/>
 Water
