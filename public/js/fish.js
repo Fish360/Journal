@@ -57,14 +57,14 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 					species : $scope.newFish.species
 				};
 
-				var user = localStorage.getItem("user");
-				if(user != null && user != "") {
-					user = JSON.parse(user);
-					user.preferences = preferences;
-				}
-				localStorage.setItem("user", JSON.stringify(user));
-				url = "api/user/"+$scope.username+"/preferences";
-				$http.post(url, preferences);
+//				var user = localStorage.getItem("user");
+//				if(user != null && user != "" && user != "null") {
+//					user = JSON.parse(user);
+//					user.preferences = preferences;
+//				}
+//				localStorage.setItem("user", JSON.stringify(user));
+//				url = "api/user/"+$scope.username+"/preferences";
+//				$http.post(url, preferences);
 //				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
 				
 //				$location.replace(); // <----

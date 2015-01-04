@@ -78,7 +78,8 @@ app.get('/api/:username/trip/:tripid', function(req, res)
 // Create a new trip for username
 app.post('/api/:username/trip', function(req, res)
 {
-	req.body.type = "TRIP";
+    req.body.type = "TRIP";
+    req.body.fishCount = 0;
 	db.trip.insert(req.body, function(err, newTrip)
 	{
 		res.json(newTrip);
@@ -218,7 +219,14 @@ app.post("/api/user/:username/trip/:tripid/fish", function(req, res)
 	newFish.username = username;
 	db.fish.insert(newFish, function(err, newFish)
 	{
-		res.json(newFish);
+	    db.trip.findAndModify({
+	        query: { _id: mongojs.ObjectId(req.params.tripid) },
+	        update: {
+	            $inc: {fishCount : 1}
+	        }
+	    }, function (err, trip) {
+	        res.json(newFish);
+	    });
 	});
 });
 // Get a particular fish
@@ -230,8 +238,15 @@ app.get("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 // Delete a particular fish
 app.delete("/api/user/:username/trip/:tripid/fish/:fishid", function(req, res){
 	db.fish.remove({_id: mongojs.ObjectId(req.params.fishid)}, function(err, newFish){
-		db.fish.find(function(err, fishes){
-			res.json(fishes);
+	    db.fish.find(function (err, fishes) {
+	        db.trip.findAndModify({
+	            query: { _id: mongojs.ObjectId(req.params.tripid) },
+	            update: {
+	                $inc: { fishCount: -1 }
+	            }
+	        }, function (err, trip) {
+	            res.json(fishes);
+	        });
 		});
 	});
 });
