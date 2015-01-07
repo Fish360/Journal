@@ -51,10 +51,12 @@ Water
 <input ng-model="spot.water" class="form-control" placeholder="Water" type="text"/>
 Species
 <input ng-model="spot.species" class="form-control" placeholder="Spieces" type="text"/>
+Photos
+<a href="#/{{username}}/spots/photos" class="btn btn-success btn-block">
+    View Photos
+</a>
 Notes
-<textarea ng-model="spot.notes" class="form-control" placeholder="Notes">
-
-</textarea>
+<textarea ng-model="spot.notes" class="form-control" placeholder="Notes"></textarea>
 <a ng-click="remove()" class="btn btn-danger btn-block">
     Delete
 </a>

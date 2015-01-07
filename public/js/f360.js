@@ -85,6 +85,16 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	/*
 	*	Trips
 	*/
+	.when("/:username/trip/photos/:id",
+	{
+	    templateUrl: "templates/trip/photo.html",
+	    controller: "TripPhotoController"
+	})
+	.when("/:username/trip/photos",
+	{
+	    templateUrl: "templates/trip/photos.html",
+	    controller: "TripPhotosController"
+	})
 	.when("/:username/trip/new",
 	{
 		templateUrl: "templates/trip/new.html",
@@ -113,6 +123,16 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	/*
 	*	Spots
 	*/
+	.when("/:username/spots/photos/:id",
+	{
+	    templateUrl: "features/spots/photo.html",
+	    controller: "SpotPhotoController"
+    })
+	.when("/:username/spots/photos",
+	{
+	    templateUrl: "features/spots/photos.html",
+	    controller: "SpotPhotosController"
+    })
 	.when("/:username/spots/list",
 	{
 	    templateUrl: "features/spots/list.html",
@@ -193,6 +213,16 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	/*
 	*	Fish
 	*/
+	.when("/:username/fish/photos/:id",
+	{
+	    templateUrl: "templates/fish/photo.html",
+	    controller: "FishPhotoController"
+	})
+	.when("/:username/fish/photos",
+	{
+	    templateUrl: "templates/fish/photos.html",
+	    controller: "FishPhotosController"
+	})
 	.when("/:username/trip/:tripId/fish/list",
 	{
 		templateUrl: "templates/fish/list.html",

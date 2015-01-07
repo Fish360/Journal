@@ -1,4 +1,13 @@
-f360.controller("FishHomeListController", function($scope, $routeParams, $http)
+f360.controller("FishPhotosController", function ($scope, $routeParams, $http, SpotService) {
+    $scope.username = $routeParams.username;
+});
+
+f360.controller("FishPhotoController", function ($scope, $routeParams, $http, SpotService) {
+    $scope.username = $routeParams.username;
+    $scope.photoId = $routeParams.id;
+});
+
+f360.controller("FishHomeListController", function ($scope, $routeParams, $http)
 {
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.username;

@@ -1,0 +1,34 @@
+﻿<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+	input[type=date] {
+		width: 100%;
+	}
+    .thumbnail {
+        width : 100px;
+        float : left;
+        margin-right:10px;
+        margin-top:10px;
+    }
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<a	class="btn btn-success pull-right f360-navbar-button"
+			ng-click="update()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</a>
+		<div class="navbar-header">
+			<span class="navbar-brand">Trip Photos</span>
+		</div>
+	</div>
+</div>
+
+<a href="#/{{username}}/trip/photos/1">
+    <img src="/img/trips/1.JPG" class="thumbnail" />
+</a>
+<a href="#/{{username}}/trip/photos/2">
+    <img src="/img/trips/2.JPG" class="thumbnail" />
+</a>

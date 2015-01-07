@@ -1,4 +1,13 @@
-f360.controller("SpotHomeListController", function($scope, $routeParams, $http, SpotService)
+f360.controller("SpotPhotosController", function ($scope, $routeParams, $http, SpotService) {
+    $scope.username = $routeParams.username;
+});
+
+f360.controller("SpotPhotoController", function ($scope, $routeParams, $http, SpotService) {
+    $scope.username = $routeParams.username;
+    $scope.photoId = $routeParams.id;
+});
+
+f360.controller("SpotHomeListController", function ($scope, $routeParams, $http, SpotService)
 {
 	console.log("SpotHomeListController " + SpotService);
 	/*

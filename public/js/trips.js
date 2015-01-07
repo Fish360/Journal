@@ -1,3 +1,12 @@
+f360.controller("TripPhotosController", function ($scope, $routeParams, $http, SpotService) {
+    $scope.username = $routeParams.username;
+});
+
+f360.controller("TripPhotoController", function ($scope, $routeParams, $http, SpotService) {
+    $scope.username = $routeParams.username;
+    $scope.photoId = $routeParams.id;
+});
+
 
 f360.controller("TripListController", function($scope, $routeParams, $http)
 {
