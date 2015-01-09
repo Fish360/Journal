@@ -6,8 +6,8 @@
 	input[type=date] {
 		width: 100%;
 	}
-    .thumbnail {
-        width : 100px;
+    .thumbs {
+        width : 45%;
         float : left;
         margin-right:10px;
         margin-top:10px;
@@ -16,9 +16,8 @@
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<back-button></back-button>
-		<a	class="btn btn-success pull-right f360-navbar-button"
-			ng-click="update()">
-			<span class="glyphicon glyphicon-ok"></span>
+		<a	class="btn btn-success pull-right f360-navbar-button">
+			<span class="glyphicon glyphicon-plus"></span>
 		</a>
 		<div class="navbar-header">
 			<span class="navbar-brand">Trip Photos</span>
@@ -27,8 +26,8 @@
 </div>
 
 <a href="#/{{username}}/trip/photos/1">
-    <img src="/img/trips/1.JPG" class="thumbnail" />
+    <img src="/img/trips/1.JPG" class="thumbs" />
 </a>
 <a href="#/{{username}}/trip/photos/2">
-    <img src="/img/trips/2.JPG" class="thumbnail" />
+    <img src="/img/trips/2.JPG" class="thumbs" />
 </a>

@@ -2,7 +2,7 @@ module.exports = function(app, db, mongojs) {
 	// create
     app.post("/api/:username/gear", function (req, res) {
 		console.log("CREATE");
-		req.body.type = "SPOT";
+		req.body.type = "GEAR";
 		console.log(req.body);
 		db.gear.insert(req.body, function(err, doc){
 			res.json(doc);
@@ -26,6 +26,7 @@ module.exports = function(app, db, mongojs) {
 	// update
 	app.put("/api/:username/gear/:id", function (req, res) {
 	    console.log("UPDATE");
+	    console.log(req.body);
 	    var newDoc = req.body;
 	    delete newDoc._id;
 	    db.gear.findAndModify({
