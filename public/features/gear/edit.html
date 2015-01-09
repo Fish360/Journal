@@ -29,6 +29,32 @@ Gear Type
 	<option>Presentation</option>
 </select>
 
+<div ng-show="gear.gearType == 'Rod'">
+    Rod Type
+    <select ng-model="gear.type" class="form-control">
+        <option>Spinning</option>
+        <option>Casting</option>
+        <option>Fly</option>
+    </select>
+</div>
+<div ng-show="gear.gearType == 'Reel'">
+    Reel Type
+    <select ng-model="gear.type" class="form-control">
+        <option>Spinning</option>
+        <option>Casting</option>
+        <option>Fly</option>
+    </select>
+</div>
+<div ng-show="gear.gearType == 'Line'">
+    Line Type
+    <select ng-model="gear.type" class="form-control">
+        <option>Braid</option>
+        <option>Monofilament</option>
+        <option>Fluorocarbon</option>
+        <option>Fly</option>
+    </select>
+</div>
+
 Name
 <input ng-model="gear.name" class="form-control" placeholder="Name" type="text" />
 
@@ -68,41 +94,11 @@ Name
 	</div>
 </div>
 
-
 <div ng-show="gear.gearType != 'Leader'">
     Manufacturer
     <input ng-model="gear.manufacturer" class="form-control" placeholder="Manufacturer" type="text" />
-
     Model
     <input ng-model="gear.model" class="form-control" placeholder="Model" type="text" />
-
-    <!-- !LEADER { -->
-    <div ng-show="gear.gearType == 'Rod'">
-        Rod Type
-        <select ng-model="gear.type" class="form-control">
-            <option>Spinning</option>
-            <option>Casting</option>
-            <option>Fly</option>
-        </select>
-    </div>
-    <div ng-show="gear.gearType == 'Reel'">
-        Reel Type
-        <select ng-model="gear.type" class="form-control">
-            <option>Spinning</option>
-            <option>Casting</option>
-            <option>Fly</option>
-        </select>
-    </div>
-    <div ng-show="gear.gearType == 'Line'">
-        Line Type
-        <select ng-model="gear.type" class="form-control">
-            <option>Braid</option>
-            <option>Monofilament</option>
-            <option>Fluorocarbon</option>
-            <option>Fly</option>
-        </select>
-    </div>
-    <!-- } !LEADER -->
 </div>
 
 <!-- ROD { -->
@@ -137,12 +133,13 @@ Name
 </div>
 
 <div ng-show="gear.gearType == 'Leader'">
-    Description
-    <textarea ng-model="gear.description" class="form-control" placeholder="Description">
-
-    </textarea>
     Line
     <input ng-model="gear.line" class="form-control" placeholder="Line" type="text" />
+</div>
+
+<div ng-show="gear.gearType != 'Leader'">
+    Description
+    <textarea ng-model="gear.description" class="form-control" placeholder="Description"></textarea>
 </div>
 
 Notes
