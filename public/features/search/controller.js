@@ -38,7 +38,8 @@ f360.controller("SearchNewController", function ($scope, $routeParams, $http, $l
 
 f360.controller("SearchEditController", function ($scope, $routeParams, $http, $location, SearchService, SpotService, GearService)
 {
-	$scope.username = $routeParams.username;
+    $scope.speciess = species;
+    $scope.username = $routeParams.username;
 	SpotService.findAll($scope.username, function (spots) {
 		console.log(spots);
 		$scope.spots = spots;
