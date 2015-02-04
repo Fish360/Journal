@@ -4,6 +4,50 @@ var express   = require('express');
 var app       = express(); 								// create our app w/ express
 var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
+var multer = require("multer");
+
+app.use(multer({
+    dest: './public/uploads/',
+    rename: function (fieldname, filename) {
+        return filename + Date.now();
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...')
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+        done = true;
+    }
+}));
+
+//app.post('/api/photo', function (req, res) {
+app.post('/trip/photo', function (req, res) {
+    if (done == true) {
+        var tripId = req.body.tripId;
+        var username = req.body.username;
+        console.log(username);
+        console.log(tripId);
+        console.log(req.files.userPhoto.name);
+        db.trip.findOne({ _id: mongojs.ObjectId(tripId) }, function (err, trip) {
+            console.log(trip);
+            if(typeof trip.images == "undefined")
+            {
+                trip.images = [];
+            }
+            trip.images.push(req.files.userPhoto.name);
+            db.trip.save(trip, function () {
+                res.redirect("/#/"+username+"/trip/"+tripId+"/photos");
+            });
+        });
+    }
+});
+
+app.post('/fish/photo', function (req, res) {
+    if (done == true) {
+        console.log(req.files);
+        res.end("File uploaded.");
+    }
+});
 
 var spots = require('./public/features/spots/server.js');
 var presentations = require('./public/features/presentations/server.js');

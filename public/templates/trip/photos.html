@@ -25,9 +25,4 @@
 	</div>
 </div>
 
-<a href="#/{{username}}/trip/photos/1">
-    <img src="/img/trips/1.JPG" class="thumbs" />
-</a>
-<a href="#/{{username}}/trip/photos/2">
-    <img src="/img/trips/2.JPG" class="thumbs" />
-</a>
+<img width="300" ng-repeat="img in trip.images" src="/uploads/{{img}}"/>

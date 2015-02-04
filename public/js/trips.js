@@ -1,5 +1,11 @@
 f360.controller("TripPhotosController", function ($scope, $routeParams, $http, SpotService) {
     $scope.username = $routeParams.username;
+    $scope.tripId = $routeParams.tripId;
+
+    $http.get("api/" + $scope.username + "/trip/" + $scope.tripId)
+	.success(function (trip) {
+		$scope.trip = trip;
+	});
 });
 
 f360.controller("TripPhotoController", function ($scope, $routeParams, $http, SpotService) {

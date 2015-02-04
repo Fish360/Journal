@@ -105,6 +105,15 @@ Photos
 <a href="#/{{username}}/fish/photos" class="btn btn-success btn-block">
     View Photos
 </a>
+Upload Photo
+<form id="uploadForm"
+      enctype="multipart/form-data"
+      action="/fish/photo"
+      method="post">
+    <input type="file" name="userPhoto" class="form-control" />
+    <!--input type="submit" value="Upload Image" name="submit"-->
+    <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
+</form>
 Notes
 <textarea ng-model="editFish.notes" class="form-control" placeholder="Notes">
 
