@@ -25,9 +25,6 @@ app.post('/trip/photo', function (req, res) {
     if (done == true) {
         var tripId = req.body.tripId;
         var username = req.body.username;
-        console.log(username);
-        console.log(tripId);
-        console.log(req.files.userPhoto.name);
         db.trip.findOne({ _id: mongojs.ObjectId(tripId) }, function (err, trip) {
             console.log(trip);
             if(typeof trip.images == "undefined")
@@ -100,6 +97,18 @@ app.get('/api/:username/events', function(req, res)
 /*
  *	Trips
  */
+
+// Remove picture
+
+app.delete('/api/:username/trip/:tripId/photos/:photoIndex', function (req, res) {
+    var tripId = req.params.tripId;
+    db.trip.findOne({ _id: mongojs.ObjectId(tripId) }, function (err, trip) {
+        trip.images.splice(req.params.photoIndex, 1);
+        db.trip.save(trip, function (err, trip) {
+            res.send(err);
+        });
+    });
+});
 
 // Get all trips for username
 app.get('/api/:username/trip', function(req, res)

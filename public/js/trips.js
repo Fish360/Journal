@@ -8,9 +8,22 @@ f360.controller("TripPhotosController", function ($scope, $routeParams, $http, S
 	});
 });
 
-f360.controller("TripPhotoController", function ($scope, $routeParams, $http, SpotService) {
+f360.controller("TripPhotoController", function ($scope, $routeParams, $http, SpotService, $location) {
     $scope.username = $routeParams.username;
-    $scope.photoId = $routeParams.id;
+    $scope.tripId = $routeParams.tripId;
+    $scope.photoIndex = $routeParams.photoIndex;
+
+    $http.get("api/" + $scope.username + "/trip/" + $scope.tripId)
+	.success(function (trip) {
+	    $scope.photo = trip.images[$scope.photoIndex];
+	});
+
+    $scope.removePhoto = function () {
+        $http.delete("api/" + $scope.username + "/trip/" + $scope.tripId + "/photos/" + $scope.photoIndex)
+        .success(function (trip) {
+            $location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/photos");
+        });
+    }
 });
 
 

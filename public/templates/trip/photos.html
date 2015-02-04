@@ -12,6 +12,9 @@
         margin-right:10px;
         margin-top:10px;
     }
+    body > .container {
+        padding: 60px 15px 0;
+    }
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
@@ -25,4 +28,6 @@
 	</div>
 </div>
 
-<img width="100" ng-repeat="img in trip.images" src="/uploads/{{img}}"/>
+<a ng-repeat="img in trip.images" href="#/{{username}}/trip/{{tripId}}/photos/{{$index}}">
+    <img width="100" src="/uploads/{{img}}" />
+</a>
