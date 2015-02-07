@@ -41,8 +41,19 @@ app.post('/trip/photo', function (req, res) {
 
 app.post('/fish/photo', function (req, res) {
     if (done == true) {
-        console.log(req.files);
-        res.end("File uploaded.");
+        var username = req.body.username;
+        var tripId = req.body.tripId;
+        var fishId = req.body.fishId;
+        db.fish.findOne({ _id: mongojs.ObjectId(fishId) }, function (err, fish) {
+            console.log(fish);
+            if (typeof fish.images == "undefined") {
+                fish.images = [];
+            }
+            fish.images.push(req.files.userPhoto.name);
+            db.fish.save(fish, function () {
+                res.redirect("/#/" + username + "/trip/" + tripId + "/fish/" + fishId + "/photos");
+            });
+        });
     }
 });
 
@@ -105,6 +116,16 @@ app.delete('/api/:username/trip/:tripId/photos/:photoIndex', function (req, res)
     db.trip.findOne({ _id: mongojs.ObjectId(tripId) }, function (err, trip) {
         trip.images.splice(req.params.photoIndex, 1);
         db.trip.save(trip, function (err, trip) {
+            res.send(err);
+        });
+    });
+});
+
+app.delete('/api/:username/trip/:tripId/fish/:fishId/photos/:photoIndex', function (req, res) {
+    var fishId = req.params.fishId;
+    db.fish.findOne({ _id: mongojs.ObjectId(fishId) }, function (err, fish) {
+        fish.images.splice(req.params.photoIndex, 1);
+        db.fish.save(fish, function (err, fish) {
             res.send(err);
         });
     });

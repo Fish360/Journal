@@ -7,10 +7,10 @@
 
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<back-button></back-button>
-		<!--a	href="#/{{username}}/trip/{{tripId}}/fish/list" class="btn btn-danger pull-left f360-navbar-button">
+		<!--back-button></!--back-button-->
+		<a href="#/{{username}}/trip/{{tripId}}/fish/list" class="btn btn-danger pull-left f360-navbar-button">
 			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a-->
+		</a>
 		<a	class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
 			<span class="glyphicon glyphicon-ok"></span>
 		</a>
@@ -102,7 +102,7 @@ Moonrise Time
 Moonset Time
 <input ng-model="editFish.moonsetTime" class="form-control" type="time"/>
 Photos
-<a href="#/{{username}}/fish/photos" class="btn btn-success btn-block">
+<a href="#/{{username}}/trip/{{tripId}}/fish/{{fishId}}/photos" class="btn btn-success btn-block">
     View Photos
 </a>
 Upload Photo
@@ -110,6 +110,9 @@ Upload Photo
       enctype="multipart/form-data"
       action="/fish/photo"
       method="post">
+    <input type="hidden" name="username" value="{{username}}" />
+    <input type="hidden" name="tripId" value="{{tripId}}" />
+    <input type="hidden" name="fishId" value="{{fishId}}" />
     <input type="file" name="userPhoto" class="form-control" />
     <!--input type="submit" value="Upload Image" name="submit"-->
     <button type="submit" class="btn btn-primary btn-block">Upload Image</button>

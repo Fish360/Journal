@@ -12,11 +12,16 @@
         margin-right:10px;
         margin-top:10px;
     }
+    body > .container {
+        padding: 60px 15px 0;
+    }
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<back-button></back-button>
-		<a	class="btn btn-success pull-right f360-navbar-button">
+        <a class="btn btn-danger pull-left f360-navbar-button" href="#/{{username}}/trip/{{tripId}}/fish/{{fishId}}/edit">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+		<a class="btn btn-success pull-right f360-navbar-button">
 			<span class="glyphicon glyphicon-plus"></span>
 		</a>
 		<div class="navbar-header">
@@ -25,9 +30,6 @@
 	</div>
 </div>
 
-<a href="#/{{username}}/fish/photos/1">
-    <img src="/img/fish/1.JPG" class="thumbs" />
-</a>
-<a href="#/{{username}}/fish/photos/2">
-    <img src="/img/fish/2.JPG" class="thumbs" />
+<a ng-repeat="img in fish.images" href="#/{{username}}/trip/{{tripId}}/fish/{{fishId}}/photos/{{$index}}">
+    <img width="100" src="/uploads/{{img}}" />
 </a>

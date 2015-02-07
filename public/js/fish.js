@@ -1,10 +1,31 @@
 f360.controller("FishPhotosController", function ($scope, $routeParams, $http, SpotService) {
     $scope.username = $routeParams.username;
+    $scope.tripId = $routeParams.tripId;
+    $scope.fishId = $routeParams.fishId;
+
+    $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
+	.success(function (fish) {
+	    $scope.fish = fish;
+	});
 });
 
-f360.controller("FishPhotoController", function ($scope, $routeParams, $http, SpotService) {
+f360.controller("FishPhotoController", function ($scope, $routeParams, $http, SpotService, $location) {
     $scope.username = $routeParams.username;
-    $scope.photoId = $routeParams.id;
+    $scope.tripId = $routeParams.tripId;
+    $scope.fishId = $routeParams.fishId;
+    $scope.photoIndex = $routeParams.photoIndex;
+
+    $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
+	.success(function (fish) {
+	    $scope.photo = fish.images[$scope.photoIndex];
+	});
+
+    $scope.removePhoto = function () {
+        $http.delete("api/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId + "/photos/" + $scope.photoIndex)
+        .success(function (trip) {
+            $location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId  + "/photos");
+        });
+    }
 });
 
 f360.controller("FishHomeListController", function ($scope, $routeParams, $http)
