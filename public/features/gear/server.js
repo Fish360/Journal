@@ -1,4 +1,5 @@
-module.exports = function(app, db, mongojs) {
+module.exports = function (app, db, mongojs) {
+
 	// create
     app.post("/api/:username/gear", function (req, res) {
 		console.log("CREATE");

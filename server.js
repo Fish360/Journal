@@ -57,6 +57,24 @@ app.post('/fish/photo', function (req, res) {
     }
 });
 
+app.post('/gear/photo', function (req, res) {
+    if (done == true) {
+        var gearId = req.body.gearId;
+        console.log("gearId");
+        console.log(gearId);
+        var username = req.body.username;
+        db.gear.findOne({ _id: mongojs.ObjectId(gearId) }, function (err, gear) {
+            if (typeof gear.images == "undefined") {
+                gear.images = [];
+            }
+            gear.images.push(req.files.userPhoto.name);
+            db.gear.save(gear, function () {
+                res.redirect("/#/" + username + "/gear/" + gearId + "/photos");
+            });
+        });
+    }
+});
+
 var spots = require('./public/features/spots/server.js');
 var presentations = require('./public/features/presentations/server.js');
 var gear = require('./public/features/gear/server.js');

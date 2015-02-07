@@ -172,6 +172,16 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	/*
 	*	Gear
 	*/
+	.when("/:username/gear/:gearId/photos/:photoIndex",
+	{
+	    templateUrl: "features/gear/photo.html",
+	    controller: "GearPhotoController"
+	})
+	.when("/:username/gear/:gearId/photos",
+	{
+	    templateUrl: "features/gear/photos.html",
+	    controller: "GearPhotosController"
+	})
 	.when("/:username/gear/list",
 	{
 	    templateUrl: "features/gear/list.html",

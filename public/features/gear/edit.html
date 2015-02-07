@@ -142,6 +142,22 @@ Name
     <textarea ng-model="gear.description" class="form-control" placeholder="Description"></textarea>
 </div>
 
+Photos
+<a href="#/{{username}}/gear/{{gearId}}/photos" class="btn btn-success btn-block">
+    View Photos
+</a>
+
+Upload Photo
+<form id="uploadForm"
+      enctype="multipart/form-data"
+      action="/gear/photo"
+      method="post">
+    <input type="hidden" name="username" value="{{username}}" />
+    <input type="hidden" name="gearId" value="{{gearId}}" />
+    <input type="file" name="userPhoto" class="form-control" />
+    <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
+</form>
+
 Notes
 <textarea ng-model="gear.notes" class="form-control" placeholder="Notes"></textarea>
 

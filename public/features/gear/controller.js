@@ -1,3 +1,32 @@
+f360.controller("GearPhotosController", function ($scope, $routeParams, $http, GearService) {
+    $scope.username = $routeParams.username;
+    $scope.gearId = $routeParams.gearId;
+
+    console.log($scope.username);
+    console.log($scope.gearId);
+
+    GearService.findOne($scope.username, $scope.gearId, function (response) {
+        $scope.gear = response;
+    });
+});
+
+f360.controller("GearPhotoController", function ($scope, $routeParams, $http, GearService, $location) {
+    $scope.username = $routeParams.username;
+    $scope.gearId = $routeParams.gearId;
+    $scope.photoIndex = $routeParams.photoIndex;
+
+    GearService.findOne($scope.username, $scope.gearId, function (response) {
+        $scope.gear = response;
+        $scope.photo = $scope.gear.images[$scope.photoIndex];
+    });
+
+    $scope.removePhoto = function () {
+        GearService.remove($scope.username, $scope.gearId, function () {
+            $location.path("/" + $scope.username + "/gear/" + $scope.gearId + "/photos");
+        });
+    }
+});
+
 f360.controller("GearListController", function ($scope, $routeParams, $http, GearService)
 {
 	$scope.username = $routeParams.username;
@@ -26,6 +55,7 @@ f360.controller("GearNewController", function ($scope, $routeParams, $http, $loc
 f360.controller("GearEditController", function ($scope, $routeParams, $http, $location, GearService)
 {
     $scope.username = $routeParams.username;
+    $scope.gearId = $routeParams.id;
     GearService.findOne($scope.username, $routeParams.id, function (response) {
         $scope.gear = response;
     });
