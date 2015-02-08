@@ -2,11 +2,17 @@ module.exports = function (app, db, mongojs) {
 
 	// create
     app.post("/api/:username/gear", function (req, res) {
-		console.log("CREATE");
+        console.log("[3]");
+        console.log(req);
+        console.log("[4]");
+        console.log(req.body);
+        console.log("[5]");
 		req.body.type = "GEAR";
 		console.log(req.body);
-		db.gear.insert(req.body, function(err, doc){
-			res.json(doc);
+		db.gear.insert(req.body, function (err, doc) {
+		    console.log("[6]");
+		    console.log(doc);
+		    res.json(doc);
 		});
 	});
 	// find all

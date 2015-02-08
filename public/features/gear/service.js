@@ -2,9 +2,11 @@ f360.cache = {};
 
 f360.factory('GearService', function($http){
 	
-	var create = function(username, doc, callback) {
-	    $http.post("/api/"+username+"/gear", doc)
-		.success(callback);
+    var create = function (username, doc, callback) {
+        console.log("[2]");
+        console.log(doc);
+        $http.post("/api/" + username + "/gear", doc)
+        .success(callback);
 	};
 
 	var findAll = function(username, callback) {

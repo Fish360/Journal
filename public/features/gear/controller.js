@@ -43,8 +43,12 @@ f360.controller("GearNewController", function ($scope, $routeParams, $http, $loc
 	$scope.create = function()
 	{
 		if(typeof $scope.gear != "undefined") {
-			$scope.gear.username = $scope.username;
-			GearService.create($scope.username, $scope.gear, function () {
+		    $scope.gear.username = $scope.username;
+		    console.log("[1]");
+		    console.log($scope.gear);
+		    GearService.create($scope.username, $scope.gear, function (response) {
+			    console.log("[10]");
+			    console.log(response);
 				history.back();
 			});
 		}

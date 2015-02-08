@@ -5,74 +5,85 @@ var app       = express(); 								// create our app w/ express
 var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
+var done = false;
 
-app.use(multer({
-    dest: './public/uploads/',
-    rename: function (fieldname, filename) {
-        return filename + Date.now();
-    },
-    onFileUploadStart: function (file) {
-        console.log(file.originalname + ' is starting ...')
-    },
-    onFileUploadComplete: function (file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path)
-        done = true;
-    }
-}));
+app.configure(function () {
+    app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
+    app.use(express.logger('dev')); 						// log every request to the console
+    app.use(express.bodyParser({ uploadDir: './public/uploads' })); 							// pull information from html in POST
+    app.use(express.json()); 							// pull information from html in POST
+    app.use(express.urlencoded());
+    app.use(express.methodOverride()); 						// simulate DELETE and PUT
+});
 
-//app.post('/api/photo', function (req, res) {
-app.post('/trip/photo', function (req, res) {
-    if (done == true) {
-        var tripId = req.body.tripId;
-        var username = req.body.username;
-        db.trip.findOne({ _id: mongojs.ObjectId(tripId) }, function (err, trip) {
-            console.log(trip);
-            if(typeof trip.images == "undefined")
-            {
-                trip.images = [];
-            }
-            trip.images.push(req.files.userPhoto.name);
-            db.trip.save(trip, function () {
-                res.redirect("/#/"+username+"/trip/"+tripId+"/photos");
-            });
+/*
+app.post('/:entity/photo', function (req, res) {
+    var entity = req.params.entity;
+    var entityId = req.body.id;
+    var username = req.body.username;
+    var path = req.files.userPhoto.path;
+    if (path.indexOf("\\") > -1)
+        path = path.split("\\");
+    else
+        path = path.split("/");
+    fileName = path[path.length - 1];
+    db[entity].findOne({ _id: mongojs.ObjectId(entityId) }, function (err, doc) {
+        if (typeof doc.images == "undefined") {
+            doc.images = [];
+        }
+        doc.images.push(fileName);
+        db[entity].save(doc, function () {
+            res.redirect("/#/" + username + "/" + entity + "/" + entityId + "/photos");
         });
-    }
+    });
+});
+
+*/
+
+
+
+
+function savePhoto(entityName, entityId, req, callback)
+{
+    var path = req.files.userPhoto.path;
+    if (path.indexOf("\\") > -1)
+        path = path.split("\\");
+    else
+        path = path.split("/");
+    fileName = path[path.length - 1];
+    db[entityName].findOne({ _id: mongojs.ObjectId(entityId) }, function (err, doc) {
+        if (typeof doc.images == "undefined") {
+            doc.images = [];
+        }
+        doc.images.push(fileName);
+        db[entityName].save(doc, callback);
+    });
+
+}
+
+app.post('/trip/photo', function (req, res) {
+    var tripId = req.body.tripId;
+    var username = req.body.username;
+    savePhoto("trip", tripId, req, function () {
+        res.redirect("/#/" + username + "/trip/" + tripId + "/photos");
+    });
 });
 
 app.post('/fish/photo', function (req, res) {
-    if (done == true) {
-        var username = req.body.username;
-        var tripId = req.body.tripId;
-        var fishId = req.body.fishId;
-        db.fish.findOne({ _id: mongojs.ObjectId(fishId) }, function (err, fish) {
-            console.log(fish);
-            if (typeof fish.images == "undefined") {
-                fish.images = [];
-            }
-            fish.images.push(req.files.userPhoto.name);
-            db.fish.save(fish, function () {
-                res.redirect("/#/" + username + "/trip/" + tripId + "/fish/" + fishId + "/photos");
-            });
-        });
-    }
+    var username = req.body.username;
+    var tripId = req.body.tripId;
+    var fishId = req.body.fishId;
+    savePhoto("fish", fishId, req, function () {
+        res.redirect("/#/" + username + "/trip/" + tripId + "/fish/" + fishId + "/photos");
+    });
 });
 
 app.post('/gear/photo', function (req, res) {
-    if (done == true) {
-        var gearId = req.body.gearId;
-        console.log("gearId");
-        console.log(gearId);
-        var username = req.body.username;
-        db.gear.findOne({ _id: mongojs.ObjectId(gearId) }, function (err, gear) {
-            if (typeof gear.images == "undefined") {
-                gear.images = [];
-            }
-            gear.images.push(req.files.userPhoto.name);
-            db.gear.save(gear, function () {
-                res.redirect("/#/" + username + "/gear/" + gearId + "/photos");
-            });
-        });
-    }
+    var gearId = req.body.gearId;
+    var username = req.body.username;
+    savePhoto("gear", gearId, req, function(){
+        res.redirect("/#/" + username + "/gear/" + gearId + "/photos");
+    })
 });
 
 var spots = require('./public/features/spots/server.js');
@@ -93,13 +104,6 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 }
 
 var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search']);
-
-app.configure(function() {
-	app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
-	app.use(express.logger('dev')); 						// log every request to the console
-	app.use(express.bodyParser()); 							// pull information from html in POST
-	app.use(express.methodOverride()); 						// simulate DELETE and PUT
-});
 
 presentations(app, db, mongojs);
 spots(app, db, mongojs);
@@ -170,11 +174,17 @@ app.get('/api/:username/trip/:tripid', function(req, res)
 // Create a new trip for username
 app.post('/api/:username/trip', function(req, res)
 {
+    console.log("[222222]");
+    console.log(req.body);
     req.body.type = "TRIP";
     req.body.fishCount = 0;
-	db.trip.insert(req.body, function(err, newTrip)
+    console.log("[3]");
+    console.log(req.body);
+    db.trip.insert(req.body, function (err, newTrip)
 	{
-		res.json(newTrip);
+        console.log("[4]");
+        console.log(newTrip);
+        res.json(newTrip);
 	});
 });
 

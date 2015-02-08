@@ -9,7 +9,11 @@
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<back-button></back-button>
+		<!--back-button></back-button-->
+        <a href="#/{{username}}/home" class="btn btn-danger pull-left f360-navbar-button">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+
 		<a href="#/{{username}}/gear/new" class="btn btn-success pull-right f360-navbar-button">
 			<span class="glyphicon glyphicon-plus"></span>
 		</a>
@@ -19,7 +23,8 @@
 	</div>
 </div>
 <select ng-model="presentationType" class="form-control" style="margin-top:5px">
-	<option>Rod</option>
+    <option value="">All</option>
+    <option>Rod</option>
 	<option>Reel</option>
 	<option>Line</option>
 	<option>Leader</option>

@@ -48,10 +48,14 @@ f360.controller("NewTripController", function($scope, $routeParams, $http, $loca
 	{
 		$scope.newTrip.username = $scope.username
 		$scope.newTrip["lastUpdated"] = new Date();
-		$http.post("api/"+$scope.username+"/trip", $scope.newTrip)
+		console.log("[1]");
+		console.log($scope.newTrip);
+		$http.post("api/" + $scope.username + "/trip", $scope.newTrip)
 		.success(function(trips)
 		{
-			$location.path( $scope.username+"/trip/list" );
+		    console.log("[5]");
+		    console.log(trips);
+		    $location.path($scope.username + "/trip/list");
 		});
 	}
 });
