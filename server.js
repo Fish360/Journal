@@ -131,6 +131,12 @@ gear(app, db, mongojs);
 search(app, db, mongojs);
 searchResults(app, db, mongojs);
 
+app.get('/api/browser', function (req, res) {
+    var r = require('ua-parser').parse(req.headers['user-agent']);
+    var family = r.device.family;
+    res.send(family);
+});
+
 app.get('/api/:username/events', function(req, res)
 {
 	db.trip.find({username: req.params.username}, function(err, trips)
