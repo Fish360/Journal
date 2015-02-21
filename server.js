@@ -46,17 +46,28 @@ app.post('/:entity/photo', function (req, res) {
 function savePhoto(entityName, entityId, req, callback)
 {
     var path = req.files.userPhoto.path;
+    var imagePage = path;
+
     if (path.indexOf("\\") > -1)
         path = path.split("\\");
     else
         path = path.split("/");
     fileName = path[path.length - 1];
+    var thm = 'thm_' + fileName;
     db[entityName].findOne({ _id: mongojs.ObjectId(entityId) }, function (err, doc) {
         if (typeof doc.images == "undefined") {
             doc.images = [];
         }
         doc.images.push(fileName);
         db[entityName].save(doc, callback);
+
+        require('lwip').open(imagePage, function (err, image) {
+            image.batch()
+              .scale(0.10)
+              .writeFile('public/uploads/'+thm, function (err) {
+              });
+
+        });
     });
 
 }
