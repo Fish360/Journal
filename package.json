@@ -26,7 +26,8 @@
     "express": "~3.4.4",
     "lwip": "0.0.6",
     "mongojs": "~0.13.0",
-    "multer": "^0.1.7"
+    "multer": "^0.1.7",
+    "ua-parser": "^0.3.5"
   },
   "devDependencies": {},
   "bundleDependencies": [],

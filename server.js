@@ -61,11 +61,21 @@ function savePhoto(entityName, entityId, req, callback)
         doc.images.push(fileName);
         db[entityName].save(doc, callback);
 
+        var r = require('ua-parser').parse(req.headers['user-agent']);
+        var family = r.device.family;
+        var rotate = 0;
+
+        if (family == 'iPhone')
+        {
+            rotate = 180;
+        }
+
         require('lwip').open(imagePage, function (err, image) {
             image.batch()
               .scale(0.10)
+              .rotate(rotate, 'white')
               .writeFile('public/uploads/'+thm, function (err) {
-              });
+        });
 
         });
     });
