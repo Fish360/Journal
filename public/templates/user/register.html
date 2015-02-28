@@ -9,7 +9,12 @@ Register
 <input ng-model="newUser.email" class="form-control" placeholder="Email" />
 <input ng-model="newUser.password" class="form-control" placeholder="Password" type="password"/>
 <input ng-model="newUser.password2" class="form-control" placeholder="Password Again" type="password"/>
-<a href="#register" ng-click="register()" class="btn btn-primary btn-block">
+<select ng-model="newUser.plan" class="form-control">
+    <option value="">Choose Plan</option>
+    <option value="ANGLER">Angler</option>
+    <option value="PRO_ANGLER">Pro Angler</option>
+</select>
+<button type="button" href="#register" ng-click="register()" class="btn btn-primary btn-block">
 	Register
-</a>
+</button>
 <span>{{message}}</span>

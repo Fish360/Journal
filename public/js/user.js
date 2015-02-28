@@ -66,9 +66,18 @@ f360.controller("TermsController", function($scope, $routeParams, $http, $locati
 
 f360.controller("RegisterController", function($scope, $routeParams, $http, $location)
 {
+    $scope.newUser = {
+        plan: ""
+    };
+
 	$scope.message = "";
 	$scope.register = function() {
-		$scope.message = "";
+	    $scope.message = "";
+	    if (!$scope.newUser.plan)
+	    {
+	        alert("Please choose a plan");
+	        return;
+	    }
 		if($scope.newUser.password == $scope.newUser.password2)
 		{
 			// search for the user to see if it already exists
@@ -79,21 +88,20 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 					$http.post("/api/user", $scope.newUser)
 					.success(function(newUser){
 						if(newUser == null)
-							$scope.message = "Unable to register user";
-						else
-//							$location.path( $scope.newUser.username+"/trip/list" );
+						    alert("Unable to register user");
+    					else
 							$location.path( $scope.newUser.username+"/home" );
 					});
 				}
 				else
 				{
-					$scope.message = "User already exists";
+				    alert("User already exists");
 				}
 			});
 		}
 		else
 		{
-			$scope.message = "Passwords must match. Try again";
+		    alert("Passwords must match. Try again");
 		}
 	}
 });
