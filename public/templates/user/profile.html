@@ -19,6 +19,7 @@
 		</div>
 	</div>
 </div>
+<img ng-src="uploads/{{user.images[0]}}" width="100%" style="padding-top: 5px;"/>
 First Name
 <input ng-model="user.firstName" class="form-control"/>
 Last Name
@@ -40,7 +41,15 @@ Edition
 Date of Birth
 <input ng-model="user.dateOfBirth" class="form-control" type="date"/>
 Picture
-<input type="file" class="form-control"/>
+<form id="uploadForm"
+      enctype="multipart/form-data"
+      action="/profile/photo"
+      method="post">
+    <input type="hidden" name="username" value="{{user.username}}" />
+    <input type="hidden" name="userId" value="{{user._id}}" />
+    <input type="file" name="userPhoto" class="form-control" />
+    <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
+</form>
 Units
 <select ng-model="user.units" class="form-control">
 	<option value="">Standard</option>

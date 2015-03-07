@@ -90,6 +90,14 @@ function savePhoto(entityName, entityId, req, callback)
     });
 }
 
+app.post('/profile/photo', function (req, res) {
+    var username = req.body.username;
+    var userId = req.body.userId;
+    savePhoto("user", userId, req, function () {
+        res.redirect("/#/" + username + "/profile");
+    });
+});
+
 app.post('/trip/photo', function (req, res) {
     var tripId = req.body.tripId;
     var username = req.body.username;
