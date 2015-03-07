@@ -31,7 +31,8 @@
 				<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
 			</a>
 			<a ng-switch-when="FISH" href="#/{{username}}/trip/{{searchResult.trip_id}}/fish/{{searchResult._id}}/edit">
-				{{searchResult.species}}<br/>{{searchResult.weight}}lbs {{searchResult.length}}in
+				{{searchResult.species}}<br/>
+                <span ng-show="searchResult.weight">{{searchResult.weight}} lbs</span><span ng-show="searchResult.length">, {{searchResult.length}} in</span>
 			</a>
 
 		</td>

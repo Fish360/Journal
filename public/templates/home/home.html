@@ -58,7 +58,8 @@
 					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
 				</a>
 				<a href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/editFromHome">
-				{{event.species}}<br/>{{event.weight}}lbs {{event.length}}in
+				{{event.species}}<br/>
+                    <span ng-show="event.weight">{{event.weight}} lbs</span><span ng-show="event.length">, {{event.length}} in</span>
 				</a>
 			</span>
 			
