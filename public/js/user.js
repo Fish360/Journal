@@ -11,8 +11,14 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 			alert("Passwords must match. Please try again.");
 				
 		} else {
+		    if (!$scope.user.password && !$scope.user.password2)
+		    {
+		        delete $scope.user.password;
+		        delete $scope.user.password2;
+		    }
 			$http.put("/api/user/"+$scope.username, $scope.user)
-			.success(function(newUser){
+			.success(function (newUser) {
+			    $location.path($scope.username+"/home");
 			});
 		}
 	}

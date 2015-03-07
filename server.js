@@ -262,16 +262,23 @@ app.put("/api/user/:username", function(req, res)
 {
 	var username = req.params.username;	
 	
+	var update = {
+	    firstName: req.body.firstName,
+	    lastName: req.body.lastName,
+	    email: req.body.email,
+	    dateOfBirth: req.body.dateOfBirth,
+	    units: req.body.units
+	};
+
+	if (req.body.password)
+	{
+	    update.password = req.body.password;
+	}
+
 	db.user.findAndModify({
 		query: {username: req.params.username},
 		update: {
-			$set : {
-				firstName: req.body.firstName,
-				lastName: req.body.lastName,
-				email: req.body.email,
-				dateOfBirth: req.body.dateOfBirth,
-				units: req.body.units
-			}
+			$set : update
 		},
 		new: false}, function(err, doc, lastErrorObject)
 		{
