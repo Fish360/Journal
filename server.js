@@ -118,8 +118,16 @@ app.post('/fish/photo', function (req, res) {
 app.post('/gear/photo', function (req, res) {
     var gearId = req.body.gearId;
     var username = req.body.username;
-    savePhoto("gear", gearId, req, function(){
+    savePhoto("gear", gearId, req, function () {
         res.redirect("/#/" + username + "/gear/" + gearId + "/photos");
+    })
+});
+
+app.post('/spots/photo', function (req, res) {
+    var spotId = req.body.spotId;
+    var username = req.body.username;
+    savePhoto("spots", spotId, req, function () {
+        res.redirect("/#/" + username + "/spots/" + spotId + "/photos");
     })
 });
 
@@ -175,6 +183,16 @@ app.get('/api/:username/events', function(req, res)
  */
 
 // Remove picture
+
+app.delete('/api/:username/spots/:spotId/photos/:photoIndex', function (req, res) {
+    var spotId = req.params.spotId;
+    db.spots.findOne({ _id: mongojs.ObjectId(spotId) }, function (err, spot) {
+        spot.images.splice(req.params.photoIndex, 1);
+        db.spots.save(spot, function (err, spot) {
+            res.send(err);
+        });
+    });
+});
 
 app.delete('/api/:username/trip/:tripId/photos/:photoIndex', function (req, res) {
     var tripId = req.params.tripId;

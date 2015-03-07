@@ -1,10 +1,31 @@
 f360.controller("SpotPhotosController", function ($scope, $routeParams, $http, SpotService) {
     $scope.username = $routeParams.username;
+    $scope.spotId = $routeParams.spotId;
+
+    $http.get("api/" + $scope.username + "/spots/" + $scope.spotId)
+    .success(function (spot) {
+        $scope.spot = spot;
+    });
+
 });
 
-f360.controller("SpotPhotoController", function ($scope, $routeParams, $http, SpotService) {
+f360.controller("SpotPhotoController", function ($scope, $routeParams, $http, SpotService, $location) {
     $scope.username = $routeParams.username;
-    $scope.photoId = $routeParams.id;
+    $scope.spotId = $routeParams.spotId;
+    $scope.photoIndex = $routeParams.photoIndex;
+
+    $http.get("api/" + $scope.username + "/spots/" + $scope.spotId)
+    .success(function (spot) {
+        $scope.photo = spot.images[$scope.photoIndex];
+	});
+
+    $scope.removePhoto = function () {
+        $http.delete("api/" + $scope.username + "/spots/" + $scope.spotId + "/photos/" + $scope.photoIndex)
+        .success(function (spot) {
+            $location.path("/" + $scope.username + "/spots/" + $scope.spotId + "/photos");
+        });
+    }
+
 });
 
 f360.controller("SpotHomeListController", function ($scope, $routeParams, $http, SpotService)

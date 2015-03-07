@@ -12,10 +12,15 @@
         margin-right:10px;
         margin-top:10px;
     }
+    body > .container {
+        padding: 60px 15px 0;
+    }
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<back-button></back-button>
+        <a class="btn btn-danger pull-left f360-navbar-button" href="#/{{username}}/spots/{{spotId}}/edit">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
 		<a	class="btn btn-success pull-right f360-navbar-button">
 			<span class="glyphicon glyphicon-plus"></span>
 		</a>
@@ -25,9 +30,6 @@
 	</div>
 </div>
 
-<a href="#/{{username}}/spots/photos/1">
-    <img src="/img/spots/1.JPG" class="thumbs" />
-</a>
-<a href="#/{{username}}/spots/photos/2">
-    <img src="/img/spots/2.JPG" class="thumbs" />
+<a ng-repeat="img in spot.images" href="#/{{username}}/spots/{{spotId}}/photos/{{$index}}">
+    <img width="49%" ng-src="/uploads/thm_{{img}}" />
 </a>

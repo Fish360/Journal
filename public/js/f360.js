@@ -29,7 +29,6 @@ f360.directive('backButton', function () {
             icons: '@icons'
         },
         link: function(scope, element, attrs) {
-		console.log(999);
             $(element[0]).on('click', function() {
                 history.back();
                 scope.$apply();
@@ -131,12 +130,12 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	/*
 	*	Spots
 	*/
-	.when("/:username/spots/photos/:id",
+	.when("/:username/spots/:spotId/photos/:photoIndex",
 	{
 	    templateUrl: "features/spots/photo.html",
 	    controller: "SpotPhotoController"
     })
-	.when("/:username/spots/photos",
+	.when("/:username/spots/:spotId/photos",
 	{
 	    templateUrl: "features/spots/photos.html",
 	    controller: "SpotPhotosController"

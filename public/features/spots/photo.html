@@ -13,8 +13,10 @@
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<back-button></back-button>
-        <a class="btn btn-danger pull-right f360-navbar-button">
+        <a class="btn btn-danger pull-left f360-navbar-button" href="#/{{username}}/spots/{{spotId}}/photos">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="btn btn-danger pull-right f360-navbar-button" ng-click="removePhoto()">
             <span class="glyphicon glyphicon-remove"></span>
         </a>
 		<div class="navbar-header">
@@ -23,4 +25,4 @@
 	</div>
 </div>
 
-<img src="/img/spots/{{photoId}}.JPG" class="full"/>
+<img ng-src="/uploads/{{photo}}" class="full" />
