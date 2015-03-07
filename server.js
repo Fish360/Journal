@@ -1,11 +1,20 @@
 // set up ======================================================================
-var mongojs   = require('mongojs');
+var nodemailer = require('nodemailer');
+var mongojs = require('mongojs');
 var express   = require('express');
 var app       = express(); 								// create our app w/ express
 var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 8080; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
+
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'edu.neu.nodejs.test@gmail.com',
+        pass: 'saltoangel11'
+    }
+});
 
 app.configure(function () {
     app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -255,6 +264,30 @@ app.post("/api/user", function(req, res)
 	{
 		res.json(newUser);
 	});
+});
+
+app.get("/api/forgotPassword/:email", function (req, res) {
+    var email = req.params.email;
+
+    var mailOptions = {
+        from: 'Fred Foo <foo@blurdybloop.com>', // sender address
+        to: email, // list of receivers
+        subject: 'Hello', // Subject line
+        text: 'Hello world', // plaintext body
+        html: '<b>Hello world</b>' // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Message sent: ' + info.response);
+        }
+    });
+
+    console.log("email: " + email);
+    res.send("email");
 });
 
 // update profile

@@ -52,8 +52,13 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	})
 	.when("/login",
 	{
-		templateUrl: "templates/user/login.html",
-		controller: "LoginController"
+	    templateUrl: "templates/user/login.html",
+	    controller: "LoginController"
+	})
+	.when("/forgotPassword",
+	{
+	    templateUrl: "templates/user/forgotPassword.html",
+	    controller: "ForgotPasswordController"
 	})
 	.when("/termsReadOnly",
 	{
