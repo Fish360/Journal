@@ -1,4 +1,5 @@
 // set up ======================================================================
+var generatePassword = require('password-generator');
 var mongojs = require('mongojs');
 var express   = require('express');
 var app       = express(); 								// create our app w/ express
@@ -139,13 +140,11 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
-// jga
-
 var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search']);
 
 var mandrill  = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('EW3Z7X-JJDSZwb1DigccCA');
-var email     = require('./modules/email/email.js')(app, mandrill_client, db);
+var email     = require('./modules/email/email.js')(app, mandrill_client, db, generatePassword);
 
 presentations(app, db, mongojs);
 spots(app, db, mongojs);
@@ -289,11 +288,11 @@ app.post("/api/user", function(req, res)
 	});
 });
 
-app.get("/api/forgotPassword/:email", function (req, res) {
-    var email = req.params.email;
-
-    res.send("email");
-});
+//app.get("/api/forgotPassword/:email", function (req, res) {
+//    var email = req.params.email;
+//
+//    res.send("email");
+//});
 
 // update profile
 app.put("/api/user/:username", function(req, res)
