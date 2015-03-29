@@ -7,10 +7,6 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
 
-var mandrill  = require('mandrill-api/mandrill');
-var mandrill_client = new mandrill.Mandrill('EW3Z7X-JJDSZwb1DigccCA');
-var email     = require('./modules/email/email.js')(app, mandrill_client);
-
 app.configure(function () {
     app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
     app.use(express.logger('dev')); 						// log every request to the console
@@ -143,7 +139,13 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
+// jga
+
 var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search']);
+
+var mandrill  = require('mandrill-api/mandrill');
+var mandrill_client = new mandrill.Mandrill('EW3Z7X-JJDSZwb1DigccCA');
+var email     = require('./modules/email/email.js')(app, mandrill_client, db);
 
 presentations(app, db, mongojs);
 spots(app, db, mongojs);
