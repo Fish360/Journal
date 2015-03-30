@@ -3,7 +3,6 @@ module.exports = function(app, mandrill_client, db, generatePassword)
 	app.get("/api/forgotPassword/:username", function(req, res)
 	{
 		var username = req.params.username;
-		console.log(username);
 
 		sendPasswordReset(username);
 		
@@ -13,20 +12,16 @@ module.exports = function(app, mandrill_client, db, generatePassword)
 	function sendPasswordReset(username)
 	{
 		var newPassword = generatePassword(8, false);
-		console.log("sendPasswordReset");
-		db.user.find({username: username}, function(err, user)
+
+		db.user.findAndModify({
+			query:  {username: username},
+			update: {$set : {password: newPassword}},
+			new: true
+		}, function(err, user)
 		{
-			if(user != null && user.length > 0)
+			if(user != null && err == null)
 			{
-				console.log("err");
-				console.log(err);
-				
-				console.log("user");
-				console.log(user);
-				
-				var email = user[0].email;
-				console.log("email");
-				console.log(email);
+				var email = user.email;
 				
 				var html = "<p>You recently requested to rest your password. Here are temporary username and password:</p>";
 				html += "<p>Username: " + username + "<br/>Password: " + newPassword + "</p>";
@@ -48,12 +43,12 @@ module.exports = function(app, mandrill_client, db, generatePassword)
 				};
 				
 				mandrill_client.messages.send({"message": message}, function(result) {
-				    console.log(result);
+
 				}, function(e) {
 				    // Mandrill returns the error as an object with name and message keys
 				    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
 				    // A mandrill error occurred: Unknown_Subaccount - No subaccount exists with the id 'customer-123'
-				});				
+				});
 			}
 		});
 	}
