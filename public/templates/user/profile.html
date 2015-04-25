@@ -1,4 +1,4 @@
-﻿<style>
+<style>
 	.f360-navbar-button {
 		position: relative;
 		top: 7px;
@@ -24,6 +24,9 @@ First Name
 <input ng-model="user.firstName" class="form-control"/>
 Last Name
 <input ng-model="user.lastName" class="form-control"/>
+Plan
+<input ng-model="user.plan" class="form-control" readonly=readonly/>
+<a href="#/{{username}}/upgrade" class="btn btn-success btn-block">Upgrade</a>
 Email
 <input ng-model="user.email" class="form-control" type="email"/>
 Username
@@ -62,5 +65,6 @@ Sort Fish By
 	<option>Weight</option>
 	<option>Species</option>
 </select>
+
 <a href="#/termsReadOnly" class="btn btn-success btn-block">User Agreement
 </a>

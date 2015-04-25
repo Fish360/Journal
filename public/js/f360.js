@@ -78,6 +78,11 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 		templateUrl: "templates/user/profile.html",
 		controller: "ProfileController"
 	})
+	.when("/:username/upgrade",
+	{
+		templateUrl: "templates/user/upgrade.html",
+		controller: "UpgradeController"
+	})
 	/*
 	*	Home
 	*/

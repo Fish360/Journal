@@ -81,6 +81,10 @@ f360.controller("TermsController", function($scope, $routeParams, $http, $locati
 	}
 });
 
+f360.controller("UpgradeController", function($scope, $routeParams)
+{
+});		
+
 f360.controller("RegisterController", function($scope, $routeParams, $http, $location)
 {
     $scope.newUser = {
@@ -89,12 +93,13 @@ f360.controller("RegisterController", function($scope, $routeParams, $http, $loc
 
 	$scope.message = "";
 	$scope.register = function() {
+		$scope.newUser.plan = "ANGLER";
 	    $scope.message = "";
-	    if (!$scope.newUser.plan)
-	    {
-	        alert("Please choose a plan");
-	        return;
-	    }
+	  //  if (!$scope.newUser.plan)
+	  //  {
+	  //      alert("Please choose a plan");
+	  //      return;
+	  //  }
 		if($scope.newUser.password == $scope.newUser.password2)
 		{
 			// search for the user to see if it already exists

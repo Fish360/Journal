@@ -1,0 +1,33 @@
+<style>
+	.f360-navbar-button {
+		position: relative;
+		top: 7px;
+	}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<back-button></back-button>
+		<!--a	href="#/{{username}}/profile" class="btn btn-danger pull-left f360-navbar-button">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a-->
+		<button class="btn btn-success pull-right f360-navbar-button" ng-click="updateProfile()">
+			<span class="glyphicon glyphicon-ok"></span>
+		</button>
+		<div class="navbar-header">
+			<span class="navbar-brand">Upgrade</span>
+		</div>
+	</div>
+</div>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="7LXUXFE2YJW6N">
+	<table width="100%">
+	<tr><td><input type="hidden" name="on0" value="Fish360 Journal Pro Angler">Fish360 Journal Pro Angler</td></tr><tr><td><input type="text" name="os0" maxlength="200" class="form-control"></td></tr>
+	</table>
+	<div class="text-center">
+	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+	</div>
+</form>
