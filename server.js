@@ -1,4 +1,5 @@
 // set up ======================================================================
+var braintree = require("braintree");
 var generatePassword = require('password-generator');
 var mongojs = require('mongojs');
 var express   = require('express');
@@ -7,6 +8,14 @@ var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 3000; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
+
+var gateway = braintree.connect({
+	environment: braintree.Environment.Sandbox,
+	merchantId: "tcjtq7fcjbttnfb5",
+	publicKey: "3yfhgcysvp6dzxw8",
+	privateKey: "c4c214a0904450885fae523afdfb47a9"
+});
+
 
 app.configure(function () {
     app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -435,5 +444,96 @@ app.put("/api/user/:username/trip/:tripId/fish/:id", function(req, res){
 		});
 	});
 });
+
+
+app.post("/checkout", checkout);
+app.get("/client_token", getClientToken);
+
+function getClientToken (req, res) {
+	gateway.clientToken.generate({}, function (err, response) {
+		res.send(response.clientToken);
+	});
+}
+
+function checkout(req, res) {
+	var nonceFromTheClient = req.body.payment_method_nonce;
+	var customer = req.body;
+	console.log(req.params);
+	console.log("CUSTOMER");
+	console.log(customer);
+	var username = customer.username;
+
+	gateway.customer.create({
+		firstName: customer.firstName,
+		lastName: customer.lastName,
+		email: customer.email,
+		//,paymentMethodNonce: nonceFromTheClient
+	}, function (err, result) {
+		console.log("CUSTOMER CALLBACK");
+		console.log(result);
+		//result.success;
+		//// true
+		//
+		//result.customer.id;
+		// e.g. 494019
+
+		var customer = result.customer;
+
+		gateway.paymentMethod.create({
+			customerId: customer.id,
+			paymentMethodNonce: nonceFromTheClient
+		}, function (err, result) {
+
+			console.log("PAYMENT_METHOD CALLBACK");
+			console.log(result);
+
+			var paypalAccount = result.paypalAccount;
+			var paymentMethod = result.paymentMethod;
+
+			gateway.subscription.create({
+				paymentMethodToken: paymentMethod.token,
+				planId: "cs5610planId"
+			}, function (err, result) {
+
+				console.log("SUBSCRIPTION CALLBACK");
+				console.log(result);
+
+				db.user.findAndModify({
+					query: {username: customer.username}
+				}, function(err, doc, lastErrorObject){
+					console.log("USER");
+					console.log(doc);
+
+					res.redirect("/#/"+username+"/profile");
+
+				});
+
+				//db.user.findAndModify({
+				//	query: {username: customer.username},
+				//	update: {$set : {preferences: req.body	}},
+				//	new: false}, function(err, doc, lastErrorObject)
+				//{
+				//	console.log(err);
+				//	console.log(doc);
+				//	console.log(lastErrorObject);
+				//});
+
+//				res.send(result);
+
+			});
+		});
+	});
+
+	//gateway.transaction.sale({
+	//    amount: '10.00',
+	//    paymentMethodNonce: nonceFromTheClient,
+	//}, function (err, result) {
+    //
+	//});
+
+	//var body = req.body;
+	//res.json(body);
+}
+
 
 app.listen(port, ipaddress);

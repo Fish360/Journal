@@ -81,9 +81,15 @@ f360.controller("TermsController", function($scope, $routeParams, $http, $locati
 	}
 });
 
-f360.controller("UpgradeController", function($scope, $routeParams)
-{
-});		
+f360.controller("UpgradeController", function($scope, $routeParams, $http) {
+	var username = $routeParams.username;
+	//alert("UPGRADE CONTROLLER !!!!!!!!!!!!!!!!!!!!! " + username);
+	$http.get("/api/user/" + username)
+		.success(function (user) {
+			$scope.user = user[0];
+			console.log($scope.user);
+		});
+});
 
 f360.controller("RegisterController", function($scope, $routeParams, $http, $location)
 {
