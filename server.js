@@ -11,11 +11,10 @@ var done = false;
 
 var gateway = braintree.connect({
 	environment: braintree.Environment.Sandbox,
-	merchantId: "tcjtq7fcjbttnfb5",
-	publicKey: "3yfhgcysvp6dzxw8",
-	privateKey: "c4c214a0904450885fae523afdfb47a9"
+	merchantId: "msffcs8dcd3wch6v",//"tcjtq7fcjbttnfb5",
+	publicKey: "7zf5swwb8tcrbhgh",//"3yfhgcysvp6dzxw8",
+	privateKey: "1f0afa0854f544008ae8277348c1104a"//"c4c214a0904450885fae523afdfb47a9"
 });
-
 
 app.configure(function () {
     app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -492,7 +491,7 @@ function checkout(req, res) {
 
 			gateway.subscription.create({
 				paymentMethodToken: paymentMethod.token,
-				planId: "cs5610planId"
+				planId: "fish360proangler",//"cs5610planId"
 			}, function (err, result) {
 
 				console.log("SUBSCRIPTION CALLBACK");
