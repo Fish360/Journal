@@ -10,7 +10,7 @@ var multer = require("multer");
 var done = false;
 
 var gateway = braintree.connect({
-	environment: braintree.Environment.Sandbox,
+	environment: braintree.Environment.Production,
 	merchantId: "msffcs8dcd3wch6v",//"tcjtq7fcjbttnfb5",
 	publicKey: "7zf5swwb8tcrbhgh",//"3yfhgcysvp6dzxw8",
 	privateKey: "1f0afa0854f544008ae8277348c1104a"//"c4c214a0904450885fae523afdfb47a9"
