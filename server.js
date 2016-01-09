@@ -498,7 +498,8 @@ function checkout(req, res) {
 				console.log(result);
 
 				db.user.findAndModify({
-					query: {username: customer.username}
+					query: {username: customer.username},
+					update: {$set: {plan: 'PRO ANGLER'}}
 				}, function(err, doc, lastErrorObject){
 					console.log("USER");
 					console.log(doc);

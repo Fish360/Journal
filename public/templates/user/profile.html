@@ -19,7 +19,7 @@
 		</div>
 	</div>
 </div>
-<img ng-show="user.images.length > 0" ng-src="uploads/thm_{{user.images[user.images.length-1]}}" width="100%" style="padding-top: 5px;" />
+<img ng-show="user.images.length > 0" ng-src="uploads/thm_{{user.images[user.images.length-1]}}" width="300px" style="padding-top: 5px;" />
 First Name
 <input ng-model="user.firstName" class="form-control"/>
 Last Name
@@ -35,12 +35,13 @@ Password
 <input ng-model="user.password" class="form-control" type="password"/>
 Confirm Password
 <input ng-model="user.password2" class="form-control" type="password"/>
-Edition
-<select ng-model="user.edition" class="form-control">
-	<option value="">Community</option>
-	<option>Angler</option>
-	<option>Professional</option>
-</select>
+
+<!--Edition-->
+<!--<select ng-model="user.edition" class="form-control">-->
+	<!--<option value="">Community</option>-->
+	<!--<option>Angler</option>-->
+	<!--<option>Professional</option>-->
+<!--</select>-->
 Date of Birth
 <input ng-model="user.dateOfBirth" class="form-control" type="date"/>
 Picture
