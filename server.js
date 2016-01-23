@@ -536,7 +536,16 @@ function checkout(req, res) {
 }
 
 app.get('/api/pwd', function(req, res){
-	req.send(__dirname);
+	res.send(__dirname);
 });
+
+app.get('/api/datadir', function(req, res){
+	res.send(process.env.OPENSHIFT_DATA_DIR);
+});
+
+app.get('/api/env', function(req, res){
+	res.send(process.env);
+});
+
 
 app.listen(port, ipaddress);
