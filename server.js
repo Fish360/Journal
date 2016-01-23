@@ -535,5 +535,8 @@ function checkout(req, res) {
 	//res.json(body);
 }
 
+app.get('/api/pwd', function(req, res){
+	req.send(__dirname);
+});
 
 app.listen(port, ipaddress);
