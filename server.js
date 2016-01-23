@@ -90,7 +90,8 @@ function savePhoto(entityName, entityId, req, callback)
                 image.batch()
                   .scale(0.10)
                   .rotate(rotate, 'white')
-                  .writeFile(process.env.OPENSHIFT_DATA_DIR + thm, function (err) {
+				  .writeFile(process.env.OPENSHIFT_DATA_DIR + thm)
+                  .writeFile('public/uploads/' + thm, function (err) {
                       callback();
                   });
             });
