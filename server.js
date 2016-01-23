@@ -8,6 +8,14 @@ var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 3000; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
+var ncp = require('ncp').ncp;
+
+ncp("../data", "public/uploads", function (err) {
+	if (err) {
+		return console.error(err);
+	}
+	console.log('done!');
+});
 
 var gateway = braintree.connect({
 	environment: braintree.Environment.Production,
@@ -82,7 +90,7 @@ function savePhoto(entityName, entityId, req, callback)
                 image.batch()
                   .scale(0.10)
                   .rotate(rotate, 'white')
-                  .writeFile('public/uploads/' + thm, function (err) {
+                  .writeFile(process.env.OPENSHIFT_DATA_DIR + thm, function (err) {
                       callback();
                   });
             });
