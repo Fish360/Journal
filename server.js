@@ -10,7 +10,7 @@ var multer = require("multer");
 var done = false;
 var ncp = require('ncp').ncp;
 
-ncp("../data", "public/uploads", function (err) {
+ncp(process.env.OPENSHIFT_DATA_DIR, __dirname + "/public/uploads", function (err) {
 	if (err) {
 		return console.error(err);
 	}
@@ -62,7 +62,14 @@ app.post('/:entity/photo', function (req, res) {
 
 function savePhoto(entityName, entityId, req, callback)
 {
-    var path = req.files.userPhoto.path;
+	ncp(__dirname + '/public/uploads', process.env.OPENSHIFT_DATA_DIR, function (err) {
+		if (err) {
+			return console.error(err);
+		}
+		console.log('done!');
+	});
+
+	var path = req.files.userPhoto.path;
     var imagePage = path;
 
     if (path.indexOf("\\") > -1)
@@ -90,8 +97,8 @@ function savePhoto(entityName, entityId, req, callback)
                 image.batch()
                   .scale(0.10)
                   .rotate(rotate, 'white')
-                  .writeFile('public/uploads/' + thm, function (err) {
-						ncp("public/uploads", "../data", function (err) {
+                  .writeFile(__dirname + '/public/uploads/' + thm, function (err) {
+						ncp(__dirname + '/public/uploads', process.env.OPENSHIFT_DATA_DIR, function (err) {
 							if (err) {
 								return console.error(err);
 							}
