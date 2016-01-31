@@ -1,3 +1,7 @@
 [type="number"] {
 	text-align : right;
 }
+
+table tr:first-child td {
+	border-top: none;
+}

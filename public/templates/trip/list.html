@@ -21,7 +21,7 @@
 		</div>
 	</div>
 </div>
-<div>Please add a trip</div>
+<div class="alert alert-info" ng-show="!trips || !trips.length">Please add a trip</div>
 <table class="table">
 	<tr ng-repeat="trip in trips | orderBy : 'lastUpdated' : true">
 		<td>

@@ -10,11 +10,12 @@ var multer = require("multer");
 var done = false;
 var ncp = require('ncp').ncp;
 
-ncp(process.env.OPENSHIFT_DATA_DIR, __dirname + "/public/uploads", function (err) {
+var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
+
+ncp(localDataDir, __dirname + "/public/uploads", function (err) {
 	if (err) {
 		return console.error(err);
 	}
-	console.log('done!');
 });
 
 var gateway = braintree.connect({
