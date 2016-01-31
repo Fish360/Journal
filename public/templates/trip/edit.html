@@ -1,11 +1,4 @@
-﻿<style>
-	.f360-navbar-button {
-		position: relative;
-		top: 7px;
-	}
-</style>
-
-<div class="navbar navbar-default navbar-fixed-top">
+﻿<div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<!--back-button></back-button-->
 		<a href="#/{{username}}/trip/list" class="btn btn-danger pull-left f360-navbar-button">
@@ -39,6 +32,8 @@ End Date/Time
         <input ng-model="editTrip.endTime" class="form-control" type="time" />
     </div>
 </div>
+Notes
+<textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes"></textarea>
 Photos
 <a href="#/{{username}}/trip/{{editTrip._id}}/photos" class="btn btn-success btn-block">
     View Photos
@@ -54,9 +49,7 @@ Upload Photo
     <!--input type="submit" value="Upload Image" name="submit"-->
     <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
 </form>
-Notes
-<textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes"></textarea>
 <!--a	href="#/{{editTrip.username}}/trip/{{editTrip._id}}/edit"-->
-<button class="btn btn-warning btn-block" ng-click="remove()">
+<button class="btn btn-warning btn-block f360-navbar-button" ng-click="remove()">
 	Delete
 </button>
