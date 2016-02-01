@@ -63,7 +63,7 @@ app.post('/:entity/photo', function (req, res) {
 
 function savePhoto(entityName, entityId, req, callback)
 {
-	ncp(__dirname + '/public/uploads', process.env.OPENSHIFT_DATA_DIR, function (err) {
+	ncp(__dirname + '/public/uploads', localDataDir, function (err) {
 		if (err) {
 			return console.error(err);
 		}
@@ -99,7 +99,7 @@ function savePhoto(entityName, entityId, req, callback)
                   .scale(0.10)
                   .rotate(rotate, 'white')
                   .writeFile(__dirname + '/public/uploads/' + thm, function (err) {
-						ncp(__dirname + '/public/uploads', process.env.OPENSHIFT_DATA_DIR, function (err) {
+						ncp(__dirname + '/public/uploads', localDataDir, function (err) {
 							if (err) {
 								return console.error(err);
 							}

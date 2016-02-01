@@ -21,6 +21,7 @@
 		</div>
 	</div>
 </div>
+<div class="alert alert-info" ng-show="!fish || !fish.length">Please add a fish</div>
 <table class="table">
 	<tr ng-repeat="fsh in fish | orderBy : 'lastUpdated' : true">
 		<td>

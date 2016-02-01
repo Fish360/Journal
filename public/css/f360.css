@@ -18,3 +18,8 @@ input[type=date] {
 .f360-right-arrow {
 	font-size: 1.5em;
 }
+
+.f360-nudge-left {
+	position: relative;
+	right: 5px;
+}

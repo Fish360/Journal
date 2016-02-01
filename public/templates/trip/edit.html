@@ -7,7 +7,14 @@
 		<a	href="#" class="btn btn-success pull-right f360-navbar-button" ng-click="update()">
 			<span class="glyphicon glyphicon-ok"></span>
 		</a>
-		<div class="navbar-header">
+
+        <a	ng-show="editTrip.images"
+              class="btn btn-warning pull-right f360-navbar-button f360-nudge-left"
+              href="#/{{username}}/trip/{{tripId}}/photos">
+            <span class="glyphicon glyphicon-camera"></span>
+        </a>
+
+        <div class="navbar-header">
 			<span class="navbar-brand">Edit Trip</span>
 		</div>
 	</div>
@@ -34,10 +41,14 @@ End Date/Time
 </div>
 Notes
 <textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes"></textarea>
-Photos
-<a href="#/{{username}}/trip/{{editTrip._id}}/photos" class="btn btn-success btn-block">
-    View Photos
-</a>
+
+<div ng-show="editTrip.images">
+    Photos
+    <a href="#/{{username}}/trip/{{editTrip._id}}/photos" class="btn btn-success btn-block">
+        View Photos
+    </a>
+</div>
+
 Upload Photo
 <form id="uploadForm"
       enctype="multipart/form-data"
