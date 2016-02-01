@@ -29,6 +29,11 @@ input[type=date] {
 	right: 5px;
 }
 
+.f360-nudge-down {
+	position: relative;
+	top: 5px;
+}
+
 .thumbs {
 	width : 45%;
 	float : left;
