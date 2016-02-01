@@ -21,7 +21,12 @@ f360.controller("TripPhotoController", function ($scope, $routeParams, $http, Sp
     $scope.removePhoto = function () {
         $http.delete("api/" + $scope.username + "/trip/" + $scope.tripId + "/photos/" + $scope.photoIndex)
         .success(function (trip) {
-            $location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/photos");
+			var url = $location.url();
+			if(url.indexOf("photosFromHome") > -1) {
+				$location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/photosFromHome");
+			} else {
+				$location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/photos");
+			}
         });
     }
 });
