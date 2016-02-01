@@ -45,6 +45,9 @@ Water
 Species
 <input ng-model="spot.species" class="form-control" placeholder="Spieces" type="text"/>
 
+Notes
+<textarea ng-model="spot.notes" class="form-control" placeholder="Notes"></textarea>
+
 <div ng-hide="!spot.images || !spot.images.length">
     Photos
     <a href="#/{{username}}/spots/{{spot._id}}/photos" class="btn btn-success btn-block">
@@ -62,8 +65,7 @@ Upload Photo
     <input type="file" name="userPhoto" class="form-control" />
     <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
 </form>
-Notes
-<textarea ng-model="spot.notes" class="form-control" placeholder="Notes"></textarea>
+
 <a ng-click="remove()" class="btn btn-danger btn-block">
     Delete
 </a>
