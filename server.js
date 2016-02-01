@@ -96,7 +96,7 @@ function savePhoto(entityName, entityId, req, callback)
 
             require('lwip').open(imagePage, function (err, image) {
                 image.batch()
-                  .scale(0.10)
+                  .scale(0.25)
                   .rotate(rotate, 'white')
                   .writeFile(__dirname + '/public/uploads/' + thm, function (err) {
 						ncp(__dirname + '/public/uploads', localDataDir, function (err) {
