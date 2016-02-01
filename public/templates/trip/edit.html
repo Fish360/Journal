@@ -55,9 +55,9 @@ Upload Photo
       method="post">
     <input type="hidden" name="username"  value="{{username}}"/>
     <input type="hidden" name="tripId"    value="{{editTrip._id}}"/>
-    <input type="file"   name="userPhoto" class="form-control" ng-model="fileName"/>
+    <input type="file"   name="userPhoto" class="form-control"/>
     <!--input type="submit" value="Upload Image" name="submit"-->
-    <button type="submit" class="btn btn-primary btn-block" ng-hide="!fileName">Upload Image</button>
+    <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
 </form>
 <!--a	href="#/{{editTrip.username}}/trip/{{editTrip._id}}/edit"-->
 <button class="btn btn-warning btn-block f360-navbar-button" ng-click="remove()">
