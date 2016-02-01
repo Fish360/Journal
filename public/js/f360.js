@@ -109,7 +109,7 @@ f360.config(["$routeProvider", function($routeProvider, $http)
 	})
 	.when("/:username/trip/:tripId/photosFromHome/:photoIndex",
 	{
-		templateUrl: "templates/trip/photosFromHome.html",
+		templateUrl: "templates/trip/photoFromHome.html",
 		controller: "TripPhotoController"
 	})
 	.when("/:username/trip/:tripId/photosFromHome",
