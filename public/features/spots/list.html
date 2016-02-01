@@ -18,6 +18,13 @@
 		</div>
 	</div>
 </div>
+
+<div	ng-show="!spots || !spots.length"
+		class="alert alert-info"
+		role="alert">
+		Please add Spots
+</div>
+
 <table class="table">
 	<tr ng-repeat="spot in spots | orderBy : 'lastUpdated' : true">
 		<td>
