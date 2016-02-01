@@ -99,13 +99,23 @@ f360.config(["$routeProvider", function($routeProvider, $http)
     */
 	.when("/:username/trip/:tripId/photos/:photoIndex",
 	{
-	    templateUrl: "templates/trip/photo.html",
-	    controller: "TripPhotoController"
+		templateUrl: "templates/trip/photo.html",
+		controller: "TripPhotoController"
 	})
 	.when("/:username/trip/:tripId/photos",
 	{
-	    templateUrl: "templates/trip/photos.html",
-	    controller: "TripPhotosController"
+		templateUrl: "templates/trip/photos.html",
+		controller: "TripPhotosController"
+	})
+	.when("/:username/trip/:tripId/photosFromHome/:photoIndex",
+	{
+		templateUrl: "templates/trip/photosFromHome.html",
+		controller: "TripPhotoController"
+	})
+	.when("/:username/trip/:tripId/photosFromHome",
+	{
+		templateUrl: "templates/trip/photosFromHome.html",
+		controller: "TripPhotosController"
 	})
 	.when("/:username/trip/new",
 	{
