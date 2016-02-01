@@ -1,13 +1,4 @@
-﻿<style>
-	.f360-navbar-button {
-		position: relative;
-		top: 7px;
-	}
-	input[type=date] {
-		width: 100%;
-	}
-</style>
-<div class="navbar navbar-default navbar-fixed-top">
+﻿<div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<!--back-button></back-button-->
         <a href="#/{{username}}/gear/list" class="btn btn-danger pull-left f360-navbar-button">
@@ -144,6 +135,9 @@ Name
     Description
     <textarea ng-model="gear.description" class="form-control" placeholder="Description"></textarea>
 </div>
+Notes
+<textarea ng-model="gear.notes" class="form-control" placeholder="Notes"></textarea>
+
 
 Photos
 <a href="#/{{username}}/gear/{{gearId}}/photos" class="btn btn-success btn-block">
@@ -161,9 +155,6 @@ Upload Photo
     <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
 </form>
 
-Notes
-<textarea ng-model="gear.notes" class="form-control" placeholder="Notes"></textarea>
-
-<a ng-click="remove()" class="btn btn-danger btn-block">
+<a ng-click="remove()" class="btn btn-danger btn-block f360-navbar-button">
     Delete
 </a>
