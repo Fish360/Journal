@@ -40,3 +40,8 @@ input[type=date] {
 	margin-right:10px;
 	margin-top:10px;
 }
+
+textarea.form-control {
+	height: 150px;
+	overflow-y: scroll;
+}
