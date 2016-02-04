@@ -189,7 +189,7 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 	
 	$scope.remove = function()
 	{
-		var removeConfirm = confirm("Are you sure you want to remove this trip?");
+		var removeConfirm = confirm("Are you sure you want to remove this fish?");
 		if(removeConfirm) {
 		$http.delete("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
 			.success(function(fish){
