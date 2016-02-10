@@ -31,7 +31,7 @@ Species
 	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
 Weight
-<input ng-model="newFish.weight" class="form-control" placeholder="Weight" type="number" pattern="[0-9]*"/>
+<input ng-model="newFish.weight" class="form-control" placeholder="Weight" format="number"/>
 Length
 <input ng-model="newFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
 Girth

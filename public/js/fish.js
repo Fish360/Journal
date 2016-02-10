@@ -120,7 +120,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
 {
-	$(".f360-number").numeric({ decimal : ".",  negative : false, scale: 3 });
+	//$(".f360-number").numeric({ decimal : ".",  negative : false, scale: 3 });
 
 	$scope.speciess = species;
 
