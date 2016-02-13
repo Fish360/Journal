@@ -32,21 +32,21 @@ Species
 	<option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
 Weight
-<input ng-model="editFish.weight" class="form-control" placeholder="0.00" type="number" format="number"/>
+<input ng-model="editFish.weight" class="form-control" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Length
-<input ng-model="editFish.length" class="form-control" placeholder="0.00" type="number" format="number"/>
+<input ng-model="editFish.length" class="form-control" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Girth
-<input ng-model="editFish.girth" class="form-control" placeholder="0.00" type="number" format="number"/>
+<input ng-model="editFish.girth" class="form-control" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Spot
 <input ng-model="editFish.spot" class="form-control" placeholder="Spot"/>
 Presentation
 <input ng-model="editFish.presentation" class="form-control" placeholder="Presentation"/>
 Water Depth
-<input ng-model="editFish.waterDepth" class="form-control" placeholder="0.00" type="number" format="number"/>
+<input ng-model="editFish.waterDepth" class="form-control" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Water Temperature
-<input ng-model="editFish.waterTemperature" class="form-control" placeholder="0.00" type="number" format="number"/>
+<input ng-model="editFish.waterTemperature" class="form-control" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Water Clarity
-<input ng-model="editFish.waterClarity" class="form-control" placeholder="0.00" type="number" format="number"/>
+<input ng-model="editFish.waterClarity" class="form-control" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Sunrise Time
 <input ng-model="editFish.sunriseTime" class="form-control" type="time"/>
 Sunset Time
