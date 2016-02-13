@@ -31,21 +31,21 @@ Species
 	<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
 </select>
 Weight
-<input ng-model="newFish.weight" class="form-control" placeholder="Weight" format="number"/>
+<input ng-model="newFish.weight" class="form-control" placeholder="0.00"  type="number" format="number"/>
 Length
-<input ng-model="newFish.length" class="form-control" placeholder="Length" type="number" pattern="[0-9]*"/>
+<input ng-model="newFish.length" class="form-control" placeholder="0.00" type="number" format="number"/>
 Girth
-<input ng-model="newFish.girth" class="form-control" placeholder="Girth" type="number" pattern="[0-9]*"/>
+<input ng-model="newFish.girth" class="form-control" placeholder="0.00" type="number" format="number"/>
 Spot
 <input ng-model="newFish.spot" class="form-control" placeholder="Spot"/>
 Presentation
-<input ng-model="newFish.presentation" class="form-control" placeholder="Presentation"/>
+<input ng-model="newFish.presentation" class="form-control" placeholder="0.00"/>
 Water Depth
-<input ng-model="newFish.waterDepth" class="form-control" placeholder="Water Depth" type="number" pattern="[0-9]*"/>
+<input ng-model="newFish.waterDepth" class="form-control" placeholder="0.00" type="number" format="number"/>
 Water Temperature
-<input ng-model="newFish.waterTemperature" class="form-control" placeholder="Water Temperature" type="number" pattern="[0-9]*"/>
+<input ng-model="newFish.waterTemperature" class="form-control" placeholder="0.00" type="number" format="number"/>
 Water Clarity
-<input ng-model="newFish.waterClarity" class="form-control" placeholder="Water Clarity" type="number" pattern="[0-9]*"/>
+<input ng-model="newFish.waterClarity" class="form-control" placeholder="0.00" type="number" format="number"/>
 Sunrise Time
 <input ng-model="newFish.sunriseTime" class="form-control" type="time"/>
 Sunset Time
