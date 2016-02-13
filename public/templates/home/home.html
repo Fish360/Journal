@@ -47,7 +47,7 @@
 				<a href="#/{{event.username}}/trip/{{event._id}}/fish/list">
 				<!--a href="#/{{event.username}}/trip/{{event._id}}/editFromHome"-->
 				<!--a href="#/{{event.username}}/trip/{{event._id}}/listFromHome"-->
-					<span>{{event.title}}</span><br/>
+					<span>[TRIP] {{event.title}}</span><br/>
 					<span>{{event.start | date : MMMdyyy}}</span> - 
 					<span>{{event.end | date : MMMdyyy}}</span>
 				</a>
@@ -58,11 +58,29 @@
 					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
 				</a>
 				<a href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/editFromHome">
-                    {{event.commonName}} ({{event.species}})<br />
+                    [FISH] {{event.commonName}} ({{event.species}})<br />
                     <span ng-show="event.weight">{{event.weight}} lbs</span><span ng-show="event.length">, {{event.length}} in</span>
 				</a>
 			</span>
-			
+
+			<span ng-switch-when="SPOT">
+				<a class="pull-right" href="#/{{event.username}}/spots/{{event._id}}/edit">
+					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+				</a>
+				<a href="#/{{event.username}}/spots/{{event._id}}/edit">
+					[SPOT] {{event.name}}
+				</a>
+			</span>
+
+			<span ng-switch-when="GEAR">
+				<a class="pull-right" href="#/{{event.username}}/gear/{{event._id}}/edit">
+					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+				</a>
+				<a href="#/{{event.username}}/gear/{{event._id}}/edit">
+					[GEAR] {{event.name}}
+				</a>
+			</span>
+
 		</td>
 	</tr>
 </table>

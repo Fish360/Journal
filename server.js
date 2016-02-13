@@ -199,7 +199,21 @@ app.get('/api/:username/events', function(req, res)
 					events.push(fish[i]);
 				}
 			}
-			res.json(events);
+			db.spots.find({username: req.params.username}, function(err, spots) {
+				if(typeof spots != "undefined" && spots != null) {
+					for(var i=0; i<spots.length; i++) {
+						events.push(spots[i]);
+					}
+				}
+				db.gear.find({username: req.params.username}, function(err, gear) {
+					if(typeof gear != "undefined" && gear != null) {
+						for(var i=0; i<gear.length; i++) {
+							events.push(gear[i]);
+						}
+					}
+					res.json(events);
+				});
+			});
 		});
 	});
 });
