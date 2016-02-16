@@ -1,0 +1,4838 @@
+[
+{
+"CommonName": "Greater Amberjack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola dumerili"
+},
+{
+"CommonName": "Little Tunny ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euthynnus alletteratus"
+},
+{
+"CommonName": "Banded Rudderfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola zonata"
+},
+{
+"CommonName": "Gulf Menhaden ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Brevoortia patronus"
+},
+{
+"CommonName": "Goosefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lophius americanus"
+},
+{
+"CommonName": "Banded Rudderfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola zonata"
+},
+{
+"CommonName": "Greater Amberjack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola dummerili"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Atlantic Spadefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodipterus faber"
+},
+{
+"CommonName": "Goosefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lophius americanus"
+},
+{
+"CommonName": "Skipjack Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Katsuwonus pelamis"
+},
+{
+"CommonName": "Ladyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Elops saurus"
+},
+{
+"CommonName": "Black Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pogonias cromis"
+},
+{
+"CommonName": "Great Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena barracuda"
+},
+{
+"CommonName": "Gulf Kingfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus littoralis"
+},
+{
+"CommonName": "Vermilion Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhomboplites aurorubens"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabrus adspersus"
+},
+{
+"CommonName": "Jack Crevalle ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx hippos"
+},
+{
+"CommonName": "Red Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Gulf Toadfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Opsanus beta"
+},
+{
+"CommonName": "Winter Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pleuronectes americanus"
+},
+{
+"CommonName": "Gag Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mycteroperca microlepis"
+},
+{
+"CommonName": "Warsaw Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus nigritus"
+},
+{
+"CommonName": "Warsaw Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus nigritus"
+},
+{
+"CommonName": "Striped Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mugil cephalus"
+},
+{
+"CommonName": "White Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone americana"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "Winter Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Plueronectes americanus"
+},
+{
+"CommonName": "Black Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mycteroperca bonaci"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Tripletail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lobotes surinamensis"
+},
+{
+"CommonName": "Rock Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis philadelphicus"
+},
+{
+"CommonName": "Tautog ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautoga onitis"
+},
+{
+"CommonName": "Almaco Jack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola rivoliana"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Vermilion Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhomboplites aurorubens"
+},
+{
+"CommonName": "Tomtate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon aurolineatum"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Bluefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "White Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone americana"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabrus adspersus"
+},
+{
+"CommonName": "Little Tunny ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euthynnus alletteratus"
+},
+{
+"CommonName": "Atlantic Bonito ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sarda sarda"
+},
+{
+"CommonName": "Little Tunny ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euthynnus alletteratus"
+},
+{
+"CommonName": "Yellowfin Tuna", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus albacares"
+},
+{
+"CommonName": "Pollock ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pollachius virens"
+},
+{
+"CommonName": "Atlantic Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber scombrus"
+},
+{
+"CommonName": "Pinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lagodon rhomboides"
+},
+{
+"CommonName": "Windowpane ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scophthalmus aquosus"
+},
+{
+"CommonName": "Sandbar Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus plumbeus"
+},
+{
+"CommonName": "Atlantic Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropogonias undulatus"
+},
+{
+"CommonName": "Red Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scianops ocellatus"
+},
+{
+"CommonName": "Dolphin", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Atlantic Menhaden ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Brevoortia tyrannus"
+},
+{
+"CommonName": "Tripletail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lobotes surinamensis"
+},
+{
+"CommonName": "Tripletail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lobotes surinamensis"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabrus adspersus"
+},
+{
+"CommonName": "Pinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lagodon rhomboides"
+},
+{
+"CommonName": "Scup ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stenotomus crysops"
+},
+{
+"CommonName": "Vermilion Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhomboplites aurorubens"
+},
+{
+"CommonName": "Lane Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus synagris"
+},
+{
+"CommonName": "Lane Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus synagris"
+},
+{
+"CommonName": "Gafftopsail Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bagre marinus"
+},
+{
+"CommonName": "Sea Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arius felis"
+},
+{
+"CommonName": "Atlantic Wolffish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anarhichas lupus"
+},
+{
+"CommonName": "King Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomberomorus cavalla"
+},
+{
+"CommonName": "Black Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pogonias cromis"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Sea Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arius felis"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabrus adspersus"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabrus adspersus"
+},
+{
+"CommonName": "Pompano Dolphin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena equisetis"
+},
+{
+"CommonName": "Dolphinfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Silk Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus vivanus"
+},
+{
+"CommonName": "Tripletail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lobotes surinamensis"
+},
+{
+"CommonName": "Snowy Grouper", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus niveatus"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabrus adspersus"
+},
+{
+"CommonName": "Bluefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "Tautog ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautoga onitis"
+},
+{
+"CommonName": "Mummichog ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Fundulus heteroclitus"
+},
+{
+"CommonName": "Round Scad ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Decapterus punctatus"
+},
+{
+"CommonName": "Atlantic Cod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gadus morhua"
+},
+{
+"CommonName": "Atlantic Cod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gadus morhua"
+},
+{
+"CommonName": "Spotted Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis regia"
+},
+{
+"CommonName": "Spotted Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis regia"
+},
+{
+"CommonName": "Tilefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lopholatilus chamaeleonticeps"
+},
+{
+"CommonName": "White Grunt ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon plumieri"
+},
+{
+"CommonName": "Little Skate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Raja erinacea"
+},
+{
+"CommonName": "Dolphin", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "Atlantic Bumper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chloroscombrus chrysurus"
+},
+{
+"CommonName": "Jack Crevalle ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx hippos"
+},
+{
+"CommonName": "Atlantic Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropogon undulatus"
+},
+{
+"CommonName": "Black Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pogonias cromis"
+},
+{
+"CommonName": "Spotfin Hogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bodianus pulchellus"
+},
+{
+"CommonName": "Cubera Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus cyanopterus"
+},
+{
+"CommonName": "Great Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena barracuda"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus camphechanus"
+},
+{
+"CommonName": "Red Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Sheepshead ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Archosargus probatocephalus"
+},
+{
+"CommonName": "Summer Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys dentatus"
+},
+{
+"CommonName": "Dolphin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Black Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pogonias cromis"
+},
+{
+"CommonName": "American Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anguilla rostrata"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "Scup ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stenotomus chrysops"
+},
+{
+"CommonName": "Little Tunny ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euthynnus alletteratus"
+},
+{
+"CommonName": "Atlantic Menhaden ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Brevoortia tyrannus"
+},
+{
+"CommonName": "Dolphin", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Tomtate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon aurolineatum"
+},
+{
+"CommonName": "Southern Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis floridana"
+},
+{
+"CommonName": "Summer Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys dentatus"
+},
+{
+"CommonName": "Atlantic Bonito ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sarda sarda"
+},
+{
+"CommonName": "Blackfin Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus atlanticus"
+},
+{
+"CommonName": "Blackfin Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus atlanticus"
+},
+{
+"CommonName": "American Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anguilla rostrata"
+},
+{
+"CommonName": "Silver Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Merluccius bilinearis"
+},
+{
+"CommonName": "Atlantic Tomcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Microgadus tomcod"
+},
+{
+"CommonName": "Palometa ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachinotus goodei"
+},
+{
+"CommonName": "Whitebone Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Calamus leucosteus"
+},
+{
+"CommonName": "Freshwater Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Aplodinotus grunniens"
+},
+{
+"CommonName": "Jewfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus itajara"
+},
+{
+"CommonName": "Warsaw Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus nigritus"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Bigeye Scad ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Selar crumenophthalmus"
+},
+{
+"CommonName": "Atlantic Tarpon-Young ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Atlanticus megalops"
+},
+{
+"CommonName": "Spot", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leiostomus xanthurus"
+},
+{
+"CommonName": "Silk Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus vivanus"
+},
+{
+"CommonName": "Dolphin", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Gag Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mycteroperca microlepis"
+},
+{
+"CommonName": "Striped Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mugil cephalus"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Permit ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachinotus falcatus"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Largemouth Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropterus salmoides"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "White Grunt ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon plumieri"
+},
+{
+"CommonName": "Pigfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Orthopristis chrysoptera"
+},
+{
+"CommonName": "Searobin", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Triglidae spp."
+},
+{
+"CommonName": "Bearded Brotula ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Brotula barbata"
+},
+{
+"CommonName": "Gafftopsail Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bagre marinus"
+},
+{
+"CommonName": "Sea Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arius felis"
+},
+{
+"CommonName": "Atlantic Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropogon undulatus"
+},
+{
+"CommonName": "Blue Runner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx crysos"
+},
+{
+"CommonName": "Hogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lachnolaimus maximus"
+},
+{
+"CommonName": "Pigfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Orthopristis chrysoptera"
+},
+{
+"CommonName": "Blue Runner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx crysos"
+},
+{
+"CommonName": "Jack Crevalle ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx hippos"
+},
+{
+"CommonName": "Greater Amberjack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola dummerili"
+},
+{
+"CommonName": "Yellow Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Perca flavescens"
+},
+{
+"CommonName": "Jack Crevalle ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx hippos"
+},
+{
+"CommonName": "Warsaw Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus nigritus"
+},
+{
+"CommonName": "Goliath Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus itajara"
+},
+{
+"CommonName": "Striped Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mugil cephalus"
+},
+{
+"CommonName": "White Grunt ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon plumieri"
+},
+{
+"CommonName": "King Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomberomorus cavalla"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "King Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomberomorus cavalla"
+},
+{
+"CommonName": "Speckled Hind ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus drummondhayi"
+},
+{
+"CommonName": "Spot ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leiostomus xanthurus"
+},
+{
+"CommonName": "Gray Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Balistes capriscus"
+},
+{
+"CommonName": "Gray Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Balistes capriscus"
+},
+{
+"CommonName": "Winter Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pleuronectes americanus"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "Tiger Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Galeocerdo cuvieri"
+},
+{
+"CommonName": "Striped Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone saxatilis"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "White Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis tenuis"
+},
+{
+"CommonName": "Red Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis chuss"
+},
+{
+"CommonName": "Red Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis chuss"
+},
+{
+"CommonName": "Palometa ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachinotus goodei"
+},
+{
+"CommonName": "Scup ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stenotomus chrysops"
+},
+{
+"CommonName": "Ladyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Elops saurus"
+},
+{
+"CommonName": "Gray Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus griseus"
+},
+{
+"CommonName": "Gray Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus griseus"
+},
+{
+"CommonName": "Sea Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arius felis"
+},
+{
+"CommonName": "Vermillion Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhomboplites aurorubens"
+},
+{
+"CommonName": "Northern Kingfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus saxatilis"
+},
+{
+"CommonName": "Goosefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lophius americanus"
+},
+{
+"CommonName": "Atlantic Spadefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodipterus faber"
+},
+{
+"CommonName": "Atlantic Menhaden ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Brevoortia tyrannus"
+},
+{
+"CommonName": "Red Raven ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemitripterus americanus"
+},
+{
+"CommonName": "Gizzard Shad ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Dorosoma cepedianum"
+},
+{
+"CommonName": "Winter Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pleuronectes americanus"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "Vermilion Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhomboplites aurorubens"
+},
+{
+"CommonName": "Mutton Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus analis"
+},
+{
+"CommonName": "Scup ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stenotomus chrysops"
+},
+{
+"CommonName": "Sergeant Taurus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Abudefduf taurus"
+},
+{
+"CommonName": "Spot ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leiostomus xanthurus"
+},
+{
+"CommonName": "Summer Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys dentatus"
+},
+{
+"CommonName": "Atlantic Bonito ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sarda sarda"
+},
+{
+"CommonName": "Golden Redfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes marinus"
+},
+{
+"CommonName": "Skipjack Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Kaysuwonus pelamis"
+},
+{
+"CommonName": "Spot ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leiostomus xanthurus"
+},
+{
+"CommonName": "Oyster Toadfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Opsanus tau"
+},
+{
+"CommonName": "Red Snapper", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Cunner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautogolabus adspersus"
+},
+{
+"CommonName": "Bonefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Albula vulpes"
+},
+{
+"CommonName": "Hogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lachnolaimus maximus"
+},
+{
+"CommonName": "Tautog ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautoga onitis"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Atlantic Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropogon undulatus"
+},
+{
+"CommonName": "Red Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pagrus pagrus"
+},
+{
+"CommonName": "Red Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pagrus pagrus"
+},
+{
+"CommonName": "Summer Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys dentatus"
+},
+{
+"CommonName": "Menhaden", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Brevoortia spp."
+},
+{
+"CommonName": "Florida Pompano ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachinotus carolinus"
+},
+{
+"CommonName": "Pompano Dolphin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena equisetis"
+},
+{
+"CommonName": "Black Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pogonias cromis"
+},
+{
+"CommonName": "Striped Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mugil cephalus"
+},
+{
+"CommonName": "Scup ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stenotomus chrysops"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Black Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pogonias cromis"
+},
+{
+"CommonName": "Red Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Smooth Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lagocephalus laevigatus"
+},
+{
+"CommonName": "Lane Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus synagris"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scianops ocellatus"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Tomtate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon aurolineatum"
+},
+{
+"CommonName": "White Grunt ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon plumieri"
+},
+{
+"CommonName": "Scup ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stenotomus chrysops"
+},
+{
+"CommonName": "Golden Redfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes marinus"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Lane Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus synagris"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Yellow Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Perca flavescens"
+},
+{
+"CommonName": "Striped Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone saxatilis"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Rock Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis philadelphicus"
+},
+{
+"CommonName": "Almaco Jack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola rivoliana"
+},
+{
+"CommonName": "Bluefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "Banded Rudderfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola zonata"
+},
+{
+"CommonName": "Bank Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis ocyurus"
+},
+{
+"CommonName": "Bank Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis ocyurus"
+},
+{
+"CommonName": "Striped Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone saxatilis"
+},
+{
+"CommonName": "Red Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pagrus pagrus"
+},
+{
+"CommonName": "Golden Redfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes marinus"
+},
+{
+"CommonName": "Permit", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachinotus falcatus"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "Tomtate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon aurolineatum"
+},
+{
+"CommonName": "White Grunt ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon plumieri"
+},
+{
+"CommonName": "Tomtate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Haemulon aurolineatum"
+},
+{
+"CommonName": "Little Tunny ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euthynnus alletteratus"
+},
+{
+"CommonName": "Blue Runner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx crysos"
+},
+{
+"CommonName": "Gafftopsail Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bagre marinus"
+},
+{
+"CommonName": "Atlantic Sailfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Istiophorus platypterus"
+},
+{
+"CommonName": "Pigfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Orthopristis chrysoptera"
+},
+{
+"CommonName": "Spotted Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nebulosus"
+},
+{
+"CommonName": "Pinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lagodon rhomboides"
+},
+{
+"CommonName": "Snook ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropomus undecimalis"
+},
+{
+"CommonName": "Windowpane ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scophthalmus aquosus"
+},
+{
+"CommonName": "American Sand Lance ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ammodytes hexapterus"
+},
+{
+"CommonName": "Windowpane ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scophthalmus aquosus"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "Dusky Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus obscurus"
+},
+{
+"CommonName": "Spiny Dogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Squalis acanthias"
+},
+{
+"CommonName": "Silver Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nothus"
+},
+{
+"CommonName": "Red Drum", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Black Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis striatus"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Rock Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis philadelphicus"
+},
+{
+"CommonName": "Sea Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arius felis"
+},
+{
+"CommonName": "Conger Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Conger oceanicus"
+},
+{
+"CommonName": "Winter Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pseudopleuronectes americanus"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Cobia ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rachycentron canadum"
+},
+{
+"CommonName": "Sheepshead ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Archosargus probatocephalus"
+},
+{
+"CommonName": "Tidewater Silverside ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menidia beryllina"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "Spanish Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomberomorus maculatus"
+},
+{
+"CommonName": "Silk Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus vivanus"
+},
+{
+"CommonName": "Bonefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Albula vulpes"
+},
+{
+"CommonName": "Atlantic Tarpon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tarpon atlantica"
+},
+{
+"CommonName": "White Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mugil curema"
+},
+{
+"CommonName": "White Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone americana"
+},
+{
+"CommonName": "Red Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pagrus pagrus"
+},
+{
+"CommonName": "Whitebone Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Calamus leucosteus"
+},
+{
+"CommonName": "Silver Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nothus"
+},
+{
+"CommonName": "Gulf Kingfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus littoralis"
+},
+{
+"CommonName": "Silver Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Merluccius bilinearis"
+},
+{
+"CommonName": "Goosefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lophius americanus"
+},
+{
+"CommonName": "Bluefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "Ladyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Elops saurus"
+},
+{
+"CommonName": "Skipjack Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Katsuwonus pelamis"
+},
+{
+"CommonName": "Bluefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "Atlantic Hagfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myinie glutinosa"
+},
+{
+"CommonName": "Atlantic Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropogon undulatus"
+},
+{
+"CommonName": "Tautog ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautoga onitis"
+},
+{
+"CommonName": "King Mackerel", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomberomorus cavalla"
+},
+{
+"CommonName": "King Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomberomorus cavalla"
+},
+{
+"CommonName": "Bluefish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "Winter Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pseudopleuronectes americanus"
+},
+{
+"CommonName": "Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Spotted Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nebulosus"
+},
+{
+"CommonName": "Spotted Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nebulosus"
+},
+{
+"CommonName": "Blue Runner", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx crysos"
+},
+{
+"CommonName": "Atlantic Silverside ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menidia menidia"
+},
+{
+"CommonName": "Blacktip Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus limbatus"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Lane Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus synagris"
+},
+{
+"CommonName": "Red Snapper", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus campechanus"
+},
+{
+"CommonName": "Red Drum ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenops ocellata"
+},
+{
+"CommonName": "Windowpane ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scophthalmus aquosus"
+},
+{
+"CommonName": "Jewfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus itajara"
+},
+{
+"CommonName": "Jewfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus itajara"
+},
+{
+"CommonName": "Spotted Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nebulosus"
+},
+{
+"CommonName": "Atlantic Tarpon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Megalops atlantica"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Red Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Urophycis chuss"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "Bank Seabass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Centropristis ocyurus"
+},
+{
+"CommonName": "Pinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lagodon rhomboides"
+},
+{
+"CommonName": "Sand Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Diplectrum formosum"
+},
+{
+"CommonName": "White Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone americana"
+},
+{
+"CommonName": "Speckled Hind ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus drummondhayi"
+},
+{
+"CommonName": "Red Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pagrus pagrus"
+},
+{
+"CommonName": "Skipjack Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Katsuwonus pelamis"
+},
+{
+"CommonName": "Yellow Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Perca flavescens"
+},
+{
+"CommonName": "Striped Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone saxatilis"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Silver Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nothus"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "Little Skate ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Raja erinacea"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Windowpane ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scophthalmus aquosus"
+},
+{
+"CommonName": "Hybrid Striped Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone saxatilis x m.chrysops"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysoura"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Northern Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphoeroides maculatus"
+},
+{
+"CommonName": "Grey Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Balistes capriscus"
+},
+{
+"CommonName": "Bluefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomatomus saltatrix"
+},
+{
+"CommonName": "Ladyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Elops saurus"
+},
+{
+"CommonName": "Atlantic Mackerel", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber scombrus"
+},
+{
+"CommonName": "Atlantic Tomcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Microgadus tomcod"
+},
+{
+"CommonName": "Gafftopsail Catfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bagre marinus"
+},
+{
+"CommonName": "Jack Crevalle ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx hippos"
+},
+{
+"CommonName": "Seatrout", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion spp."
+},
+{
+"CommonName": "Warsaw Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus nigritus"
+},
+{
+"CommonName": "Skipjack Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Katsuwonus pelamis"
+},
+{
+"CommonName": "Spotted Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nebulosus"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Scaled Sardine ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Harengula pensacolae"
+},
+{
+"CommonName": "Tautog ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tautoga onitis"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "Striped Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Morone saxatilis"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "American Shad ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Alosa sapidissima"
+},
+{
+"CommonName": "Gray Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus griseus"
+},
+{
+"CommonName": "Whitebone Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Calamus leucosteus"
+},
+{
+"CommonName": "Red Porgy ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pagrus pagrus"
+},
+{
+"CommonName": "Sand Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion arenarius"
+},
+{
+"CommonName": "Silver Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nothus"
+},
+{
+"CommonName": "Gulf Kingfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menicirrhus littoralis"
+},
+{
+"CommonName": "Silver Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Merluccius bilinearis"
+},
+{
+"CommonName": "Kingfish", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus spp."
+},
+{
+"CommonName": "Spotted Seatrout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion nebulosus"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Silk Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus vivanus"
+},
+{
+"CommonName": "Spot ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leiostomus xanthurus"
+},
+{
+"CommonName": "Weakfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cynoscion regalis"
+},
+{
+"CommonName": "Silver Perch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bairdiella chrysura"
+},
+{
+"CommonName": "Yellow Jack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx bartholomaei"
+},
+{
+"CommonName": "Yellowtail Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ocyurus chrysurus"
+},
+{
+"CommonName": "Jack Crevalle ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx hippos"
+},
+{
+"CommonName": "Atlantic Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Micropogon undulatus"
+},
+{
+"CommonName": "Albacore ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus alalunga"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Mexican Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes macdonaldi"
+},
+{
+"CommonName": "Bronzespotted Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes gilli"
+},
+{
+"CommonName": "Mexican Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes macdonaldi"
+},
+{
+"CommonName": "Mexican Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes macdonaldi"
+},
+{
+"CommonName": "Rosy Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rosaceus"
+},
+{
+"CommonName": "Bank Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rufus"
+},
+{
+"CommonName": "Speckled Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes ovalis"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Flag Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rubrivinctus"
+},
+{
+"CommonName": "Redbanded Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rubrivinctus"
+},
+{
+"CommonName": "Ca. Halibut ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys californicus"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Spotted Sand Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax maculatofasciatus"
+},
+{
+"CommonName": "Squarespot Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes hopkinsi"
+},
+{
+"CommonName": "Widow Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes entomelas"
+},
+{
+"CommonName": "Speckled Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes ovalis"
+},
+{
+"CommonName": "Sheephead ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Semicossyphus pulcher"
+},
+{
+"CommonName": "Sablefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anoplopoma fimbria"
+},
+{
+"CommonName": "Giant Sea Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stereolepis gigas"
+},
+{
+"CommonName": "Halfmoon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Medialuna californiensis"
+},
+{
+"CommonName": "Blue Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes mystinus"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "Halfmoon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Medialuna californiensis"
+},
+{
+"CommonName": "Halfmoon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Medialuna californiensis"
+},
+{
+"CommonName": "Bonito ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sarda chiliensis"
+},
+{
+"CommonName": "Shortfin Mako Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Isurus oxyrinchus"
+},
+{
+"CommonName": "Greenblotched Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rosenblatti"
+},
+{
+"CommonName": "Greenspotted Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes chlorostictus"
+},
+{
+"CommonName": "Pink Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes eos"
+},
+{
+"CommonName": "Queenfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriphus politus"
+},
+{
+"CommonName": "Brown Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes auriculatus"
+},
+{
+"CommonName": "Kelp Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax clathratus"
+},
+{
+"CommonName": "White Sea Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Atractoscion nobilis"
+},
+{
+"CommonName": "Pa. Staghorn Sculpin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leptocottus armatus"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Pa. Butterfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Peprilus simillimus"
+},
+{
+"CommonName": "Sablefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anoplopoma fimbria"
+},
+{
+"CommonName": "Rubberlip Seaperch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhacochilus toxotes"
+},
+{
+"CommonName": "Opaleye ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Girella nigricans"
+},
+{
+"CommonName": "Cowcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes levis"
+},
+{
+"CommonName": "Kelp Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax clathratus"
+},
+{
+"CommonName": "Kelp Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax clathratus"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Ca. Corbina ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Menticirrhus undulatus"
+},
+{
+"CommonName": "Halfmoon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Medialuna californiensis"
+},
+{
+"CommonName": "Halfmoon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Medialuna californiensis"
+},
+{
+"CommonName": "Splitnose Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes diploproa"
+},
+{
+"CommonName": "Shortspine Thornyhead ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastalobus alascanus"
+},
+{
+"CommonName": "Kelp Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax clathratus"
+},
+{
+"CommonName": "Chilipepper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes goodei"
+},
+{
+"CommonName": "Black Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cheilotrema saturnum"
+},
+{
+"CommonName": "Sargo ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anisotremus davidsonii"
+},
+{
+"CommonName": "King Salmon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Oncorhynchus tshawytscha"
+},
+{
+"CommonName": "Brown Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes auriculatus"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "Copper Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes caurinus"
+},
+{
+"CommonName": "Brown Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes auriculatus"
+},
+{
+"CommonName": "Treefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes serriceps"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "Cowcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes levis"
+},
+{
+"CommonName": "Cowcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes levis"
+},
+{
+"CommonName": "Drum Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenidae"
+},
+{
+"CommonName": "Rockfish Genus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes spp."
+},
+{
+"CommonName": "Dolphinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Ca. Halibut ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys californicus"
+},
+{
+"CommonName": "Dolphinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Drum Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenidae"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Ca. Halibut ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys californicus"
+},
+{
+"CommonName": "Bank Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rufus"
+},
+{
+"CommonName": "Bank Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rufus"
+},
+{
+"CommonName": "Ca. Halibut ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralichthys californicus"
+},
+{
+"CommonName": "Yellowtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola lalandi"
+},
+{
+"CommonName": "Giant Sea Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Stereolepis gigas"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "Lingcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ophiodon elongatus"
+},
+{
+"CommonName": "Sheephead ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Semicossyphus pulcher"
+},
+{
+"CommonName": "Garibaldi ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hypsypops rubicundus"
+},
+{
+"CommonName": "Grass Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rastrelliger"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "Spiny Dogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Squalus acanthias"
+},
+{
+"CommonName": "Lingcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ophiodon elongatus"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "Barred Sand Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax nebulifer"
+},
+{
+"CommonName": "Swordspine Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes ensifer"
+},
+{
+"CommonName": "Queenfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriphus politus"
+},
+{
+"CommonName": "Rock Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Halichoeres semicinctus"
+},
+{
+"CommonName": "Senorita ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Oxyjulis californica"
+},
+{
+"CommonName": "Speckled Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes ovalis"
+},
+{
+"CommonName": "Opaleye ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Girella nigricans"
+},
+{
+"CommonName": "Olive Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes serranoides"
+},
+{
+"CommonName": "Yellowtail Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes flavidus"
+},
+{
+"CommonName": "Olive Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes serranoides"
+},
+{
+"CommonName": "Yellowtail Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes flavidus"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Lingcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ophiodon elongatus"
+},
+{
+"CommonName": "Treefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes serriceps"
+},
+{
+"CommonName": "Treefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes serriceps"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Albacore ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus alalunga"
+},
+{
+"CommonName": "Bank Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rufus"
+},
+{
+"CommonName": "Dolphinfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Shortfin Mako Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Isurus oxyrinchus"
+},
+{
+"CommonName": "Bonito ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sarda chiliensis"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "Bonito ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sarda chiliensis"
+},
+{
+"CommonName": "Cowcod ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes levis"
+},
+{
+"CommonName": "Yellowtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola lalandi"
+},
+{
+"CommonName": "Squarespot Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes hopkinsi"
+},
+{
+"CommonName": "Copper Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes caurinus"
+},
+{
+"CommonName": "Hake ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Merluccius productus"
+},
+{
+"CommonName": "Mola ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mola mola"
+},
+{
+"CommonName": "Kelp Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes atrovirens"
+},
+{
+"CommonName": "Brown Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes auriculatus"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Grass Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rastrelliger"
+},
+{
+"CommonName": "Albacore ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus alalunga"
+},
+{
+"CommonName": "Spiny Dogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Squalus acanthias"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Spiny Dogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Squalus acanthias"
+},
+{
+"CommonName": "Greenstriped Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes elongatus"
+},
+{
+"CommonName": "Kelp Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax clathratus"
+},
+{
+"CommonName": "Pa. Butterfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Peprilus simillimus"
+},
+{
+"CommonName": "Ocean Whitefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caulolatilus princeps"
+},
+{
+"CommonName": "Blue Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes mystinus"
+},
+{
+"CommonName": "Ca. Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaena guttata"
+},
+{
+"CommonName": "Canary Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes pinniger"
+},
+{
+"CommonName": "Vermilion Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes miniatus"
+},
+{
+"CommonName": "Canary Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes pinniger"
+},
+{
+"CommonName": "Rockfish Genus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes spp."
+},
+{
+"CommonName": "Vermilion Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes miniatus"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "Canary Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes pinniger"
+},
+{
+"CommonName": "Vermilion Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes miniatus"
+},
+{
+"CommonName": "Blue Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes mystinus"
+},
+{
+"CommonName": "Rosy Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rosaceus"
+},
+{
+"CommonName": "Gopher Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes carnatus"
+},
+{
+"CommonName": "Grass Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rastrelliger"
+},
+{
+"CommonName": "Rockfish Genus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes spp."
+},
+{
+"CommonName": "Drum Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenidae"
+},
+{
+"CommonName": "Drum Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sciaenidae"
+},
+{
+"CommonName": "Rubberlip Seaperch ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhacochilus toxotes"
+},
+{
+"CommonName": "Sablefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anoplopoma fimbria"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "Barred Sand Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax nebulifer"
+},
+{
+"CommonName": "Brown Smoothhound ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mustelus henlei"
+},
+{
+"CommonName": "Gray Smoothhound ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mustelus californicus"
+},
+{
+"CommonName": "Shovelnose Guitarfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhinobatos productus"
+},
+{
+"CommonName": "Barred Sand Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax nebulifer"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Ca. Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaena guttata"
+},
+{
+"CommonName": "Rockfish Genus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes spp."
+},
+{
+"CommonName": "Ca. Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaena guttata"
+},
+{
+"CommonName": "Queenfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriphus politus"
+},
+{
+"CommonName": "Sablefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anoplopoma fimbria"
+},
+{
+"CommonName": "White Sea Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Atractoscion nobilis"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Sheephead ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Semicossyphus pulcher"
+},
+{
+"CommonName": "Coho Salmon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Oncorhynchus kisutch"
+},
+{
+"CommonName": "King Salmon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Oncorhynchus tshawytscha"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "Brown Smoothhound ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mustelus henlei"
+},
+{
+"CommonName": "Gray Smoothhound ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mustelus californicus"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Jack Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachurus symmetricus"
+},
+{
+"CommonName": "Jack Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Trachurus symmetricus"
+},
+{
+"CommonName": "Spotted Sand Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax maculatofasciatus"
+},
+{
+"CommonName": "Gopher Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes carnatus"
+},
+{
+"CommonName": "Spotfin Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Roncador stearnsii"
+},
+{
+"CommonName": "Spotted Sand Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paralabrax maculatofasciatus"
+},
+{
+"CommonName": "Pa. Staghorn Sculpin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Leptocottus armatus"
+},
+{
+"CommonName": "Greenblotched Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rosenblatti"
+},
+{
+"CommonName": "Greenspotted Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes chlorostictus"
+},
+{
+"CommonName": "Pink Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes eos"
+},
+{
+"CommonName": "Rainbow Trout ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Salmo gairdnerii"
+},
+{
+"CommonName": "Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena argentea"
+},
+{
+"CommonName": "Greenstriped Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes elongatus"
+},
+{
+"CommonName": "Rosy Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rosaceus"
+},
+{
+"CommonName": "Kelp Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes atrovirens"
+},
+{
+"CommonName": "Mola ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mola mola"
+},
+{
+"CommonName": "Yellowtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola lalandi"
+},
+{
+"CommonName": "Skates & Rays ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rajidae"
+},
+{
+"CommonName": "Pacific Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scomber japonicus"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "White Croaker ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Genyonemus lineatus"
+},
+{
+"CommonName": "Mexican Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes macdonaldi"
+},
+{
+"CommonName": "Bronzespotted Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes gilli"
+},
+{
+"CommonName": "Greenblotched Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes rosenblatti"
+},
+{
+"CommonName": "Greenspotted Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes chlorostictus"
+},
+{
+"CommonName": "Pink Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes eos"
+},
+{
+"CommonName": "White Sea Bass ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Atractoscion nobilis"
+},
+{
+"CommonName": "Ocean Whitefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caulolatilus princeps"
+},
+{
+"CommonName": "Bocaccio ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes paucispinis"
+},
+{
+"CommonName": "Yellowtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola lalandi"
+},
+{
+"CommonName": "Yellowtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola lalandi"
+},
+{
+"CommonName": "Yellowtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola lalandi"
+},
+{
+"CommonName": "Sablefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anoplopoma fimbria"
+},
+{
+"CommonName": "Black & Yellow Rockfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sebastes chrysomelas"
+},
+{
+"CommonName": "Billfish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Istiophoridae"
+},
+{
+"CommonName": "Hawaiian Hogfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bodianus bilunulatus"
+},
+{
+"CommonName": "Houndfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tylosurus crocodilus"
+},
+{
+"CommonName": "Keeltail Needlefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Platybelone argalus"
+},
+{
+"CommonName": "Yellowfin Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus albacares"
+},
+{
+"CommonName": "Bluefin Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus thynnus"
+},
+{
+"CommonName": "Albacore ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus alalunga"
+},
+{
+"CommonName": "Mackerel Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scombridae"
+},
+{
+"CommonName": "Hawaiian Flagtail ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Kuhlia sandvicensis"
+},
+{
+"CommonName": "Skipjack Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Katsuwonus pelamis"
+},
+{
+"CommonName": "Bigeye Scad ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Selar crumenophthalmus"
+},
+{
+"CommonName": "Saber Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sargocentron spiniferum"
+},
+{
+"CommonName": "Yellowstriped Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Holocentrus ensifer"
+},
+{
+"CommonName": "Peppered Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sargocentron punctatissimum"
+},
+{
+"CommonName": "Crown Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sargocentron diadema"
+},
+{
+"CommonName": "Hawaiian Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Holocentrus xantherythrum"
+},
+{
+"CommonName": "Spotfin Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Neoniphon sammara"
+},
+{
+"CommonName": "Tahitian Squirrelfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sargocentron tiere"
+},
+{
+"CommonName": "Squirrelfish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Holocentridae"
+},
+{
+"CommonName": "Striped Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mugil cephalus"
+},
+{
+"CommonName": "Whitespotted Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus guttatus"
+},
+{
+"CommonName": "Black Marlin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Makaira indica"
+},
+{
+"CommonName": "Blue Marlin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Makaira nigricans"
+},
+{
+"CommonName": "Striped Marlin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Tetrapturus audax"
+},
+{
+"CommonName": "Milkfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chanos chanos"
+},
+{
+"CommonName": "Hawaiian Tenpounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Elops hawaiensis"
+},
+{
+"CommonName": "Christmas Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thalassoma trilobatum"
+},
+{
+"CommonName": "Bigeye Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Priacanthidae"
+},
+{
+"CommonName": "Glasseye ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Heteropriacanthus cruentatus"
+},
+{
+"CommonName": "Hawaiian Bigeye ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Priacanthus meeki"
+},
+{
+"CommonName": "Black Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ctenochaetus hawaiiensis"
+},
+{
+"CommonName": "Thick Lipped Jack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pseudocaranx dentex"
+},
+{
+"CommonName": "Lowfin Chub", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Kyphosus vaigiensis"
+},
+{
+"CommonName": "Gray Chub ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Kyphosus bigibbus"
+},
+{
+"CommonName": "Dogtooth Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnosarda unicolor"
+},
+{
+"CommonName": "Manta Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mobulidae"
+},
+{
+"CommonName": "Hawaiian Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Epinephelus quernus"
+},
+{
+"CommonName": "Hawkfish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cirrhitidae"
+},
+{
+"CommonName": "Eagle Ray Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myliobatidae"
+},
+{
+"CommonName": "Blackside Hawkfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paracirrhites forsteri"
+},
+{
+"CommonName": "Psychedelic Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anampses chrysocephalus"
+},
+{
+"CommonName": "Yellowtail Coris ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coris gaimardi"
+},
+{
+"CommonName": "Shortnose Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Macropharyngodon geoffroyi"
+},
+{
+"CommonName": "Wrasse Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Labridae"
+},
+{
+"CommonName": "Yellowstripe Coris ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coris flavovittata"
+},
+{
+"CommonName": "Saddle Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thalassoma duperreyi"
+},
+{
+"CommonName": "Blacktail Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thalassoma ballieui"
+},
+{
+"CommonName": "Bird Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gomphosus varius"
+},
+{
+"CommonName": "Surge Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thalassoma purpureum"
+},
+{
+"CommonName": "Triggerfishes/Filefishes ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Balistidae"
+},
+{
+"CommonName": "Black Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Melichthys niger"
+},
+{
+"CommonName": "Pinktail Durgon ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Melichthys vidua"
+},
+{
+"CommonName": "Reef Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhinecanthus rectangulus"
+},
+{
+"CommonName": "Lagoon Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Rhinecanthus aculeatus"
+},
+{
+"CommonName": "Lei Triggerfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sufflamen bursa"
+},
+{
+"CommonName": "Hawaiian Silverside ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Atherinomorus insularum"
+},
+{
+"CommonName": "Halfbeak Fish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemiramphidae"
+},
+{
+"CommonName": "Green Halfbeak ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euleptorhamphus viridis"
+},
+{
+"CommonName": "Polynesian Halfbeak ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemiramphus depauperatus"
+},
+{
+"CommonName": "Acute Halfbeak ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hyporhamphus acutus"
+},
+{
+"CommonName": "Greater Amberjack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Seriola dumerili"
+},
+{
+"CommonName": "Great Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena barracuda"
+},
+{
+"CommonName": "Blue Spine Unicornfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Naso unicornis"
+},
+{
+"CommonName": "Whitemargin Unicorn Fish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Naso annulatus"
+},
+{
+"CommonName": "Unicorn Surgeonfish Genus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Naso"
+},
+{
+"CommonName": "Paletail Unicornfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Naso brevirostris"
+},
+{
+"CommonName": "Von Siebold'S Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pristipomoides sieboldii"
+},
+{
+"CommonName": "Rainbow Runner ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Elagatis bipinnulata"
+},
+{
+"CommonName": "Heller'S Barracuda ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyraena helleri"
+},
+{
+"CommonName": "Kawakawa ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Euthynnus affinis"
+},
+{
+"CommonName": "Frigate Mackerel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Auxis thazard"
+},
+{
+"CommonName": "Moorish Idol ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Zanclus cornutus"
+},
+{
+"CommonName": "Bluestripe Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodon fremblii"
+},
+{
+"CommonName": "Threadfin Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodon auriga"
+},
+{
+"CommonName": "Teardrop Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodon unimaculatus"
+},
+{
+"CommonName": "Racoon Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodon lunula"
+},
+{
+"CommonName": "Porcupinefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Diodon hystrix"
+},
+{
+"CommonName": "Spiny Porcupinefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Diodon holocanthus"
+},
+{
+"CommonName": "Porcupinefish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Diodontidae"
+},
+{
+"CommonName": "Whitesaddle Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Parupeneus porphyreus"
+},
+{
+"CommonName": "Blackspot Sergeant ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Abudefduf sordidus"
+},
+{
+"CommonName": "Cigar ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cheilio inermis"
+},
+{
+"CommonName": "Leatherback ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chorinemus sanctipetri"
+},
+{
+"CommonName": "Razorfish Genus ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemipteronotus"
+},
+{
+"CommonName": "Baldwin'S Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemipteronotus baldwini"
+},
+{
+"CommonName": "Peacock Razorfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemipteronotus pavoninus"
+},
+{
+"CommonName": "Blackside Razorfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Hemipteronotus umbrilatus"
+},
+{
+"CommonName": "Milletseed Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodon miliaris"
+},
+{
+"CommonName": "Fourspot Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Chaetodon quadrimaculatus"
+},
+{
+"CommonName": "Yellow Tang ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Zebrasoma flavescens"
+},
+{
+"CommonName": "Black Trevally ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx lugubris"
+},
+{
+"CommonName": "Longnose Butterflyfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Forcipiger flavissimus"
+},
+{
+"CommonName": "Ironjaw Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Aphareus rutilans"
+},
+{
+"CommonName": "Scrawled Filefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Aluterus scriptus"
+},
+{
+"CommonName": "Stingray Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Dasyatidae"
+},
+{
+"CommonName": "Dolphin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena hippurus"
+},
+{
+"CommonName": "Pompano Dolphin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coryphaena equiselis"
+},
+{
+"CommonName": "Brown Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus nigrofuscus"
+},
+{
+"CommonName": "Bluelined Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus nigroris"
+},
+{
+"CommonName": "White Bar Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus leucopareius"
+},
+{
+"CommonName": "Thornback Cowfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lactoria fornasini"
+},
+{
+"CommonName": "Lined Coris ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Coris ballieui"
+},
+{
+"CommonName": "Sidespot Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Parupeneus pleurostigma"
+},
+{
+"CommonName": "Hawaiian Sergeant ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Abudefduf abdominalis"
+},
+{
+"CommonName": "Damselfishes ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pomacentridae"
+},
+{
+"CommonName": "Sailfin Tang ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Zebrasoma veliferum"
+},
+{
+"CommonName": "Convict Tang ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus triostegus"
+},
+{
+"CommonName": "Sandbar Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus plumbeus"
+},
+{
+"CommonName": "Gray Reef Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus amblyrhynchos"
+},
+{
+"CommonName": "Galapagos Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus galapagensis"
+},
+{
+"CommonName": "Requiem Shark Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinidae"
+},
+{
+"CommonName": "Scalloped Hammerhead Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Sphyrna lewini"
+},
+{
+"CommonName": "White Tip Reef Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Triaenodon obesus"
+},
+{
+"CommonName": "Black-Tipped Reef Shark ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carcharhinus melanopterus"
+},
+{
+"CommonName": "Bigeye Trevally ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx sexfasciatus"
+},
+{
+"CommonName": "Round Herring ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Etrumeus teres"
+},
+{
+"CommonName": "Spotted Boxfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ostracion meleagris"
+},
+{
+"CommonName": "Manybar Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Parupeneus multifasciatus"
+},
+{
+"CommonName": "Blue Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Parupeneus cyclostomus"
+},
+{
+"CommonName": "Six-Fingered Threadfin ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Polydactylus sexfilis"
+},
+{
+"CommonName": "Pomfrets ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bramidae"
+},
+{
+"CommonName": "Bigeye Emperor ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Monotaxis grandoculis"
+},
+{
+"CommonName": "Doublebar Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Parupeneus bifasciatus"
+},
+{
+"CommonName": "Orangeband Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus olivaceus"
+},
+{
+"CommonName": "Hawaiian Anchovies ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Encrasicholina purpurea"
+},
+{
+"CommonName": "Highfin Rudderfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Kyphosus cinerascens"
+},
+{
+"CommonName": "Sea Chubs ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Kyphosidae"
+},
+{
+"CommonName": "Barred Jack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carangoides ferdau"
+},
+{
+"CommonName": "Scorpionfish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaenidae"
+},
+{
+"CommonName": "Hawaiian Lionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Dendrochirus barberi"
+},
+{
+"CommonName": "Devil Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaenopsis diabolus"
+},
+{
+"CommonName": "Titan Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaenopsis cacopsis"
+},
+{
+"CommonName": "Speckled Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaena coniorta"
+},
+{
+"CommonName": "Spotfin Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scorpaena ballieui"
+},
+{
+"CommonName": "Trumpetfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Aulostomus chinensis"
+},
+{
+"CommonName": "Cornetfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Fistularia commersoni"
+},
+{
+"CommonName": "Ornate Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Halichoeres ornatissimus"
+},
+{
+"CommonName": "Barred Filefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cantherhines dumerili"
+},
+{
+"CommonName": "Squaretail Filefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cantherhines sandwichiensis"
+},
+{
+"CommonName": "Fantail Filefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pervagor spilosoma"
+},
+{
+"CommonName": "Smallmouth Bonefish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Albula glossodonta"
+},
+{
+"CommonName": "Bluefin Trevally ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx melampygus"
+},
+{
+"CommonName": "Wahoo ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthocybium solandri"
+},
+{
+"CommonName": "Goby Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gobiidae"
+},
+{
+"CommonName": "Speckled Baloonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arothron meleagris"
+},
+{
+"CommonName": "Stripebelly Puffer ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Arothron hispidus"
+},
+{
+"CommonName": "Large Headed Scorpionfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pontinus macrocephalus"
+},
+{
+"CommonName": "Pink Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pristipomoides filamentosus"
+},
+{
+"CommonName": "Mackerel Scad ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Decapterus macarellus"
+},
+{
+"CommonName": "Sleek Unicornfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Naso hexacanthus"
+},
+{
+"CommonName": "Pearl Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Anampses cuvieri"
+},
+{
+"CommonName": "Lefteye Flounder Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bothidae"
+},
+{
+"CommonName": "Flowery Flounder ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Bothus mancus"
+},
+{
+"CommonName": "Achilles Tang ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus achilles"
+},
+{
+"CommonName": "Eyestriped Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus dussumieri"
+},
+{
+"CommonName": "Island Jack ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carangoides orthogrammus"
+},
+{
+"CommonName": "Delicate Round Herring ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Spratelloides delicatulus"
+},
+{
+"CommonName": "Arc-Eye Hawkfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Paracirrhites arcatus"
+},
+{
+"CommonName": "Redbarred Hawkfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cirrhitops fasciatus"
+},
+{
+"CommonName": "Stareye Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Calotomus carolinus"
+},
+{
+"CommonName": "Bigeye Tuna ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Thunnus obesus"
+},
+{
+"CommonName": "Stocky Hawkfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cirrhitus pinnulatus"
+},
+{
+"CommonName": "Ringtail Wrasse ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cheilinus unifasciatus"
+},
+{
+"CommonName": "Yellowfin Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus xanthopterus"
+},
+{
+"CommonName": "Ringtail Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Acanthurus blochii"
+},
+{
+"CommonName": "Moray Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Muraenidae"
+},
+{
+"CommonName": "Zebra Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnomuraena zebra"
+},
+{
+"CommonName": "Stout Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnothorax eurostus"
+},
+{
+"CommonName": "Steindachner's Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnothorax steindachneri"
+},
+{
+"CommonName": "Needle-Tooth Moray ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Uropterygius macrocephalus"
+},
+{
+"CommonName": "Snowflake Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Echidna nebulosa"
+},
+{
+"CommonName": "Dragon Moray ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Muraena pardalis"
+},
+{
+"CommonName": "Viper Moray ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Enchelynassa canina"
+},
+{
+"CommonName": "Undulated Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnothorax undulatus"
+},
+{
+"CommonName": "Barred Moray ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Echidna polyzona"
+},
+{
+"CommonName": "Yellowmargin Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnothorax flavimarginatus"
+},
+{
+"CommonName": "Mustache Conger Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Conger cinereus"
+},
+{
+"CommonName": "Whitemouth Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnothorax meleagris"
+},
+{
+"CommonName": "Yellowhead Moray Eel ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gymnothorax rueppelliae"
+},
+{
+"CommonName": "Cusk Eel Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ophidiidae"
+},
+{
+"CommonName": "Ambon Toby ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Canthigaster amboinensis"
+},
+{
+"CommonName": "Peacock Grouper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Cephalopholis argus"
+},
+{
+"CommonName": "Stripey ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Microcanthus strigatus"
+},
+{
+"CommonName": "Summer Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Valamugil engeli"
+},
+{
+"CommonName": "Bluestipe Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus kasmira"
+},
+{
+"CommonName": "Blacktail Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Lutjanus fulvus"
+},
+{
+"CommonName": "Parrotfish Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scaridae"
+},
+{
+"CommonName": "Bandtail Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scarus taeniurus"
+},
+{
+"CommonName": "Bullethead Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scarus sordidus"
+},
+{
+"CommonName": "Palenose Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scarus psittacus"
+},
+{
+"CommonName": "Spectacled Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scarus perspicillatus"
+},
+{
+"CommonName": "Regal Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scarus dubius"
+},
+{
+"CommonName": "Redlip Parrotfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Scarus rubroviolaceus"
+},
+{
+"CommonName": "Bingham'S Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Pristipomoides zonatus"
+},
+{
+"CommonName": "Green Jobfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Aprion virescens"
+},
+{
+"CommonName": "Ruby Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Etelis carbunculus"
+},
+{
+"CommonName": "Longtailed Red Snapper ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Etelis coruscans"
+},
+{
+"CommonName": "Lizardfishes ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Synodontidae"
+},
+{
+"CommonName": "Slender Lizardfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Saurida gracilis"
+},
+{
+"CommonName": "Jack Family ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Carangidae"
+},
+{
+"CommonName": "Giant Trevally ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Caranx ignobilis"
+},
+{
+"CommonName": "African Pompano ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Alectis ciliaris"
+},
+{
+"CommonName": "Golden Trevally ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Gnathanodon speciosus"
+},
+{
+"CommonName": "Orangespine Unicornfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Naso lituratus"
+},
+{
+"CommonName": "Sharpnose Mullet ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Neomyxus leuciscus"
+},
+{
+"CommonName": "Cardinalfishes ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Apogonidae"
+},
+{
+"CommonName": "Spotted Cardinalfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Apogon maculiferus"
+},
+{
+"CommonName": "Iridescent Cardinalfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Apogon kallopterus"
+},
+{
+"CommonName": "Bandfin Cardinalfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Apogon menesemus"
+},
+{
+"CommonName": "Bigscale Soldierfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myripristis berndti"
+},
+{
+"CommonName": "Brick Soldierfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myripristis amaena"
+},
+{
+"CommonName": "Epaulette Soldierfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myripristis kuntee"
+},
+{
+"CommonName": "Yellowfin Soldierfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myripristis chryseres"
+},
+{
+"CommonName": "Whitetip Soldierfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Myripristis vittata"
+},
+{
+"CommonName": "Roughscale Soldierfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Plectrypops lima"
+},
+{
+"CommonName": "Smalltooth Jobfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Aphareus furcatus"
+},
+{
+"CommonName": "Oilfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ruvettus pretiosus"
+},
+{
+"CommonName": "Yellowstripe Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mulloidichthys flavolineatus"
+},
+{
+"CommonName": "Pflugers Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mulloidichthys pflugeri"
+},
+{
+"CommonName": "Bandtail Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Upeneus arge"
+},
+{
+"CommonName": "Yellowfin Goatfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Mulloidichthys vanicolensis"
+},
+{
+"CommonName": "Goldring Surgeonfish ", 
+"BracesLeft": "(",
+"BracesRight": ")",
+"ScientificName": "Ctenochaetus strigosus"
+}
+]

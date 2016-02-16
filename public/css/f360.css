@@ -45,3 +45,23 @@ textarea.form-control {
 	height: 150px;
 	overflow-y: scroll;
 }
+
+.angucomplete-dropdown {
+    border-color: #ececec;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    padding: 6px;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    margin-top: -6px;
+    background-color: #cccccc;
+  	width: 93%;     
+  	line-height: 1.6;
+  	.box-sizing(border-box);
+}
+
+.angucomplete-row:hover { 
+    background-color: #85cff7;
+}
