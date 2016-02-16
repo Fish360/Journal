@@ -41,7 +41,10 @@ City
 Country
 <input ng-model="spot.country" class="form-control" placeholder="Country" type="text"/>
 Water
-<input ng-model="spot.water" class="form-control" placeholder="Water" type="text"/>
+<select ng-model="spot.water" class="form-control" placeholder="Water">
+    <option value="Salt water">Salt water</option>
+    <option value="Fresh water">Fresh water</option>
+</select>
 Species
 <input ng-model="spot.species" class="form-control" placeholder="Spieces" type="text"/>
 
