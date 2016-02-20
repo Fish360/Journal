@@ -50,12 +50,21 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 	});
 });
 
-f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
+
 	SpotService.findAll($scope.username, function (spots) {
 		$scope.spots = spots;
 	});
@@ -72,14 +81,19 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	
 	$scope.create = function()
 	{
-		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
-//		console.log(url);
+		if(!validateSpecieSelection()){
+			return;
+		}
+
+		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish",
+			scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
 		$scope.newFish["lastUpdated"] = new Date();
-		
+
 		for(var i=0; i<species.length; i++)
-			if(species[i].scientific == $scope.newFish.species)
+			if(species[i].scientific == scientificName)
 				$scope.newFish["commonName"] = species[i].common;
-		
+
+		$scope.newFish.species = scientificName;
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
@@ -116,17 +130,38 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 //	    $scope.newFish.spots = response;
 //	});
 
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.newFish.species === undefined)? false : true;
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		}
+		var isValidSelectionOfSpecies = ($scope.newFish.species.originalObject === undefined)? false : true;
+		if(!isValidSelectionOfSpecies){
+			alert("Please enter valid specie");
+			return false;
+		}
+
+		return true;
+	}
+
 });
 
-f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService)
+f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory)
 {
 	//$(".f360-number").numeric({ decimal : ".",  negative : false, scale: 3 });
-
-	$scope.speciess = species;
 
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	$scope.fishId = $routeParams.fishId;
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
 
 	SpotService.findAll($scope.username, function (spots) {
 		$scope.spots = spots;
@@ -148,11 +183,18 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 	
 	$scope.update = function()
 	{
-//		console.log("UPDATE");
-		for(var i=0; i<species.length; i++)
-			if(species[i].scientific == $scope.editFish.species)
-				$scope.editFish["commonName"] = species[i].common;
+		if(!validateSpecieSelection()) {
+			return;
+		}
 
+		var scientificName = ($scope.editFish.species.originalObject === undefined) ? $scope.editFish.species : $scope.editFish.species.originalObject["ScientificName"];
+		
+		for(var i=0; i<species.length; i++) {
+			if(species[i].scientific === scientificName){
+				$scope.editFish["commonName"] = species[i].common;
+			}
+		}
+		
 //		console.log($scope.editFish);
 
 //		$scope.editFish.weight = $scope.editFish.weight.replace
@@ -164,13 +206,14 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 		$scope.editFish.waterTemperature *= 10.0;
 		$scope.editFish.waterClarity *= 10.0;
 */		
+		$scope.editFish.species = scientificName;
 		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
 			.success(function(fish){
 				var preferences = {
 					species : $scope.editFish.species
 				};
-
+				
 				var user = localStorage.getItem("user");
 				if(user != null && user != "") {
 					user = JSON.parse(user);
@@ -202,4 +245,16 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 			return false;
 		}
 	}
+
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.editFish.species === undefined)? false : true;
+
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		} 
+
+		return true;
+	}
 });
+

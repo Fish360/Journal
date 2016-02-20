@@ -1,4 +1,4 @@
-var f360 = angular.module("f360", ["ngRoute"]);
+var f360 = angular.module("f360", ["ngRoute","angucomplete-alt"]);
 
 f360.directive('f360Decimal', function(){
 	return {
