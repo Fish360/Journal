@@ -51,7 +51,7 @@ f360.controller("SpotListController", function ($scope, $routeParams, $http, Spo
 	});
 });
 
-f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService)
+f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService)
 {
 	$scope.username = $routeParams.username;
 	$scope.create = function()
@@ -64,6 +64,24 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 			});
 		}
 	}
+
+$scope.getCurrentLocationDetails = function () {
+    GeolocationService.getCurrentPosition().then(function(geoposition){
+      	$scope.newSpot = {};
+        $scope.newSpot.latitude = geoposition.coords.latitude;
+        $scope.newSpot.longitude = geoposition.coords.longitude;
+
+      	LocationService.getZipCodeFromLogLat(geoposition.coords, function (response) {
+	        $scope.newSpot.street = response.address.neighbourhood;
+	        $scope.newSpot.city = response.address.city;
+	        $scope.newSpot.state = response.address.state;
+	        $scope.newSpot.zip = parseInt(response.address.postcode,10);
+	        $scope.newSpot.country = response.address.country_code.toUpperCase();    
+        });
+    })
+};
+
+
 	$scope.speciess = species;
 });
 
