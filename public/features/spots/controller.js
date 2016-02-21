@@ -58,6 +58,7 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 	{
 		if(typeof $scope.newSpot != "undefined") {
 			$scope.newSpot.username = $scope.username;
+			$scope.newSpot["lastUpdated"] = new Date();
 			SpotService.create($scope.username, $scope.newSpot, function () {
 				console.log("rew");
 				history.back();
@@ -95,7 +96,8 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
 
     $scope.update = function () {
         console.log($scope.spot);
-        SpotService.update($scope.username, $routeParams.id, $scope.spot, function (response) {
+		$scope.spot["lastUpdated"] = new Date();
+		SpotService.update($scope.username, $routeParams.id, $scope.spot, function (response) {
             window.history.go(-1);
         });
     };

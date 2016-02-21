@@ -49,7 +49,7 @@
 				<!--a href="#/{{event.username}}/trip/{{event._id}}/listFromHome"-->
 					<span>
 						<span class="glyphicon glyphicon-send"></span>
-						{{event.title}}</span><br/>
+						{{event.lastUpdated}} {{event.title}}</span><br/>
 					<span>{{event.start | date : MMMdyyy}}</span> - 
 					<span>{{event.end | date : MMMdyyy}}</span>
 				</a>
@@ -61,7 +61,7 @@
 				</a>
 				<a href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/editFromHome">
 					<span class="glyphicon glyphicon-heart"></span>
-					{{event.commonName}} ({{event.species}})<br />
+					{{event.lastUpdated}} {{event.commonName}} ({{event.species}})<br />
                     <span ng-show="event.weight">{{event.weight}} lbs</span><span ng-show="event.length">, {{event.length}} in</span>
 				</a>
 			</span>
@@ -72,7 +72,7 @@
 				</a>
 				<a href="#/{{event.username}}/spots/{{event._id}}/edit">
 					<span class="glyphicon glyphicon-map-marker"></span>
-					{{event.name}}
+					{{event.lastUpdated}} {{event.name}}
 				</a>
 			</span>
 
@@ -82,7 +82,7 @@
 				</a>
 				<a href="#/{{event.username}}/gear/{{event._id}}/edit">
 					<span class="glyphicon glyphicon-cog"></span>
-					{{event.name}}
+					{{event.lastUpdated}} {{event.name}}
 				</a>
 			</span>
 

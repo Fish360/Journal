@@ -44,7 +44,9 @@ f360.controller("GearNewController", function ($scope, $routeParams, $http, $loc
 	{
 		if(typeof $scope.gear != "undefined") {
 		    $scope.gear.username = $scope.username;
-		    console.log("[1]");
+            $scope.gear["lastUpdated"] = new Date();
+
+            console.log("[1]");
 		    console.log($scope.gear);
 		    GearService.create($scope.username, $scope.gear, function (response) {
 			    console.log("[10]");
@@ -65,6 +67,8 @@ f360.controller("GearEditController", function ($scope, $routeParams, $http, $lo
     });
 
     $scope.update = function () {
+        $scope.gear["lastUpdated"] = new Date();
+
         GearService.update($scope.username, $routeParams.id, $scope.gear, function (response) {
             window.history.go(-1);
         });
