@@ -51,11 +51,32 @@ f360.controller("SpotListController", function ($scope, $routeParams, $http, Spo
 	});
 });
 
-f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService)
+f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService,JSONLoaderFactory)
 {
 	$scope.username = $routeParams.username;
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
+
 	$scope.create = function()
 	{
+		if(!validateSpecieSelection()){
+			return;
+		}
+
+		scientificName = ($scope.newSpot.species.originalObject === undefined) ? $scope.newSpot.species : $scope.newSpot.species.originalObject["ScientificName"];
+		$scope.newSpot["lastUpdated"] = new Date();
+
+		for(var i=0; i<species.length; i++)
+			if(species[i].scientific == scientificName)
+				$scope.newSpot["commonName"] = species[i].common;
+
+		$scope.newSpot.species = scientificName;
 		if(typeof $scope.newSpot != "undefined") {
 			$scope.newSpot.username = $scope.username;
 			$scope.newSpot["lastUpdated"] = new Date();
@@ -84,17 +105,51 @@ $scope.getCurrentLocationDetails = function () {
 
 
 	$scope.speciess = species;
+
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.newSpot.species === undefined)? false : true;
+
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		} 
+
+		return true;
+	}
+
 });
 
-f360.controller("SpotEditController", function ($scope, $routeParams, $http, $location, SpotService)
+f360.controller("SpotEditController", function ($scope, $routeParams, $http, $location, SpotService,JSONLoaderFactory)
 {
     $scope.username = $routeParams.username;
+    loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
+
     SpotService.findOne($scope.username, $routeParams.id, function (response) {
         $scope.spot = response;
 //        console.log(response);
     });
 
     $scope.update = function () {
+    	if(!validateSpecieSelection()) {
+			return;
+		}
+
+		var scientificName = ($scope.spot.species.originalObject === undefined) ? $scope.spot.species : $scope.spot.species.originalObject["ScientificName"];
+		
+		for(var i=0; i<species.length; i++) {
+			if(species[i].scientific === scientificName){
+				$scope.spot["commonName"] = species[i].common;
+			}
+		}
+
+		$scope.spot.species = scientificName;
         console.log($scope.spot);
 		$scope.spot["lastUpdated"] = new Date();
 		SpotService.update($scope.username, $routeParams.id, $scope.spot, function (response) {
@@ -107,6 +162,17 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
             window.history.go(-1);
         });
     }
+
+    function validateSpecieSelection() {
+		var isValidSpecies = ($scope.spot.species === undefined)? false : true;
+
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		} 
+
+		return true;
+	}
 
 //    console.log("SpotEditController" + SpotService);
 	/*

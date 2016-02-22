@@ -37,9 +37,6 @@ Caught Date/Time
     </div>
 </div>
 Species
-<!-- <select ng-model="editFish.species" class="form-control" placeholder="Species">
-    <option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
-</select>	-->
 <div angucomplete-alt id="ex1" placeholder="{{editFish.commonName}} ({{editFish.species}})" pause="100" selected-object="editFish.species" 
 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots

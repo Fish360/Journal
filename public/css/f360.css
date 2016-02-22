@@ -65,3 +65,24 @@ textarea.form-control {
 .angucomplete-row:hover { 
     background-color: #85cff7;
 }
+
+
+#ex1_value:placeholder-shown {
+  	color: #555555;
+}
+
+#ex1_value::-webkit-input-placeholder {
+    color: #555555;
+}
+#ex1_value:-moz-placeholder {
+    color: #555555;
+
+}
+#ex1_value::-moz-placeholder {
+    color: #555555;
+
+}
+#ex1_value:-ms-input-placeholder {
+    color: #555555;
+
+}
