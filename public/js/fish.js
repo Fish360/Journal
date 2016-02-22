@@ -38,14 +38,14 @@ f360.controller("FishHomeListController", function ($scope, $routeParams, $http,
 			$scope.fish = fish;
 		})
 		.then(function(){
-			if($scope.fish.length !== 0) {
-				UserPreferenceService.findOne($scope.username, function(user){
-					var units = user[0].units ? user[0].units : "standard";
-					$scope.lengthUnits = units === "standard" ? "in" : "cm";
-					$scope.weightUnits = units === "standard" ? "lbs" : "kg";
-				});
-			}
-		});
+		if($scope.fish.length !== 0) {
+			UserPreferenceService.findOne($scope.username, function(units){
+				var unitsPreferences = units.trim() !== "" ? units : "standard";
+				$scope.lengthUnits = unitsPreferences === "Metric" ? "cm" : "in";
+				$scope.weightUnits = unitsPreferences === "Metric" ? "kg" : "lbs";
+			});
+		}
+	});
 });
 
 f360.controller("FishListController", function($scope, $routeParams, $http, UserPreferenceService)
@@ -59,10 +59,10 @@ f360.controller("FishListController", function($scope, $routeParams, $http, User
 	})
 	.then(function(){
 		if($scope.fish.length !== 0) {
-			UserPreferenceService.findOne($scope.username, function(user){
-				var units = user[0].units ? user[0].units : "standard";
-				$scope.lengthUnits = units === "standard" ? "in" : "cm";
-				$scope.weightUnits = units === "standard" ? "lbs" : "kg";
+			UserPreferenceService.findOne($scope.username, function(units){
+				var unitsPreferences = units.trim() !== "" ? units : "standard";
+				$scope.lengthUnits = unitsPreferences === "Metric" ? "cm" : "in";
+				$scope.weightUnits = unitsPreferences === "Metric" ? "kg" : "lbs";
 			});
 		}
 	});

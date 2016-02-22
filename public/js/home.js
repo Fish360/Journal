@@ -11,12 +11,12 @@ f360.controller("HomeController", function($scope, $routeParams, $http, UserPref
 			$scope.events = events;
 		})
 		.then(function(){
-			if($scope.events.length !== 0) {
-				UserPreferenceService.findOne($scope.username, function(user){
-					var units = user[0].units ? user[0].units : "standard";
-					$scope.lengthUnits = units === "standard" ? "in" : "cm";
-					$scope.weightUnits = units === "standard" ? "lbs" : "kg";
-				});
-			}
-		});
+		if($scope.events.length !== 0) {
+			UserPreferenceService.findOne($scope.username, function(units){
+				var unitsPreferences = units.trim() !== "" ? units : "standard";
+				$scope.lengthUnits = unitsPreferences === "Metric" ? "cm" : "in";
+				$scope.weightUnits = unitsPreferences === "Metric" ? "kg" : "lbs";
+			});
+		}
+	});
 });

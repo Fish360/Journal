@@ -390,6 +390,15 @@ app.get("/api/user/:username/:password", function(req, res)
 	});
 });
 
+// Find user by username and get User preferences of Units to be displayed
+app.get("/api/user/:username/preferences/units", function(req, res)
+{
+	db.user.find({username: req.params.username}, function(err, user)
+	{
+		res.json(user[0].units);
+	});
+});
+
 app.post("/api/user/:username/preferences", function(req, res)
 {
 	console.log("Preferences");
