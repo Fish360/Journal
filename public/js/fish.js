@@ -28,18 +28,27 @@ f360.controller("FishPhotoController", function ($scope, $routeParams, $http, Sp
     }
 });
 
-f360.controller("FishHomeListController", function ($scope, $routeParams, $http)
+f360.controller("FishHomeListController", function ($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
-	$scope.tripId = $routeParams.username;
+	$scope.tripId = $routeParams.tripId;
 	$http.get("api/allFish/"+$scope.username)
 		.success(function(fish)
 		{
 			$scope.fish = fish;
+		})
+		.then(function(){
+			if($scope.fish.length !== 0) {
+				UserPreferenceService.findOne($scope.username, function(user){
+					var units = user[0].units ? user[0].units : "standard";
+					$scope.lengthUnits = units === "standard" ? "in" : "cm";
+					$scope.weightUnits = units === "standard" ? "lbs" : "kg";
+				});
+			}
 		});
 });
 
-f360.controller("FishListController", function($scope, $routeParams, $http)
+f360.controller("FishListController", function($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId
@@ -47,6 +56,15 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 	.success(function(fish)
 	{
 		$scope.fish = fish;
+	})
+	.then(function(){
+		if($scope.fish.length !== 0) {
+			UserPreferenceService.findOne($scope.username, function(user){
+				var units = user[0].units ? user[0].units : "standard";
+				$scope.lengthUnits = units === "standard" ? "in" : "cm";
+				$scope.weightUnits = units === "standard" ? "lbs" : "kg";
+			});
+		}
 	});
 });
 
