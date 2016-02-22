@@ -65,18 +65,17 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 
 	$scope.create = function()
 	{
-		if(!validateSpecieSelection()){
-			return;
+		if(validateSpecieSelection()){
+			scientificName = ($scope.newSpot.species.originalObject === undefined) ? $scope.newSpot.species : $scope.newSpot.species.originalObject["ScientificName"];
+			$scope.newSpot["lastUpdated"] = new Date();
+
+			for(var i=0; i<species.length; i++)
+				if(species[i].scientific == scientificName)
+					$scope.newSpot["commonName"] = species[i].common;
+
+			$scope.newSpot.species = scientificName;		
 		}
 
-		scientificName = ($scope.newSpot.species.originalObject === undefined) ? $scope.newSpot.species : $scope.newSpot.species.originalObject["ScientificName"];
-		$scope.newSpot["lastUpdated"] = new Date();
-
-		for(var i=0; i<species.length; i++)
-			if(species[i].scientific == scientificName)
-				$scope.newSpot["commonName"] = species[i].common;
-
-		$scope.newSpot.species = scientificName;
 		if(typeof $scope.newSpot != "undefined") {
 			$scope.newSpot.username = $scope.username;
 			$scope.newSpot["lastUpdated"] = new Date();
@@ -110,7 +109,6 @@ $scope.getCurrentLocationDetails = function () {
 		var isValidSpecies = ($scope.newSpot.species === undefined)? false : true;
 
 		if(!isValidSpecies){
-			alert("Please enter valid specie");
 			return false;
 		} 
 
@@ -137,19 +135,17 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
     });
 
     $scope.update = function () {
-    	if(!validateSpecieSelection()) {
-			return;
-		}
-
-		var scientificName = ($scope.spot.species.originalObject === undefined) ? $scope.spot.species : $scope.spot.species.originalObject["ScientificName"];
-		
-		for(var i=0; i<species.length; i++) {
-			if(species[i].scientific === scientificName){
-				$scope.spot["commonName"] = species[i].common;
+    	if(validateSpecieSelection()) {
+			var scientificName = ($scope.spot.species.originalObject === undefined) ? $scope.spot.species : $scope.spot.species.originalObject["ScientificName"];
+			
+			for(var i=0; i<species.length; i++) {
+				if(species[i].scientific === scientificName){
+					$scope.spot["commonName"] = species[i].common;
+				}
 			}
-		}
 
-		$scope.spot.species = scientificName;
+			$scope.spot.species = scientificName;
+		}
         console.log($scope.spot);
 		$scope.spot["lastUpdated"] = new Date();
 		SpotService.update($scope.username, $routeParams.id, $scope.spot, function (response) {
@@ -167,7 +163,6 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
 		var isValidSpecies = ($scope.spot.species === undefined)? false : true;
 
 		if(!isValidSpecies){
-			alert("Please enter valid specie");
 			return false;
 		} 
 

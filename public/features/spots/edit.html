@@ -46,8 +46,7 @@ Water
     <option value="Fresh water">Fresh water</option>
 </select>
 Species
-<div angucomplete-alt id="ex1" placeholder="{{spot.commonName}} ({{spot.species}})" pause="100" selected-object="spot.species" 
-local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
+<div angucomplete-alt id="ex1"  placeholder="{{spot.species ? spot.commonName + ' (' + spot.species + ')' : 'Type for Species...'}}" pause="100" selected-object="spot.species" local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 
 Notes
 <textarea ng-model="spot.notes" class="form-control" placeholder="Notes"></textarea>
