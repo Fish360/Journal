@@ -3,9 +3,9 @@
     function ReportsService ($http) {
         var model = {
             reports: [
-                {_id: "123asd", name: "Report 1"},
-                {_id: "234asd", name: "Report 2"},
-                {_id: "345asd", name: "Report 3"}
+                {_id: "123asd", name: "Report 1", type: "timeOfYear"},
+                {_id: "234asd", name: "Report 2", type: "spots"},
+                {_id: "345asd", name: "Report 3", type: "presentations"}
             ],
             createReport: createReport,
             findAllReports: findAllReports,
