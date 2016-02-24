@@ -221,7 +221,12 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
         .when("/:username/reports",
         {
             templateUrl: "features/reports/reports-list.html",
-            controller: "ReportsListController"
+            controller: "ReportListController"
+        })
+        .when("/:username/reports/new",
+        {
+            templateUrl: "features/reports/reports-new.html",
+            controller: "NewReportController"
         })
         /*
          *	Search Results
