@@ -65,3 +65,11 @@ textarea.form-control {
 .angucomplete-row:hover { 
     background-color: #85cff7;
 }
+
+.f360-bar {
+	background-color: red;
+	height: 20px;
+	color: white;
+	font-weight: bold;
+	padding-right: 5px;
+}

@@ -5,7 +5,19 @@
            <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <div class="navbar-header">
-           <span class="navbar-brand">Presentations Report</span>
+            <span class="navbar-brand">{{report.name}}</span>
         </div>
     </div>
 </div>
+<table class="table table-condensed">
+    <tbody>
+    <tr ng-repeat="data in report.data">
+        <td width="20%">{{data.label}}</td>
+        <td>
+            <div class="f360-bar" style="width: {{data.value}}%">
+                <span class="pull-right">{{data.value}}</span>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -19,8 +19,28 @@
                         {label: "DEC", value: 40}
                     ]
                 },
-                {_id: "234asd", name: "Report 2", type: "spots"},
-                {_id: "345asd", name: "Report 3", type: "presentations"}
+                {_id: "234asd", name: "Report 2", type: "spots",
+                    data: [
+                        {label: "Death Rock",   value: 70},
+                        {label: "Herring Run",  value: 60},
+                        {label: "Dories Cove",  value: 50},
+                        {label: "Black Rock",   value: 40},
+                        {label: "Murder's Row", value: 30},
+                        {label: "Cocunuts",     value: 20},
+                        {label: "Park 7",       value: 10}
+                    ]
+                },
+                {_id: "345asd", name: "Report 3", type: "presentations",
+                    data: [
+                        {label: "Eel", value: 80},
+                        {label: "Manhaden", value: 70},
+                        {label: "Bucktail", value: 60},
+                        {label: "Lefty Deceiver", value: 50},
+                        {label: "Swim Sahd", value: 40},
+                        {label: "Sea Worm", value: 30},
+                        {label: "Kastmaster", value: 20}
+                    ]
+                }
             ],
             createReport: createReport,
             findAllReports: findAllReports,

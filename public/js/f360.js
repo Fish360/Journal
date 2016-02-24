@@ -236,17 +236,17 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
         .when("/:username/reports/:reportId/timeOfYear",
         {
             templateUrl: "features/reports/reports-toy.html",
-            controller: "TimeOfYearReportController"
+            controller: "ReportController"
         })
         .when("/:username/reports/:reportId/spots",
         {
             templateUrl: "features/reports/reports-spots.html",
-            controller: "SpotsReportController"
+            controller: "ReportController"
         })
         .when("/:username/reports/:reportId/presentations",
         {
             templateUrl: "features/reports/reports-presentations.html",
-            controller: "PresentationsReportController"
+            controller: "ReportController"
         })
         /*
          *	Search Results

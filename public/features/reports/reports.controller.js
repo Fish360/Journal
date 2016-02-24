@@ -5,6 +5,17 @@
     f360.controller("TimeOfYearReportController", TimeOfYearReportController);
     f360.controller("SpotsReportController", SpotsReportController);
     f360.controller("PresentationsReportController", PresentationsReportController);
+    f360.controller("ReportController", ReportController);
+
+    function ReportController ($routeParams, $scope, ReportsService) {
+        $scope.username = $routeParams.username;
+        $scope.reportId = $routeParams.reportId;
+
+        function init () {
+            $scope.report = ReportsService.findReportById($scope.reportId);
+        }
+        init();
+    }
 
     function TimeOfYearReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
