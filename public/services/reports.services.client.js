@@ -3,7 +3,22 @@
     function ReportsService ($http) {
         var model = {
             reports: [
-                {_id: "123asd", name: "Report 1", type: "timeOfYear"},
+                {_id: "123asd", name: "Report 1", type: "timeOfYear",
+                    data: [
+                        {label: "JAN", value: 10},
+                        {label: "FEB", value: 20},
+                        {label: "MAR", value: 30},
+                        {label: "APR", value: 40},
+                        {label: "MAY", value: 50},
+                        {label: "JUN", value: 60},
+                        {label: "JUL", value: 70},
+                        {label: "AUG", value: 80},
+                        {label: "SEP", value: 70},
+                        {label: "OCT", value: 60},
+                        {label: "NOV", value: 50},
+                        {label: "DEC", value: 40}
+                    ]
+                },
                 {_id: "234asd", name: "Report 2", type: "spots"},
                 {_id: "345asd", name: "Report 3", type: "presentations"}
             ],
