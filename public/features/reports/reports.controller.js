@@ -48,6 +48,9 @@
     function NewReportController ($routeParams, $scope, ReportsService, $location) {
         $scope.username = $routeParams.username;
         $scope.createReport = createReport;
+        $scope.report = {
+            type: "timeOfYear"
+        };
 
         function init () {
 
