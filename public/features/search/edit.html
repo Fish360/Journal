@@ -190,9 +190,7 @@ Search For
 		</div>
 	</div>
 	Species
-	<select ng-model="search.fish.species" class="form-control">
-		<option ng-repeat="species in speciess" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
-	</select>
+	<div angucomplete-alt id="ex1"  placeholder="{{search.fish.species ? search.fish.commonName + ' (' + search.fish.species + ')' : 'Type for Species...'}}" pause="100" selected-object="search.fish.species" local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 	Weight
 	<div class="row">
 		<div class="col-xs-6">
