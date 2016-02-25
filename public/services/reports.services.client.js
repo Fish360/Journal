@@ -51,30 +51,16 @@
         };
         return model;
 
-        function deleteReport (report) {
-            var report = findReportById(report._id);
-            var index = model.reports.indexOf(report);
-            model.reports.splice (index, 1);
-        }
-
         function createReport (username, report) {
             return $http.post ("/api/"+username+"/report", report);
-            //var now = new Date().getTime();
-            //report._id = "_id_"+now;
-            //model.reports.push (report);
         }
 
         function findAllReports () {
-            return model.reports;
+            return $http.get ("/api/report");
         }
 
         function findReportById (reportId) {
-            for (var r in model.reports) {
-                if (model.reports[r]._id === reportId) {
-                    return model.reports[r];
-                }
-            }
-            return null;
+            return $http.get ("/api/report/"+reportId);
         }
 
         function findReportsByUsername (username) {
@@ -82,9 +68,11 @@
         }
 
         function updateReport (report) {
-            var report = findReportById(report._id);
-            var index = model.reports.indexOf(report);
-            model.reports[index] = report;
+            return $http.put ("/api/report/"+report._id, report);
+        }
+
+        function deleteReport (report) {
+            return $http.delete ("/api/report/"+report._id);
         }
     }
 })();

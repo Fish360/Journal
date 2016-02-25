@@ -44,14 +44,24 @@
         $scope.deleteReport = deleteReport;
 
         function init () {
-            $scope.report = ReportsService.findReportById(reportId);
+            ReportsService
+                .findReportById(reportId)
+                .then(function(response){
+                    $scope.report = response.data;
+                })
         }
         init();
 
         function deleteReport (report) {
-            ReportsService.deleteReport (report);
-            $scope.reports = ReportsService.findAllReports();
-            $location.url ("/"+$scope.username+"/reports");
+            ReportsService
+                .deleteReport (report)
+                .then(function(){
+                    return ReportsService.findAllReports();
+                })
+                .then(function(response){
+                    $scope.reports = response.data;
+                    $location.url ("/"+$scope.username+"/reports");
+                });
         }
 
         function updateReport (report) {
@@ -77,12 +87,8 @@
             ReportsService
                 .createReport ($scope.username, report)
                 .then(function(){
-                    //return ReportsService.findReportsByUsername($scope.username);
                     $location.url ("/"+$scope.username+"/reports");
                 })
-                //.then(function(response){
-                //    $scope.reports = response.data;
-                //});
         }
     }
 

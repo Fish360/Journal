@@ -1,5 +1,6 @@
 var q = require("q");
 var promiseUtil = require("../utils/promiseUtil");
+var mongojs = require("mongojs");
 module.exports = function(db) {
     var api = {
         createReport: createReport,
