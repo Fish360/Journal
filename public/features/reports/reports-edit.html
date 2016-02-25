@@ -20,6 +20,11 @@ Report Type
     <option value="spots">Spots</option>
     <option value="presentations">Presentation</option>
 </select>
+Species
+<div angucomplete-alt placeholder="Type for Species..." pause="100" selected-object="report.species"
+     local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight"
+     title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
+</div>
 From Date/Time
 <div class="row">
     <div class="col-xs-6">
@@ -35,7 +40,7 @@ To Date/Time
         <input ng-model="report.endDate" class="form-control" type="date" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="report.endDate" class="form-control" type="time" />
+        <input ng-model="report.endTime" class="form-control" type="time" />
     </div>
 </div>
 Notes
