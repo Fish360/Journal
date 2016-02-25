@@ -65,9 +65,15 @@
         }
 
         function updateReport (report) {
-            ReportsService.updateReport (report);
-            $scope.reports = ReportsService.findAllReports();
-            $location.url ("/"+$scope.username+"/reports");
+            ReportsService
+                .updateReport (report)
+                .then(function(){
+                    return ReportsService.findAllReports();
+                })
+                .then(function(response){
+                    $scope.reports = response.data;
+                    $location.url ("/"+$scope.username+"/reports");
+                });
         }
     }
 
