@@ -170,7 +170,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 	process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search']);
+var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search', 'report']);
 
 var mandrill  = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('EW3Z7X-JJDSZwb1DigccCA');
@@ -583,5 +583,7 @@ app.get('/api/env', function(req, res){
 	res.send(process.env);
 });
 
+
+require("./app/app.js")(app, db);
 
 app.listen(port, ipaddress);

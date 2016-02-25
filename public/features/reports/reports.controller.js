@@ -74,9 +74,15 @@
         init();
 
         function createReport (report) {
-            ReportsService.createReport (report);
-            $scope.reports = ReportsService.findAllReports();
-            $location.url ("/"+$scope.username+"/reports");
+            ReportsService
+                .createReport ($scope.username, report)
+                .then(function(){
+                    //return ReportsService.findReportsByUsername($scope.username);
+                    $location.url ("/"+$scope.username+"/reports");
+                })
+                //.then(function(response){
+                //    $scope.reports = response.data;
+                //});
         }
     }
 
@@ -84,7 +90,11 @@
         $scope.username = $routeParams.username;
 
         function init () {
-            $scope.reports = ReportsService.findAllReports();
+            ReportsService
+                .findReportsByUsername($scope.username)
+                .then(function(response){
+                    $scope.reports = response.data;
+                })
         }
         init();
     }

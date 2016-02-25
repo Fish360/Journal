@@ -45,6 +45,7 @@
             createReport: createReport,
             findAllReports: findAllReports,
             findReportById: findReportById,
+            findReportsByUsername: findReportsByUsername,
             deleteReport: deleteReport,
             updateReport: updateReport
         };
@@ -56,10 +57,11 @@
             model.reports.splice (index, 1);
         }
 
-        function createReport (report) {
-            var now = new Date().getTime();
-            report._id = "_id_"+now;
-            model.reports.push (report);
+        function createReport (username, report) {
+            return $http.post ("/api/"+username+"/report", report);
+            //var now = new Date().getTime();
+            //report._id = "_id_"+now;
+            //model.reports.push (report);
         }
 
         function findAllReports () {
@@ -73,6 +75,10 @@
                 }
             }
             return null;
+        }
+
+        function findReportsByUsername (username) {
+            return $http.get ("/api/"+username+"/report");
         }
 
         function updateReport (report) {
