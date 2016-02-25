@@ -7,10 +7,34 @@ module.exports = function(db) {
         findAllReports: findAllReports,
         findReportById: findReportById,
         findReportsByUsername: findReportsByUsername,
+        runReportById: runReportById,
         deleteReport: deleteReport,
         updateReport: updateReport
     };
     return api;
+
+    function runReportById(reportId) {
+        var p = promiseUtil();
+        var deferred = p.defer();
+        db.report.findOne({_id: mongojs.ObjectId(reportId)}, function(err, report){
+            var username = report.username;
+            var startDate = report.startDate;
+            var endDate = report.endDate;
+
+            if(report.type === 'timeOfYear') {
+                db.fish.find({
+                    username: username,
+                    caught  : {$gte: startDate},
+                    caught  : {$lte: endDate}
+                }, p.handle);
+            } else if(report.type === 'spots') {
+
+            } else if(report.type === 'presentation') {
+
+            }
+        });
+        return deferred.promise;
+    }
 
     function createReport(username, report) {
         var p = promiseUtil();

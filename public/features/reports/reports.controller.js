@@ -22,7 +22,11 @@
         $scope.reportId = $routeParams.reportId;
 
         function init () {
-            $scope.report = ReportsService.findReportById($scope.reportId);
+            ReportsService
+                .runReportById($scope.reportId)
+                .then(function(response){
+                    $scope.report = response.data;
+                })
         }
         init();
     }

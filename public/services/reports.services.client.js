@@ -46,6 +46,7 @@
             findAllReports: findAllReports,
             findReportById: findReportById,
             findReportsByUsername: findReportsByUsername,
+            runReportById: runReportById,
             deleteReport: deleteReport,
             updateReport: updateReport
         };
@@ -53,6 +54,10 @@
 
         function createReport (username, report) {
             return $http.post ("/api/"+username+"/report", report);
+        }
+
+        function runReportById (reportId) {
+            return $http.get ("/api/report/"+reportId+"/run");
         }
 
         function findAllReports () {
