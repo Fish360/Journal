@@ -37,10 +37,7 @@ Caught Date/Time
     </div>
 </div>
 Species
-<!-- <select ng-model="editFish.species" class="form-control" placeholder="Species">
-    <option ng-repeat="species in speciess | orderBy : species.common" value="{{species.scientific}}">{{species.common}} ({{species.scientific}})</option>
-</select>	-->
-<div angucomplete-alt id="ex1" placeholder="{{editFish.commonName}} ({{editFish.species}})" pause="100" selected-object="editFish.species" 
+<div angucomplete-alt id="ex1" placeholder="{{editFish.commonName}} ({{editFish.species}})" pause="100" selected-object="editFish.species"
 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
 <select ng-model="editFish.spot" class="form-control" placeholder="Species">
@@ -66,16 +63,6 @@ Presentations
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
 	<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear.name}}">{{gear.name}}</option>
 </select>
-<!--
-Gear
-<select ng-model="editFish.gear" class="form-control" placeholder="Gear">
-	<option ng-repeat="gear in gears" value="{{gear.name}}">{{gear.name}}</option>
-</select>
-Presentation
-<select ng-model="editFish.presentation" class="form-control" placeholder="Presentation">
-	<option ng-repeat="presentation in presentations" value="{{presentation.name}}">{{presentation.name}}</option>
-</select>
--->
 Weight
 <input ng-model="editFish.weight" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Length

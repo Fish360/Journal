@@ -21,17 +21,23 @@ module.exports = function(db) {
             var startDate = report.startDate;
             var endDate = report.endDate;
 
-            if(report.type === 'timeOfYear') {
-                db.fish.find({
-                    username: username,
-                    caught  : {$gte: startDate},
-                    caught  : {$lte: endDate}
-                }, p.handle);
-            } else if(report.type === 'spots') {
+            db.fish.find({
+                username: username,
+                caught  : {$gte: startDate},
+                caught  : {$lte: endDate}
+            }, p.handle);
 
-            } else if(report.type === 'presentation') {
-
-            }
+            //if(report.type === 'timeOfYear') {
+            //    db.fish.find({
+            //        username: username,
+            //        caught  : {$gte: startDate},
+            //        caught  : {$lte: endDate}
+            //    }, p.handle);
+            //} else if(report.type === 'spots') {
+            //
+            //} else if(report.type === 'presentation') {
+            //
+            //}
         });
         return deferred.promise;
     }

@@ -9,13 +9,20 @@
         </div>
     </div>
 </div>
+
+<div ng-show="!fishes" class="alert alert-success" role="alert">
+    No Results
+</div>
+
 <table class="table table-condensed">
     <tbody>
-    <tr ng-repeat="data in report.data">
-        <td width="20%">{{data.label}}</td>
+    <tr ng-repeat="(presentation, count) in presentationMap">
+        <td width="10%">
+            <div style="width: 75px;overflow: hidden;text-overflow: ellipsis;">{{presentation}}</div>
+        </td>
         <td>
-            <div class="f360-bar" style="width: {{data.value}}%">
-                <span class="pull-right">{{data.value}}</span>
+            <div class="f360-bar" style="width: {{count*100/max}}%">
+                <span class="pull-right">{{count}}</span>
             </div>
         </td>
     </tr>

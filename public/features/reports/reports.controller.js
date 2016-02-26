@@ -17,9 +17,14 @@
     function ReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
         $scope.reportId = $routeParams.reportId;
+        $scope.report;
 
         function init () {
-            $scope.report = ReportsService.findReportById($scope.reportId);
+            ReportsService
+                .findReportById($scope.reportId)
+                .then(function(report){
+                    $scope.report = report.data;
+                })
         }
         init();
     }
@@ -44,9 +49,6 @@
                     var endDateStr = $scope.report.endDate.replace(/-/g,'/');
                     var startDate = new Date(startDateStr);
                     var endDate = new Date(endDateStr);
-                    //console.log([startDateStr, endDateStr]);
-                    //console.log([startDate, endDate]);
-                    //console.log([startDate.getMonth(), endDate.getMonth()]);
                     var timeline = [];
                     var currentDate = startDate;
                     var timelineCounter = 0;
@@ -59,15 +61,11 @@
                             month = "0"+month;
                         }
                         var timeKey = year+""+month;
-                        //console.log(timeKey);
                         fishMap[timeKey] = 0;
                         currentDate.setMonth(currentDate.getMonth()+1);
                     }
-                    //console.log(fishMap);
-                    //console.log(timeline);
 
                     var fishes = response.data;
-                    //$scope.report = fishes;
                     var total = 0;
                     var max = -1;
                     for(var f in fishes) {
@@ -76,8 +74,6 @@
                         total++;
                         var fishIndex = fish.caught.substring(0, 7).replace('/','');
                         var monthIndex = fishIndex.substring(4, 6);
-                        //console.log(fishIndex);
-                        //console.log(monthIndex);
                         if(fishMap[fishIndex]) {
                             fishMap[fishIndex]++;
                         } else {
@@ -90,20 +86,88 @@
                     $scope.data = fishMap;
                     $scope.total = total;
                     $scope.max = max;
-                    //console.log(fishMap);
                 })
         }
         init();
     }
 
-    function SpotsReportController ($routeParams, $scope) {
+    function SpotsReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
         $scope.reportId = $routeParams.reportId;
+        $scope.report;
+
+        function init () {
+            ReportsService
+                .findReportById($scope.reportId)
+                .then(function(report){
+                    $scope.report = report.data;
+                    return ReportsService.runReportById($scope.reportId);
+                })
+                .then(function(fishes){
+                    var spotMap = {};
+                    fishes = fishes.data;
+                    $scope.fishes = fishes;
+                    var max = -1;
+                    for(var f in fishes) {
+                        var fish = fishes[f];
+                        var spot = fish.spot;
+                        if(spotMap[spot]) {
+                            spotMap[spot]++;
+                        } else {
+                            spotMap[spot] = 1;
+                        }
+                        if(spotMap[spot] > max) {
+                            max = spotMap[spot];
+                        }
+                    }
+                    $scope.spotMap = spotMap;
+                    $scope.max = max;
+                }, function(err){
+                    console.log(err);
+                });
+        }
+        init();
     }
 
-    function PresentationsReportController ($routeParams, $scope) {
+    function PresentationsReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
         $scope.reportId = $routeParams.reportId;
+        $scope.report;
+
+        function init () {
+            ReportsService
+                .findReportById($scope.reportId)
+                .then(function(report){
+                    $scope.report = report.data;
+                    return ReportsService.runReportById($scope.reportId);
+                })
+                .then(function(fishes){
+                    var presentationMap = {};
+                    fishes = fishes.data;
+                    $scope.fishes = fishes;
+                    var max = -1;
+                    for(var f in fishes) {
+                        var fish = fishes[f];
+                        var presentation = fish.presentation;
+                        var gear = fish.gear;
+                        if(gear) {
+                            if(presentationMap[gear]) {
+                                presentationMap[gear]++;
+                            } else {
+                                presentationMap[gear] = 1;
+                            }
+                            if(presentationMap[gear] > max) {
+                                max = presentationMap[gear];
+                            }
+                        }
+                    }
+                    $scope.presentationMap = presentationMap;
+                    $scope.max = max;
+                }, function(err){
+                    console.log(err);
+                });
+        }
+        init();
     }
 
     function EditReportController ($routeParams, $scope, ReportsService, $location) {
