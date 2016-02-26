@@ -10,39 +10,18 @@
     </div>
 </div>
 
-{{report}}
-
 <table class="table table-condensed">
-    <thead>
-    <tr>
-        <th colspan="2" style="text-align: center; background-color: #eee;">2015</th>
-    </tr>
-    </thead>
     <tbody>
-    <tr ng-repeat="data in report.data">
-        <td width="10%">{{data.label}}</td>
-        <td>
-            <div class="f360-bar" style="width: {{data.value}}%">
-                <span class="pull-right">{{data.value}}</span>
-            </div>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<table class="table table-condensed">
-    <thead>
-    <tr>
-        <th colspan="2" style="text-align: center; background-color: #eee;">2016</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="data in report.data">
-        <td width="10%">{{data.label}}</td>
-        <td>
-            <div class="f360-bar" style="width: {{data.value}}%">
-                <span class="pull-right">{{data.value}}</span>
-            </div>
-        </td>
-    </tr>
+        <tr ng-repeat="(key, value) in data" ng-class="{'active': key.substring(4,6)=='01'}">
+            <td width="10%" style="vertical-align: bottom">
+                {{key | f360MonthName}}
+            </td>
+            <td>
+                <div ng-show="key.substring(4,6)=='01'" style="text-align:right">{{key.substring(0,4)}}</div>
+                <div ng-show="value" class="f360-bar" style="width: {{value*100/max}}%">
+                    <span class="pull-right">{{value}}</span>
+                </div>
+            </td>
+        </tr>
     </tbody>
 </table>

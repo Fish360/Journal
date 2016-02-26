@@ -319,3 +319,17 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
     ;
 }]);
 
+f360.monthNames = {
+    '01': 'JAN', '02': 'FEB', '03': 'MAR',
+    '04': 'APR', '05': 'MAY', '06': 'JUN',
+    '07': 'JUL', '08': 'AUG', '09': 'SEP',
+    '10': 'OCT', '11': 'NOV', '12': 'DEC'
+};
+
+f360.filter('f360MonthName', function() {
+    return function(input) {
+        var monthIndex = input.substring(4,6);
+        var monthName = f360.monthNames[monthIndex];
+        return monthName;
+    };
+})

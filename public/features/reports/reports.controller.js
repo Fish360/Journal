@@ -7,6 +7,13 @@
     f360.controller("PresentationsReportController", PresentationsReportController);
     f360.controller("ReportController", ReportController);
 
+    var monthNames = {
+        '01': 'JAN', '02': 'FEB', '03': 'MAR',
+        '04': 'APR', '05': 'MAY', '06': 'JUN',
+        '07': 'JUL', '08': 'AUG', '09': 'SEP',
+        '10': 'OCT', '11': 'NOV', '11': 'DEC'
+    };
+
     function ReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
         $scope.reportId = $routeParams.reportId;
@@ -20,12 +27,67 @@
     function TimeOfYearReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
         $scope.reportId = $routeParams.reportId;
+        $scope.report;
 
         function init () {
             ReportsService
-                .runReportById($scope.reportId)
+                .findReportById($scope.reportId)
+                .then(function(report){
+                    $scope.report = report.data;
+                    return ReportsService.runReportById($scope.reportId);
+                })
                 .then(function(response){
-                    $scope.report = response.data;
+                    var startDateStr = $scope.report.startDate.replace(/-/g,'/');
+                    var endDateStr = $scope.report.endDate.replace(/-/g,'/');
+                    var startDate = new Date(startDateStr);
+                    var endDate = new Date(endDateStr);
+                    //console.log([startDateStr, endDateStr]);
+                    //console.log([startDate, endDate]);
+                    //console.log([startDate.getMonth(), endDate.getMonth()]);
+                    var timeline = [];
+                    var currentDate = startDate;
+                    var timelineCounter = 0;
+                    var fishMap = {};
+                    while(currentDate <= endDate) {
+                        timeline[timelineCounter++] = new Date(currentDate);
+                        var month = currentDate.getMonth() + 1;
+                        var year  = currentDate.getFullYear();
+                        if(month < 10) {
+                            month = "0"+month;
+                        }
+                        var timeKey = year+""+month;
+                        //console.log(timeKey);
+                        fishMap[timeKey] = 0;
+                        currentDate.setMonth(currentDate.getMonth()+1);
+                    }
+                    //console.log(fishMap);
+                    //console.log(timeline);
+
+                    var fishes = response.data;
+                    //$scope.report = fishes;
+                    var total = 0;
+                    var max = -1;
+                    for(var f in fishes) {
+                        var fish = fishes[f];
+                        fish.caught = fish.caught.replace(/-/g, '/');
+                        total++;
+                        var fishIndex = fish.caught.substring(0, 7).replace('/','');
+                        var monthIndex = fishIndex.substring(4, 6);
+                        //console.log(fishIndex);
+                        //console.log(monthIndex);
+                        if(fishMap[fishIndex]) {
+                            fishMap[fishIndex]++;
+                        } else {
+                            fishMap[fishIndex] = 1;
+                        }
+                        if(fishMap[fishIndex] > max) {
+                            max = fishMap[fishIndex];
+                        }
+                    }
+                    $scope.data = fishMap;
+                    $scope.total = total;
+                    $scope.max = max;
+                    console.log(fishMap);
                 })
         }
         init();
