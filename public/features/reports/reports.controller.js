@@ -170,11 +170,19 @@
         init();
     }
 
-    function EditReportController ($routeParams, $scope, ReportsService, $location) {
+    function EditReportController ($routeParams, $scope, ReportsService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;
         var reportId = $routeParams.reportId;
         $scope.updateReport = updateReport;
         $scope.deleteReport = deleteReport;
+        loadSpecies();
+
+        function loadSpecies() {
+            JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+                $scope.species = JSON.parse(text);
+              
+            });
+        }
 
         function init () {
             ReportsService
@@ -198,6 +206,17 @@
         }
 
         function updateReport (report) {
+
+            if(validateSpecieSelection(report)) {
+                var scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
+                for(var i=0; i<species.length; i++) {
+                    if(species[i].scientific === scientificName){
+                        report["commonName"] = species[i].common;
+                    }
+                }
+                report.species = scientificName;
+            }
+
             ReportsService
                 .updateReport (report)
                 .then(function(){
@@ -208,14 +227,34 @@
                     $location.url ("/"+$scope.username+"/reports");
                 });
         }
-    }
 
-    function NewReportController ($routeParams, $scope, ReportsService, $location) {
+        function validateSpecieSelection(report) {
+            var isValidSpecies = (report.species === undefined)? false : true;
+
+            if(!isValidSpecies){
+            return false;
+            } 
+
+            return true;
+            }
+        }
+
+    function NewReportController ($routeParams, $scope, ReportsService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;
         $scope.createReport = createReport;
         $scope.report = {
             type: "timeOfYear"
         };
+
+        loadSpecies();
+
+        function loadSpecies() {
+            JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+                $scope.species = JSON.parse(text);
+              
+            });
+        }
+
 
         function init () {
 
@@ -223,13 +262,35 @@
         init();
 
         function createReport (report) {
+            if(validateSpecieSelection(report)) {
+                var scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
+                for(var i=0; i<species.length; i++) {
+                    if(species[i].scientific === scientificName){
+                        report["commonName"] = species[i].common;
+                    }
+                }
+                report.species = scientificName;
+            }
+            
             ReportsService
                 .createReport ($scope.username, report)
                 .then(function(){
                     $location.url ("/"+$scope.username+"/reports");
                 })
         }
-    }
+
+
+
+        function validateSpecieSelection(report) {
+            var isValidSpecies = (report.species === undefined)? false : true;
+
+            if(!isValidSpecies){
+            return false;
+            } 
+
+            return true;
+            }
+        }
 
     function ReportListController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
