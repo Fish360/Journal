@@ -37,6 +37,9 @@
                     return ReportsService.runReportById($scope.reportId);
                 })
                 .then(function(response){
+                    if(!$scope.report.startDate || !$scope.report.endDate) {
+                        return;
+                    }
                     var startDateStr = $scope.report.startDate.replace(/-/g,'/');
                     var endDateStr = $scope.report.endDate.replace(/-/g,'/');
                     var startDate = new Date(startDateStr);
@@ -87,7 +90,7 @@
                     $scope.data = fishMap;
                     $scope.total = total;
                     $scope.max = max;
-                    console.log(fishMap);
+                    //console.log(fishMap);
                 })
         }
         init();

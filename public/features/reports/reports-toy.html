@@ -10,6 +10,10 @@
     </div>
 </div>
 
+<div ng-show="!data" class="alert alert-success" role="alert">
+    No Results
+</div>
+
 <table class="table table-condensed">
     <tbody>
         <tr ng-repeat="(key, value) in data" ng-class="{'active': key.substring(4,6)=='01'}">
