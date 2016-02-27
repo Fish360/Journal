@@ -1,49 +1,49 @@
 .full {
-	width:100%;
-	margin-top:10px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 [type="number"] {
-	text-align : right;
+    text-align: right;
 }
 
 table tr:first-child td {
-	border-top: none;
+    border-top: none;
 }
 
 input[type=date] {
-	width: 100%;
+    width: 100%;
 }
 
 .f360-navbar-button {
-	position: relative;
-	top: 7px;
+    position: relative;
+    top: 7px;
 }
 
 .f360-right-arrow {
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .f360-nudge-left {
-	position: relative;
-	right: 5px;
+    position: relative;
+    right: 5px;
 }
 
 .f360-nudge-down {
-	position: relative;
-	top: 5px;
+    position: relative;
+    top: 5px;
 }
 
 .thumbs {
-	width : 45%;
-	float : left;
-	margin-right:10px;
-	margin-top:10px;
+    width: 45%;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 textarea.form-control {
-	height: 150px;
-	overflow-y: scroll;
+    height: 150px;
+    overflow-y: scroll;
 }
 
 .angucomplete-dropdown {
@@ -57,19 +57,39 @@ textarea.form-control {
     position: absolute;
     margin-top: -6px;
     background-color: #cccccc;
-  	width: 93%;     
-  	line-height: 1.6;
-  	.box-sizing(border-box);
+    width: 93%;
+    line-height: 1.6;
+. box-sizing(border-box);
 }
 
-.angucomplete-row:hover { 
+.angucomplete-row:hover {
     background-color: #85cff7;
 }
 
+#ex1_value:placeholder-shown {
+    color: #555555;
+}
+
+#ex1_value::-webkit-input-placeholder {
+    color: #555555;
+}
+
+#ex1_value:-moz-placeholder {
+    color: #555555;
+}
+
+#ex1_value::-moz-placeholder {
+    color: #555555;
+}
+
+#ex1_value:-ms-input-placeholder {
+    color: #555555;
+}
+
 .f360-bar {
-	background-color: red;
-	height: 20px;
-	color: white;
-	font-weight: bold;
-	padding-right: 5px;
+    background-color: red;
+    height: 20px;
+    color: white;
+    font-weight: bold;
+    padding-right: 5px;
 }

@@ -30,7 +30,8 @@
 			</a>
 			<a href="#/{{username}}/trip/{{tripId}}/fish/{{fsh._id}}/edit">
 			{{fsh.commonName}} ({{fsh.species}})<br/>
-                <span ng-show="fsh.weight">{{fsh.weight}} lbs</span><span ng-show="fsh.length">, {{fsh.length}} in</span>
+                <span ng-show="fsh.weight">{{fsh.weight}} {{weightUnits}}</span>
+                <span ng-show="fsh.length">, {{fsh.length}} {{lengthUnits}}</span>
 			</a>
 		</tr>
 	</tr>

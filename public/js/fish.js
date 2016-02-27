@@ -28,18 +28,27 @@ f360.controller("FishPhotoController", function ($scope, $routeParams, $http, Sp
     }
 });
 
-f360.controller("FishHomeListController", function ($scope, $routeParams, $http)
+f360.controller("FishHomeListController", function ($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
-	$scope.tripId = $routeParams.username;
+	$scope.tripId = $routeParams.tripId;
 	$http.get("api/allFish/"+$scope.username)
 		.success(function(fish)
 		{
 			$scope.fish = fish;
-		});
+		})
+		.then(function(){
+		if($scope.fish.length !== 0) {
+			UserPreferenceService.findOne($scope.username, function(units){
+				var unitsPreferences = units.trim() !== "" ? units : "standard";
+				$scope.lengthUnits = unitsPreferences === "Metric" ? "cm" : "in";
+				$scope.weightUnits = unitsPreferences === "Metric" ? "kg" : "lbs";
+			});
+		}
+	});
 });
 
-f360.controller("FishListController", function($scope, $routeParams, $http)
+f360.controller("FishListController", function($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId
@@ -47,10 +56,19 @@ f360.controller("FishListController", function($scope, $routeParams, $http)
 	.success(function(fish)
 	{
 		$scope.fish = fish;
+	})
+	.then(function(){
+		if($scope.fish.length !== 0) {
+			UserPreferenceService.findOne($scope.username, function(units){
+				var unitsPreferences = units.trim() !== "" ? units : "standard";
+				$scope.lengthUnits = unitsPreferences === "Metric" ? "cm" : "in";
+				$scope.weightUnits = unitsPreferences === "Metric" ? "kg" : "lbs";
+			});
+		}
 	});
 });
 
-f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
@@ -64,6 +82,16 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 		   
 		});
 	}
+
+	TripService.findOne($scope.username, $scope.tripId, function(trip){
+		if(trip.start !== undefined) {
+			var dateParts = (trip.start).split("-");
+			var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2])
+			var tripDate = moment(date).format("YYYY-MM-DD");
+
+			$scope.newFish.caught = tripDate;
+		}
+	});
 
 	SpotService.findAll($scope.username, function (spots) {
 		$scope.spots = spots;
@@ -147,7 +175,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 });
 
-f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory)
+f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService)
 {
 	//$(".f360-number").numeric({ decimal : ".",  negative : false, scale: 3 });
 
@@ -173,14 +201,28 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 				$scope.presentations = presentations;
 				$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
 				.success(function(fish)
-				{
+				{	
 					$scope.editFish = fish;
-//					f360Number($scope);
+				}).then(function(){
+					if($scope.editFish.caught === undefined)
+					   $scope.setTripCaughtDate();
 				});
 			});
 		});
 	});
 	
+	$scope.setTripCaughtDate = function() {
+		TripService.findOne($scope.username, $scope.tripId, function(trip){
+			if(trip.start !== undefined) {
+				var dateParts = (trip.start).split("-");
+				var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2])
+				var tripDate = moment(date).format("YYYY-MM-DD");
+
+				$scope.editFish.caught = tripDate;
+			}
+		});
+	}
+
 	$scope.update = function()
 	{
 		if(!validateSpecieSelection()) {

@@ -7,7 +7,7 @@ f360.controller("SearchListController", function ($scope, $routeParams, $http, S
 	});
 });
 
-f360.controller("SearchNewController", function ($scope, $routeParams, $http, $location, SearchService, SpotService, GearService)
+f360.controller("SearchNewController", function ($scope, $routeParams, $http, $location, SearchService, SpotService, GearService, JSONLoaderFactory)
 {
 	$scope.username = $routeParams.username;
 	SpotService.findAll($scope.username, function (spots) {
@@ -23,22 +23,57 @@ f360.controller("SearchNewController", function ($scope, $routeParams, $http, $l
 
 	$scope.search = {};
 	$scope.search.searchType = "Fish";
-	$scope.speciess = species;
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
 	$scope.create = function()
 	{
+		if(validateSpecieSelection()){
+			scientificName = ($scope.search.fish.species.originalObject === undefined) ? $scope.search.fish.species : $scope.search.fish.species.originalObject["ScientificName"];
+			$scope.search["lastUpdated"] = new Date();
+
+			for(var i=0; i<species.length; i++)
+				if(species[i].scientific == scientificName)
+					$scope.search.fish["commonName"] = species[i].common;
+
+			$scope.search.fish.species = scientificName;		
+		}
+
 		if(typeof $scope.search != "undefined") {
 			$scope.search.username = $scope.username;
-			
 			SearchService.create($scope.username, $scope.search, function () {
 				history.back();
 			});
 		}
 	}
+
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.search.fish.species === undefined)? false : true;
+
+		if(!isValidSpecies){
+			return false;
+		} 
+
+		return true;
+	}
+
 });
 
-f360.controller("SearchEditController", function ($scope, $routeParams, $http, $location, SearchService, SpotService, GearService)
+f360.controller("SearchEditController", function ($scope, $routeParams, $http, $location, SearchService, SpotService, GearService, JSONLoaderFactory)
 {
-    $scope.speciess = species;
+    loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
     $scope.username = $routeParams.username;
 	SpotService.findAll($scope.username, function (spots) {
 		console.log(spots);
@@ -56,6 +91,18 @@ f360.controller("SearchEditController", function ($scope, $routeParams, $http, $
 	});
 
     $scope.update = function () {
+    	if(validateSpecieSelection()) {
+			var scientificName = ($scope.search.fish.species.originalObject === undefined) ? $scope.search.fish.species : $scope.search.fish.species.originalObject["ScientificName"];
+			
+			for(var i=0; i<species.length; i++) {
+				if(species[i].scientific === scientificName){
+					$scope.search.fish["commonName"] = species[i].common;
+				}
+			}
+
+			$scope.search.fish.species = scientificName;
+		}
+		
         SearchService.update($scope.username, $routeParams.id, $scope.search, function (response) {
 //		window.history.go(-1);
 		history.back();
@@ -68,4 +115,14 @@ f360.controller("SearchEditController", function ($scope, $routeParams, $http, $
 		history.back();
         });
     }
+
+    function validateSpecieSelection() {
+		var isValidSpecies = ($scope.search.fish.species === undefined)? false : true;
+
+		if(!isValidSpecies){
+			return false;
+		} 
+
+		return true;
+	}
 });
