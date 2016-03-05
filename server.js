@@ -341,17 +341,32 @@ app.post("/api/user", function(req, res)
 // update profile
 app.put("/api/user/:username", function(req, res)
 {
-	var username = req.params.username;	
-	
-	var update = {
+	var username = req.params.username;
+	console.log(req.body.commonName);
+	console.log(req.body.species);
+	var update = {};
+	console.log(req.body.species);
+	if(!req.body.species) {
+		 update = {
+		    firstName: req.body.firstName,
+		    lastName: req.body.lastName,
+		    email: req.body.email,
+		    dateOfBirth: req.body.dateOfBirth,
+		    units: req.body.units,
+		    shareAggregate: req.body.shareAggregate
+		};
+	} else {
+		update = {
 	    firstName: req.body.firstName,
 	    lastName: req.body.lastName,
 	    email: req.body.email,
 	    dateOfBirth: req.body.dateOfBirth,
 	    units: req.body.units,
 	    species: req.body.species,
-	    commonName: req.body.commonName
-	};
+	    commonName: req.body.commonName,
+	    shareAggregate: req.body.shareAggregate
+		};
+	}
 
 	if (req.body.password)
 	{

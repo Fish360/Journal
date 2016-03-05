@@ -28,18 +28,16 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 
 	$scope.updateProfile = function() {
 		
-		if(!validateSpecieSelection()) {
-			return;
-		}
-
-		var scientificName = ($scope.user.species.originalObject === undefined) ? $scope.user.species : $scope.user.species.originalObject["ScientificName"];
-		
-		for(var i=0; i<species.length; i++) {
-			if(species[i].scientific === scientificName){
-				$scope.user["commonName"] = species[i].common;
+		if(validateSpecieSelection()) {
+			var scientificName = ($scope.user.species.originalObject === undefined) ? $scope.user.species : $scope.user.species.originalObject["ScientificName"];
+			
+			for(var i=0; i<species.length; i++) {
+				if(species[i].scientific === scientificName){
+					$scope.user["commonName"] = species[i].common;
+				}
 			}
+			$scope.user.species = scientificName;
 		}
-		$scope.user.species = scientificName;
 
 		console.log($scope.user);
 		if(	$scope.user.password != $scope.user.password2 ||
