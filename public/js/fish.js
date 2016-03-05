@@ -40,7 +40,6 @@ f360.controller("FishHomeListController", function ($scope, $routeParams, $http,
 		.then(function(){
 		if($scope.fish.length !== 0) {
 			UserPreferenceService.findOne($scope.username, function(units){
-				console.log(units);
 				var unitsPreferences = units.trim() !== "" ? units : "standard";
 				$scope.lengthUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "cm" : "in";
 				$scope.weightUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "kg" : "lbs";
