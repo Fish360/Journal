@@ -10,12 +10,38 @@ function ($scope, $routeParams, $http, $location) {
     }
 });
 
-f360.controller("ProfileController", function($scope, $routeParams, $http, $location)
+f360.controller("ProfileController", function($scope, $routeParams, $http, $location, JSONLoaderFactory)
 {
 	console.log("ProfileController");
 	$scope.username = $routeParams.username;
 	console.log($scope.username);
+	$scope.speciess = species;
+
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
+
 	$scope.updateProfile = function() {
+		
+		if(!validateSpecieSelection()) {
+			return;
+		}
+
+		var scientificName = ($scope.user.species.originalObject === undefined) ? $scope.user.species : $scope.user.species.originalObject["ScientificName"];
+		
+		for(var i=0; i<species.length; i++) {
+			if(species[i].scientific === scientificName){
+				$scope.user["commonName"] = species[i].common;
+			}
+		}
+		$scope.user.species = scientificName;
+
+		console.log($scope.user);
 		if(	$scope.user.password != $scope.user.password2 ||
 			typeof $scope.user.password == "undefined") {
 			
@@ -37,6 +63,8 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 	console.log(url);
 	$http.get(url)
 	.success(function(user) {
+		console.log("***************");
+		console.log(user);
 		$scope.user = user[0];
 		$scope.user.password = "";
 		$scope.user.password2 = "";
@@ -46,6 +74,16 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 		console.log("Failed");
 		console.log(err);
 	});
+
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.user.species === undefined)? false : true;
+		console.log(isValidSpecies);
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		}
+		return true;
+	}
 });
 
 f360.controller("LoginController", function($scope, $routeParams, $http, $location)

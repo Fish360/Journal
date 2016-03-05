@@ -63,6 +63,9 @@ Units
 	<option value="">Standard</option>
 	<option>Metric</option>
 </select>
+Default Species
+<div angucomplete-alt id="newFish_ex" placeholder="{{user.species === undefined ? 'Select Default Species ...' : user.commonName+ ' (' + user.species + ')'}}" pause="100" selected-object="user.species" 
+local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Sort Fish By
 <select ng-model="user.sortFishBy" class="form-control">
 	<option value="">Date Caught</option>

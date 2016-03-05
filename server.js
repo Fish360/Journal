@@ -348,7 +348,9 @@ app.put("/api/user/:username", function(req, res)
 	    lastName: req.body.lastName,
 	    email: req.body.email,
 	    dateOfBirth: req.body.dateOfBirth,
-	    units: req.body.units
+	    units: req.body.units,
+	    species: req.body.species,
+	    commonName: req.body.commonName
 	};
 
 	if (req.body.password)
@@ -396,6 +398,15 @@ app.get("/api/user/:username/preferences/units", function(req, res)
 	db.user.find({username: req.params.username}, function(err, user)
 	{
 		res.json(user[0].units);
+	});
+});
+
+// Find user by username and get User preferences of default species to be displayed
+app.get("/api/user/:username/preferences/defaultspecies", function(req, res)
+{
+	db.user.find({username: req.params.username}, function(err, user)
+	{
+		res.json({ species : user[0].species, commonName: user[0].commonName});
 	});
 });
 

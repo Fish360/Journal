@@ -68,12 +68,19 @@ f360.controller("FishListController", function($scope, $routeParams, $http, User
 	});
 });
 
-f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	
+	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
+		$scope.defaultSpecies = defaultSpecies;
+		$scope.newFish.species = defaultSpecies.species;
+		$scope.newFish["commonName"] = defaultSpecies.commonName;
+
+	});
+
 	loadSpecies();
 
 	function loadSpecies() {
@@ -109,19 +116,24 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	
 	$scope.create = function()
 	{
+
 		if(!validateSpecieSelection()){
 			return;
 		}
+		
+		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 
-		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish",
-			scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
 		$scope.newFish["lastUpdated"] = new Date();
+		if($scope.newFish.species.originalObject !== undefined) {
+		var	scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
 
 		for(var i=0; i<species.length; i++)
 			if(species[i].scientific == scientificName)
 				$scope.newFish["commonName"] = species[i].common;
 
 		$scope.newFish.species = scientificName;
+		}
+
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
@@ -164,7 +176,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 			alert("Please enter valid specie");
 			return false;
 		}
-		var isValidSelectionOfSpecies = ($scope.newFish.species.originalObject === undefined)? false : true;
+		var isValidSelectionOfSpecies = ($scope.newFish.species.originalObject === undefined && $scope.newFish.commonName === undefined)? false : true;
 		if(!isValidSelectionOfSpecies){
 			alert("Please enter valid specie");
 			return false;
