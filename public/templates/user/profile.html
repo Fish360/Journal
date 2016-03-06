@@ -74,7 +74,7 @@ Sort Fish By
 	<option>Species</option>
 </select>
 Share aggregated
-<input type="checkbox"
-       ng-model="user.shareAggregate">
+<input type="checkbox" ng-model="user.shareAggregate" class="form-control">
+<p >{{user.shareAggregate === true ? 'You have enabled app to Share aggregated, non-personally identifiable Fish Catch Data with third parties for the benefit of the recreational fishery.' : 'You have not enable app to Share aggregated'}} </p>
 <a href="#/termsReadOnly" class="btn btn-success btn-block">User Agreement
 </a>
