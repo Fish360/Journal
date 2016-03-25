@@ -20,9 +20,13 @@ module.exports = function(db) {
             var username = report.username;
             var startDate = report.startDate;
             var endDate = report.endDate;
+            var species = report.species;
+            var commonName=report.commonName;
 
             db.fish.find({
                 username: username,
+                species:species,
+                commonName:commonName,
                 caught  : {$gte: startDate},
                 caught  : {$lte: endDate}
             }, p.handle);
