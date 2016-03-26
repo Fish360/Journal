@@ -30,12 +30,6 @@
 "ScientificName": "Lophius americanus"
 },
 {
-"CommonName": "Banded Rudderfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Seriola zonata"
-},
-{
 "CommonName": "Greater Amberjack ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -48,22 +42,10 @@
 "ScientificName": "Lutjanus campechanus"
 },
 {
-"CommonName": "Red Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
-},
-{
 "CommonName": "Atlantic Spadefish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Chaetodipterus faber"
-},
-{
-"CommonName": "Goosefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lophius americanus"
 },
 {
 "CommonName": "Skipjack Tuna ", 
@@ -150,12 +132,6 @@
 "ScientificName": "Epinephelus nigritus"
 },
 {
-"CommonName": "Warsaw Grouper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Epinephelus nigritus"
-},
-{
 "CommonName": "Striped Mullet ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -186,12 +162,6 @@
 "ScientificName": "Mycteroperca bonaci"
 },
 {
-"CommonName": "Black Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis striatus"
-},
-{
 "CommonName": "Tripletail ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -216,18 +186,6 @@
 "ScientificName": "Seriola rivoliana"
 },
 {
-"CommonName": "Black Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis striatus"
-},
-{
-"CommonName": "Vermilion Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rhomboplites aurorubens"
-},
-{
 "CommonName": "Tomtate ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -240,46 +198,10 @@
 "ScientificName": "Sphoeroides maculatus"
 },
 {
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
-"CommonName": "Bluefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pomatomus saltatrix"
-},
-{
-"CommonName": "White Perch ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Morone americana"
-},
-{
-"CommonName": "Cunner ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautogolabrus adspersus"
-},
-{
-"CommonName": "Little Tunny ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Euthynnus alletteratus"
-},
-{
 "CommonName": "Atlantic Bonito ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Sarda sarda"
-},
-{
-"CommonName": "Little Tunny ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Euthynnus alletteratus"
 },
 {
 "CommonName": "Yellowfin Tuna", 
@@ -342,24 +264,6 @@
 "ScientificName": "Brevoortia tyrannus"
 },
 {
-"CommonName": "Tripletail ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lobotes surinamensis"
-},
-{
-"CommonName": "Tripletail ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lobotes surinamensis"
-},
-{
-"CommonName": "Cunner ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautogolabrus adspersus"
-},
-{
 "CommonName": "Pinfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -370,12 +274,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Stenotomus crysops"
-},
-{
-"CommonName": "Vermilion Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rhomboplites aurorubens"
 },
 {
 "CommonName": "Lane Snapper ", 
@@ -414,36 +312,6 @@
 "ScientificName": "Scomberomorus cavalla"
 },
 {
-"CommonName": "Black Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pogonias cromis"
-},
-{
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
-"CommonName": "Sea Catfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Arius felis"
-},
-{
-"CommonName": "Cunner ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautogolabrus adspersus"
-},
-{
-"CommonName": "Cunner ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautogolabrus adspersus"
-},
-{
 "CommonName": "Pompano Dolphin ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -456,46 +324,16 @@
 "ScientificName": "Coryphaena hippurus"
 },
 {
-"CommonName": "Red Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
-},
-{
 "CommonName": "Silk Snapper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Lutjanus vivanus"
 },
 {
-"CommonName": "Tripletail ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lobotes surinamensis"
-},
-{
 "CommonName": "Snowy Grouper", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Epinephelus niveatus"
-},
-{
-"CommonName": "Cunner ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautogolabrus adspersus"
-},
-{
-"CommonName": "Bluefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pomatomus saltatrix"
-},
-{
-"CommonName": "Tautog ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautoga onitis"
 },
 {
 "CommonName": "Mummichog ", 
@@ -552,46 +390,16 @@
 "ScientificName": "Raja erinacea"
 },
 {
-"CommonName": "Dolphin", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena hippurus"
-},
-{
-"CommonName": "Cobia ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rachycentron canadum"
-},
-{
-"CommonName": "Cobia ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rachycentron canadum"
-},
-{
 "CommonName": "Atlantic Bumper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Chloroscombrus chrysurus"
 },
 {
-"CommonName": "Jack Crevalle ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Caranx hippos"
-},
-{
 "CommonName": "Atlantic Croaker ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Micropogon undulatus"
-},
-{
-"CommonName": "Black Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pogonias cromis"
 },
 {
 "CommonName": "Spotfin Hogfish ", 
@@ -606,22 +414,10 @@
 "ScientificName": "Lutjanus cyanopterus"
 },
 {
-"CommonName": "Great Barracuda ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphyraena barracuda"
-},
-{
 "CommonName": "Red Snapper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Lutjanus camphechanus"
-},
-{
-"CommonName": "Red Drum", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
 },
 {
 "CommonName": "Sheepshead ", 
@@ -636,28 +432,10 @@
 "ScientificName": "Paralichthys dentatus"
 },
 {
-"CommonName": "Dolphin ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena hippurus"
-},
-{
-"CommonName": "Black Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pogonias cromis"
-},
-{
 "CommonName": "American Eel ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Anguilla rostrata"
-},
-{
-"CommonName": "Cobia ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rachycentron canadum"
 },
 {
 "CommonName": "Scup ", 
@@ -666,22 +444,10 @@
 "ScientificName": "Stenotomus chrysops"
 },
 {
-"CommonName": "Little Tunny ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Euthynnus alletteratus"
-},
-{
 "CommonName": "Atlantic Menhaden ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Brevoortia tyrannus"
-},
-{
-"CommonName": "Dolphin", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena hippurus"
 },
 {
 "CommonName": "Tomtate ", 
@@ -762,18 +528,6 @@
 "ScientificName": "Epinephelus itajara"
 },
 {
-"CommonName": "Warsaw Grouper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Epinephelus nigritus"
-},
-{
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
 "CommonName": "Bigeye Scad ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -804,18 +558,6 @@
 "ScientificName": "Coryphaena hippurus"
 },
 {
-"CommonName": "Gag Grouper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Mycteroperca microlepis"
-},
-{
-"CommonName": "Striped Mullet ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Mugil cephalus"
-},
-{
 "CommonName": "Weakfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -840,12 +582,6 @@
 "ScientificName": "Trachinotus falcatus"
 },
 {
-"CommonName": "Black Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis striatus"
-},
-{
 "CommonName": "Largemouth Bass ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -856,12 +592,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Menticirrhus spp."
-},
-{
-"CommonName": "White Grunt ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon plumieri"
 },
 {
 "CommonName": "Pigfish ", 
@@ -886,12 +616,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Bagre marinus"
-},
-{
-"CommonName": "Sea Catfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Arius felis"
 },
 {
 "CommonName": "Atlantic Croaker ", 
@@ -924,52 +648,16 @@
 "ScientificName": "Caranx crysos"
 },
 {
-"CommonName": "Jack Crevalle ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Caranx hippos"
-},
-{
-"CommonName": "Greater Amberjack ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Seriola dummerili"
-},
-{
 "CommonName": "Yellow Perch ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Perca flavescens"
 },
 {
-"CommonName": "Jack Crevalle ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Caranx hippos"
-},
-{
-"CommonName": "Warsaw Grouper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Epinephelus nigritus"
-},
-{
 "CommonName": "Goliath Grouper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Epinephelus itajara"
-},
-{
-"CommonName": "Striped Mullet ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Mugil cephalus"
-},
-{
-"CommonName": "White Grunt ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon plumieri"
 },
 {
 "CommonName": "King Mackerel ", 
@@ -1014,18 +702,6 @@
 "ScientificName": "Balistes capriscus"
 },
 {
-"CommonName": "Winter Flounder ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pleuronectes americanus"
-},
-{
-"CommonName": "Cobia ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rachycentron canadum"
-},
-{
 "CommonName": "Tiger Shark ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1036,12 +712,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Morone saxatilis"
-},
-{
-"CommonName": "Cobia ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rachycentron canadum"
 },
 {
 "CommonName": "White Hake ", 
@@ -1074,12 +744,6 @@
 "ScientificName": "Stenotomus chrysops"
 },
 {
-"CommonName": "Ladyfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Elops saurus"
-},
-{
 "CommonName": "Gray Snapper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1098,28 +762,10 @@
 "ScientificName": "Arius felis"
 },
 {
-"CommonName": "Vermillion Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rhomboplites aurorubens"
-},
-{
 "CommonName": "Northern Kingfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Menticirrhus saxatilis"
-},
-{
-"CommonName": "Goosefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lophius americanus"
-},
-{
-"CommonName": "Atlantic Spadefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Chaetodipterus faber"
 },
 {
 "CommonName": "Atlantic Menhaden ", 
@@ -1140,28 +786,10 @@
 "ScientificName": "Dorosoma cepedianum"
 },
 {
-"CommonName": "Winter Flounder ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pleuronectes americanus"
-},
-{
-"CommonName": "Red Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
-},
-{
 "CommonName": "Kingfish", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Menticirrhus spp."
-},
-{
-"CommonName": "Vermilion Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rhomboplites aurorubens"
 },
 {
 "CommonName": "Mutton Snapper ", 
@@ -1224,12 +852,6 @@
 "ScientificName": "Opsanus tau"
 },
 {
-"CommonName": "Red Snapper", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
-},
-{
 "CommonName": "Cunner ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1246,18 +868,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Lachnolaimus maximus"
-},
-{
-"CommonName": "Tautog ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautoga onitis"
-},
-{
-"CommonName": "Black Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis striatus"
 },
 {
 "CommonName": "Atlantic Croaker ", 
@@ -1296,46 +906,10 @@
 "ScientificName": "Trachinotus carolinus"
 },
 {
-"CommonName": "Pompano Dolphin ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena equisetis"
-},
-{
-"CommonName": "Black Drum", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pogonias cromis"
-},
-{
-"CommonName": "Striped Mullet ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Mugil cephalus"
-},
-{
 "CommonName": "Scup ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Stenotomus chrysops"
-},
-{
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
-"CommonName": "Black Drum", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pogonias cromis"
-},
-{
-"CommonName": "Red Drum", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
 },
 {
 "CommonName": "Smooth Puffer ", 
@@ -1356,36 +930,6 @@
 "ScientificName": "Scianops ocellatus"
 },
 {
-"CommonName": "Red Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
-},
-{
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
-"CommonName": "Tomtate ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon aurolineatum"
-},
-{
-"CommonName": "White Grunt ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon plumieri"
-},
-{
 "CommonName": "Scup ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1398,22 +942,10 @@
 "ScientificName": "Sebastes marinus"
 },
 {
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
 "CommonName": "Lane Snapper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Lutjanus synagris"
-},
-{
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
 },
 {
 "CommonName": "Yellow Perch ", 
@@ -1422,58 +954,16 @@
 "ScientificName": "Perca flavescens"
 },
 {
-"CommonName": "Striped Bass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Morone saxatilis"
-},
-{
-"CommonName": "Black Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis striatus"
-},
-{
-"CommonName": "Rock Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis philadelphicus"
-},
-{
-"CommonName": "Almaco Jack ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Seriola rivoliana"
-},
-{
 "CommonName": "Bluefish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Pomatomus saltatrix"
 },
 {
-"CommonName": "Banded Rudderfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Seriola zonata"
-},
-{
 "CommonName": "Bank Seabass ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Centropristis ocyurus"
-},
-{
-"CommonName": "Bank Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis ocyurus"
-},
-{
-"CommonName": "Striped Bass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Morone saxatilis"
 },
 {
 "CommonName": "Red Porgy ", 
@@ -1498,30 +988,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Menticirrhus spp."
-},
-{
-"CommonName": "Tomtate ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon aurolineatum"
-},
-{
-"CommonName": "White Grunt ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon plumieri"
-},
-{
-"CommonName": "Tomtate ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Haemulon aurolineatum"
-},
-{
-"CommonName": "Little Tunny ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Euthynnus alletteratus"
 },
 {
 "CommonName": "Blue Runner ", 
@@ -1614,30 +1080,6 @@
 "ScientificName": "Cynoscion nothus"
 },
 {
-"CommonName": "Red Drum", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
-"CommonName": "Black Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis striatus"
-},
-{
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
-"CommonName": "Rock Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis philadelphicus"
-},
-{
 "CommonName": "Sea Catfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1650,34 +1092,16 @@
 "ScientificName": "Conger oceanicus"
 },
 {
-"CommonName": "Winter Flounder ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pseudopleuronectes americanus"
-},
-{
 "CommonName": "Kingfish", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Menticirrhus spp."
 },
 {
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
 "CommonName": "Weakfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Cynoscion regalis"
-},
-{
-"CommonName": "Cobia ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Rachycentron canadum"
 },
 {
 "CommonName": "Sheepshead ", 
@@ -1728,12 +1152,6 @@
 "ScientificName": "Mugil curema"
 },
 {
-"CommonName": "White Perch ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Morone americana"
-},
-{
 "CommonName": "Red Porgy ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1746,52 +1164,10 @@
 "ScientificName": "Calamus leucosteus"
 },
 {
-"CommonName": "Silver Seatrout ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Cynoscion nothus"
-},
-{
-"CommonName": "Gulf Kingfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Menticirrhus littoralis"
-},
-{
 "CommonName": "Silver Hake ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Merluccius bilinearis"
-},
-{
-"CommonName": "Goosefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lophius americanus"
-},
-{
-"CommonName": "Bluefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pomatomus saltatrix"
-},
-{
-"CommonName": "Ladyfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Elops saurus"
-},
-{
-"CommonName": "Skipjack Tuna ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Katsuwonus pelamis"
-},
-{
-"CommonName": "Bluefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pomatomus saltatrix"
 },
 {
 "CommonName": "Atlantic Hagfish ", 
@@ -1806,12 +1182,6 @@
 "ScientificName": "Micropogon undulatus"
 },
 {
-"CommonName": "Tautog ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautoga onitis"
-},
-{
 "CommonName": "King Mackerel", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1822,24 +1192,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Scomberomorus cavalla"
-},
-{
-"CommonName": "Bluefish", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pomatomus saltatrix"
-},
-{
-"CommonName": "Winter Flounder ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pseudopleuronectes americanus"
-},
-{
-"CommonName": "Red Snapper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
 },
 {
 "CommonName": "Spotted Seatrout ", 
@@ -1872,28 +1224,10 @@
 "ScientificName": "Carcharhinus limbatus"
 },
 {
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
-},
-{
 "CommonName": "Lane Snapper ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Lutjanus synagris"
-},
-{
-"CommonName": "Red Snapper", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Lutjanus campechanus"
-},
-{
-"CommonName": "Red Drum ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sciaenops ocellata"
 },
 {
 "CommonName": "Windowpane ", 
@@ -1944,12 +1278,6 @@
 "ScientificName": "Bairdiella chrysura"
 },
 {
-"CommonName": "Bank Seabass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Centropristis ocyurus"
-},
-{
 "CommonName": "Pinfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1960,12 +1288,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Diplectrum formosum"
-},
-{
-"CommonName": "White Perch ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Morone americana"
 },
 {
 "CommonName": "Speckled Hind ", 
@@ -1980,12 +1302,6 @@
 "ScientificName": "Pagrus pagrus"
 },
 {
-"CommonName": "Skipjack Tuna ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Katsuwonus pelamis"
-},
-{
 "CommonName": "Yellow Perch ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -1998,28 +1314,10 @@
 "ScientificName": "Morone saxatilis"
 },
 {
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
-"CommonName": "Silver Seatrout ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Cynoscion nothus"
-},
-{
 "CommonName": "Silver Perch ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Bairdiella chrysura"
-},
-{
-"CommonName": "Little Skate ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Raja erinacea"
 },
 {
 "CommonName": "Weakfish ", 
@@ -2046,34 +1344,10 @@
 "ScientificName": "Bairdiella chrysoura"
 },
 {
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
-"CommonName": "Northern Puffer ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphoeroides maculatus"
-},
-{
 "CommonName": "Grey Triggerfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Balistes capriscus"
-},
-{
-"CommonName": "Bluefish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Pomatomus saltatrix"
-},
-{
-"CommonName": "Ladyfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Elops saurus"
 },
 {
 "CommonName": "Atlantic Mackerel", 
@@ -2094,28 +1368,10 @@
 "ScientificName": "Bagre marinus"
 },
 {
-"CommonName": "Jack Crevalle ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Caranx hippos"
-},
-{
 "CommonName": "Seatrout", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Cynoscion spp."
-},
-{
-"CommonName": "Warsaw Grouper ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Epinephelus nigritus"
-},
-{
-"CommonName": "Skipjack Tuna ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Katsuwonus pelamis"
 },
 {
 "CommonName": "Spotted Seatrout ", 
@@ -2142,22 +1398,10 @@
 "ScientificName": "Harengula pensacolae"
 },
 {
-"CommonName": "Tautog ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Tautoga onitis"
-},
-{
 "CommonName": "Silver Perch ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Bairdiella chrysura"
-},
-{
-"CommonName": "Striped Bass ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Morone saxatilis"
 },
 {
 "CommonName": "Silver Perch ", 
@@ -2194,12 +1438,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Cynoscion arenarius"
-},
-{
-"CommonName": "Silver Seatrout ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Cynoscion nothus"
 },
 {
 "CommonName": "Gulf Kingfish ", 
@@ -2266,12 +1504,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Ocyurus chrysurus"
-},
-{
-"CommonName": "Jack Crevalle ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Caranx hippos"
 },
 {
 "CommonName": "Atlantic Croaker ", 
@@ -2670,22 +1902,10 @@
 "ScientificName": "Sebastes spp."
 },
 {
-"CommonName": "Dolphinfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena hippurus"
-},
-{
 "CommonName": "Ca. Halibut ", 
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Paralichthys californicus"
-},
-{
-"CommonName": "Dolphinfish ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena hippurus"
 },
 {
 "CommonName": "Drum Family ", 
@@ -3558,12 +2778,6 @@
 "ScientificName": "Kuhlia sandvicensis"
 },
 {
-"CommonName": "Skipjack Tuna ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Katsuwonus pelamis"
-},
-{
 "CommonName": "Bigeye Scad ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -3616,12 +2830,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Holocentridae"
-},
-{
-"CommonName": "Striped Mullet ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Mugil cephalus"
 },
 {
 "CommonName": "Whitespotted Surgeonfish ", 
@@ -3864,18 +3072,6 @@
 "ScientificName": "Hyporhamphus acutus"
 },
 {
-"CommonName": "Greater Amberjack ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Seriola dumerili"
-},
-{
-"CommonName": "Great Barracuda ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Sphyraena barracuda"
-},
-{
 "CommonName": "Blue Spine Unicornfish ", 
 "BracesLeft": "(",
 "BracesRight": ")",
@@ -4072,12 +3268,6 @@
 "BracesLeft": "(",
 "BracesRight": ")",
 "ScientificName": "Dasyatidae"
-},
-{
-"CommonName": "Dolphin ", 
-"BracesLeft": "(",
-"BracesRight": ")",
-"ScientificName": "Coryphaena hippurus"
 },
 {
 "CommonName": "Pompano Dolphin ", 
