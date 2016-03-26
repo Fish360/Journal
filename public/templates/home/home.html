@@ -19,18 +19,52 @@
   </button>
   <a class="navbar-brand" href="#/{{username}}/home">Home</a>
 </div>
+    <!-- Edits done here -->
 <div class="collapse navbar-collapse">
   <ul class="nav navbar-nav">
     <!--li class="active"><a href="#">Home</a></li-->
-    <li><a href="#{{username}}/search/list">Search</a></li>
-    <li><a href="#{{username}}/reports">Reports</a></li>
-    <li><a href="#{{username}}/trip/list">Trips</a></li>
-    <li><a href="#{{username}}/fish/list">Fish</a></li>
-    <li><a href="#{{username}}/spots/list">Spots</a></li>
-    <li><a href="#{{username}}/gear/list">Gear</a></li>
+    <li>
+        <a href="#{{username}}/search/list">
+			<span class="glyphicon glyphicon-search"> </span> &nbsp; &nbsp; Search
+        </a>
+	</li>
+    <li>
+        <a href="#{{username}}/reports">
+			<span class="glyphicon glyphicon-align-left"> </span> &nbsp; &nbsp; Reports
+        </a>
+
+    </li>
+    <li>
+        <a href="#{{username}}/trip/list">
+			<span class="glyphicon glyphicon-send"></span>  &nbsp; &nbsp; Trips
+        </a>
+    </li>
+    <li>
+        <a href="#{{username}}/fish/list">
+			<span class="glyphicon glyphicon-heart"></span>   &nbsp; &nbsp;  Fish
+        </a>
+    </li>
+    <li>
+        <a href="#{{username}}/spots/list">
+			<span class="glyphicon glyphicon-map-marker"></span> &nbsp; &nbsp;  Spots
+        </a>
+    </li>
+    <li>
+        <a href="#{{username}}/gear/list">
+           <p> Gear &nbsp; &nbsp;  <span class="glyphicon glyphicon-cog"></span> </p>
+        </a>
+    </li>
     <!--li><a href="#{{username}}/presentations/list">Presentations</a></li-->
-    <li><a href="#{{username}}/profile">Profile</a></li>
-      <li><a href="#">Logout</a></li>
+    <li>
+        <a href="#{{username}}/profile">
+           <p>  Profile &nbsp; &nbsp; <span class="glyphicon glyphicon-user"></span> </p>
+        </a>
+    </li>
+      <li>
+          <a href="#">
+             <p> Logout &nbsp; &nbsp;<span class="glyphicon glyphicon-off"></span></p>
+          </a>
+      </li>
       <!--li><a href="/browser.html">Browser</a></li-->
   </ul>
 </div><!--/.nav-collapse -->
@@ -69,7 +103,7 @@
 
 			<span ng-switch-when="SPOT">
 				<a class="pull-right" href="#/{{event.username}}/spots/{{event._id}}/edit">
-					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+					<span class="glyphicon glyphicon-pe f360-right-arrow"></span>
 				</a>
 				<a href="#/{{event.username}}/spots/{{event._id}}/edit">
 					<span class="glyphicon glyphicon-map-marker"></span>

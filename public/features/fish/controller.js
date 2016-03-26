@@ -12,7 +12,7 @@ f360.controller("FishHomeListController", function($scope, $routeParams, $http)
 f360.controller("FishListController", function($scope, $routeParams, $http)
 {
 	$scope.username = $routeParams.username;
-	$scope.tripId = $routeParams.tripId
+	$scope.tripId = $routeParams.tripId;
 	$http.get("api/user/"+$scope.username+"/trip/"+$routeParams.tripId+"/fish")
 	.success(function(fish)
 	{
@@ -25,8 +25,13 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
+	$scope.tripStart=$routeParams.start;
+    $scope.endTime=$routeParams.end;
+
+
 	$scope.create = function()
 	{
+        console.log("New Fish Controller");
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
 		console.log(url);
 		$scope.newFish["lastUpdated"] = new Date();
@@ -34,7 +39,8 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 		for(var i=0; i<species.length; i++)
 			if(species[i].scientific == $scope.newFish.species)
 				$scope.newFish["commonName"] = species[i].common;
-		
+
+        console.log($scope.tripStart + ":::: "+ $scope.endTime);
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
@@ -70,6 +76,8 @@ f360.controller("NewFishController", function($scope, $routeParams, $http, $loca
 
 f360.controller("EditFishController", function($scope, $routeParams, $http, $location)
 {
+
+    console.log("Edit Fish Controller");
 	$scope.speciess = species;
 
 	$scope.username = $routeParams.username;

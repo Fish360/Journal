@@ -53,6 +53,8 @@
         return model;
 
         function createReport (username, report) {
+           // var reports=findReportsByUsername(username);
+           // console.log(reports);
             return $http.post ("/api/"+username+"/report", report);
         }
 
@@ -69,6 +71,7 @@
         }
 
         function findReportsByUsername (username) {
+            //console.log("/api/"+username+"/report");
             return $http.get ("/api/"+username+"/report");
         }
 

@@ -242,6 +242,7 @@
     function NewReportController ($routeParams, $scope, ReportsService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;
         $scope.createReport = createReport;
+        $scope.checkAndcreate=checkAndCreate;
         $scope.report = {
             type: "timeOfYear"
         };
@@ -261,9 +262,29 @@
         }
         init();
 
+        function checkAndCreate(report){
+            ReportsService
+                .findReportsByUsername($scope.username)
+                .then(function(response){
+                    var resultSet = response.data;
+                    console.log(resultSet);
+                    if(resultSet.length>=10){
+                      $location.url("/"+$scope.username+"/reports");
+                        alert("You have exceeded the limit. Kindly upgrade to Pro");
+
+                    }
+                    else{
+                        createReport(report);
+                    }
+
+                });
+
+        }
+
         function createReport (report) {
+
             if(validateSpecieSelection(report)) {
-                var scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
+                    scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
                 for(var i=0; i<species.length; i++) {
                     if(species[i].scientific === scientificName){
                         report["commonName"] = species[i].common;
@@ -275,7 +296,7 @@
             ReportsService
                 .createReport ($scope.username, report)
                 .then(function(){
-                    $location.url ("/"+$scope.username+"/reports");
+                    $location.url("/"+$scope.username+"/reports");
                 })
         }
 

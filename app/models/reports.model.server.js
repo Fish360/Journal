@@ -47,6 +47,7 @@ module.exports = function(db) {
         var deferred = p.defer();
         report.username = username;
         db.report.save(report, p.handle);
+
         return deferred.promise;
     }
 
@@ -54,6 +55,7 @@ module.exports = function(db) {
         var p = promiseUtil();
         var deferred = p.defer();
         db.report.find(p.handle);
+
         return deferred.promise;
     }
 
