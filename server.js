@@ -11,6 +11,20 @@ var done = false;
 var ncp = require('ncp').ncp;
 
 var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'fish360email@gmail.com',
+        pass: 'fishy123'
+    }
+}, {
+    // default values for sendMail method
+    from: 'fish360email@gmail.com',
+    headers: {
+        'My-Awesome-Header': '123'
+    }
+});
 
 ncp(localDataDir, __dirname + "/public/uploads", function (err) {
 	if (err) {
@@ -332,13 +346,24 @@ app.post("/api/user", function(req, res)
 	});
 });
 
-//app.get("/api/forgotPassword/:email", function (req, res) {
-//    var email = req.params.email;
-//
-//    res.send("email");
-//});
+app.post("/api/forgotPassword/:username", function (req, res) {
+   db.user.find({username: req.params.username}, function(err, user)
+	{
+		if(user[0].email){
+			transporter.sendMail({    
+	        to: user[0].email,
+	        subject: 'Fish 360 App password ',
+	        html: 'Hi '+ user[0].username +', <br> <br>  Your Passowrd is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
+	      });
+		}
+	});
+
+   res.send("email");
+});
 
 // update profile
+
+
 app.put("/api/user/:username", function(req, res)
 {
 	var username = req.params.username;

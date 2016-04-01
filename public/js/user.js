@@ -2,9 +2,9 @@
 f360.controller("ForgotPasswordController",
 function ($scope, $routeParams, $http, $location) {
     $scope.sendPassword = function (username) {
-        $http.get("/api/forgotPassword/"+$scope.username)
+        $http.post("/api/forgotPassword/"+$scope.username)
         .success(function () {
-            alert("If the email exists in our records, then you will receive a password at that email. You can then change your password from your profile.");
+            alert("If the email exists in our records, then you will receive your password at that email.");
             $location.path("/");
         });
     }
