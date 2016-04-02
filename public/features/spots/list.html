@@ -22,7 +22,7 @@
 	<tr ng-repeat="spot in spots | orderBy : 'lastUpdated' : true">
 		<td>
 			<a class="pull-right" href="#/{{username}}/spots/{{spot._id}}/edit">
-				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="glyphicon glyphicon-pencil"></span>
 			</a>
             <a href="#/{{username}}/spots/{{spot._id}}/edit">
                 {{spot.name}}

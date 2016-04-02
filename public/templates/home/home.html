@@ -51,18 +51,18 @@
     </li>
     <li>
         <a href="#{{username}}/gear/list">
-           <p> Gear &nbsp; &nbsp;  <span class="glyphicon glyphicon-cog"></span> </p>
+			  <span class="glyphicon glyphicon-cog"></span> &nbsp; &nbsp; Gear
         </a>
     </li>
     <!--li><a href="#{{username}}/presentations/list">Presentations</a></li-->
     <li>
         <a href="#{{username}}/profile">
-           <p>  Profile &nbsp; &nbsp; <span class="glyphicon glyphicon-user"></span> </p>
+            <span class="glyphicon glyphicon-user"></span> <p> &nbsp; &nbsp; Profile
         </a>
     </li>
       <li>
           <a href="#">
-             <p> Logout &nbsp; &nbsp;<span class="glyphicon glyphicon-off"></span></p>
+            <span class="glyphicon glyphicon-off"></span>&nbsp; &nbsp; Logout
           </a>
       </li>
       <!--li><a href="/browser.html">Browser</a></li-->
@@ -77,7 +77,7 @@
 			
 			<span ng-switch-when="TRIP">
 				<a class="pull-right" href="#/{{event.username}}/trip/{{event._id}}/editFromHome">
-					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
 				<a href="#/{{event.username}}/trip/{{event._id}}/fish/list">
 				<!--a href="#/{{event.username}}/trip/{{event._id}}/editFromHome"-->
@@ -92,7 +92,7 @@
 			
 			<span ng-switch-when="FISH">
 				<a class="pull-right" href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/editFromHome">
-					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
 				<a href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/editFromHome">
 					<span class="glyphicon glyphicon-heart"></span>
@@ -103,7 +103,7 @@
 
 			<span ng-switch-when="SPOT">
 				<a class="pull-right" href="#/{{event.username}}/spots/{{event._id}}/edit">
-					<span class="glyphicon glyphicon-pe f360-right-arrow"></span>
+					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
 				<a href="#/{{event.username}}/spots/{{event._id}}/edit">
 					<span class="glyphicon glyphicon-map-marker"></span>
@@ -113,7 +113,7 @@
 
 			<span ng-switch-when="GEAR">
 				<a class="pull-right" href="#/{{event.username}}/gear/{{event._id}}/edit">
-					<span class="glyphicon glyphicon-chevron-right f360-right-arrow"></span>
+					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
 				<a href="#/{{event.username}}/gear/{{event._id}}/edit">
 					<span class="glyphicon glyphicon-cog"></span>
