@@ -51,7 +51,7 @@ f360.controller("FishHomeListController", function ($scope, $routeParams, $http,
 f360.controller("FishListController", function($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
-	$scope.tripId = $routeParams.tripId
+	$scope.tripId = $routeParams.tripId;
 	$http.get("api/user/"+$scope.username+"/trip/"+$routeParams.tripId+"/fish")
 	.success(function(fish)
 	{
