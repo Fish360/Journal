@@ -90,11 +90,11 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 	$scope.username = "";
 	console.log("LoginController");
 	$scope.login = function() {
-		$scope.message = "";
 		$http.get("/api/user/"+$scope.username+"/"+$scope.password)
 		.success(function(user){
-			if(user.length == 0)
+			if(!user) {
 				$scope.message = "Username and/or password does not exist. Try again";
+			}
 			else {
 //				$location.path( $scope.username+"/trip/list" );
 				$location.path( $scope.username+"/home" );
