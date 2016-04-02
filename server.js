@@ -9,7 +9,7 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
 var ncp = require('ncp').ncp;
-
+var crypto= require('crypto');
 var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
@@ -340,8 +340,14 @@ app.delete('/api/:username/trip/:tripid', function(req, res)
 // Register a user includes new username and password
 app.post("/api/user", function(req, res)
 {
-	db.user.insert(req.body, function(err, newUser)
+	var user=req.body;
+	get_encrypted_hash(user.password,function(encrypted_password){
+		user.password=encrypted_password;
+		user.password2=encrypted_password;
+	});
+	db.user.insert(user, function(err, newUser)
 	{
+		console.log(newUser);
 		res.json(newUser);
 	});
 });
@@ -395,7 +401,9 @@ app.put("/api/user/:username", function(req, res)
 
 	if (req.body.password)
 	{
-	    update.password = req.body.password;
+		get_encrypted_hash(req.body.password,function(encrypted_password){
+			update.password = encrypted_password;
+		});
 	}
 
 	db.user.findAndModify({
@@ -426,7 +434,11 @@ app.get("/api/user/:username", function(req, res)
 // Find user by username and password used for login to check username and password
 app.get("/api/user/:username/:password", function(req, res)
 {
-	db.user.find({username: req.params.username, password: req.params.password}, function(err, user)
+	var password=req.params.password;
+	get_encrypted_hash(password,function(encrypted_password){
+		password=encrypted_password;
+	});
+	db.user.find({username: req.params.username, password: password}, function(err, user)
 	{
 		res.json(user);
 	});
@@ -631,6 +643,13 @@ function checkout(req, res) {
 	//res.json(body);
 }
 
+function get_encrypted_hash(password,callback){
+	var hash=crypto
+		.createHash("md5")
+		.update(password)
+		.digest("hex");
+	callback(hash);
+}
 app.get('/api/pwd', function(req, res){
 	res.send(__dirname);
 });
