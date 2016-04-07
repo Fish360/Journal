@@ -248,6 +248,11 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             templateUrl: "features/reports/reports-presentations.html",
             controller: "PresentationsReportController"
         })
+        .when("/:username/reports/:reportId/moonphase",
+            {
+                templateUrl: "features/reports/reports-moonphase.html",
+                controller: "MoonPhaseReportController"
+            })
         /*
          *	Search Results
          */

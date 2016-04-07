@@ -5,6 +5,7 @@
     f360.controller("TimeOfYearReportController", TimeOfYearReportController);
     f360.controller("SpotsReportController", SpotsReportController);
     f360.controller("PresentationsReportController", PresentationsReportController);
+    f360.controller("MoonPhaseReportController", MoonPhaseReportController);
     f360.controller("ReportController", ReportController);
 
     var monthNames = {
@@ -169,6 +170,82 @@
         }
         init();
     }
+
+    function MoonPhaseReportController ($routeParams, $scope, ReportsService) {
+        $scope.username = $routeParams.username;
+        $scope.reportId = $routeParams.reportId;
+        $scope.report;
+
+        function init () {
+            ReportsService
+                .findReportById($scope.reportId)
+                .then(function(report){
+                    $scope.report = report.data;
+                    return ReportsService.runReportById($scope.reportId);
+                })
+                .then(function(fishes){
+                    console.log("fishes:");
+                    console.log(fishes);
+                    var MoonPhaseMap = {};
+                    var max = -1;
+                    fishes = fishes.data;
+                    $scope.fishes = fishes;
+                    for(var f in fishes) {
+                        var fish = fishes[f];
+                        var moonphase = fish.moonphase;
+                        if(moonphase) {
+                            if(MoonPhaseMap[moonphase]) {
+                                MoonPhaseMap[moonphase]++;
+                            } else {
+                                MoonPhaseMap[moonphase] = 1;
+                            }
+                            if(MoonPhaseMap[moonphase] > max) {
+                                max = MoonPhaseMap[moonphase];
+                            }
+                        }
+                    }
+                    $scope.MoonPhaseMap = MoonPhaseMap;
+
+
+
+
+                    google.charts.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        /*var data = google.visualization.arrayToDataTable([
+                            ["MoonPhase", "FishCount", { role: "style" } ],
+                            ["Copper", 8.94, "#b87333"],
+                            ["Silver", 10.49, "silver"],
+                            ["Gold", 19.30, "gold"],
+                            ["Platinum", 21.45, "color: #e5e4e2"]
+                        ]);*/
+                        console.log($scope.MoonPhaseMap);
+                        var data=new google.visualization.DataTable();
+                        console.log("iterating");
+                        data.addColumn('string', 'Moon Phase');
+                        data.addColumn('number', 'Fish Count');
+                        for(var phase in $scope.MoonPhaseMap){
+                            data.addRow([phase,$scope.MoonPhaseMap[phase]]);
+                        }
+                        console.log(data);
+                        var view = new google.visualization.DataView(data);
+
+                        var options = {
+                            title: "Moon Phase vs Fish Count",
+                            width: 600,
+                            height: 400,
+                            bar: {groupWidth: "95%"},
+                            legend: { position: "none" },
+                        };
+                        var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+                        chart.draw(view, options);
+                    }
+                }, function(err){
+                    console.log(err);
+                });
+        }
+        init();
+    }
+
 
     function EditReportController ($routeParams, $scope, ReportsService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;

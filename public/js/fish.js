@@ -68,7 +68,7 @@ f360.controller("FishListController", function($scope, $routeParams, $http, User
 	});
 });
 
-f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SunMoonService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
@@ -122,7 +122,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 		}
 		
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
-
+		//loadMoonPhase();
 		$scope.newFish["lastUpdated"] = new Date();
 		if($scope.newFish.species.originalObject !== undefined) {
 		var	scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
@@ -133,7 +133,8 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 		$scope.newFish.species = scientificName;
 		}
-
+		console.log("sunrise time:");
+		console.log($scope.newFish.sunriseTime);
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
@@ -183,6 +184,20 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 		}
 
 		return true;
+	}
+
+	$scope.loadMoonPhase=function(){
+		if($scope.newFish.spot) {
+			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
+				SunMoonService.findMoonPhase($scope.newFish, spot, function (response) {
+					$scope.newFish.moonphase = response.moon.phase.name;
+					$scope.newFish.sunriseTime= moment(response.sun.riseISO).format("HH:mm");
+					$scope.newFish.moonriseTime= moment(response.moon.riseISO).format("HH:mm");
+					$scope.newFish.sunsetTime= moment(response.sun.setISO).format("HH:mm");
+					$scope.newFish.moonsetTime= moment(response.moon.setISO).format("HH:mm");
+				});
+			});
+		}
 	}
 
 });
