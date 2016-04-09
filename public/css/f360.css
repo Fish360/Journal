@@ -93,3 +93,10 @@ textarea.form-control {
     font-weight: bold;
     padding-right: 5px;
 }
+
+.binary-sea {
+    background-image: url(../../img/binary-sea.jpg);
+    background-repeat: no-repeat;
+    background-size: 250%;
+    background-color: #002C56;
+}

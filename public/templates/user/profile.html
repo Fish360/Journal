@@ -63,6 +63,9 @@ Units
 	<option value="">Standard</option>
 	<option>Metric</option>
 </select>
+Default Species
+<div angucomplete-alt id="ex1" placeholder="{{user.species === undefined ? 'Select Default Species ...' : user.commonName+ ' (' + user.species + ')'}}" pause="100" selected-object="user.species" 
+local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Sort Fish By
 <select ng-model="user.sortFishBy" class="form-control">
 	<option value="">Date Caught</option>
@@ -70,6 +73,8 @@ Sort Fish By
 	<option>Weight</option>
 	<option>Species</option>
 </select>
-
+<input type="checkbox" ng-model="user.shareAggregate" class="form-control" style="width: 40px;float: left;margin-right: 5px;">
+Share aggregated
+<p >Non-personally identifiable Fish Catch Data with third parties for the benefit of the recreational fishery. </p>
 <a href="#/termsReadOnly" class="btn btn-success btn-block">User Agreement
 </a>

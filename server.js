@@ -11,6 +11,20 @@ var done = false;
 var ncp = require('ncp').ncp;
 
 var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'fish360email@gmail.com',
+        pass: 'fishy123'
+    }
+}, {
+    // default values for sendMail method
+    from: 'fish360email@gmail.com',
+    headers: {
+        'My-Awesome-Header': '123'
+    }
+});
 
 ncp(localDataDir, __dirname + "/public/uploads", function (err) {
 	if (err) {
@@ -332,24 +346,52 @@ app.post("/api/user", function(req, res)
 	});
 });
 
-//app.get("/api/forgotPassword/:email", function (req, res) {
-//    var email = req.params.email;
-//
-//    res.send("email");
-//});
+app.post("/api/forgotPassword/:username", function (req, res) {
+   db.user.find({username: req.params.username}, function(err, user)
+	{
+		if(user[0].email){
+			transporter.sendMail({    
+	        to: user[0].email,
+	        subject: 'Fish 360 App password ',
+	        html: 'Hi '+ user[0].username +', <br> <br>  Your Passowrd is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
+	      });
+		}
+	});
+
+   res.send("email");
+});
 
 // update profile
+
+
 app.put("/api/user/:username", function(req, res)
 {
-	var username = req.params.username;	
-	
-	var update = {
+	var username = req.params.username;
+	console.log(req.body.commonName);
+	console.log(req.body.species);
+	var update = {};
+	console.log(req.body.species);
+	if(!req.body.species) {
+		 update = {
+		    firstName: req.body.firstName,
+		    lastName: req.body.lastName,
+		    email: req.body.email,
+		    dateOfBirth: req.body.dateOfBirth,
+		    units: req.body.units,
+		    shareAggregate: req.body.shareAggregate
+		};
+	} else {
+		update = {
 	    firstName: req.body.firstName,
 	    lastName: req.body.lastName,
 	    email: req.body.email,
 	    dateOfBirth: req.body.dateOfBirth,
-	    units: req.body.units
-	};
+	    units: req.body.units,
+	    species: req.body.species,
+	    commonName: req.body.commonName,
+	    shareAggregate: req.body.shareAggregate
+		};
+	}
 
 	if (req.body.password)
 	{
@@ -396,6 +438,15 @@ app.get("/api/user/:username/preferences/units", function(req, res)
 	db.user.find({username: req.params.username}, function(err, user)
 	{
 		res.json(user[0].units);
+	});
+});
+
+// Find user by username and get User preferences of default species to be displayed
+app.get("/api/user/:username/preferences/defaultspecies", function(req, res)
+{
+	db.user.find({username: req.params.username}, function(err, user)
+	{
+		res.json({ species : user[0].species, commonName: user[0].commonName});
 	});
 });
 
