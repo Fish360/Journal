@@ -125,14 +125,10 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	
 	$scope.create = function()
 	{
-		//console.log("We are in create");
+		console.log("We are in create");
 		if(!validateSpecieSelection()){
 			return;
 		}
-		if(!validateFishDates()){
-			return;
-		}
-
 
 
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish",
