@@ -2,20 +2,44 @@
 f360.controller("ForgotPasswordController",
 function ($scope, $routeParams, $http, $location) {
     $scope.sendPassword = function (username) {
-        $http.get("/api/forgotPassword/"+$scope.username)
+        $http.post("/api/forgotPassword/"+$scope.username)
         .success(function () {
-            alert("If the email exists in our records, then you will receive a password at that email. You can then change your password from your profile.");
+            alert("If the email exists in our records, then you will receive your password at that email.");
             $location.path("/");
         });
     }
 });
 
-f360.controller("ProfileController", function($scope, $routeParams, $http, $location)
+f360.controller("ProfileController", function($scope, $routeParams, $http, $location, JSONLoaderFactory)
 {
 	console.log("ProfileController");
 	$scope.username = $routeParams.username;
 	console.log($scope.username);
+	$scope.speciess = species;
+
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+	    	$scope.species = JSON.parse(text);
+		   
+		});
+	}
+
 	$scope.updateProfile = function() {
+		
+		if(validateSpecieSelection()) {
+			var scientificName = ($scope.user.species.originalObject === undefined) ? $scope.user.species : $scope.user.species.originalObject["ScientificName"];
+			
+			for(var i=0; i<species.length; i++) {
+				if(species[i].scientific === scientificName){
+					$scope.user["commonName"] = species[i].common;
+				}
+			}
+			$scope.user.species = scientificName;
+		}
+
+		console.log($scope.user);
 		if(	$scope.user.password != $scope.user.password2 ||
 			typeof $scope.user.password == "undefined") {
 			
@@ -37,6 +61,8 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 	console.log(url);
 	$http.get(url)
 	.success(function(user) {
+		console.log("***************");
+		console.log(user);
 		$scope.user = user[0];
 		$scope.user.password = "";
 		$scope.user.password2 = "";
@@ -46,6 +72,16 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 		console.log("Failed");
 		console.log(err);
 	});
+
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.user.species === undefined)? false : true;
+		console.log(isValidSpecies);
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		}
+		return true;
+	}
 });
 
 f360.controller("LoginController", function($scope, $routeParams, $http, $location)

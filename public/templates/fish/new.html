@@ -34,7 +34,7 @@ Caught Date/Time
     </div>
 </div>
 Species
-<div angucomplete-alt id="newFish_ex" placeholder="Type for Species..." pause="100" selected-object="newFish.species" 
+<div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newFish.species" 
 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
 <select ng-model="newFish.spot" class="form-control" placeholder="Species">

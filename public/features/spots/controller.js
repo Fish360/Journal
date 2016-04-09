@@ -51,9 +51,10 @@ f360.controller("SpotListController", function ($scope, $routeParams, $http, Spo
 	});
 });
 
-f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService,JSONLoaderFactory)
+f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService, JSONLoaderFactory, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
+	$scope.newSpot = {};
 	loadSpecies();
 
 	function loadSpecies() {
@@ -63,17 +64,26 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 		});
 	}
 
+	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
+		$scope.defaultSpecies = defaultSpecies;
+		$scope.newSpot.species = defaultSpecies.species;
+		$scope.newSpot["commonName"] = defaultSpecies.commonName;
+	});
+
 	$scope.create = function()
 	{
+		
 		if(validateSpecieSelection()){
-			scientificName = ($scope.newSpot.species.originalObject === undefined) ? $scope.newSpot.species : $scope.newSpot.species.originalObject["ScientificName"];
+			if($scope.newSpot.species.originalObject !== undefined) {
+			var scientificName = ($scope.newSpot.species.originalObject === undefined) ? $scope.newSpot.species : $scope.newSpot.species.originalObject["ScientificName"];
 			$scope.newSpot["lastUpdated"] = new Date();
 
 			for(var i=0; i<species.length; i++)
 				if(species[i].scientific == scientificName)
 					$scope.newSpot["commonName"] = species[i].common;
 
-			$scope.newSpot.species = scientificName;		
+			$scope.newSpot.species = scientificName;	
+			}	
 		}
 
 		if(typeof $scope.newSpot != "undefined") {
@@ -88,7 +98,6 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 
 $scope.getCurrentLocationDetails = function () {
     GeolocationService.getCurrentPosition().then(function(geoposition){
-      	$scope.newSpot = {};
         $scope.newSpot.latitude = geoposition.coords.latitude;
         $scope.newSpot.longitude = geoposition.coords.longitude;
 

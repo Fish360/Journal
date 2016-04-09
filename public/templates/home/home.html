@@ -57,7 +57,7 @@
     <!--li><a href="#{{username}}/presentations/list">Presentations</a></li-->
     <li>
         <a href="#{{username}}/profile">
-            <span class="glyphicon glyphicon-user"></span> <p> &nbsp; &nbsp; Profile
+            <span class="glyphicon glyphicon-user"></span>  &nbsp; &nbsp; Profile
         </a>
     </li>
       <li>
@@ -97,7 +97,7 @@
 				<a href="#/{{event.username}}/trip/{{event.trip_id}}/fish/{{event._id}}/editFromHome">
 					<span class="glyphicon glyphicon-heart"></span>
 					{{event.commonName}} ({{event.species}})<br />
-                    <span ng-show="event.weight">{{event.weight}} lbs</span><span ng-show="event.length">, {{event.length}} in</span>
+                    <span ng-show="event.weight">{{event.weight}} {{weightUnits}}</span><span ng-show="event.length">, {{event.length}} {{lengthUnits}}</span>
 				</a>
 			</span>
 
