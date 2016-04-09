@@ -189,12 +189,14 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	$scope.loadMoonPhase=function(){
 		if($scope.newFish.spot) {
 			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
-				SunMoonService.findMoonPhase($scope.newFish, spot, function (response) {
-					$scope.newFish.moonphase = response.moon.phase.name;
-					$scope.newFish.sunriseTime= moment(response.sun.riseISO).format("HH:mm");
-					$scope.newFish.moonriseTime= moment(response.moon.riseISO).format("HH:mm");
-					$scope.newFish.sunsetTime= moment(response.sun.setISO).format("HH:mm");
-					$scope.newFish.moonsetTime= moment(response.moon.setISO).format("HH:mm");
+				SunMoonService.findSunMoonPhase($scope.newFish, spot, function (response) {
+					var phase=response.moonphase.phase;
+					$scope.newFish.moonphase = (phase<0.25)?"New Moon":(phase<0.5)?"First Quarter"
+						:(phase<0.75)?"Full Moon":"Last Quarter";
+					$scope.newFish.sunriseTime= moment(response.sundetails.sunrise).format("HH:mm");
+					$scope.newFish.moonriseTime= moment(response.moondetails.rise).format("HH:mm");
+					$scope.newFish.sunsetTime= moment(response.sundetails.sunset).format("HH:mm");
+					$scope.newFish.moonsetTime= moment(response.moondetails.set).format("HH:mm");
 				});
 			});
 		}
@@ -316,16 +318,16 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 	}
 
 	$scope.loadMoonPhase=function(){
-		console.log("edit fish spot");
-		console.log($scope.editFish.spot);
 		if($scope.editFish.spot) {
 			SpotService.findOne($scope.username, $scope.editFish.spot, function (spot) {
-				SunMoonService.findMoonPhase($scope.editFish, spot, function (response) {
-					$scope.editFish.moonphase = response.moon.phase.name;
-					$scope.editFish.sunriseTime= moment(response.sun.riseISO).format("HH:mm");
-					$scope.editFish.moonriseTime= moment(response.moon.riseISO).format("HH:mm");
-					$scope.editFish.sunsetTime= moment(response.sun.setISO).format("HH:mm");
-					$scope.editFish.moonsetTime= moment(response.moon.setISO).format("HH:mm");
+				SunMoonService.findSunMoonPhase($scope.editFish, spot, function (response) {
+					var phase=response.moonphase.phase;
+					$scope.editFish.moonphase = (phase<0.25)?"New Moon":(phase<0.5)?"First Quarter"
+						:(phase<0.75)?"Full Moon":"Last Quarter";
+					$scope.editFish.sunriseTime= moment(response.sundetails.sunrise).format("HH:mm");
+					$scope.editFish.moonriseTime= moment(response.moondetails.rise).format("HH:mm");
+					$scope.editFish.sunsetTime= moment(response.sundetails.sunset).format("HH:mm");
+					$scope.editFish.moonsetTime= moment(response.moondetails.set).format("HH:mm");
 				});
 			});
 		}

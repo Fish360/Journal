@@ -24,20 +24,17 @@
 Caught Date/Time
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="newFish.caught" class="form-control" type="date" />
+        <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date" />
 	</div>
-    <div class="col-xs-4">
+    <div class="col-xs-6">
         <input ng-model="newFish.caughtTime" class="form-control" type="time" />
-    </div>
-    <div class="col-xs-2">
-        <a ng-click="loadMoonPhase()" href=""><span class="glyphicon glyphicon-refresh"></span></a>
     </div>
 </div>
 Species
 <div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newFish.species"
 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
-<select ng-model="newFish.spot" class="form-control" placeholder="Species">
+<select ng-change="loadMoonPhase()" ng-model="newFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 Rods
