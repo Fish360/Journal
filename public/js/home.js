@@ -14,8 +14,8 @@ f360.controller("HomeController", function($scope, $routeParams, $http, UserPref
 		if($scope.events.length !== 0) {
 			UserPreferenceService.findOne($scope.username, function(units){
 				var unitsPreferences = units.trim() !== "" ? units : "standard";
-				$scope.lengthUnits = unitsPreferences === "Metric" ? "cm" : "in";
-				$scope.weightUnits = unitsPreferences === "Metric" ? "kg" : "lbs";
+				$scope.lengthUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "cm" : "in";
+				$scope.weightUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "kg" : "lbs";
 			});
 		}
 	});
