@@ -1,3 +1,10 @@
+<style>
+    .report {
+        width:10px;
+        height:20px;
+    }
+</style>
+
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <a href="#/{{username}}/reports"
@@ -13,4 +20,5 @@
 <div ng-show="!fishes" class="alert alert-success" role="alert">
     No Results
 </div>
-<div id="barchart_values" style="width: 900px; height: 300px;"></div>
+<div class="col-xs-12">
+<div id="barchart_values"></div></div>

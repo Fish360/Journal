@@ -231,10 +231,11 @@
 
                         var options = {
                             title: "Moon Phase vs Fish Count",
-                            width: 600,
-                            height: 400,
-                            bar: {groupWidth: "95%"},
-                            legend: { position: "none" },
+                            bar: {groupWidth: "80%"},
+                            width: 500,
+                            'hAxis': {'textStyle': {'fontSize': 11}},
+                            'vAxis': {'textStyle': {'fontSize': 7}},
+                            legend: { position: 'top', maxLines: 5 },
                         };
                         var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
                         chart.draw(view, options);

@@ -202,7 +202,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 });
 
-f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService)
+f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService,SunMoonService)
 {
 	//$(".f360-number").numeric({ decimal : ".",  negative : false, scale: 3 });
 
@@ -312,6 +312,22 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 			});
 		} else {
 			return false;
+		}
+	}
+
+	$scope.loadMoonPhase=function(){
+		console.log("edit fish spot");
+		console.log($scope.editFish.spot);
+		if($scope.editFish.spot) {
+			SpotService.findOne($scope.username, $scope.editFish.spot, function (spot) {
+				SunMoonService.findMoonPhase($scope.editFish, spot, function (response) {
+					$scope.editFish.moonphase = response.moon.phase.name;
+					$scope.editFish.sunriseTime= moment(response.sun.riseISO).format("HH:mm");
+					$scope.editFish.moonriseTime= moment(response.moon.riseISO).format("HH:mm");
+					$scope.editFish.sunsetTime= moment(response.sun.setISO).format("HH:mm");
+					$scope.editFish.moonsetTime= moment(response.moon.setISO).format("HH:mm");
+				});
+			});
 		}
 	}
 

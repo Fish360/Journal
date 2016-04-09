@@ -32,15 +32,18 @@ Caught Date/Time
     <div class="col-xs-6">
         <input ng-model="editFish.caught" class="form-control" type="date" />
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-4">
         <input ng-model="editFish.caughtTime" class="form-control" type="time" />
+    </div>
+    <div class="col-xs-2">
+        <a ng-click="loadMoonPhase()" href=""><span class="glyphicon glyphicon-refresh"></span></a>
     </div>
 </div>
 Species
 <div angucomplete-alt id="ex1" placeholder="{{editFish.commonName}} ({{editFish.species}})" pause="100" selected-object="editFish.species" local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
 <select ng-model="editFish.spot" class="form-control" placeholder="Species">
-    <option ng-repeat="spot in spots" value="{{spot.name}}">{{spot.name}}</option>
+    <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 Rods
 <select ng-model="editFish.gear" class="form-control" placeholder="Gear">
@@ -80,16 +83,7 @@ Sunset Time
 <input ng-model="editFish.sunsetTime" class="form-control" type="time"/>
 
 Moon Phase
-<select ng-model="editFish.moonphase" class="form-control">
-    <option>New Moon</option>
-    <option>Waxing Crescent</option>
-    <option>First Quarter</option>
-    <option>Waxing Gibbous</option>
-    <option>Full Moon</option>
-    <option>Waning Gibbous</option>
-    <option>Third Quarter</option>
-    <option>Waning Crescent</option>
-</select>
+<input ng-model="editFish.moonphase" class="form-control" type="text"/>
 
 Moonrise Time
 <input ng-model="editFish.moonriseTime" class="form-control" type="time"/>
