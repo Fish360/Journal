@@ -21,7 +21,7 @@
 	<tr ng-repeat="fsh in fish | orderBy : 'lastUpdated' : true">
 		<td>
 			<a class="pull-right" href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
-				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="glyphicon glyphicon-pencil"></span>
 			</a>
 			<a href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
                 {{fsh.commonName}} ({{fsh.species}})<br />

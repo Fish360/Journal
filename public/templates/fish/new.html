@@ -24,8 +24,11 @@
 Caught Date/Time
 <div class="row">
     <div class="col-xs-6">
-        <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date" />
-	</div>
+
+        <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date"
+			    min="{{newFish.minDate | date:'yyyy-MM-dd'}}"
+			    max="{{newFish.maxDate | date:'yyyy-MM-dd'}}"/>
+    </div>
     <div class="col-xs-6">
         <input ng-model="newFish.caughtTime" class="form-control" type="time" />
     </div>

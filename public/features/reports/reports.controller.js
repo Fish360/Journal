@@ -391,7 +391,7 @@
             }
         }
 
-    function ReportListController ($routeParams, $scope, ReportsService) {
+    function ReportListController ($routeParams, $scope, $location, ReportsService) {
         $scope.username = $routeParams.username;
 
         function init () {
@@ -402,5 +402,23 @@
                 })
         }
         init();
+
+        $scope.addNewReport = function addNewReport(){
+            ReportsService
+                .findReportsByUsername($scope.username)
+                .then(function(response){
+                    var resultSet = response.data;
+                    console.log(resultSet);
+                    if(resultSet.length>=10){
+                        $location.url("/"+$scope.username+"/reports");
+                        alert("You have exceeded the limit. Kindly upgrade to Pro");
+
+                    }
+                    else{
+                        $location.url("/"+$scope.username+"/reports/new");
+                    }
+
+                });
+        }
     }
 })();

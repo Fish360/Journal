@@ -51,7 +51,7 @@ f360.controller("FishHomeListController", function ($scope, $routeParams, $http,
 f360.controller("FishListController", function($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
-	$scope.tripId = $routeParams.tripId
+	$scope.tripId = $routeParams.tripId;
 	$http.get("api/user/"+$scope.username+"/trip/"+$routeParams.tripId+"/fish")
 	.success(function(fish)
 	{
@@ -73,7 +73,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
-	
+
 	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
 		$scope.defaultSpecies = defaultSpecies;
 		$scope.newFish.species = defaultSpecies.species;
@@ -93,10 +93,26 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	TripService.findOne($scope.username, $scope.tripId, function(trip){
 		if(trip.start !== undefined) {
 			var dateParts = (trip.start).split("-");
-			var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2])
+			var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
 			var tripDate = moment(date).format("YYYY-MM-DD");
+			console.log("trip start and end");
+			console.log(trip.start);
+			console.log(trip.end);
+			$scope.newFish.minDate=trip.start.toString();
+			console.log($scope.newFish.minDate);
 
-			$scope.newFish.caught = tripDate;
+			$scope.newFish.maxDate= trip.end.toString();
+			console.log($scope.newFish.maxDate);
+
+			if(tripDate>=trip.start && tripDate<=trip.end)
+			{
+				$scope.newFish.caught = tripDate;
+			}
+			else{
+				alert("Fish Caught date must be within Trip Date range");
+			}
+
+
 		}
 	});
 
@@ -116,13 +132,12 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	
 	$scope.create = function()
 	{
-
 		if(!validateSpecieSelection()){
 			return;
 		}
-		
+
 		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
-		//loadMoonPhase();
+
 		$scope.newFish["lastUpdated"] = new Date();
 		if($scope.newFish.species.originalObject !== undefined) {
 		var	scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
@@ -133,8 +148,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 
 		$scope.newFish.species = scientificName;
 		}
-		console.log("sunrise time:");
-		console.log($scope.newFish.sunriseTime);
+
 		$http.post(url, $scope.newFish)
 			.success(function(trips)
 			{
@@ -170,6 +184,23 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 //	SpotService.findAll($scope.username, function (response) {
 //	    $scope.newFish.spots = response;
 //	});
+
+	function validateFishDates(){
+		var caughtDate=$scope.newFish.caught;
+		console.log(caughtDate);
+		var trip = TripService.findOne($scope.username,$scope.tripId,function(trip){
+			if(trip.start<=caughtDate && trip.end >= caughtDate){
+				return true;
+			}
+			else{
+				alert("Fish Caught date must be within trip range");
+				//$location.url("/"+$scope.username+"/trip/"+$scope.tripId+"/fish/new");
+				return false;
+			}
+		});
+		//console.log(trip);
+		//return true;
+	}
 
 	function validateSpecieSelection() {
 		var isValidSpecies = ($scope.newFish.species === undefined)? false : true;
@@ -246,8 +277,13 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 				var dateParts = (trip.start).split("-");
 				var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2])
 				var tripDate = moment(date).format("YYYY-MM-DD");
-
-				$scope.editFish.caught = tripDate;
+                if(tripDate>=trip.start && tripDate<=trip.end)
+				{
+					$scope.editFish.caught = tripDate;
+				}
+				else{
+					alert("Fish Caught date must be within Trip Date range");
+				}
 			}
 		});
 	}

@@ -9,6 +9,9 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
 var ncp = require('ncp').ncp;
+//var crypto= require('crypto');
+//var bcrypt= require('bcrypt');
+//var q= require('q');
 
 var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
 var nodemailer = require('nodemailer');
@@ -185,7 +188,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 }
 
 var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search', 'report']);
-
+var userModel=require("./app/models/user.model.server.js")(db);
 var mandrill  = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('EW3Z7X-JJDSZwb1DigccCA');
 var email     = require('./modules/email/email.js')(app, mandrill_client, db, generatePassword);
@@ -340,10 +343,18 @@ app.delete('/api/:username/trip/:tripid', function(req, res)
 // Register a user includes new username and password
 app.post("/api/user", function(req, res)
 {
-	db.user.insert(req.body, function(err, newUser)
-	{
-		res.json(newUser);
-	});
+	var user=req.body;
+
+	userModel.get_encrypted_hash(user.password)
+		.then(function(response) {
+				user.password = response;
+				user.password2 = response;
+				db.user.insert(user, function(err, newUser)
+				{
+					res.json(newUser);
+				});
+			}
+		);
 });
 
 app.post("/api/forgotPassword/:username", function (req, res) {
@@ -357,61 +368,65 @@ app.post("/api/forgotPassword/:username", function (req, res) {
 	      });
 		}
 	});
-
    res.send("email");
 });
 
 // update profile
 
 
-app.put("/api/user/:username", function(req, res)
-{
+app.put("/api/user/:username", function(req, res) {
 	var username = req.params.username;
 	console.log(req.body.commonName);
 	console.log(req.body.species);
 	var update = {};
 	console.log(req.body.species);
-	if(!req.body.species) {
-		 update = {
-		    firstName: req.body.firstName,
-		    lastName: req.body.lastName,
-		    email: req.body.email,
-		    dateOfBirth: req.body.dateOfBirth,
-		    units: req.body.units,
-		    shareAggregate: req.body.shareAggregate
+	if (!req.body.species) {
+		update = {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			dateOfBirth: req.body.dateOfBirth,
+			units: req.body.units,
+			shareAggregate: req.body.shareAggregate
 		};
 	} else {
 		update = {
-	    firstName: req.body.firstName,
-	    lastName: req.body.lastName,
-	    email: req.body.email,
-	    dateOfBirth: req.body.dateOfBirth,
-	    units: req.body.units,
-	    species: req.body.species,
-	    commonName: req.body.commonName,
-	    shareAggregate: req.body.shareAggregate
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			dateOfBirth: req.body.dateOfBirth,
+			units: req.body.units,
+			species: req.body.species,
+			commonName: req.body.commonName,
+			shareAggregate: req.body.shareAggregate
 		};
 	}
 
-	if (req.body.password)
-	{
-	    update.password = req.body.password;
+	if (req.body.password) {
+		userModel.get_encrypted_hash(req.body.password)
+			.then(function (response) {
+					update.password = response;
+					updateUserDetails();
+				});
+	}
+	else{
+		updateUserDetails();
 	}
 
-	db.user.findAndModify({
-		query: {username: req.params.username},
-		update: {
-			$set : update
-		},
-		new: false}, function(err, doc, lastErrorObject)
-		{
-
+	function updateUserDetails(){
+		db.user.findAndModify({
+			query: {username: req.params.username},
+			update: {
+				$set: update
+			},
+			new: false
+		}, function (err, doc, lastErrorObject) {
 		});
-		
-	db.user.find({username: req.params.username}, function(err, user)
-	{
-		res.json(user);
-	});
+
+		db.user.find({username: req.params.username}, function (err, user) {
+			res.json(user);
+		});
+	}
 });
 
 // Find user by username used for registering to see if username already exists
@@ -426,9 +441,26 @@ app.get("/api/user/:username", function(req, res)
 // Find user by username and password used for login to check username and password
 app.get("/api/user/:username/:password", function(req, res)
 {
-	db.user.find({username: req.params.username, password: req.params.password}, function(err, user)
-	{
-		res.json(user);
+	var password=req.params.password;
+
+	db.user.find({username: req.params.username}, function(err, user) {
+		if(user[0]) {
+			userModel.comparePassword(req.params.password, user)
+				.then(function(response){
+					if(response){
+						res.json(response);
+					}
+					else{
+						res.send(null);
+					}
+				},
+					function(err){
+						res.send(err);
+					});
+		}
+		else{
+			res.send(null);
+		}
 	});
 });
 
