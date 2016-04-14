@@ -35,6 +35,7 @@
     "nodemailer": "^1.11.0",
     "password-generator": "^0.2.4",
     "q": "^1.4.1",
+    "suncalc": "^1.7.0",
     "ua-parser": "^0.3.5"
   },
   "devDependencies": {},
