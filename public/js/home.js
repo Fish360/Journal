@@ -19,4 +19,10 @@ f360.controller("HomeController", function($scope, $routeParams, $http, UserPref
 			});
 		}
 	});
+
+
+	$scope.logout = function () {
+		localStorage.removeItem("username");
+		localStorage.removeItem("password");
+    }
 });

@@ -100,9 +100,24 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 //				$location.path( $scope.username+"/trip/list" );
 				$location.path( $scope.username+"/home" );
 				localStorage.setItem("user", JSON.stringify(user[0]));
+				var encryptedPassword = CryptoJS.AES.encrypt($scope.password, "password");
+				localStorage.setItem("username", $scope.username);
+				localStorage.setItem("password", encryptedPassword);
 			}
 		});
-	}
+	};
+
+	var username = localStorage.getItem("username");
+	var encryptedPassword = localStorage.getItem("password");
+	if(encryptedPassword !== null) {
+	var decryptedPassword = CryptoJS.AES.decrypt(encryptedPassword, "password");
+	var password = decryptedPassword.toString(CryptoJS.enc.Utf8);
+	    if (username !== null && password !== null) {
+	    	$scope.username = username;
+	    	$scope.password = password;
+	        $scope.login();
+	    }
+    }
 });
 
 f360.controller("TermsController", function($scope, $routeParams, $http, $location)
