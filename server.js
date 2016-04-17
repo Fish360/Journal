@@ -355,7 +355,12 @@ app.post("/api/user", function(req, res)
 			 				{
 			 					res.json(newUser);
 			 				});
-			 			}
+			 			},
+						function(err){
+							res.json({
+								success: false,
+								error: 'Unable to register user.' });
+						}
 			 		);
 	     } else {
 	     	res.json({
