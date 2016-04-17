@@ -107,6 +107,27 @@ Moonrise Time
 <input ng-model="newFish.moonriseTime" class="form-control" type="time"/>
 Moonset Time
 <input ng-model="newFish.moonsetTime" class="form-control" type="time"/>
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#collapse1">
+		<h3 class="panel-title">
+			Tide Information
+		</h3>
+	</div>
+	<div id="collapse1" class="collapse in">
+		<div class="panel-body">
+			Tide Height
+			<input ng-model="newFish.tideheight" class="form-control" type="text"/>
+			Tide Time
+			<input ng-model="newFish.tidetime" class="form-control" type="time"/>
+			Next Extreme Tide Type
+			<input ng-model="newFish.ExtremeTideType" class="form-control" type="text"/>
+			Next Extreme Tide Height
+			<input ng-model="newFish.ExtremeTideHeight" class="form-control" type="text"/>
+			Next Extreme Tide Time
+			<input ng-model="newFish.ExtremeTideTime" class="form-control" type="time"/>
+		</div>
+	</div>
+</div>
 Notes
 <textarea ng-model="newFish.notes" class="form-control" placeholder="Notes">
 

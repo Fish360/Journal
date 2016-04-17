@@ -68,12 +68,12 @@ f360.controller("FishListController", function($scope, $routeParams, $http, User
 	});
 });
 
-f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SunMoonService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
+f360.controller("NewFishController", function ($scope, $routeParams, $http, $location, SunMoonService,SpotLocationService,TidalService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
-
+	$scope.collapsed=false;
 	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
 		$scope.defaultSpecies = defaultSpecies;
 		$scope.newFish.species = defaultSpecies.species;
@@ -218,17 +218,51 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	}
 
 	$scope.loadMoonPhase=function(){
+		console.log("load moonphase");
 		if($scope.newFish.spot) {
+			console.log("newspot");
 			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
 				SunMoonService.findSunMoonPhase($scope.newFish, spot, function (response) {
 					var phase=response.moonphase.phase;
 					$scope.newFish.moonphase = (phase<0.25)?"New Moon":(phase<0.5)?"First Quarter"
 						:(phase<0.75)?"Full Moon":"Last Quarter";
+					console.log("sun details");
+					console.log(response.sundetails);
 					$scope.newFish.sunriseTime= moment(response.sundetails.sunrise).format("HH:mm");
 					$scope.newFish.moonriseTime= moment(response.moondetails.rise).format("HH:mm");
 					$scope.newFish.sunsetTime= moment(response.sundetails.sunset).format("HH:mm");
 					$scope.newFish.moonsetTime= moment(response.moondetails.set).format("HH:mm");
 				});
+				console.log(spot);
+				var fishCaughtTime;
+				if(spot.latitude && spot.longitude) {
+					SpotLocationService.get_location(spot.longitude, spot.latitude)
+						.then(function (location) {
+							console.log("spot info");
+							console.log($scope.newFish.caught);
+							if($scope.newFish.caughtTime!=undefined){
+								fishCaughtTime=new Date($scope.newFish.caught+"T"+$scope.newFish.caughtTime+":00");
+							}
+							else{
+								fishCaughtTime=new Date($scope.newFish.caught);
+							}
+							console.log(fishCaughtTime);
+							//fishCaughtTime=new Date($scope);
+							TidalService.findTidalInfo(fishCaughtTime,spot,function(tideInfo){
+								console.log("tide info");
+								console.log(tideInfo);
+								$scope.newFish.tideheight=tideInfo.heights[0].height;
+								$scope.newFish.tidetime=moment.utc(tideInfo.heights[0].date).format("HH:mm");
+								if(tideInfo.extremes!=null){
+									$scope.newFish.ExtremeTideType=tideInfo.extremes[0].type;
+									$scope.newFish.ExtremeTideTime=moment.utc(tideInfo.extremes[0].date).format("HH:mm");
+									$scope.newFish.ExtremeTideHeight=tideInfo.extremes[0].height;
+								}
+							});
+						}, function (error) {
+							console.log("Error getting location" + error);
+						});
+				}
 			});
 		}
 	}
