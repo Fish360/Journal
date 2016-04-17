@@ -346,10 +346,17 @@ app.post("/api/user", function(req, res)
 	db.user.find({email: req.body.email}, function(err, user)
 	{
 	    if(user.length === 0) {
-	    	db.user.insert(req.body, function(err, newUser)
-			{
-				res.json(newUser);
-			});
+	    	var user=req.body;
+			 	userModel.get_encrypted_hash(user.password)
+			 		.then(function(response) {
+			 				user.password = response;
+			 				user.password2 = response;
+			 				db.user.insert(user, function(err, newUser)
+			 				{
+			 					res.json(newUser);
+			 				});
+			 			}
+			 		);
 	     } else {
 	     	res.json({
             success: false,
