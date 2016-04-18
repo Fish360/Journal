@@ -236,32 +236,36 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 				console.log(spot);
 				var fishCaughtTime;
 				if(spot.latitude && spot.longitude) {
-					SpotLocationService.get_location(spot.longitude, spot.latitude)
-						.then(function (location) {
-							console.log("spot info");
-							console.log($scope.newFish.caught);
-							if($scope.newFish.caughtTime!=undefined){
-								fishCaughtTime=new Date($scope.newFish.caught+"T"+$scope.newFish.caughtTime+":00");
-							}
-							else{
-								fishCaughtTime=new Date($scope.newFish.caught);
-							}
-							console.log(fishCaughtTime);
-							//fishCaughtTime=new Date($scope);
-							TidalService.findTidalInfo(fishCaughtTime,spot,function(tideInfo){
-								console.log("tide info");
-								console.log(tideInfo);
-								$scope.newFish.tideheight=tideInfo.heights[0].height;
-								$scope.newFish.tidetime=moment.utc(tideInfo.heights[0].date).format("HH:mm");
-								if(tideInfo.extremes!=null){
-									$scope.newFish.ExtremeTideType=tideInfo.extremes[0].type;
-									$scope.newFish.ExtremeTideTime=moment.utc(tideInfo.extremes[0].date).format("HH:mm");
-									$scope.newFish.ExtremeTideHeight=tideInfo.extremes[0].height;
+					TidalService.getUTCOffset(spot.latitude,spot.longitude,function(offset){
+						console.log("offset:");
+						console.log(offset);
+						SpotLocationService.get_location(spot.longitude, spot.latitude)
+							.then(function (location) {
+								console.log("spot info");
+								console.log($scope.newFish.caught);
+								if($scope.newFish.caughtTime!=undefined){
+									fishCaughtTime=new Date($scope.newFish.caught+"T"+$scope.newFish.caughtTime+":00");
 								}
+								else{
+									fishCaughtTime=new Date($scope.newFish.caught);
+								}
+								console.log(fishCaughtTime);
+								//fishCaughtTime=new Date($scope);
+								TidalService.findTidalInfo(fishCaughtTime,spot,function(tideInfo){
+									console.log("tide info");
+									console.log(tideInfo);
+									$scope.newFish.tideheight=tideInfo.heights[0].height;
+									$scope.newFish.tidetime=moment.utc(tideInfo.heights[0].date).format("HH:mm");
+									if(tideInfo.extremes!=null){
+										$scope.newFish.ExtremeTideType=tideInfo.extremes[0].type;
+										$scope.newFish.ExtremeTideTime=moment.utc(tideInfo.extremes[0].date).format("HH:mm");
+										$scope.newFish.ExtremeTideHeight=tideInfo.extremes[0].height;
+									}
+								});
+							}, function (error) {
+								console.log("Error getting location" + error);
 							});
-						}, function (error) {
-							console.log("Error getting location" + error);
-						});
+					});
 				}
 			});
 		}
