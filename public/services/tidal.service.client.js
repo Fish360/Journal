@@ -7,7 +7,7 @@
         };
         return model;
 
-        function findTidalInfo (fishcaughtTime,location,callback) {
+        function findTidalInfo (date,location,callback) {
             var location_info={};
             //location_info=location.city+","+location.state;
             location_info.latitude=location.latitude;
@@ -20,7 +20,7 @@
             //console.log(to);
             console.log("location info");
             console.log(location_info);
-            var date=Math.round(fishcaughtTime.getTime()/ 1000);
+            //var date=Math.round(fishcaughtTime.getTime()/ 1000);
             //$http.get("/api/tides/location/"+location_info+"/from/"+from+"/to/"+to)
             $http.get("/api/tides/latitude/"+location.latitude+"/longitude/"+location.longitude+"/date/"+date)
                 .success(function(response){
@@ -30,8 +30,8 @@
                 });
         }
 
-        function getUTCOffset(lat,long,callback){
-            $http.get("/api/tz/latitude/"+lat+"/longitude/"+long)
+        function getUTCOffset(date,lat,long,callback){
+            $http.get("/api/tz/date/"+date+"/latitude/"+lat+"/longitude/"+long)
                 .success(function(offset){
                     console.log("timezone offset for latlong");
                     console.log(offset);

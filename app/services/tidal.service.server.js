@@ -1,10 +1,11 @@
 var http = require('http');
-var tzwhere = require('tzwhere')
-tzwhere.init();
+var timezone = require('node-google-timezone');
+//var tzwhere = require('tzwhere')
+//tzwhere.init();
 module.exports = function (app) {
     //app.get("/api/tides/location/:location/from/:from/to/:to", findTidalInfo);
     app.get("/api/tides/latitude/:latitude/longitude/:longitude/date/:date", findTidalInfo);
-    app.get("/api/tz/latitude/:latitude/longitude/:longitude", findUTCOffset);
+    app.get("/api/tz/date/:date/latitude/:latitude/longitude/:longitude", findUTCOffset);
 
 
     function findTidalInfo(req,res){
@@ -62,6 +63,10 @@ module.exports = function (app) {
     function findUTCOffset(req,res){
         var lat=req.params.latitude;
         var long=req.params.longitude;
-        res.json(tzwhere.tzOffsetAt(lat,long)/1000);
+        var date=req.params.date;
+        timezone.data(lat, long, date, function (err, tz) {
+            res.json(tz.raw_response);
+        });
+        //res.json(tzwhere.tzOffsetAt(lat,long)/1000);
     }
 }

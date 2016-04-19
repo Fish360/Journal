@@ -30,7 +30,7 @@
 Caught Date/Time
 <div class="row">
     <div class="col-xs-6">
-        <input ng-change="loadMoonPhase()" ng-model="editFish.caught" class="form-control" type="date" />
+        <input ng-change="delayedCall(loadMoonPhase,2000)" ng-model="editFish.caught" class="form-control" type="date" />
     </div>
     <div class="col-xs-6">
         <input ng-model="editFish.caughtTime" class="form-control" type="time" />
@@ -39,7 +39,7 @@ Caught Date/Time
 Species
 <div angucomplete-alt id="ex1" placeholder="{{editFish.commonName}} ({{editFish.species}})" pause="100" selected-object="editFish.species" local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
-<select ng-change="loadMoonPhase()" ng-model="editFish.spot" class="form-control" placeholder="Species">
+<select ng-change="delayedCall(loadMoonPhase,2000)" ng-model="editFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 Rods
@@ -86,6 +86,27 @@ Moonrise Time
 <input ng-model="editFish.moonriseTime" class="form-control" type="time"/>
 Moonset Time
 <input ng-model="editFish.moonsetTime" class="form-control" type="time"/>
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#collapse1">
+		<h3 class="panel-title">
+			Tide Information
+		</h3>
+	</div>
+	<div id="collapse1" class="collapse in">
+		<div class="panel-body">
+			Tide Height
+			<input ng-model="editFish.tideheight" class="form-control" type="text"/>
+			Tide Time
+			<input ng-model="editFish.tidetime" class="form-control" type="time"/>
+			Next Extreme Tide Type
+			<input ng-model="editFish.ExtremeTideType" class="form-control" type="text"/>
+			Next Extreme Tide Height
+			<input ng-model="editFish.ExtremeTideHeight" class="form-control" type="text"/>
+			Next Extreme Tide Time
+			<input ng-model="editFish.ExtremeTideTime" class="form-control" type="time"/>
+		</div>
+	</div>
+</div>
 Notes
 <textarea ng-model="editFish.notes" class="form-control" placeholder="Notes">
 

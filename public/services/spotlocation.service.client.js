@@ -7,6 +7,8 @@
         return service;
 
         function get_location(long,lat){
+            //var test=new google.maps.Timezone();
+            //console.log(test);
             var deferred=$q.defer();
             var geocoder = new google.maps.Geocoder();
             var address;
