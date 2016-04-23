@@ -66,23 +66,23 @@ Spots
 	<div id="gear" class="collapse">
 		<div class="panel-body">
 
-			Rods
+			Rod
 			<select ng-model="newFish.rod" class="form-control" placeholder="Gear">
 				<option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear._id}}">{{gear.name}}</option>
 			</select>
-			Reels
+			Reel
 			<select ng-model="newFish.reel" class="form-control" placeholder="Gear">
 				<option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear._id}}">{{gear.name}}</option>
 			</select>
-			Lines
+			Line
 			<select ng-model="newFish.line" class="form-control" placeholder="Gear">
 				<option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear._id}}">{{gear.name}}</option>
 			</select>
-			Leaders
+			Leader
 			<select ng-model="newFish.leader" class="form-control" placeholder="Gear">
 				<option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear._id}}">{{gear.name}}</option>
 			</select>
-			Presentations
+			Presentation
 			<select ng-model="newFish.presentation" class="form-control" placeholder="Gear">
 				<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear._id}}">{{gear.name}}</option>
 			</select>
@@ -179,7 +179,7 @@ Spots
 <div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#tide">
 		<h3 class="panel-title">
-			Tide Information
+			Tide
 		</h3>
 	</div>
 	<div id="tide" class="collapse">
