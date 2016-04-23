@@ -3,7 +3,8 @@
 		position: relative;
 		top: 7px;
 	}
-	input[type=date] {
+	input[type=date],
+	input[type=time] {
 		width: 100%;
 	}
 
@@ -31,14 +32,28 @@
     </div>
     <div class="col-xs-6">
 		Time
-        <input ng-model="newFish.caughtTime" class="form-control" type="time" />
+        <input ng-model="newFish.caughtTime"
+			   class="form-control"
+			   type="time" />
     </div>
 </div>
 Species
-<div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newFish.species"
-local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
+<div angucomplete-alt
+	 id="ex1"
+	 placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}"
+	 pause="100"
+	 selected-object="newFish.species"
+	 local-data="species"
+	 search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight"
+	 title-field="CommonName,BracesLeft,ScientificName,BracesRight"
+	 minlength="1"
+	 input-class="form-control"/>
+</div>
 Spots
-<select ng-change="loadMoonPhase()" ng-model="newFish.spot" class="form-control" placeholder="Species">
+<select ng-change="loadMoonPhase()"
+		ng-model="newFish.spot"
+		class="form-control"
+		placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 <br/>
@@ -75,19 +90,6 @@ Spots
 		</div>
 	</div>
 </div>
-<!--
-
-
--->
-<!--
-Presentation
-<select ng-model="newFish.presentation" class="form-control" placeholder="Presentation">
-	<option ng-repeat="presentation in presentations" value="{{presentation.name}}">{{presentation.name}}</option>
-</select>
---><!--
-Spot
-<input ng-model="newFish.spot" class="form-control" placeholder="Spot" />
--->
 
 <div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#size">
@@ -194,7 +196,7 @@ Spot
 				<tr>
 					<th>High/Low</th>
 					<th>Time</th>
-					<th>Hight</th>
+					<th>Height</th>
 				</tr>
 				</thead>
 				<tbody>
