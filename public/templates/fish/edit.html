@@ -127,16 +127,40 @@ Moon Phase
 	</div>
 	<div id="collapse1" class="collapse in">
 		<div class="panel-body">
-			Tide Height
-			<input ng-model="editFish.tideheight" class="form-control" type="text" readonly/>
-			Tide Time
-			<input ng-model="editFish.tidetime" class="form-control" type="time" readonly/>
-			Next Extreme Tide Type
-			<input ng-model="editFish.ExtremeTideType" class="form-control" type="text" readonly/>
-			Next Extreme Tide Height
-			<input ng-model="editFish.ExtremeTideHeight" class="form-control" type="text" readonly/>
-			Next Extreme Tide Time
-			<input ng-model="editFish.ExtremeTideTime" class="form-control" type="time" readonly/>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>High/Low</th>
+						<th>Time</th>
+						<th>Hight</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="extreme in editFish.tideInfo.extremes">
+						<td>
+							{{extreme.type}}
+						</td>
+						<td>
+							{{extreme.date | date : 'h:mm a'}}
+						</td>
+						<td>
+							{{extreme.height * 3.28084 | number : 2}}'
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!--Tide Height-->
+			<!--<input ng-model="editFish.tideheight" class="form-control" type="text" readonly/>-->
+			<!--Tide Time-->
+			<!--<input ng-model="editFish.tidetime" class="form-control" type="time" readonly/>-->
+			<!--Next Extreme Tide Type-->
+			<!--<input ng-model="editFish.ExtremeTideType" class="form-control" type="text" readonly/>-->
+			<!--Next Extreme Tide Height-->
+			<!--<input ng-model="editFish.ExtremeTideHeight" class="form-control" type="text" readonly/>-->
+			<!--Next Extreme Tide Time-->
+			<!--<input ng-model="editFish.ExtremeTideTime" class="form-control" type="time" readonly/>-->
 		</div>
 	</div>
 </div>
