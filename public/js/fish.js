@@ -241,6 +241,14 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 						});
 						date=date-offset.dstOffset-offset.rawOffset;
 						TidalService.findTidalInfo(date, spot, function (tideInfo) {
+							var max = -1000;
+							for(var t in tideInfo.heights) {
+								var height = tideInfo.heights[t];
+								if(height.height > max) {
+									max = height.height;
+								}
+							}
+							$scope.max = max;
 							$scope.tideInfo = tideInfo;
 							$scope.newFish.tideInfo = tideInfo;
 							$scope.newFish.tideheight = tideInfo.heights[0].height;
