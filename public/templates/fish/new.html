@@ -25,7 +25,7 @@ Caught Date/Time
 <div class="row">
     <div class="col-xs-6">
 
-        <input ng-change="delayedCall(loadMoonPhase,2000)" ng-model="newFish.caught" class="form-control" type="date"
+        <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date"
 			    min="{{newFish.minDate | date:'yyyy-MM-dd'}}"
 			    max="{{newFish.maxDate | date:'yyyy-MM-dd'}}"/>
     </div>
@@ -37,7 +37,7 @@ Species
 <div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newFish.species"
 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
-<select ng-change="delayedCall(loadMoonPhase,2000)" ng-model="newFish.spot" class="form-control" placeholder="Species">
+<select ng-change="loadMoonPhase()" ng-model="newFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 Rods
@@ -85,28 +85,32 @@ Water Temperature
 <input ng-model="newFish.waterTemperature" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
 Water Clarity
 <input ng-model="newFish.waterClarity" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-Sunrise Time
-<input ng-model="newFish.sunriseTime" class="form-control" type="time"/>
-Sunset Time
-<input ng-model="newFish.sunsetTime" class="form-control" type="time"/>
+
+<div class="row">
+	<div class="col-xs-6">
+		Sunrise
+		<input ng-model="newFish.sunriseTime" class="form-control" type="text" readonly/>
+	</div>
+	<div class="col-xs-6">
+		Sunset
+		<input ng-model="newFish.sunsetTime" class="form-control" type="text" readonly/>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-6">
+		Moonrise
+		<input ng-model="newFish.moonriseTime" class="form-control" type="text" readonly/>
+	</div>
+	<div class="col-xs-6">
+		Moonset
+		<input ng-model="newFish.moonsetTime" class="form-control" type="text" readonly/>
+	</div>
+</div>
 
 Moon Phase
-<input ng-model="newFish.moonphase" class="form-control" type="text"/>
-<!--<select ng-model="newFish.moonphase" class="form-control">
-	<option>New Moon</option>
-	<option>Waxing Crescent</option>
-	<option>First Quarter</option>
-	<option>Waxing Gibbous</option>
-	<option>Full Moon</option>
-	<option>Waning Gibbous</option>
-	<option>Third Quarter</option>
-	<option>Waning Crescent</option>
-</select>-->
+<input ng-model="newFish.moonphase" class="form-control" type="text" readonly/>
 
-Moonrise Time
-<input ng-model="newFish.moonriseTime" class="form-control" type="time"/>
-Moonset Time
-<input ng-model="newFish.moonsetTime" class="form-control" type="time"/>
 <div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#collapse1">
 		<h3 class="panel-title">

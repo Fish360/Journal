@@ -217,7 +217,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 		return true;
 	}
 
-	$scope.loadMoonPhase=function(){
+	$scope.loadMoonPhase = function(){
 		if($scope.newFish.spot) {
 			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
 				SunMoonService.findSunMoonPhase($scope.newFish, spot, function (response) {
@@ -232,7 +232,6 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 			});
 		}
 	}
-
 });
 
 f360.controller("EditFishController", function ($scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService,SunMoonService)
@@ -253,6 +252,7 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 
 	SpotService.findAll($scope.username, function (spots) {
 		$scope.spots = spots;
+
 		GearService.findAll($scope.username, function(gears)
 		{
 			$scope.gears = gears;
@@ -263,6 +263,8 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 				.success(function(fish)
 				{	
 					$scope.editFish = fish;
+
+					loadMoonPhase();
 				}).then(function(){
 					if($scope.editFish.caught === undefined)
 					   $scope.setTripCaughtDate();
@@ -322,7 +324,7 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 				};
 				
 				var user = localStorage.getItem("user");
-				if(user != null && user != "") {
+				if(user && user != "undefined") {
 					user = JSON.parse(user);
 					user.preferences = preferences;
 				}
@@ -353,8 +355,10 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 		}
 	}
 
-	$scope.loadMoonPhase=function(){
-		if($scope.editFish.spot) {
+	$scope.loadMoonPhase = loadMoonPhase;
+
+	function loadMoonPhase(){
+		if($scope.editFish && $scope.editFish.spot) {
 			SpotService.findOne($scope.username, $scope.editFish.spot, function (spot) {
 				SunMoonService.findSunMoonPhase($scope.editFish, spot, function (response) {
 					var phase=response.moonphase.phase;
