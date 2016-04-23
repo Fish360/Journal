@@ -442,26 +442,36 @@ app.get("/api/user/:username", function(req, res)
 // Find user by username and password used for login to check username and password
 app.get("/api/user/:username/:password", function(req, res)
 {
-	var password=req.params.password;
+	var password = req.params.password;
 
-	db.user.find({username: req.params.username}, function(err, user) {
-		if(user[0]) {
-			userModel.comparePassword(req.params.password, user)
-				.then(function(response){
-					if(response){
-						res.json(response);
-					}
-					else{
-						res.send(null);
-					}
-				},
-					function(err){
-						res.send(err);
-					});
-		}
-		else{
-			res.send(null);
-		}
+	db.user.find(
+		{username: req.params.username},
+		function(err, users) {
+			if(err) {
+				res.send(err);
+			}
+			var user = users[0];
+			if(user.password == password) {
+				res.json(user);
+			} else {
+				res.send(null);
+			}
+			// userModel.comparePassword(req.params.password, user)
+			// 	.then(function(response){
+			// 		if(response){
+			// 			res.json(response);
+			// 		}
+			// 		else{
+			// 			res.send(null);
+			// 		}
+			// 	},
+			// 		function(err){
+			// 			res.send(err);
+			// 		});
+		// }
+		// else{
+		// 	res.send(null);
+		// }
 	});
 });
 
