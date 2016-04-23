@@ -176,7 +176,7 @@ f360.controller("NewFishController", function ($scope, $routeParams, $http, $loc
 	$scope.newFish = {};
 	$scope.newFish.species = "";
 	var user = localStorage.getItem("user");
-	if(user != null && user != "") {
+	if(user && user != "undefined") {
 	    user = JSON.parse(user);
 //		$scope.newFish.species = user.preferences.species;
 	}
