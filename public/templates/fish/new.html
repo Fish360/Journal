@@ -25,7 +25,7 @@ Caught Date/Time
 <div class="row">
     <div class="col-xs-6">
 
-        <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date"
+        <input ng-change="delayedCall(loadMoonPhase,2000)" ng-model="newFish.caught" class="form-control" type="date"
 			    min="{{newFish.minDate | date:'yyyy-MM-dd'}}"
 			    max="{{newFish.maxDate | date:'yyyy-MM-dd'}}"/>
     </div>
@@ -37,7 +37,7 @@ Species
 <div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newFish.species"
 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 Spots
-<select ng-change="loadMoonPhase()" ng-model="newFish.spot" class="form-control" placeholder="Species">
+<select ng-change="delayedCall(loadMoonPhase,2000)" ng-model="newFish.spot" class="form-control" placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 Rods
@@ -107,6 +107,27 @@ Moonrise Time
 <input ng-model="newFish.moonriseTime" class="form-control" type="time"/>
 Moonset Time
 <input ng-model="newFish.moonsetTime" class="form-control" type="time"/>
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#collapse1">
+		<h3 class="panel-title">
+			Tide Information
+		</h3>
+	</div>
+	<div id="collapse1" class="collapse in">
+		<div class="panel-body">
+			Tide Height
+			<input ng-model="newFish.tideheight" class="form-control" type="text"/>
+			Tide Time
+			<input ng-model="newFish.tidetime" class="form-control" type="time"/>
+			Next Extreme Tide Type
+			<input ng-model="newFish.ExtremeTideType" class="form-control" type="text"/>
+			Next Extreme Tide Height
+			<input ng-model="newFish.ExtremeTideHeight" class="form-control" type="text"/>
+			Next Extreme Tide Time
+			<input ng-model="newFish.ExtremeTideTime" class="form-control" type="time"/>
+		</div>
+	</div>
+</div>
 Notes
 <textarea ng-model="newFish.notes" class="form-control" placeholder="Notes">
 
