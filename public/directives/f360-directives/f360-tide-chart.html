@@ -1,0 +1,25 @@
+
+<div ng-init="max = Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))">
+    {{Math.abs(tides.extremes[0].height)}}
+    {{Math.abs(tides.extremes[1].height)}}
+    {{Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))}}
+    {{max}}
+    <div ng-repeat="height in tides.heights" class="row">
+        <div class="col-xs-2">
+            {{height.date | date : 'h:mm'}}
+        </div>
+        <div class="col-xs-5" style="padding-right: 0px;">
+            <div ng-if="height.height < 0"
+                 style="text-shadow: 0px 0px 2px #000000;background-color: #1d9ce5; color: white;width: {{height.height * -1 / 1.08 * 100}}%"
+                 class="pull-right">
+                {{height.height * 3.2 | number : 2}}
+            </div>
+        </div>
+        <div class="col-xs-5" style="padding-left: 0px;">
+            <div ng-if="height.height >= 0"
+                 style="text-shadow: 0px 0px 2px #000000; text-align:right; color: white;background-color: #1d9ce5; width: {{height.height / 1.08 * 100}}%">
+                {{height.height * 3.2 | number : 2}}
+            </div>
+        </div>
+    </div>
+</div>

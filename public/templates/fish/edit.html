@@ -187,7 +187,7 @@ Spots
 			Tide
 		</h3>
 	</div>
-	<div id="collapse1" class="collapse">
+	<div id="collapse1" class="collapse in">
 		<div class="panel-body">
 
 			<div ng-show="!editFish.tideInfo.extremes"
@@ -197,6 +197,7 @@ Spots
 
 			<table ng-show="editFish.tideInfo.extremes"
 				   class="table">
+				<caption>Extremes</caption>
 				<thead>
 					<tr>
 						<th>Hi/Lo</th>
@@ -218,6 +219,10 @@ Spots
 					</tr>
 				</tbody>
 			</table>
+
+			<!--<f360-tide-chart tides="editFish.tideInfo">-->
+			<!--</f360-tide-chart>-->
+
 		</div>
 	</div>
 </div>
