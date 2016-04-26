@@ -242,12 +242,22 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 						date=date-offset.dstOffset-offset.rawOffset;
 						TidalService.findTidalInfo(date, spot, function (tideInfo) {
 							var max = -1000;
-							for(var t in tideInfo.heights) {
-								var height = tideInfo.heights[t];
-								if(height.height > max) {
-									max = height.height;
-								}
-							}
+
+							$scope.peaks = f360.peakeSorter(tideInfo.heights);
+							// for (var i = 1; i < tideInfo.heights.length - 1; ++i) {
+							// 	if (tideInfo.heights[i-1].height < tideInfo.heights[i].height && tideInfo.heights[i].height > tideInfo.heights[i+1].height) {
+							// 		tideInfo.heights[i].type = "High";
+							// 		$scope.peaks.push(tideInfo.heights[i])
+							// 	}
+							// 	if (tideInfo.heights[i-1].height > tideInfo.heights[i].height && tideInfo.heights[i].height < tideInfo.heights[i+1].height) {
+							// 		tideInfo.heights[i].type = "Low";
+							// 		$scope.peaks.push(tideInfo.heights[i])
+							// 	}
+							// }
+                            //
+							// $scope.peaks.sort(function(a, b) {
+							// 	return parseFloat(b.date) - parseFloat(a.date);
+							// });
 							$scope.max = max;
 							$scope.tideInfo = tideInfo;
 							$scope.newFish.tideInfo = tideInfo;
@@ -267,6 +277,24 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 		}
 	}
 });
+
+f360.peakeSorter = function(heights) {
+	var peaks = [];
+	for (var i = 1; i < heights.length - 1; ++i) {
+		if (heights[i-1].height < heights[i].height && heights[i].height > heights[i+1].height) {
+			heights[i].type = "High";
+			peaks.push(heights[i])
+		}
+		if (heights[i-1].height > heights[i].height && heights[i].height < heights[i+1].height) {
+			heights[i].type = "Low";
+			peaks.push(heights[i])
+		}
+	}
+	peaks.sort(function(a, b) {
+		return parseFloat(b.date) - parseFloat(a.date);
+	});
+	return peaks;
+}
 
 f360.controller("EditFishController", function (TidalService, $scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService,SunMoonService)
 {
@@ -414,6 +442,9 @@ f360.controller("EditFishController", function (TidalService, $scope, $routePara
 						});
 						date=date-offset.dstOffset-offset.rawOffset;
 						TidalService.findTidalInfo(date, spot, function (tideInfo) {
+
+							$scope.peaks = f360.peakeSorter(tideInfo.heights);
+
 							$scope.editFish.tideInfo = tideInfo;
 							$scope.editFish.tideheight = tideInfo.heights[0].height;
 							date = tideInfo.heights[0].date;

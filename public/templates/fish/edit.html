@@ -190,33 +190,33 @@ Spots
 	<div id="collapse1" class="collapse in">
 		<div class="panel-body">
 
-			<div ng-show="!editFish.tideInfo.extremes"
+			<div ng-show="!peaks"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<table ng-show="editFish.tideInfo.extremes"
+			<table ng-show="peaks"
 				   class="table">
-				<caption>Extremes</caption>
 				<thead>
-					<tr>
-						<th>Hi/Lo</th>
-						<th>Time</th>
-						<th>Hight</th>
-					</tr>
+				<tr>
+					<th>Hi/Lo</th>
+					<th>Time</th>
+					<th>Height</th>
+				</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="extreme in editFish.tideInfo.extremes">
-						<td>
-							{{extreme.type}}
-						</td>
-						<td>
-							{{extreme.date | date : 'h:mm a'}}
-						</td>
-						<td>
-							{{extreme.height * 3.28084 | number : 2}}'
-						</td>
-					</tr>
+
+				<tr ng-repeat="peak in peaks">
+					<td>
+						{{peak.type}}
+					</td>
+					<td>
+						{{peak.date | date : 'h:mm a'}}
+					</td>
+					<td>
+						{{peak.height * 3.28084 | number : 2}}'
+					</td>
+				</tr>
 				</tbody>
 			</table>
 

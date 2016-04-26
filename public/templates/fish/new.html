@@ -185,12 +185,12 @@ Spots
 	<div id="tide" class="collapse">
 		<div class="panel-body">
 
-			<div ng-show="!tideInfo.extremes"
+			<div ng-show="!peaks"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<table ng-show="tideInfo.extremes"
+			<table ng-show="peaks"
 				   class="table">
 				<thead>
 				<tr>
@@ -200,15 +200,16 @@ Spots
 				</tr>
 				</thead>
 				<tbody>
-				<tr ng-repeat="extreme in tideInfo.extremes">
+
+				<tr ng-repeat="peak in peaks">
 					<td>
-						{{extreme.type}}
+						{{peak.type}}
 					</td>
 					<td>
-						{{extreme.date | date : 'h:mm a'}}
+						{{peak.date | date : 'h:mm a'}}
 					</td>
 					<td>
-						{{extreme.height * 3.28084 | number : 2}}'
+						{{peak.height * 3.28084 | number : 2}}'
 					</td>
 				</tr>
 				</tbody>
