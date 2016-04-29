@@ -423,10 +423,10 @@ f360.controller("FishShareController", function($scope, $routeParams, $http)
 				imgfile=' ';
 
 				for(var i in fish.images){
-					var tmpfish="thm_286783-1u4ocaa.jpg";
+					//var tmpfish="thm_286783-1u4ocaa.jpg";
 					//var path="http://localhost:3000/uploads/"+fish.images[i];
-					//var path="https://f360-fish360.rhcloud.com/uploads/"+fish.images[i];
-					var path="https://f360-fish360.rhcloud.com/uploads/"+tmpfish;
+					var path="https://f360-fish360.rhcloud.com/uploads/"+fish.images[i];
+					//var path="https://f360-fish360.rhcloud.com/uploads/"+tmpfish;
 					var profilepath= "https://f360-fish360.rhcloud.com/#/"+$scope.username+"/trip/"+tripId+"/fish/"+fishId+"/photos";
 					console.log(profilepath);
 					console.log(path);
