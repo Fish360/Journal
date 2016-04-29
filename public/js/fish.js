@@ -15,6 +15,7 @@ f360.controller("FishPhotoController", function ($scope, $routeParams, $http, Sp
     $scope.fishId = $routeParams.fishId;
     $scope.photoIndex = $routeParams.photoIndex;
 
+
     $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
 	.success(function (fish) {
 	    $scope.photo = fish.images[$scope.photoIndex];
@@ -385,3 +386,102 @@ f360.controller("EditFishController", function ($scope, $routeParams, $http, $lo
 	}
 });
 
+f360.controller("FishShareController", function($scope, $routeParams, $http)
+{
+	console.log("Fish Share Controller");
+	$scope.username = $routeParams.username;
+	$scope.tripId = $routeParams.tripId;
+	$scope.fishId = $routeParams.fishId;
+	var  username=$routeParams.username;
+	var tripId= $routeParams.tripId;
+	var fishId= $routeParams.fishId;
+	var images={};
+	var imgfile='';
+
+
+	//console.log($scope.username);
+	//console.log($scope.tripId);
+	//console.log($scope.fishId);
+
+
+	$http.get("api/user/"+username+"/trip/"+tripId+"/fish/"+fishId)
+		.success(function(fish)
+		{
+			$scope.common_name=fish.commonName;
+			$scope.species_name=fish.species;
+			$scope.length=fish.length;
+			if(fish.hasOwnProperty('length')){
+				$scope.fish_length=fish.length;
+				console.log("length found"+fish.length);
+			}
+			else{
+				$scope.fish_length=0;
+			}
+			if(fish.hasOwnProperty('images')){
+
+				$scope.images=fish.images;
+				imgfile=' ';
+
+				for(var i in fish.images){
+					var tmpfish="thm_286783-1u4ocaa.jpg";
+					//var path="http://localhost:3000/uploads/"+fish.images[i];
+					//var path="https://f360-fish360.rhcloud.com/uploads/"+fish.images[i];
+					var path="https://f360-fish360.rhcloud.com/uploads/"+tmpfish;
+					var profilepath= "https://f360-fish360.rhcloud.com/#/"+$scope.username+"/trip/"+tripId+"/fish/"+fishId+"/photos";
+					console.log(profilepath);
+					console.log(path);
+
+					imgfile= imgfile +'<br> <a href="'+profilepath+'">'+
+						'<img width="100" height="100" src="'+ path+'"/> </a>'
+
+					//imgfile= imgfile +'<br>'+
+					//'<img width="100" height="100" src="'+path+'"/>';
+				}
+				imgfile=imgfile+'<br> <br> Regards, <br> Fish360 <br> <a href="https://f360-fish360.rhcloud.com/#/"> FISH 360 </a>';
+			}
+
+		});
+
+	//console.log(imgfile);
+
+	$scope.share= function(email,subject){
+
+		var mailSubject = subject;
+
+
+		if(mailSubject==''||mailSubject==' '|| !mailSubject){
+			mailSubject="My Fish";
+		}
+		console.log(mailSubject);
+
+        //Regular expression to check valid email id's
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+		{
+
+			var mailObject={
+				username: $scope.username,
+				email : email,
+				subject : mailSubject,
+				species: $scope.species_name,
+				length : $scope.length,
+				common_name:$scope.common_name,
+				images : $scope.images,
+				imgfile:imgfile
+			};
+
+			$http.post('/api/:username/trip/:tripId/fish/:fishId/share',mailObject)
+				.success(function () {
+					console.log("Successfully sent mail");
+					alert("Message Sent. Please check your inbox and spam folder");
+				});
+
+			return (true)
+		}
+		else{
+		alert("ERROR: Invalid email address");
+		return (false)
+		}
+
+
+	}
+});

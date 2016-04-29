@@ -19,14 +19,24 @@
 </div>
 <table class="table">
 	<tr ng-repeat="fsh in fish | orderBy : 'lastUpdated' : true">
+
+		<td>
+			<a href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
+				{{fsh.commonName}} ({{fsh.species}})<br />
+				<span ng-show="fsh.weight">{{fsh.weight}} {{weightUnits}}</span><span ng-show="fsh.length">, {{fsh.length}} {{lengthUnits}}</span>
+			</a>
+		</td>
+		<td>
+			<a class="pull-right" href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/share">
+				<span class="glyphicon glyphicon-envelope"> </span>
+			</a>
+			&nbsp; &nbsp;
+		</td>
 		<td>
 			<a class="pull-right" href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</a>
-			<a href="#/{{username}}/trip/{{fsh.trip_id}}/fish/{{fsh._id}}/edit">
-                {{fsh.commonName}} ({{fsh.species}})<br />
-                <span ng-show="fsh.weight">{{fsh.weight}} {{weightUnits}}</span><span ng-show="fsh.length">, {{fsh.length}} {{lengthUnits}}</span>
-			</a>
+			</td>
 		</tr>
 	</tr>
 </table>
