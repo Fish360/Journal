@@ -10,26 +10,14 @@ module.exports = function (app) {
 
     function findTidalInfo(req,res){
         var response={};
-        //var location=req.params.location;
-        //console.log(location.latitude);
-        //var from=req.params.from;
-        //var to=req.params.to;
-        //console.log(from);
-        //console.log(to);
         var date=req.params.date;
         //var client_id="2jzr5OV98uTs3EWEAU2rv";
         //var client_secret="ahvT093mrdmYSEkyLEVW5jdBsOvDwQKBBOHZjAp3";
         var client_secret="87b3a520-67a2-4774-a40b-bee811fa0421";
         //var url="http://api.aerisapi.com/tides/"+location+"?client_id="+client_id+"&client_secret="+client_secret+"&from="+from+"&to="+to;
         //var url="/tides/"+location+"?client_id="+client_id+"&client_secret="+client_secret+"&from="+from+"&to="+to;
-        var url="/api?heights&extremes&lat="+req.params.latitude+"&lon="+req.params.longitude+"&key="+client_secret+"&start="+date+"&length=43200";
+        var url="/api?heights&extremes&lat="+req.params.latitude+"&lon="+req.params.longitude+"&key="+client_secret+"&start="+date+"&length=86400";
 
-        console.log(url);
-        //http.get(url)
-        //    .success(function(tideInfo){
-        //        console.log(tideInfo);
-        //        //callback(moonphase.response[0]);
-        //    });
         http.get({
             host: 'www.worldtides.info',
             path: url

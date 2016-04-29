@@ -3,9 +3,11 @@
 		position: relative;
 		top: 7px;
 	}
-	input[type=date] {
+	input[type=date],
+	input[type=time] {
 		width: 100%;
 	}
+
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
@@ -21,114 +23,200 @@
 		</div>
 	</div>
 </div>
-Caught Date/Time
 <div class="row">
     <div class="col-xs-6">
-
+		Caught Date
         <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date"
 			    min="{{newFish.minDate | date:'yyyy-MM-dd'}}"
 			    max="{{newFish.maxDate | date:'yyyy-MM-dd'}}"/>
     </div>
     <div class="col-xs-6">
-        <input ng-model="newFish.caughtTime" class="form-control" type="time" />
+		Time
+        <input ng-model="newFish.caughtTime"
+			   class="form-control"
+			   type="time" />
     </div>
 </div>
 Species
-<div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newFish.species"
-local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
+<div angucomplete-alt
+	 id="ex1"
+	 placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}"
+	 pause="100"
+	 selected-object="newFish.species"
+	 local-data="species"
+	 search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight"
+	 title-field="CommonName,BracesLeft,ScientificName,BracesRight"
+	 minlength="1"
+	 input-class="form-control"/>
+</div>
 Spots
-<select ng-change="loadMoonPhase()" ng-model="newFish.spot" class="form-control" placeholder="Species">
+<select ng-change="loadMoonPhase()"
+		ng-model="newFish.spot"
+		class="form-control"
+		placeholder="Species">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
-Rods
-<select ng-model="newFish.rod" class="form-control" placeholder="Gear">
-    <option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear._id}}">{{gear.name}}</option>
-</select>
-Reels
-<select ng-model="newFish.reel" class="form-control" placeholder="Gear">
-    <option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear._id}}">{{gear.name}}</option>
-</select>
-Lines
-<select ng-model="newFish.line" class="form-control" placeholder="Gear">
-    <option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear._id}}">{{gear.name}}</option>
-</select>
-Leaders
-<select ng-model="newFish.leader" class="form-control" placeholder="Gear">
-    <option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear._id}}">{{gear.name}}</option>
-</select>
-Presentations
-<select ng-model="newFish.presentation" class="form-control" placeholder="Gear">
-    <option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear._id}}">{{gear.name}}</option>
-</select>
-<!--
-
-
--->
-<!--
-Presentation
-<select ng-model="newFish.presentation" class="form-control" placeholder="Presentation">
-	<option ng-repeat="presentation in presentations" value="{{presentation.name}}">{{presentation.name}}</option>
-</select>
---><!--
-Spot
-<input ng-model="newFish.spot" class="form-control" placeholder="Spot" />
--->
-Weight
-<input ng-model="newFish.weight" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-Length
-<input ng-model="newFish.length" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-Girth
-<input ng-model="newFish.girth" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-Water Depth
-<input ng-model="newFish.waterDepth" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-Water Temperature
-<input ng-model="newFish.waterTemperature" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-Water Clarity
-<input ng-model="newFish.waterClarity" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
-
-<div class="row">
-	<div class="col-xs-6">
-		Sunrise
-		<input ng-model="newFish.sunriseTime" class="form-control" type="text" readonly/>
-	</div>
-	<div class="col-xs-6">
-		Sunset
-		<input ng-model="newFish.sunsetTime" class="form-control" type="text" readonly/>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-xs-6">
-		Moonrise
-		<input ng-model="newFish.moonriseTime" class="form-control" type="text" readonly/>
-	</div>
-	<div class="col-xs-6">
-		Moonset
-		<input ng-model="newFish.moonsetTime" class="form-control" type="text" readonly/>
-	</div>
-</div>
-
-Moon Phase
-<input ng-model="newFish.moonphase" class="form-control" type="text" readonly/>
-
+<br/>
 <div class="panel panel-default">
-	<div class="panel-heading" data-toggle="collapse" data-target="#collapse1">
+	<div class="panel-heading" data-toggle="collapse" data-target="#gear">
 		<h3 class="panel-title">
-			Tide Information
+			Gear
 		</h3>
 	</div>
-	<div id="collapse1" class="collapse in">
+	<div id="gear" class="collapse">
 		<div class="panel-body">
-			Tide Height
-			<input ng-model="newFish.tideheight" class="form-control" type="text"/>
-			Tide Time
-			<input ng-model="newFish.tidetime" class="form-control" type="time"/>
-			Next Extreme Tide Type
-			<input ng-model="newFish.ExtremeTideType" class="form-control" type="text"/>
-			Next Extreme Tide Height
-			<input ng-model="newFish.ExtremeTideHeight" class="form-control" type="text"/>
-			Next Extreme Tide Time
-			<input ng-model="newFish.ExtremeTideTime" class="form-control" type="time"/>
+
+			Rod
+			<select ng-model="newFish.rod" class="form-control" placeholder="Gear">
+				<option ng-repeat="gear in gears | filter : gear.gearType = 'Rod'" value="{{gear._id}}">{{gear.name}}</option>
+			</select>
+			Reel
+			<select ng-model="newFish.reel" class="form-control" placeholder="Gear">
+				<option ng-repeat="gear in gears | filter : gear.gearType = 'Reel'" value="{{gear._id}}">{{gear.name}}</option>
+			</select>
+			Line
+			<select ng-model="newFish.line" class="form-control" placeholder="Gear">
+				<option ng-repeat="gear in gears | filter : gear.gearType = 'Line'" value="{{gear._id}}">{{gear.name}}</option>
+			</select>
+			Leader
+			<select ng-model="newFish.leader" class="form-control" placeholder="Gear">
+				<option ng-repeat="gear in gears | filter : gear.gearType = 'Leader'" value="{{gear._id}}">{{gear.name}}</option>
+			</select>
+			Presentation
+			<select ng-model="newFish.presentation" class="form-control" placeholder="Gear">
+				<option ng-repeat="gear in gears | filter : gear.gearType = 'Presentation'" value="{{gear._id}}">{{gear.name}}</option>
+			</select>
+
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#size">
+		<h3 class="panel-title">
+			Size
+		</h3>
+	</div>
+	<div id="size" class="collapse">
+		<div class="panel-body">
+
+			Weight
+			<input ng-model="newFish.weight" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+			Length
+			<input ng-model="newFish.length" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+			Girth
+			<input ng-model="newFish.girth" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#water">
+		<h3 class="panel-title">
+			Water
+		</h3>
+	</div>
+	<div id="water" class="collapse">
+		<div class="panel-body">
+
+			Water Depth
+			<input ng-model="newFish.waterDepth" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+			Water Temperature
+			<input ng-model="newFish.waterTemperature" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+			Water Clarity
+			<input ng-model="newFish.waterClarity" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#sunmoon">
+		<h3 class="panel-title">
+			Sun &amp; Moon
+		</h3>
+	</div>
+	<div id="sunmoon" class="collapse">
+		<div class="panel-body">
+
+			<div ng-show="!newFish.sunriseTime"
+				 class="alert alert-success">
+				Please select a date and spot
+			</div>
+
+			<div ng-show="newFish.sunriseTime">
+				<div class="row">
+					<div class="col-xs-6">
+						Sunrise
+						<input ng-model="newFish.sunriseTime" class="form-control" type="text" readonly/>
+					</div>
+					<div class="col-xs-6">
+						Sunset
+						<input ng-model="newFish.sunsetTime" class="form-control" type="text" readonly/>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						Moonrise
+						<input ng-model="newFish.moonriseTime" class="form-control" type="text" readonly/>
+					</div>
+					<div class="col-xs-6">
+						Moonset
+						<input ng-model="newFish.moonsetTime" class="form-control" type="text" readonly/>
+					</div>
+				</div>
+
+				Moon Phase
+				<input ng-model="newFish.moonphase" class="form-control" type="text" readonly/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#tide">
+		<h3 class="panel-title">
+			Tide
+		</h3>
+	</div>
+	<div id="tide" class="collapse">
+		<div class="panel-body">
+
+			<div ng-show="!peaks"
+				 class="alert alert-success">
+				Please select a date and spot
+			</div>
+
+			<table ng-show="peaks"
+				   class="table">
+				<thead>
+				<tr>
+					<th>Hi/Lo</th>
+					<th>Time</th>
+					<th>Height</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				<tr ng-repeat="peak in peaks">
+					<td>
+						{{peak.type}}
+					</td>
+					<td>
+						{{peak.date | date : 'h:mm a'}}
+					</td>
+					<td>
+						{{peak.height * 3.28084 | number : 2}}'
+					</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<!--<f360-tide-chart></f360-tide-chart>-->
+
 		</div>
 	</div>
 </div>
