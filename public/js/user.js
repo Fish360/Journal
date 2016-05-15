@@ -110,8 +110,9 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 	var username = localStorage.getItem("username");
 	var encryptedPassword = localStorage.getItem("password");
 	if(encryptedPassword !== null) {
-	var decryptedPassword = CryptoJS.AES.decrypt(encryptedPassword, "password");
-	var password = decryptedPassword.toString(CryptoJS.enc.Utf8);
+		// var decryptedPassword = CryptoJS.AES.decrypt(encryptedPassword, "password");
+		// var password = decryptedPassword.toString(CryptoJS.enc.Utf8);
+		var password = encryptedPassword;
 	    if (username !== null && password !== null) {
 	    	$scope.username = username;
 	    	$scope.password = password;
