@@ -100,7 +100,7 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 //				$location.path( $scope.username+"/trip/list" );
 				$location.path( $scope.username+"/home" );
 				localStorage.setItem("user", JSON.stringify(user[0]));
-				var encryptedPassword = CryptoJS.AES.encrypt($scope.password, "password");
+				var encryptedPassword = $scope.password;//CryptoJS.AES.encrypt($scope.password, "password");
 				localStorage.setItem("username", $scope.username);
 				localStorage.setItem("password", encryptedPassword);
 			}

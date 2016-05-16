@@ -346,22 +346,32 @@ app.post("/api/user", function(req, res)
 	db.user.find({email: req.body.email}, function(err, user)
 	{
 	    if(user.length === 0) {
-	    	var user=req.body;
-			 	userModel.get_encrypted_hash(user.password)
-			 		.then(function(response) {
-			 				user.password = response;
-			 				user.password2 = response;
-			 				db.user.insert(user, function(err, newUser)
-			 				{
-			 					res.json(newUser);
-			 				});
-			 			},
-						function(err){
-							res.json({
-								success: false,
-								error: 'Unable to register user.' });
-						}
-			 		);
+	    	var user = req.body;
+
+			db.user.insert(user, function(err, newUser)
+			{
+				if(err) {
+					res.status(400).send(err);
+				} else {
+					res.json(newUser);
+				}
+			});
+			// userModel.get_encrypted_hash(user.password)
+			// 	.then(
+			// 		function(response) {
+			// 			user.password = response;
+			// 			user.password2 = response;
+			// 			db.user.insert(user, function(err, newUser)
+			// 			{
+			// 				res.json(newUser);
+			// 			});
+			// 		},
+			// 		function(err){
+			// 			res.json({
+			// 				success: false,
+			// 				error: 'Unable to register user.' });
+			// 		}
+			// 	);
 	     } else {
 	     	res.json({
             success: false,
@@ -391,7 +401,9 @@ app.put("/api/user/:username", function(req, res) {
 	var username = req.params.username;
 	console.log(req.body.commonName);
 	console.log(req.body.species);
-	var update = {};
+	var update = {
+
+	};
 	console.log(req.body.species);
 	if (!req.body.species) {
 		update = {
@@ -416,11 +428,13 @@ app.put("/api/user/:username", function(req, res) {
 	}
 
 	if (req.body.password) {
-		userModel.get_encrypted_hash(req.body.password)
-			.then(function (response) {
-					update.password = response;
-					updateUserDetails();
-				});
+		// userModel.get_encrypted_hash(req.body.password)
+		// 	.then(function (response) {
+		// 			update.password = response;
+		// 			updateUserDetails();
+		// 		});
+		update.password = req.body.password;
+		updateUserDetails();
 	}
 	else{
 		updateUserDetails();
