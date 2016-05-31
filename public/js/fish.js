@@ -296,7 +296,7 @@ f360.peakeSorter = function(heights) {
 	return peaks;
 }
 
-f360.controller("EditFishController", function (TidalService, $scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService,SunMoonService)
+f360.controller("EditFishController", function (WorldWeatherOnlineService, TidalService, $scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService,SunMoonService)
 {
 	//$(".f360-number").numeric({ decimal : ".",  negative : false, scale: 3 });
 
@@ -430,6 +430,18 @@ f360.controller("EditFishController", function (TidalService, $scope, $routePara
 						fishCaughtTime = new Date($scope.editFish.caught);
 					}
 					var date = Math.round(fishCaughtTime.getTime() / 1000);
+
+					WorldWeatherOnlineService
+						.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
+						.then(
+							function(response) {
+								$scope.weather = response.data.data.weather;
+							},
+							function(error) {
+								console.log(error);
+							}
+						);
+
 					TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
 						SunMoonService.findSunMoonPhase($scope.editFish, spot, function (response) {
 							var phase = response.moonphase.phase;
