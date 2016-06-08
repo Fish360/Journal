@@ -98,6 +98,33 @@ Spots
 </div>
 
 <div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#water">
+		<h3 class="panel-title">
+			Water
+		</h3>
+	</div>
+	<div id="water" class="collapse">
+		<div class="panel-body">
+
+			<div class="row">
+				<div class="col-xs-4">
+					Water Depth
+					<input ng-model="editFish.waterDepth" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+				</div>
+				<div class="col-xs-4">
+					Temperature
+					<input ng-model="editFish.waterTemperature" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+				</div>
+				<div class="col-xs-4">
+					Clarity
+					<input ng-model="editFish.waterClarity" class="form-control f360-number" placeholder="0.00" type="number" format="number" pattern="[0-9]*"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#sunmoon">
 		<h3 class="panel-title">
 			Sun &amp; Moon
@@ -140,6 +167,55 @@ Spots
 
 			</div>
 
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#weather-collapse">
+		<h3 class="panel-title">
+			Weather
+		</h3>
+	</div>
+	<div id="weather-collapse" class="collapse">
+		<div class="panel-body">
+			<div ng-show="!weather"
+				 class="alert alert-success">
+				Please select a date and spot
+			</div>
+
+			<table ng-if="weather" class="table">
+				<tbody>
+				<tr>
+					<td>Air Temp. (min/max)</td>
+					<td>{{weather[0].mintempF}} &#8457; / {{weather[0].maxtempF}} &#8457;</td>
+				</tr>
+				<tr>
+					<td>Wind Speed</td>
+					<td>{{weather[0].hourly[0].windspeedMiles}} mph {{weather[0].hourly[0].winddir16Point}}</td>
+				</tr>
+				<tr>
+					<td>Pressure</td>
+					<td>{{weather[0].hourly[0].pressure}}</td>
+				</tr>
+				<tr>
+					<td>Precipation</td>
+					<td>{{weather[0].hourly[0].precipMM}} mm</td>
+				</tr>
+				<tr>
+					<td>Sky</td>
+					<td>
+							<span ng-repeat="desc in weather[0].hourly[0].weatherDesc">
+								{{desc.value}}
+							</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Water Temperature</td>
+					<td>{{weather[0].hourly[0].waterTemp_F}} &#8457;</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
