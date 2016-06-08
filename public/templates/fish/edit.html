@@ -182,12 +182,61 @@ Spots
 </div>
 
 <div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#weather-collapse">
+		<h3 class="panel-title">
+			Weather
+		</h3>
+	</div>
+	<div id="weather-collapse" class="collapse">
+		<div class="panel-body">
+			<div ng-show="!weather"
+				 class="alert alert-success">
+				Please select a date and spot
+			</div>
+
+			<table ng-if="weather" class="table">
+				<tbody>
+					<tr>
+						<td>Air Temp. (min/max)</td>
+						<td>{{weather[0].mintempF}} &#8457; / {{weather[0].maxtempF}} &#8457;</td>
+					</tr>
+					<tr>
+						<td>Wind Speed</td>
+						<td>{{weather[0].hourly[0].windspeedMiles}} mph {{weather[0].hourly[0].winddir16Point}}</td>
+					</tr>
+					<tr>
+						<td>Pressure</td>
+						<td>{{weather[0].hourly[0].pressure}}</td>
+					</tr>
+					<tr>
+						<td>Precipation</td>
+						<td>{{weather[0].hourly[0].precipMM}} mm</td>
+					</tr>
+					<tr>
+						<td>Sky</td>
+						<td>
+							<span ng-repeat="desc in weather[0].hourly[0].weatherDesc">
+								{{desc.value}}
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>Water Temperature</td>
+						<td>{{weather[0].hourly[0].waterTemp_F}} &#8457;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#collapse1">
 		<h3 class="panel-title">
 			Tide
 		</h3>
 	</div>
-	<div id="collapse1" class="collapse in">
+	<div id="collapse1" class="collapse">
 		<div class="panel-body">
 
 			<div ng-show="!peaks"
