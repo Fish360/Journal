@@ -387,12 +387,29 @@ app.post("/api/forgotPassword/:username", function (req, res) {
 			transporter.sendMail({    
 	        to: user[0].email,
 	        subject: 'Fish 360 App password ',
-	        html: 'Hi '+ user[0].username +', <br> <br>  Your Passowrd is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
+	        html: 'Hi '+ user[0].username +', <br> <br>  Your Password is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
 	      });
 		}
 	});
    res.send("email");
 });
+
+
+app.post("/api/:username/trip/:tripId/fish/:fishId/share", function (req, res) {
+	var mailObject = req.body;
+
+
+	transporter.sendMail({
+		to:mailObject.email,
+		subject:mailObject.subject,
+		html: 'Hi '+ mailObject.username +', <br> <br>  Congratulations on catching ' + mailObject.species +
+		'. Please find below the details of your catch <br> <br> Species Name :'+mailObject.species
+		+'<br> <br> Common Name : '+ mailObject.common_name +'<br> <br> Length : '+ mailObject.length
+		+'<br> <br> Images: <br>'+ mailObject.imgfile+'<br>'
+	});
+	res.send("email");
+});
+
 
 // update profile
 

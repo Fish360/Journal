@@ -313,6 +313,11 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             templateUrl: "templates/fish/edit.html",
             controller: "EditFishController"
         })
+        .when("/:username/trip/:tripId/fish/:fishId/share",
+            {
+                templateUrl: "templates/fish/emailShare.html",
+                controller: "FishShareController"
+            })
         .when("/:username/trip/:tripId/fish/:fishId/editFromHome",
         {
             templateUrl: "templates/fish/editFromHome.html",
