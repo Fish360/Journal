@@ -14,18 +14,5 @@
     No Results
 </div>
 
-<table class="table table-condensed">
-    <tbody>
-        <tr ng-repeat="(key, value) in data" ng-class="{'active': key.substring(4,6)=='01'}">
-            <td width="10%" style="vertical-align: bottom">
-                {{key | f360MonthName}}
-            </td>
-            <td>
-                <div ng-show="key.substring(4,6)=='01'" style="text-align:right">{{key.substring(0,4)}}</div>
-                <div ng-show="value" class="f360-bar" style="width: {{value*100/max}}%">
-                    <span class="pull-right">{{value}}</span>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="col-xs-12" id="chart" >
+    <div id="toyholder" style="width: 300px; height: 500px;" ></div></div>

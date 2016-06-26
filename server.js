@@ -312,6 +312,7 @@ app.put('/api/:username/trip/:tripid', function(req, res)
 	db.trip.findAndModify( {
 	   query: {_id:mongojs.ObjectId(req.params.tripid)},
 	   update: {
+		   spot:req.body.spot,
 		   title: req.body.title,
 		   start: req.body.start,
 		   startTime: req.body.startTime,

@@ -20,8 +20,12 @@ module.exports = function(db) {
             var username = report.username;
             var startDate = report.startDate;
             var endDate = report.endDate;
+            console.log("**********start date*************");
+            console.log(report.startDate+"start date");
+            console.log(report.endDate+"end date");
             var species = report.species;
             var commonName=report.commonName;
+            var spot=report.spot;
 
             db.fish.find({
                 username: username,
@@ -30,7 +34,6 @@ module.exports = function(db) {
                 caught  : {$gte: startDate},
                 caught  : {$lte: endDate}
             }, p.handle);
-
             //if(report.type === 'timeOfYear') {
             //    db.fish.find({
             //        username: username,

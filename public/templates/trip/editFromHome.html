@@ -40,6 +40,59 @@ End Date/Time
         <input ng-model="editTrip.endTime" class="form-control" type="time" />
     </div>
 </div>
+Spots
+<select  ng-change="loadMarineWeather()" ng-model="editTrip.spot" class="form-control" placeholder="Spot">
+	<option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
+</select>
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-target="#weather-collapse">
+        <h3 class="panel-title">
+            Marine Weather
+        </h3>
+    </div>
+    <div id="weather-collapse" class="collapse">
+        <div class="panel-body">
+            <div ng-show="!editTrip.weather"
+                 class="alert alert-success">
+                Please select a date and spot
+            </div>
+
+            <table ng-if="editTrip.weather" class="table">
+                <tbody>
+                <tr>
+                    <td>Air Temp. (min/max)</td>
+                    <td>{{editTrip.weather[0].mintempF}} &#8457; / {{editTrip.weather[0].maxtempF}} &#8457;</td>
+                </tr>
+                <tr>
+                    <td>Wind Speed</td>
+                    <td>{{editTrip.weather[0].hourly[0].windspeedMiles}} mph {{editTrip.weather[0].hourly[0].winddir16Point}}</td>
+                </tr>
+                <tr>
+                    <td>Pressure</td>
+                    <td>{{editTrip.weather[0].hourly[0].pressure}}</td>
+                </tr>
+                <tr>
+                    <td>Precipation</td>
+                    <td>{{editTrip.weather[0].hourly[0].precipMM}} mm</td>
+                </tr>
+                <tr>
+                    <td>Sky</td>
+                    <td>
+							<span ng-repeat="value in editTrip.weather[0].hourly[0].weatherDesc[0]">
+								{{value}}
+							</span>
+                        <img width="10%" ng-src={{editTrip.weather[0].hourly[0].weatherIconUrl[0].value}} />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Water Temperature</td>
+                    <td>{{editTrip.weather[0].hourly[0].waterTemp_F}} &#8457;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 Notes
 <textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes">
 </textarea>

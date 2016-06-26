@@ -1,5 +1,5 @@
 var f360 = angular
-    .module("f360", ["ngRoute", "angucomplete-alt", "f360-directives"]);
+    .module("f360", ["ngRoute", "angucomplete-alt", "f360-directives","720kb.socialshare"]);
 
 f360.directive('f360Decimal', function () {
     return {
@@ -17,6 +17,7 @@ f360.directive('f360Decimal', function () {
         }
     }
 });
+
 
 //f360.directive('siteHeader', function () {
 f360.directive('backButton', function () {
@@ -253,6 +254,11 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             {
                 templateUrl: "features/reports/reports-moonphase.html",
                 controller: "MoonPhaseReportController"
+            })
+        .when("/:username/reports/:reportId/condition",
+            {
+                templateUrl: "features/reports/reports-condition.html",
+                controller: "ConditionReportController"
             })
         /*
          *	Search Results

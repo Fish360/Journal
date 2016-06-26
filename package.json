@@ -23,6 +23,7 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
+    "angular-socialshare": "^2.1.12",
     "bcrypt": "^0.8.5",
     "braintree": "^1.34.0",
     "crypto": "0.0.3",

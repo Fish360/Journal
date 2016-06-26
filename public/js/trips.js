@@ -32,18 +32,21 @@ f360.controller("TripPhotoController", function ($scope, $routeParams, $http, Sp
 });
 
 
-f360.controller("TripListController", function($scope, $routeParams, $http)
+f360.controller("TripListController", function($scope, $routeParams, $http,SpotService)
 {
 	setTimeout(function(){
 		document.body.scrollTop = document.documentElement.scrollTop = -1000;
 	}, 100);
 
+
 	$scope.username = $routeParams.username;
+
 	$http.get("api/"+$scope.username+"/trip")
 	.success(function(trips)
 	{
 		$scope.trips = trips;
 	});
+
 });
 
 f360.controller("NewTripController", function($scope, $routeParams, $http, $location)
@@ -65,19 +68,60 @@ f360.controller("NewTripController", function($scope, $routeParams, $http, $loca
 	}
 });
 
-f360.controller("EditTripController", function($scope, $routeParams, $http, $location)
+f360.controller("EditTripController", function(WorldWeatherOnlineService,$scope, $routeParams, $http, $location,SpotService)
 {
 	$scope.username = $routeParams.username;
 	var tripid = $routeParams.tripid;
-	
-	$http.get("api/"+$scope.username+"/trip/"+tripid)
-		.success(function(trip)
-		{
-			$scope.editTrip = trip;
-		});
+
+	SpotService.findAll($scope.username, function (spots) {
+		$scope.spots = spots;
+		console.log("spots are" + $scope.spots);
+		$http.get("api/" + $scope.username + "/trip/" + tripid)
+			.success(function (trip) {
+				$scope.editTrip = trip;
+				loadMarineWeather();
+				console.log(trip)
+			});
+	});
+
+	$scope.loadMarineWeather = loadMarineWeather;
+
+	function loadMarineWeather(){
+		console.log("called loadMarineWeather");
+		if ($scope.editTrip.spot) {
+			console.log($scope.username+"username is");
+			console.log($scope.editTrip.spot+"spot id is");
+
+			SpotService.findOne($scope.username, $scope.editTrip.spot, function (spot) {
+				var tripTime;
+				console.log(spot.latitude+"this is latitude");
+				if (spot.latitude && spot.longitude) {
+					if ($scope.editTrip.startTime != undefined) {
+						tripTime = new Date($scope.editTrip.start + "T" + $scope.editTrip.startTime + ":00");
+					}
+					else {
+
+						tripTime = new Date($scope.editTrip.start);
+					}
+
+					if(!$scope.editTrip.weather) {
+						WorldWeatherOnlineService
+							.getMarineWeather(spot.latitude, spot.longitude, tripTime)
+							.then(
+								function (response) {
+									console.log("weathericon"+response.data.data.weather[0].weatherIconUrl);
+									$scope.editTrip.weather = response.data.data.weather;
+								},
+								function (error) {
+									console.log(error);
+								}
+							);
+					}}}
+			);}}
 	
 	$scope.update = function()
 	{
+		console.log("could not find  spot"+$scope.editTrip.spot);
 		$scope.editTrip.username = $scope.username;
 		$scope.editTrip["lastUpdated"] = new Date();
 		$http.put("api/"+$scope.username+"/trip/"+tripid, $scope.editTrip)

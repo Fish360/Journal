@@ -1,32 +1,33 @@
 f360.controller("FishPhotosController", function ($scope, $routeParams, $http, SpotService) {
-    $scope.username = $routeParams.username;
-    $scope.tripId = $routeParams.tripId;
-    $scope.fishId = $routeParams.fishId;
+	$scope.username = $routeParams.username;
+	$scope.tripId = $routeParams.tripId;
+	$scope.fishId = $routeParams.fishId;
 
-    $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
-	.success(function (fish) {
-	    $scope.fish = fish;
-	});
+	$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
+		.success(function (fish) {
+			$scope.fish = fish;
+		});
 });
 
 f360.controller("FishPhotoController", function ($scope, $routeParams, $http, SpotService, $location) {
-    $scope.username = $routeParams.username;
-    $scope.tripId = $routeParams.tripId;
-    $scope.fishId = $routeParams.fishId;
-    $scope.photoIndex = $routeParams.photoIndex;
+	$scope.username = $routeParams.username;
+	$scope.tripId = $routeParams.tripId;
+	$scope.fishId = $routeParams.fishId;
+	$scope.photoIndex = $routeParams.photoIndex;
 
 
-    $http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
-	.success(function (fish) {
-	    $scope.photo = fish.images[$scope.photoIndex];
-	});
+	$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
+		.success(function (fish) {
+			$scope.fish=fish;
+			$scope.photo = fish.images[$scope.photoIndex];
+		});
 
-    $scope.removePhoto = function () {
-        $http.delete("api/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId + "/photos/" + $scope.photoIndex)
-        .success(function (trip) {
-            $location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId  + "/photos");
-        });
-    }
+	$scope.removePhoto = function () {
+		$http.delete("api/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId + "/photos/" + $scope.photoIndex)
+			.success(function (trip) {
+				$location.path("/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId  + "/photos");
+			});
+	}
 });
 
 f360.controller("FishHomeListController", function ($scope, $routeParams, $http, UserPreferenceService)
@@ -39,34 +40,51 @@ f360.controller("FishHomeListController", function ($scope, $routeParams, $http,
 			$scope.fish = fish;
 		})
 		.then(function(){
-		if($scope.fish.length !== 0) {
-			UserPreferenceService.findOne($scope.username, function(units){
-				var unitsPreferences = units.trim() !== "" ? units : "standard";
-				$scope.lengthUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "cm" : "in";
-				$scope.weightUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "kg" : "lbs";
-			});
-		}
-	});
+			if($scope.fish.length !== 0) {
+				UserPreferenceService.findOne($scope.username, function(units){
+					var unitsPreferences = units.trim() !== "" ? units : "standard";
+					$scope.lengthUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "cm" : "in";
+					$scope.weightUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "kg" : "lbs";
+				});
+			}
+		});
 });
 
 f360.controller("FishListController", function($scope, $routeParams, $http, UserPreferenceService)
 {
+
+	console.log("FistListControllerCalled");
+
+	$scope.fbshare = function()
+
+	 {
+		$fb.feed({
+			name: "Scientists Teach Chimpanzee To Conduct 3-Year Study On Primates",
+			description: "Scientific community has hailed as a breakthrough achievement, zoologists have succeeded for the first time ever in training a chimpanzee to carry out a rigorous three-year study of primate behavior.",
+			caption: "analyze in-depth data charts on chimpanzee behavior.",
+			link: "http://www.theonion.com/articles/scientists-teach-chimpanzee-to-conduct-3year-study,29195/",
+			picture: "http://o.onionstatic.com/images/17/17760/16x9/700.jpg?7494"
+		});
+
+	}
+
+
 	$scope.username = $routeParams.username;
 	$scope.tripId = $routeParams.tripId;
 	$http.get("api/user/"+$scope.username+"/trip/"+$routeParams.tripId+"/fish")
-	.success(function(fish)
-	{
-		$scope.fish = fish;
-	})
-	.then(function(){
-		if($scope.fish.length !== 0) {
-			UserPreferenceService.findOne($scope.username, function(units){
-				var unitsPreferences = units.trim() !== "" ? units : "standard";
-				$scope.lengthUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "cm" : "in";
-				$scope.weightUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "kg" : "lbs";
-			});
-		}
-	});
+		.success(function(fish)
+		{
+			$scope.fish = fish;
+		})
+		.then(function(){
+			if($scope.fish.length !== 0) {
+				UserPreferenceService.findOne($scope.username, function(units){
+					var unitsPreferences = units.trim() !== "" ? units : "standard";
+					$scope.lengthUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "cm" : "in";
+					$scope.weightUnits = unitsPreferences.replace(/['"]+/g, '') === 'Metric' ? "kg" : "lbs";
+				});
+			}
+		});
 });
 
 f360.controller("NewFishController", function (TidalService, $scope, $routeParams, $http, $location, SunMoonService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
@@ -86,8 +104,8 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 
 	function loadSpecies() {
 		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
-	    	$scope.species = JSON.parse(text);
-		   
+			$scope.species = JSON.parse(text);
+
 		});
 	}
 
@@ -125,12 +143,12 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 	{
 		$scope.gears = gears;
 	});
-	
+
 	PresentationsService.findAll($scope.username, function(presentations)
 	{
 		$scope.presentations = presentations;
 	});
-	
+
 	$scope.create = function()
 	{
 		if(!validateSpecieSelection()){
@@ -141,13 +159,13 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 
 		$scope.newFish["lastUpdated"] = new Date();
 		if($scope.newFish.species.originalObject !== undefined) {
-		var	scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
+			var	scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
 
-		for(var i=0; i<species.length; i++)
-			if(species[i].scientific == scientificName)
-				$scope.newFish["commonName"] = species[i].common;
+			for(var i=0; i<species.length; i++)
+				if(species[i].scientific == scientificName)
+					$scope.newFish["commonName"] = species[i].common;
 
-		$scope.newFish.species = scientificName;
+			$scope.newFish.species = scientificName;
 		}
 
 		$http.post(url, $scope.newFish)
@@ -166,9 +184,9 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 //				url = "api/user/"+$scope.username+"/preferences";
 //				$http.post(url, preferences);
 //				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
-				
+
 //				$location.replace(); // <----
-				
+
 				window.history.go(-1);
 //				history.back();
 			});
@@ -178,7 +196,7 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 	$scope.newFish.species = "";
 	var user = localStorage.getItem("user");
 	if(user && user != "undefined") {
-	    user = JSON.parse(user);
+		user = JSON.parse(user);
 //		$scope.newFish.species = user.preferences.species;
 	}
 
@@ -255,7 +273,7 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 							// 		$scope.peaks.push(tideInfo.heights[i])
 							// 	}
 							// }
-                            //
+							//
 							// $scope.peaks.sort(function(a, b) {
 							// 	return parseFloat(b.date) - parseFloat(a.date);
 							// });
@@ -308,8 +326,8 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 
 	function loadSpecies() {
 		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
-	    	$scope.species = JSON.parse(text);
-		   
+			$scope.species = JSON.parse(text);
+
 		});
 	}
 
@@ -323,25 +341,25 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 			{
 				$scope.presentations = presentations;
 				$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
-				.success(function(fish)
-				{	
-					$scope.editFish = fish;
-					loadMoonPhase();
-				}).then(function(){
+					.success(function(fish)
+					{
+						$scope.editFish = fish;
+						loadMoonPhase();
+					}).then(function(){
 					if($scope.editFish.caught === undefined)
-					   $scope.setTripCaughtDate();
+						$scope.setTripCaughtDate();
 				});
 			});
 		});
 	});
-	
+
 	$scope.setTripCaughtDate = function() {
 		TripService.findOne($scope.username, $scope.tripId, function(trip){
 			if(trip.start !== undefined) {
 				var dateParts = (trip.start).split("-");
 				var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2])
 				var tripDate = moment(date).format("YYYY-MM-DD");
-                if(tripDate>=trip.start && tripDate<=trip.end)
+				if(tripDate>=trip.start && tripDate<=trip.end)
 				{
 					$scope.editFish.caught = tripDate;
 				}
@@ -359,24 +377,24 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 		}
 
 		var scientificName = ($scope.editFish.species.originalObject === undefined) ? $scope.editFish.species : $scope.editFish.species.originalObject["ScientificName"];
-		
+
 		for(var i=0; i<species.length; i++) {
 			if(species[i].scientific === scientificName){
 				$scope.editFish["commonName"] = species[i].common;
 			}
 		}
-		
+
 //		console.log($scope.editFish);
 
 //		$scope.editFish.weight = $scope.editFish.weight.replace
 		//$scope.editFish.weight += "";
-/*		$scope.editFish.weight *= 10.0;
-		$scope.editFish.length *= 10.0;
-		$scope.editFish.girth *= 10.0;
-		$scope.editFish.waterDepth *= 10.0;
-		$scope.editFish.waterTemperature *= 10.0;
-		$scope.editFish.waterClarity *= 10.0;
-*/		
+		/*		$scope.editFish.weight *= 10.0;
+		 $scope.editFish.length *= 10.0;
+		 $scope.editFish.girth *= 10.0;
+		 $scope.editFish.waterDepth *= 10.0;
+		 $scope.editFish.waterTemperature *= 10.0;
+		 $scope.editFish.waterClarity *= 10.0;
+		 */
 		$scope.editFish.species = scientificName;
 		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)
@@ -384,7 +402,7 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 				var preferences = {
 					species : $scope.editFish.species
 				};
-				
+
 				var user = localStorage.getItem("user");
 				if(user && user != "undefined") {
 					user = JSON.parse(user);
@@ -396,22 +414,22 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 				$http.post(url, preferences);
 
 //				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
-				
+
 				window.history.go(-1);
 
 			});
 	}
-	
+
 	$scope.remove = function()
 	{
 		var removeConfirm = confirm("Are you sure you want to remove this fish?");
 		if(removeConfirm) {
-		$http.delete("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
-			.success(function(fish){
+			$http.delete("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId)
+				.success(function(fish){
 //				window.history.back();
 //				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
-				window.history.go(-2);
-			});
+					window.history.go(-2);
+				});
 		} else {
 			return false;
 		}
@@ -432,16 +450,18 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 					}
 					var date = Math.round(fishCaughtTime.getTime() / 1000);
 
-					WorldWeatherOnlineService
-						.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
-						.then(
-							function(response) {
-								$scope.weather = response.data.data.weather;
-							},
-							function(error) {
-								console.log(error);
-							}
-						);
+					if(!$scope.editFish.weather) {
+						WorldWeatherOnlineService
+							.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
+							.then(
+								function (response) {
+									$scope.editFish.weather = response.data.data.weather;
+								},
+								function (error) {
+									console.log(error);
+								}
+							);
+					}
 
 					TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
 						SunMoonService.findSunMoonPhase($scope.editFish, spot, function (response) {
@@ -481,7 +501,7 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 		if(!isValidSpecies){
 			alert("Please enter valid specie");
 			return false;
-		} 
+		}
 
 		return true;
 	}
@@ -555,7 +575,7 @@ f360.controller("FishShareController", function($scope, $routeParams, $http)
 		}
 		console.log(mailSubject);
 
-        //Regular expression to check valid email id's
+		//Regular expression to check valid email id's
 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
 		{
 
@@ -579,8 +599,8 @@ f360.controller("FishShareController", function($scope, $routeParams, $http)
 			return (true)
 		}
 		else{
-		alert("ERROR: Invalid email address");
-		return (false)
+			alert("ERROR: Invalid email address");
+			return (false)
 		}
 
 

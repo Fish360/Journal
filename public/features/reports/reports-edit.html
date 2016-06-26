@@ -20,11 +20,19 @@ Report Type
     <option value="spots">Spots</option>
     <option value="presentations">Presentation</option>
     <option value="moonphase">Moon Phase</option>
+    <option value="condition">Condition</option>
 </select>
 Species
 <div angucomplete-alt placeholder="{{report.commonName}} ({{report.species}})" pause="100" selected-object="report.species"
      local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight"
      title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
+</div>
+
+<div ng-if="report.type=='condition'">
+    Spot
+    <select  ng-model="report.spot" class="form-control" placeholder="Spot">
+        <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
+    </select>
 </div>
 From Date/Time
 <div class="row">
@@ -43,6 +51,51 @@ To Date/Time
     <div class="col-xs-6">
         <input ng-model="report.endTime" class="form-control" type="time" />
     </div>
+</div>
+<div ng-if="report.type=='condition'">
+    Air Temperature
+    <div class="row">
+        <div class="col-xs-6">
+            <input ng-model="report.minAirTemp" class="form-control"  placeholder="min" />
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="report.maxAirTemp" class="form-control" placeholder="max" />
+        </div>
+    </div>
+
+    Wind
+    <div class="row">
+        <div class="col-xs-6">
+            <input ng-model="report.minWind" class="form-control"  placeholder="min" />
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="report.maxWind" class="form-control" placeholder="max"  />
+        </div>
+
+    </div>
+
+    Pressure
+    <div class="row">
+        <div class="col-xs-6">
+            <input ng-model="report.minPressure" class="form-control" placeholder="min"  />
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="report.maxPressure" class="form-control" placeholder="max" />
+        </div>
+
+    </div>
+    Water Temperature
+    <div class="row">
+        <div class="col-xs-6">
+            <input ng-model="report.minWaterTemp" class="form-control"  placeholder="min" />
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="report.maxWaterTemp" class="form-control"  placeholder="max" />
+        </div>
+
+    </div>
+    Sky
+    <input ng-model="report.sky" class="form-control" placeholder="Sky "/>
 </div>
 Notes
 <textarea ng-model="newTrip.notes" class="form-control" placeholder="Notes">

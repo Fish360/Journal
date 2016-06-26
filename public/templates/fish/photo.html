@@ -10,6 +10,20 @@
         width:100%;
         margin-top:10px;
     }
+
+
+.btn-primary{
+	 background: #3b5998;;
+	 color:#FFFFFF;
+	width:40px;
+ }
+	.btn-info{
+		background: #55acee;
+		color:#FFFFFF;
+		width:40px;
+	}
+
+
 </style>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
@@ -19,6 +33,30 @@
         <a class="btn btn-danger pull-right f360-navbar-button" ng-click="removePhoto()">
             <span class="glyphicon glyphicon-remove"></span>
         </a>
+		<a  class="pull-right btn btn-primary f360-navbar-button share "  href="#/{{username}}/trip/{{tripId}}/fish/{{fishId}}/photos"
+			socialshare
+			socialshare-provider="facebook"
+			socialshare-text="hi i caught a {{fish.commonName}} on {{fish.caught}} "
+			socialshare-type="feed"
+			socialshare-url="https://www.fish360.net"
+			socialshare-description="fish360"
+			socialshare-via="581704982010137"
+			socialshare-media="http://centralamericafishing.com/wp-content/uploads/2014/04/huge-yellowfin-tuna.jpg">
+			<!--https://f360-fish360.rhcloud.com/uploads/"+tmpfish-->
+			<i class="fa fa-facebook"></i>
+
+		</a>
+		<td>
+			<a  class="pull-right  btn btn-info f360-navbar-button share "  href="#/{{username}}/trip/{{tripId}}/fish/{{fishId}}/photos"
+				socialshare
+				socialshare-provider="twitter"
+				socialshare-text="hi i caught a {{fish.commonName}} on {{fish.caught}} "
+				socialshare-url="https://www.fish360.net">
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+
+
+			</a>
+		</td>
 		<div class="navbar-header">
 			<span class="navbar-brand">Fish Photo</span>
 		</div>
