@@ -49,9 +49,14 @@ f360.controller("TripListController", function($scope, $routeParams, $http,SpotS
 
 });
 
-f360.controller("NewTripController", function($scope, $routeParams, $http, $location)
+f360.controller("NewTripController", function($scope, $routeParams, $http, $location, SpotService)
 {
 	$scope.username = $routeParams.username;
+
+	SpotService.findAll($scope.username, function (spots) {
+		$scope.spots = spots;
+	});
+
 	$scope.create = function()
 	{
 		$scope.newTrip.username = $scope.username
