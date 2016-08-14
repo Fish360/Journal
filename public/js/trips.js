@@ -49,13 +49,46 @@ f360.controller("TripListController", function($scope, $routeParams, $http,SpotS
 
 });
 
-f360.controller("NewTripController", function($scope, $routeParams, $http, $location, SpotService)
+f360.controller("NewTripController", function($scope, $routeParams, $http, $location, SpotService, WorldWeatherOnlineService)
 {
 	$scope.username = $routeParams.username;
 
 	SpotService.findAll($scope.username, function (spots) {
 		$scope.spots = spots;
 	});
+
+	$scope.loadMarineWeather = loadMarineWeather;
+
+	function loadMarineWeather(){
+		if ($scope.newTrip.spot) {
+			SpotService.findOne($scope.username, $scope.newTrip.spot, function (spot) {
+				var tripTime;
+
+				if (spot.latitude && spot.longitude && $scope.newTrip.start)
+				{
+					if (typeof $scope.newTrip.startTime != "undefined")
+					{
+						tripTime = new Date($scope.newTrip.start + "T" + $scope.newTrip.startTime + ":00");
+					}
+					else
+					{
+						tripTime = new Date($scope.newTrip.start);
+					}
+
+					WorldWeatherOnlineService
+						.getMarineWeather(spot.latitude, spot.longitude, tripTime)
+						.then(
+							function (response) {
+								$scope.newTrip.weather = response.data.data.weather;
+							},
+							function (error) {
+								console.log(error);
+							}
+						);
+				}
+			});
+		}
+	}
 
 	$scope.create = function()
 	{
@@ -80,12 +113,10 @@ f360.controller("EditTripController", function(WorldWeatherOnlineService,$scope,
 
 	SpotService.findAll($scope.username, function (spots) {
 		$scope.spots = spots;
-		console.log("spots are" + $scope.spots);
 		$http.get("api/" + $scope.username + "/trip/" + tripid)
 			.success(function (trip) {
 				$scope.editTrip = trip;
 				loadMarineWeather();
-				console.log(trip)
 			});
 	});
 
