@@ -115,3 +115,10 @@ textarea.form-control {
     height: 38px;
 
 }
+
+.f360-even-row {
+    background-color: #eeeeee;
+}
+.f360-odd-row {
+    background-color: #dddddd;
+}
