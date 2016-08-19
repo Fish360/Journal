@@ -93,6 +93,27 @@ Spots
         </div>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-target="#tide">
+        <h3 class="panel-title">
+            Tide
+        </h3>
+    </div>
+    <div id="tide" class="collapse">
+        <div class="panel-body">
+
+            <div ng-show="!editTrip.spot || !editTrip.start"
+                 class="alert alert-success">
+                Please select a date and spot
+            </div>
+
+            <f360-tide-chart date="{{editTrip.start}}" time="{{editTrip.startTime}}" spot="{{editTrip.spot}}" username="{{username}}"></f360-tide-chart>
+
+        </div>
+    </div>
+</div>
+
 Notes
 <textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes">
 </textarea>
