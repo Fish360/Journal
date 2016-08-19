@@ -185,37 +185,12 @@ Spots
 	<div id="tide" class="collapse">
 		<div class="panel-body">
 
-			<div ng-show="!peaks"
+			<div ng-show="!newFish.spot || !newFish.caught"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<table ng-show="peaks"
-				   class="table">
-				<thead>
-				<tr>
-					<th>Hi/Lo</th>
-					<th>Time</th>
-					<th>Height</th>
-				</tr>
-				</thead>
-				<tbody>
-
-				<tr ng-repeat="peak in peaks">
-					<td>
-						{{peak.type}}
-					</td>
-					<td>
-						{{peak.date | date : 'h:mm a'}}
-					</td>
-					<td>
-						{{peak.height * 3.28084 | number : 2}}'
-					</td>
-				</tr>
-				</tbody>
-			</table>
-
-			<!--<f360-tide-chart></f360-tide-chart>-->
+			<f360-tide-chart date="{{newFish.caught}}" time="{{newFish.caughtTime}}" spot="{{newFish.spot}}" username="{{username}}"></f360-tide-chart>
 
 		</div>
 	</div>

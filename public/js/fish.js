@@ -120,6 +120,9 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 			$scope.newFish.minDate=trip.start.toString();
 			console.log($scope.newFish.minDate);
 
+			if(!trip.end)
+				trip.end = trip.start;
+
 			$scope.newFish.maxDate= trip.end.toString();
 			console.log($scope.newFish.maxDate);
 
@@ -237,61 +240,27 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 	}
 
 	$scope.loadMoonPhase = function(){
-		if ($scope.newFish.spot) {
+		if ($scope.newFish.spot && $scope.newFish.caught) {
 			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
 				var fishCaughtTime;
-				if (spot.latitude && spot.longitude) {
-					if ($scope.newFish.caughtTime != undefined) {
-						fishCaughtTime = new Date($scope.newFish.caught + "T" + $scope.newFish.caughtTime + ":00");
-					}
-					else {
-						fishCaughtTime = new Date($scope.newFish.caught);
-					}
-					var date = Math.round(fishCaughtTime.getTime() / 1000);
-					TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
-						SunMoonService.findSunMoonPhase($scope.newFish, spot, function (response) {
-							var phase = response.moonphase.phase;
-							$scope.newFish.moonphase = (phase < 0.25) ? "New Moon" : (phase < 0.5) ? "First Quarter"
-								: (phase < 0.75) ? "Full Moon" : "Last Quarter";
-							$scope.newFish.sunriseTime = moment(response.sundetails.sunrise).tz(offset.timeZoneId).format("HH:mm");
-							$scope.newFish.moonriseTime = moment(response.moondetails.rise).tz(offset.timeZoneId).format("HH:mm");
-							$scope.newFish.sunsetTime = moment(response.sundetails.sunset).tz(offset.timeZoneId).format("HH:mm");
-							$scope.newFish.moonsetTime = moment(response.moondetails.set).tz(offset.timeZoneId).format("HH:mm");
-						});
-						date=date-offset.dstOffset-offset.rawOffset;
-						TidalService.findTidalInfo(date, spot, function (tideInfo) {
-							var max = -1000;
-
-							$scope.peaks = f360.peakeSorter(tideInfo.heights);
-							// for (var i = 1; i < tideInfo.heights.length - 1; ++i) {
-							// 	if (tideInfo.heights[i-1].height < tideInfo.heights[i].height && tideInfo.heights[i].height > tideInfo.heights[i+1].height) {
-							// 		tideInfo.heights[i].type = "High";
-							// 		$scope.peaks.push(tideInfo.heights[i])
-							// 	}
-							// 	if (tideInfo.heights[i-1].height > tideInfo.heights[i].height && tideInfo.heights[i].height < tideInfo.heights[i+1].height) {
-							// 		tideInfo.heights[i].type = "Low";
-							// 		$scope.peaks.push(tideInfo.heights[i])
-							// 	}
-							// }
-							//
-							// $scope.peaks.sort(function(a, b) {
-							// 	return parseFloat(b.date) - parseFloat(a.date);
-							// });
-							$scope.max = max;
-							$scope.tideInfo = tideInfo;
-							$scope.newFish.tideInfo = tideInfo;
-							$scope.newFish.tideheight = tideInfo.heights[0].height;
-							date = tideInfo.heights[0].date;
-							$scope.newFish.tidetime = moment(date).tz(offset.timeZoneId).format("HH:mm");
-							if (tideInfo.extremes != null) {
-								$scope.newFish.ExtremeTideType = tideInfo.extremes[0].type;
-								date = tideInfo.extremes[0].date;
-								$scope.newFish.ExtremeTideTime = moment(date).tz(offset.timeZoneId).format("HH:mm");
-								$scope.newFish.ExtremeTideHeight = tideInfo.extremes[0].height;
-							}
-						});
-					});
+				if (typeof $scope.newFish.caughtTime != "undefined") {
+					fishCaughtTime = new Date($scope.newFish.caught + "T" + $scope.newFish.caughtTime + ":00");
 				}
+				else {
+					fishCaughtTime = new Date($scope.newFish.caught);
+				}
+				var date = Math.round(fishCaughtTime.getTime() / 1000);
+				TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
+					SunMoonService.findSunMoonPhase2($scope.newFish.caught, spot.latitude, spot.longitude, function (response) {
+						var phase = response.moonphase.phase;
+						$scope.newFish.moonphase = (phase < 0.25) ? "New Moon" : (phase < 0.5) ? "First Quarter"
+							: (phase < 0.75) ? "Full Moon" : "Last Quarter";
+						$scope.newFish.sunriseTime = moment(response.sundetails.sunrise).tz(offset.timeZoneId).format("HH:mm");
+						$scope.newFish.moonriseTime = moment(response.moondetails.rise).tz(offset.timeZoneId).format("HH:mm");
+						$scope.newFish.sunsetTime = moment(response.sundetails.sunset).tz(offset.timeZoneId).format("HH:mm");
+						$scope.newFish.moonsetTime = moment(response.moondetails.set).tz(offset.timeZoneId).format("HH:mm");
+					});
+				});
 			});
 		}
 	}
@@ -472,22 +441,6 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 							$scope.editFish.moonriseTime = moment(response.moondetails.rise).tz(offset.timeZoneId).format("HH:mm");
 							$scope.editFish.sunsetTime = moment(response.sundetails.sunset).tz(offset.timeZoneId).format("HH:mm");
 							$scope.editFish.moonsetTime = moment(response.moondetails.set).tz(offset.timeZoneId).format("HH:mm");
-						});
-						date=date-offset.dstOffset-offset.rawOffset;
-						TidalService.findTidalInfo(date, spot, function (tideInfo) {
-
-							$scope.peaks = f360.peakeSorter(tideInfo.heights);
-
-							$scope.editFish.tideInfo = tideInfo;
-							$scope.editFish.tideheight = tideInfo.heights[0].height;
-							date = tideInfo.heights[0].date;
-							$scope.editFish.tidetime = moment(date).tz(offset.timeZoneId).format("HH:mm");
-							if (tideInfo.extremes != null) {
-								$scope.editFish.ExtremeTideType = tideInfo.extremes[0].type;
-								date = tideInfo.extremes[0].date;
-								$scope.editFish.ExtremeTideTime = moment(date).tz(offset.timeZoneId).format("HH:mm");
-								$scope.editFish.ExtremeTideHeight = tideInfo.extremes[0].height;
-							}
 						});
 					});
 				}
