@@ -87,7 +87,7 @@ f360.controller("FishListController", function($scope, $routeParams, $http, User
 		});
 });
 
-f360.controller("NewFishController", function (TidalService, $scope, $routeParams, $http, $location, SunMoonService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
+f360.controller("NewFishController", function (WorldWeatherOnlineService, TidalService, $scope, $routeParams, $http, $location, SunMoonService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
 {
 	$scope.speciess = species;
 	$scope.username = $routeParams.username;
@@ -249,6 +249,18 @@ f360.controller("NewFishController", function (TidalService, $scope, $routeParam
 				else {
 					fishCaughtTime = new Date($scope.newFish.caught);
 				}
+
+				WorldWeatherOnlineService
+					.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
+					.then(
+						function (response) {
+							$scope.newFish.weather = response.data.data.weather;
+						},
+						function (error) {
+							console.log(error);
+						}
+					);
+
 				var date = Math.round(fishCaughtTime.getTime() / 1000);
 				TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
 					SunMoonService.findSunMoonPhase2($scope.newFish.caught, spot.latitude, spot.longitude, function (response) {
