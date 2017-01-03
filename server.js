@@ -381,19 +381,19 @@ app.post("/api/user", function(req, res)
 	});
 });
 
-app.post("/api/forgotPassword/:username", function (req, res) {
-   db.user.find({username: req.params.username}, function(err, user)
-	{
-		if(user[0].email){
-			transporter.sendMail({    
-	        to: user[0].email,
-	        subject: 'Fish 360 App password ',
-	        html: 'Hi '+ user[0].username +', <br> <br>  Your Password is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
-	      });
-		}
-	});
-   res.send("email");
-});
+// app.post("/api/forgotPassword/:username", function (req, res) {
+//    db.user.find({username: req.params.username}, function(err, user)
+// 	{
+// 		if(user[0].email){
+// 			transporter.sendMail({
+// 	        to: user[0].email,
+// 	        subject: 'Fish 360 App password ',
+// 	        html: 'Hi '+ user[0].username +', <br> <br>  Your Password is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
+// 	      });
+// 		}
+// 	});
+//    res.send("email");
+// });
 
 
 app.post("/api/:username/trip/:tripId/fish/:fishId/share", function (req, res) {
