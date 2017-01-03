@@ -18,14 +18,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'fish360email@gmail.com',
-        pass: 'fishy123'
-    }
-}, {
-    // default values for sendMail method
-    from: 'fish360email@gmail.com',
-    headers: {
-        'My-Awesome-Header': '123'
+		user: process.env.F360_GMAIL_USERNAME,
+		pass: process.env.F360_GMAIL_PASSWORD
     }
 });
 

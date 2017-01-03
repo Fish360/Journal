@@ -1,5 +1,14 @@
 module.exports = function(app, mandrill_client, db, generatePassword)
 {
+	var nodemailer = require('nodemailer');
+	var transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: process.env.F360_GMAIL_USERNAME,
+			pass: process.env.F360_GMAIL_PASSWORD
+		}
+	});
+
 	app.post("/api/forgotPassword/:username", function(req, res)
 	{
 		var username = req.params.username;
@@ -38,20 +47,26 @@ module.exports = function(app, mandrill_client, db, generatePassword)
 				    "from_email": "mailto:support@fish360.net",
 				    "from_name": "Fish360 Support",
 				    "to": [{
-			            "email": email,
+			            "email": email
 			        }]
 				};
 
-				mandrill_client.messages.send({"message": message},
-					function(result) {
+				// mandrill_client.messages.send({"message": message},
+				// 	function(result) {
+                //
+				// 	},
+				// 	function(e) {
+				// 		// Mandrill returns the error as an object with name and message keys
+				// 		console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+				// 		// A mandrill error occurred: Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+				// 	}
+				// );
+				transporter.sendMail({
+					to:email,
+					subject:"Fish360 Password Reset",
+					html: html
+				});
 
-					},
-					function(e) {
-						// Mandrill returns the error as an object with name and message keys
-						console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
-						// A mandrill error occurred: Unknown_Subaccount - No subaccount exists with the id 'customer-123'
-					}
-				);
 			}
 		});
 	}
