@@ -61,6 +61,12 @@ module.exports = function(app, mandrill_client, db, generatePassword)
 				// 		// A mandrill error occurred: Unknown_Subaccount - No subaccount exists with the id 'customer-123'
 				// 	}
 				// );
+
+				console.log('forgot password');
+				console.log(email);
+				console.log(html);
+				console.log(transporter);
+
 				transporter.sendMail({
 					to:email,
 					subject:"Fish360 Password Reset",
