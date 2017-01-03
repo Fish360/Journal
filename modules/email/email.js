@@ -66,6 +66,8 @@ module.exports = function(app, mandrill_client, db, generatePassword)
 				console.log(email);
 				console.log(html);
 				console.log(transporter);
+				console.log(process.env.F360_GMAIL_USERNAME);
+				console.log(process.env.F360_GMAIL_PASSWORD);
 
 				transporter.sendMail({
 					to:email,
