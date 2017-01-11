@@ -23,10 +23,14 @@
 	</div>
 </div>
 
-<div	ng-show="!gears || !gears.length"
+<div	ng-if="!gears || !gears.length"
 		class="alert alert-info"
 		role="alert">
-	Please add Gear
+	Click the
+	<a class="btn btn-success btn-xs">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a>
+	button to add gear.
 </div>
 
 <select ng-show="gears || gears.length" ng-model="presentationType" class="form-control" style="margin-top:5px">
