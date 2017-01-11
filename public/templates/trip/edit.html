@@ -37,8 +37,9 @@ End Date/Time
         <input ng-model="editTrip.endTime" class="form-control" type="time" />
     </div>
 </div>
-Spots:
-<select ng-model="editTrip.spot" ng-change="loadMarineWeather()"  class="form-control" placeholder="Spot">
+
+<label for="spots">Spots:</label>
+<select id="spots" ng-model="editTrip.spot" ng-change="loadMarineWeather()"  class="form-control" placeholder="Spot">
     <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 

@@ -556,7 +556,7 @@
             }
         }
 
-    function NewReportController ($routeParams, $scope, ReportsService, $location, JSONLoaderFactory) {
+    function NewReportController ($routeParams, $scope, ReportsService, SpotService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;
         $scope.createReport = createReport;
         $scope.checkAndcreate=checkAndCreate;
@@ -573,9 +573,10 @@
             });
         }
 
-
         function init () {
-
+            SpotService.findAll($scope.username, function (spots) {
+                $scope.spots = spots;
+            });
         }
         init();
 

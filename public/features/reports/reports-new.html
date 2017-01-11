@@ -29,8 +29,10 @@ Species
 </div>
 
 <div ng-if="report.type=='condition'">
-Spot
-<input ng-model="report.spot" class="form-control" placeholder="Spot"/>
+    <label for="spots">Spots:</label>
+    <select id="spots" ng-model="report.spot" class="form-control" placeholder="Spot">
+        <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
+    </select>
 </div>
 
 From Date/Time
