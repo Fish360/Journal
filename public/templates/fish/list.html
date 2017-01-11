@@ -21,7 +21,15 @@
 		</div>
 	</div>
 </div>
-<div class="alert alert-info" ng-show="!fish || !fish.length">Please add a fish</div>
+
+<div class="alert alert-info" ng-show="!fish || !fish.length">
+	Click on the
+	<a class="btn btn-success btn-xs">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a>
+	button to add a fish.
+</div>
+
 <table class="table">
 	<tr ng-repeat="fsh in fish | orderBy : 'lastUpdated' : true">
 

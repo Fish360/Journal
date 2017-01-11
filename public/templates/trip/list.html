@@ -12,7 +12,15 @@
 		</div>
 	</div>
 </div>
-<div class="alert alert-info" ng-show="!trips || !trips.length">Please add a trip</div>
+
+<div class="alert alert-info" ng-show="!trips || !trips.length">
+	Click on the
+	<a class="btn btn-success btn-xs">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a>
+	button to add a trip.
+</div>
+
 <table class="table">
 	<tr ng-repeat="trip in trips | orderBy : 'lastUpdated' : true">
 		<td>
