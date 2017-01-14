@@ -39,6 +39,50 @@ Spots:
 </select>
 
 <div class="panel panel-default">
+	<div class="panel-heading" data-toggle="collapse" data-target="#sunmoon">
+		<h3 class="panel-title">
+			Sun &amp; Moon
+		</h3>
+	</div>
+	<div id="sunmoon" class="collapse">
+		<div class="panel-body">
+
+			<div ng-show="!newTrip.sunriseTime"
+				 class="alert alert-success">
+				Please select a date and spot
+			</div>
+
+			<div ng-show="newTrip.sunriseTime">
+				<div class="row">
+					<div class="col-xs-6">
+						Sunrise
+						<input ng-model="newTrip.sunriseTime" class="form-control" type="text" readonly/>
+					</div>
+					<div class="col-xs-6">
+						Sunset
+						<input ng-model="newTrip.sunsetTime" class="form-control" type="text" readonly/>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						Moonrise
+						<input ng-model="newTrip.moonriseTime" class="form-control" type="text" readonly/>
+					</div>
+					<div class="col-xs-6">
+						Moonset
+						<input ng-model="newTrip.moonsetTime" class="form-control" type="text" readonly/>
+					</div>
+				</div>
+
+				Moon Phase
+				<input ng-model="newTrip.moonphase" class="form-control" type="text" readonly/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#weather-collapse">
 		<h3 class="panel-title">
 			Marine Weather
@@ -58,7 +102,7 @@ Spots:
 					<td>{{newTrip.weather[0].mintempF}} &#8457; / {{newTrip.weather[0].maxtempF}} &#8457;</td>
 				</tr>
 				<tr>
-					<td>Wind Speed</td>
+					<td>Wind</td>
 					<td>{{newTrip.weather[0].hourly[0].windspeedMiles}} mph {{newTrip.weather[0].hourly[0].winddir16Point}}</td>
 				</tr>
 				<tr>
