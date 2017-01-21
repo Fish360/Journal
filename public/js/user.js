@@ -93,11 +93,14 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 		$scope.message = "";
 		$http.get("/api/user/"+$scope.username+"/"+$scope.password)
 		.success(function(user){
+			alert(user.username);
 			if(!user) {
+				alert('user not found');
 				$scope.message = "Username and/or password does not exist. Try again";
 			}
 			else {
 //				$location.path( $scope.username+"/trip/list" );
+				alert('going home');
 				$location.path( $scope.username+"/home" );
 				localStorage.setItem("user", JSON.stringify(user[0]));
 				var encryptedPassword = $scope.password;//CryptoJS.AES.encrypt($scope.password, "password");
