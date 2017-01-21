@@ -88,8 +88,10 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 {
 	$scope.message = "";
 	$scope.username = "";
-	alert("LoginController 123");
+	alert("LoginController 234");
+
 	$scope.login = function() {
+		alert('in login() function');
 		$scope.message = "";
 		$http.get("/api/user/"+$scope.username+"/"+$scope.password)
 		.success(function(user){
