@@ -90,6 +90,10 @@ f360.controller("LoginController", function($scope, $routeParams, $http, $locati
 	$scope.username = "";
 	alert("LoginController 234");
 
+	$scope.test = function () {
+		alert('test()');
+	}
+
 	$scope.login = function() {
 		alert('in login() function');
 		$scope.message = "";
