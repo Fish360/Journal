@@ -47,8 +47,7 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
     $routeProvider
         .when("/",
         {
-            templateUrl: "templates/user/login.html",
-            controller: "LoginController"
+            templateUrl: "templates/home.html"
         })
         .when("/login",
         {
