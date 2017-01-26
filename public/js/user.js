@@ -87,7 +87,25 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 f360.controller("LoginController2", function($scope, $routeParams, $http, $location)
 {
 	$scope.login = function () {
-		alert('login function')
+		alert('login function: ' + $scope.username + " " + $scope.password);
+		$scope.message = "";
+		$http.get("/api/user/"+$scope.username+"/"+$scope.password)
+			.success(function(user){
+				alert(user.username);
+				if(!user) {
+					alert('user not found');
+					$scope.message = "Username and/or password does not exist. Try again";
+				}
+				else {
+//				$location.path( $scope.username+"/trip/list" );
+					alert('going home');
+					$location.path( $scope.username+"/home" );
+					// localStorage.setItem("user", JSON.stringify(user[0]));
+					// var encryptedPassword = $scope.password;//CryptoJS.AES.encrypt($scope.password, "password");
+					// localStorage.setItem("username", $scope.username);
+					// localStorage.setItem("password", encryptedPassword);
+				}
+			});
 	}
 });
 
