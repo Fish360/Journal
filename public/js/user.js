@@ -84,6 +84,13 @@ f360.controller("ProfileController", function($scope, $routeParams, $http, $loca
 	}
 });
 
+f360.controller("LoginController2", function($scope, $routeParams, $http, $location)
+{
+	$scope.login = function () {
+		alert('login function')
+	}
+});
+
 f360.controller("LoginController", function($scope, $routeParams, $http, $location)
 {
 	$scope.message = "";

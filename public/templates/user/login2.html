@@ -1,0 +1,41 @@
+<style>
+    body {
+        background-image: url(../../img/binary-sea.jpg);
+        background-repeat: no-repeat;
+        background-size: 250%;
+        background-color: #002C56;
+    }
+</style>
+
+<h2>Login</h2>
+
+<input ng-model="username"
+       class="form-control"
+       placeholder="Username"
+       autocorrect="off"
+       autocapitalize="off"/>
+
+<input ng-model="password"
+       class="form-control"
+       placeholder="Password"
+       type="password"
+       autocorrect="off"
+       autocapitalize="off"/>
+
+<a class="btn btn-primary btn-block"
+   ng-click="login()">
+    Login
+</a>
+<a class="btn btn-primary btn-block"
+   ng-click="test()">
+    Test
+</a>
+<a href="#terms"
+   class="btn btn-primary btn-block">
+    Register
+</a>
+<a href="#forgotPassword"
+   class="btn btn-primary btn-block">
+    Forgot Password?
+</a>
+<span>{{message}}</span>
