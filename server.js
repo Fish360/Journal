@@ -78,7 +78,6 @@ function savePhoto(entityName, entityId, req, callback)
 		if (err) {
 			return console.error(err);
 		}
-		console.log('done!');
 	});
 
 	var path = req.files.userPhoto.path;
@@ -114,7 +113,6 @@ function savePhoto(entityName, entityId, req, callback)
 							if (err) {
 								return console.error(err);
 							}
-							console.log('done!');
 						});
                       callback();
                   });
@@ -286,16 +284,10 @@ app.get('/api/:username/trip/:tripid', function(req, res)
 // Create a new trip for username
 app.post('/api/:username/trip', function(req, res)
 {
-    console.log("[222222]");
-    console.log(req.body);
     req.body.type = "TRIP";
     req.body.fishCount = 0;
-    console.log("[3]");
-    console.log(req.body);
     db.trip.insert(req.body, function (err, newTrip)
 	{
-        console.log("[4]");
-        console.log(newTrip);
         res.json(newTrip);
 	});
 });
@@ -411,12 +403,9 @@ app.post("/api/:username/trip/:tripId/fish/:fishId/share", function (req, res) {
 
 app.put("/api/user/:username", function(req, res) {
 	var username = req.params.username;
-	console.log(req.body.commonName);
-	console.log(req.body.species);
 	var update = {
 
 	};
-	console.log(req.body.species);
 	if (!req.body.species) {
 		update = {
 			firstName: req.body.firstName,
@@ -533,16 +522,11 @@ app.get("/api/user/:username/preferences/defaultspecies", function(req, res)
 
 app.post("/api/user/:username/preferences", function(req, res)
 {
-	console.log("Preferences");
-
 	db.user.findAndModify({
 		query: {username: req.params.username},
 		update: {$set : {preferences: req.body	}},
 		new: false}, function(err, doc, lastErrorObject)
 	{
-		console.log(err);
-		console.log(doc);
-		console.log(lastErrorObject);
 	});
 });
 
@@ -560,7 +544,6 @@ app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 // Get all fish for a user
 app.get("/api/allFish/:username", function(req, res)
 {
-	console.log("Get all fish for user " + req.params.username);
 	db.fish.find({username: req.params.username}, function(err, fish)
 	{
 		res.json(fish);
@@ -634,9 +617,6 @@ function getClientToken (req, res) {
 function checkout(req, res) {
 	var nonceFromTheClient = req.body.payment_method_nonce;
 	var customer = req.body;
-	console.log(req.params);
-	console.log("CUSTOMER");
-	console.log(customer);
 	var username = customer.username;
 
 	gateway.customer.create({
@@ -645,24 +625,12 @@ function checkout(req, res) {
 		email: customer.email,
 		//,paymentMethodNonce: nonceFromTheClient
 	}, function (err, result) {
-		console.log("CUSTOMER CALLBACK");
-		console.log(result);
-		//result.success;
-		//// true
-		//
-		//result.customer.id;
-		// e.g. 494019
-
 		var customer = result.customer;
 
 		gateway.paymentMethod.create({
 			customerId: customer.id,
 			paymentMethodNonce: nonceFromTheClient
 		}, function (err, result) {
-
-			console.log("PAYMENT_METHOD CALLBACK");
-			console.log(result);
-
 			var paypalAccount = result.paypalAccount;
 			var paymentMethod = result.paymentMethod;
 
@@ -670,17 +638,10 @@ function checkout(req, res) {
 				paymentMethodToken: paymentMethod.token,
 				planId: "fish360proangler",//"cs5610planId"
 			}, function (err, result) {
-
-				console.log("SUBSCRIPTION CALLBACK");
-				console.log(result);
-
 				db.user.findAndModify({
 					query: {username: customer.username},
 					update: {$set: {plan: 'PRO ANGLER'}}
 				}, function(err, doc, lastErrorObject){
-					console.log("USER");
-					console.log(doc);
-
 					res.redirect("/#/"+username+"/profile");
 
 				});
