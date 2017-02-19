@@ -8,12 +8,11 @@ var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 3000; 				// set the port
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
-var ncp = require('ncp').ncp;
+
 //var crypto= require('crypto');
 //var bcrypt= require('bcrypt');
 //var q= require('q');
 
-var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -21,12 +20,6 @@ var transporter = nodemailer.createTransport({
 		user: process.env.F360_GMAIL_USERNAME,
 		pass: process.env.F360_GMAIL_PASSWORD
     }
-});
-
-ncp(localDataDir, __dirname + "/public/uploads", function (err) {
-	if (err) {
-		return console.error(err);
-	}
 });
 
 var gateway = braintree.connect({
@@ -68,99 +61,6 @@ app.post('/:entity/photo', function (req, res) {
 });
 
 */
-
-
-
-
-function savePhoto(entityName, entityId, req, callback)
-{
-	ncp(__dirname + '/public/uploads', localDataDir, function (err) {
-		if (err) {
-			return console.error(err);
-		}
-	});
-
-	var path = req.files.userPhoto.path;
-    var imagePage = path;
-
-    if (path.indexOf("\\") > -1)
-        path = path.split("\\");
-    else
-        path = path.split("/");
-    fileName = path[path.length - 1];
-    var thm = 'thm_' + fileName;
-    db[entityName].findOne({ _id: mongojs.ObjectId(entityId) }, function (err, doc) {
-        if (typeof doc.images == "undefined") {
-            doc.images = [];
-        }
-        doc.images.push(fileName);
-        db[entityName].save(doc, function () {
-
-            var r = require('ua-parser').parse(req.headers['user-agent']);
-            var family = r.device.family;
-            var rotate = 0;
-
-            if (family == 'iPhone') {
-                rotate = 180;
-            }
-
-            require('lwip').open(imagePage, function (err, image) {
-                image.batch()
-                  .scale(0.25)
-                  .rotate(rotate, 'white')
-                  .writeFile(__dirname + '/public/uploads/' + thm, function (err) {
-						ncp(__dirname + '/public/uploads', localDataDir, function (err) {
-							if (err) {
-								return console.error(err);
-							}
-						});
-                      callback();
-                  });
-            });
-        });
-    });
-}
-
-app.post('/profile/photo', function (req, res) {
-    var username = req.body.username;
-    var userId = req.body.userId;
-    savePhoto("user", userId, req, function () {
-        res.redirect("/#/" + username + "/profile");
-    });
-});
-
-app.post('/trip/photo', function (req, res) {
-    var tripId = req.body.tripId;
-    var username = req.body.username;
-    savePhoto("trip", tripId, req, function () {
-        res.redirect("/#/" + username + "/trip/" + tripId + "/photos");
-    });
-});
-
-app.post('/fish/photo', function (req, res) {
-    var username = req.body.username;
-    var tripId = req.body.tripId;
-    var fishId = req.body.fishId;
-    savePhoto("fish", fishId, req, function () {
-        res.redirect("/#/" + username + "/trip/" + tripId + "/fish/" + fishId + "/photos");
-    });
-});
-
-app.post('/gear/photo', function (req, res) {
-    var gearId = req.body.gearId;
-    var username = req.body.username;
-    savePhoto("gear", gearId, req, function () {
-        res.redirect("/#/" + username + "/gear/" + gearId + "/photos");
-    })
-});
-
-app.post('/spots/photo', function (req, res) {
-    var spotId = req.body.spotId;
-    var username = req.body.username;
-    savePhoto("spots", spotId, req, function () {
-        res.redirect("/#/" + username + "/spots/" + spotId + "/photos");
-    })
-});
 
 var spots = require('./public/views/spots/server.js');
 var presentations = require('./public/views/presentations/server.js');
@@ -264,65 +164,8 @@ app.delete('/api/:username/trip/:tripId/fish/:fishId/photos/:photoIndex', functi
 });
 
 require("./app/services/trip.service.server")(app, db);
-
-/*
- * User
- */
-
-// Register a user includes new username and password
-app.post("/api/user", function(req, res)
-{
-	db.user.find({email: req.body.email}, function(err, user)
-	{
-	    if(user.length === 0) {
-	    	var user = req.body;
-
-			db.user.insert(user, function(err, newUser)
-			{
-				if(err) {
-					res.status(400).send(err);
-				} else {
-					res.json(newUser);
-				}
-			});
-			// userModel.get_encrypted_hash(user.password)
-			// 	.then(
-			// 		function(response) {
-			// 			user.password = response;
-			// 			user.password2 = response;
-			// 			db.user.insert(user, function(err, newUser)
-			// 			{
-			// 				res.json(newUser);
-			// 			});
-			// 		},
-			// 		function(err){
-			// 			res.json({
-			// 				success: false,
-			// 				error: 'Unable to register user.' });
-			// 		}
-			// 	);
-	     } else {
-	     	res.json({
-            success: false,
-            error: 'email exist' });
-	     }
-	});
-});
-
-// app.post("/api/forgotPassword/:username", function (req, res) {
-//    db.user.find({username: req.params.username}, function(err, user)
-// 	{
-// 		if(user[0].email){
-// 			transporter.sendMail({
-// 	        to: user[0].email,
-// 	        subject: 'Fish 360 App password ',
-// 	        html: 'Hi '+ user[0].username +', <br> <br>  Your Password is : ' + user[0].password + ' <br> <br> Regards, <br> Fish360'
-// 	      });
-// 		}
-// 	});
-//    res.send("email");
-// });
-
+require("./app/services/user.service.server")(app, db);
+require('./app/services/photo.service.server')(app, db);
 
 app.post("/api/:username/trip/:tripId/fish/:fishId/share", function (req, res) {
 	var mailObject = req.body;
@@ -339,138 +182,6 @@ app.post("/api/:username/trip/:tripId/fish/:fishId/share", function (req, res) {
 	res.send("email");
 });
 
-
-// update profile
-
-
-app.put("/api/user/:username", function(req, res) {
-	var username = req.params.username;
-	var update = {
-
-	};
-	if (!req.body.species) {
-		update = {
-			firstName: req.body.firstName,
-			lastName: req.body.lastName,
-			email: req.body.email,
-			dateOfBirth: req.body.dateOfBirth,
-			units: req.body.units,
-			shareAggregate: req.body.shareAggregate
-		};
-	} else {
-		update = {
-			firstName: req.body.firstName,
-			lastName: req.body.lastName,
-			email: req.body.email,
-			dateOfBirth: req.body.dateOfBirth,
-			units: req.body.units,
-			species: req.body.species,
-			commonName: req.body.commonName,
-			shareAggregate: req.body.shareAggregate
-		};
-	}
-
-	if (req.body.password) {
-		// userModel.get_encrypted_hash(req.body.password)
-		// 	.then(function (response) {
-		// 			update.password = response;
-		// 			updateUserDetails();
-		// 		});
-		update.password = req.body.password;
-		updateUserDetails();
-	}
-	else{
-		updateUserDetails();
-	}
-
-	function updateUserDetails(){
-		db.user.findAndModify({
-			query: {username: req.params.username},
-			update: {
-				$set: update
-			},
-			new: false
-		}, function (err, doc, lastErrorObject) {
-		});
-
-		db.user.find({username: req.params.username}, function (err, user) {
-			res.json(user);
-		});
-	}
-});
-
-// Find user by username used for registering to see if username already exists
-app.get("/api/user/:username", function(req, res)
-{
-	db.user.find({username: req.params.username}, function(err, user)
-	{
-		res.json(user);
-	});
-});
-
-// Find user by username and password used for login to check username and password
-app.get("/api/user/:username/:password", function(req, res)
-{
-	var password = req.params.password;
-
-	db.user.find(
-		{username: req.params.username},
-		function(err, users) {
-			if(err) {
-				res.send(err);
-			}
-			var user = users[0];
-			if(user.password == password) {
-				res.json(user);
-			} else {
-				res.send(null);
-			}
-			// userModel.comparePassword(req.params.password, user)
-			// 	.then(function(response){
-			// 		if(response){
-			// 			res.json(response);
-			// 		}
-			// 		else{
-			// 			res.send(null);
-			// 		}
-			// 	},
-			// 		function(err){
-			// 			res.send(err);
-			// 		});
-		// }
-		// else{
-		// 	res.send(null);
-		// }
-	});
-});
-
-// Find user by username and get User preferences of Units to be displayed
-app.get("/api/user/:username/preferences/units", function(req, res)
-{
-	db.user.find({username: req.params.username}, function(err, user)
-	{
-		res.json(user[0].units);
-	});
-});
-
-// Find user by username and get User preferences of default species to be displayed
-app.get("/api/user/:username/preferences/defaultspecies", function(req, res)
-{
-	db.user.find({username: req.params.username}, function(err, user)
-	{
-		res.json({ species : user[0].species, commonName: user[0].commonName});
-	});
-});
-
-app.post("/api/user/:username/preferences", function(req, res)
-{
-	db.user.findAndModify({
-		query: {username: req.params.username},
-		update: {$set : {preferences: req.body	}},
-		new: false}, function(err, doc, lastErrorObject)
-	{
-	});
-});
 
 /*
  *	Fish
@@ -622,11 +333,6 @@ app.get('/api/pwd', function(req, res){
 app.get('/api/datadir', function(req, res){
 	res.send(process.env.OPENSHIFT_DATA_DIR);
 });
-
-app.get('/api/env', function(req, res){
-	res.send(process.env);
-});
-
 
 require("./app/app.js")(app, db);
 
