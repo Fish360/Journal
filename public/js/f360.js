@@ -47,41 +47,41 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
     $routeProvider
         .when("/",
         {
-            templateUrl: "templates/user/login2.html",
+            templateUrl: "views/user/login2.html",
             controller: "LoginController2"
         })
         .when("/login",
         {
-            templateUrl: "templates/user/login.html",
+            templateUrl: "views/user/login.html",
             controller: "LoginController"
         })
         .when("/forgotPassword",
         {
-            templateUrl: "templates/user/forgotPassword.html",
+            templateUrl: "views/user/forgotPassword.html",
             controller: "ForgotPasswordController"
         })
         .when("/termsReadOnly",
         {
-            templateUrl: "templates/user/termsReadOnly.html"
+            templateUrl: "views/user/termsReadOnly.html"
         })
         .when("/terms",
         {
-            templateUrl: "templates/user/terms.html",
+            templateUrl: "views/user/terms.html",
             controller: "TermsController"
         })
         .when("/register/true",
         {
-            templateUrl: "templates/user/register.html",
+            templateUrl: "views/user/register.html",
             controller: "RegisterController"
         })
         .when("/:username/profile",
         {
-            templateUrl: "templates/user/profile.html",
+            templateUrl: "views/user/profile.html",
             controller: "ProfileController"
         })
         .when("/:username/upgrade",
         {
-            templateUrl: "templates/user/upgrade.html",
+            templateUrl: "views/user/upgrade.html",
             controller: "UpgradeController"
         })
         /*
@@ -89,7 +89,7 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/home",
         {
-            templateUrl: "templates/home/home.html",
+            templateUrl: "views/home/home.html",
             controller: "HomeController"
         })
         /*
@@ -100,47 +100,47 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/trip/:tripId/photos/:photoIndex",
         {
-            templateUrl: "templates/trip/photo.html",
+            templateUrl: "views/trip/photo.html",
             controller: "TripPhotoController"
         })
         .when("/:username/trip/:tripId/photos",
         {
-            templateUrl: "templates/trip/photos.html",
+            templateUrl: "views/trip/photos.html",
             controller: "TripPhotosController"
         })
         .when("/:username/trip/:tripId/photosFromHome/:photoIndex",
         {
-            templateUrl: "templates/trip/photoFromHome.html",
+            templateUrl: "views/trip/photoFromHome.html",
             controller: "TripPhotoController"
         })
         .when("/:username/trip/:tripId/photosFromHome",
         {
-            templateUrl: "templates/trip/photosFromHome.html",
+            templateUrl: "views/trip/photosFromHome.html",
             controller: "TripPhotosController"
         })
         .when("/:username/trip/new",
         {
-            templateUrl: "templates/trip/new.html",
+            templateUrl: "views/trip/new.html",
             controller: "NewTripController"
         })
         .when("/:username/trip/list",
         {
-            templateUrl: "templates/trip/list.html",
+            templateUrl: "views/trip/list.html",
             controller: "TripListController"
         })
         .when("/:username/trip/:tripid/edit",
         {
-            templateUrl: "templates/trip/edit.html",
+            templateUrl: "views/trip/edit.html",
             controller: "EditTripController"
         })
         .when("/:username/trip/:tripid/editFromHome",
         {
-            templateUrl: "templates/trip/editFromHome.html",
+            templateUrl: "views/trip/editFromHome.html",
             controller: "EditTripController"
         })
         .when("/:username/trip/:tripid/listFromHome",
         {
-            templateUrl: "templates/fish/listFromHome.html",
+            templateUrl: "views/fish/listFromHome.html",
             controller: "FishListController"
         })
         /*
@@ -148,27 +148,27 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/spots/:spotId/photos/:photoIndex",
         {
-            templateUrl: "features/spots/photo.html",
+            templateUrl: "views/spots/photo.html",
             controller: "SpotPhotoController"
         })
         .when("/:username/spots/:spotId/photos",
         {
-            templateUrl: "features/spots/photos.html",
+            templateUrl: "views/spots/photos.html",
             controller: "SpotPhotosController"
         })
         .when("/:username/spots/list",
         {
-            templateUrl: "features/spots/list.html",
+            templateUrl: "views/spots/list.html",
             controller: "SpotListController"
         })
         .when("/:username/spots/new",
         {
-            templateUrl: "features/spots/new.html",
+            templateUrl: "views/spots/new.html",
             controller: "SpotNewController"
         })
         .when("/:username/spots/:id/edit",
         {
-            templateUrl: "features/spots/edit.html",
+            templateUrl: "views/spots/edit.html",
             controller: "SpotEditController"
         })
         /*
@@ -176,17 +176,17 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/presentations/list",
         {
-            templateUrl: "features/presentations/list.html",
+            templateUrl: "views/presentations/list.html",
             controller: "PresentationsListController"
         })
         .when("/:username/presentations/new",
         {
-            templateUrl: "features/presentations/new.html",
+            templateUrl: "views/presentations/new.html",
             controller: "PresentationsNewController"
         })
         .when("/:username/presentations/:id/edit",
         {
-            templateUrl: "features/presentations/edit.html",
+            templateUrl: "views/presentations/edit.html",
             controller: "PresentationsEditController"
         })
         /*
@@ -194,27 +194,27 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/gear/:gearId/photos/:photoIndex",
         {
-            templateUrl: "features/gear/photo.html",
+            templateUrl: "views/gear/photo.html",
             controller: "GearPhotoController"
         })
         .when("/:username/gear/:gearId/photos",
         {
-            templateUrl: "features/gear/photos.html",
+            templateUrl: "views/gear/photos.html",
             controller: "GearPhotosController"
         })
         .when("/:username/gear/list",
         {
-            templateUrl: "features/gear/list.html",
+            templateUrl: "views/gear/list.html",
             controller: "GearListController"
         })
         .when("/:username/gear/new",
         {
-            templateUrl: "features/gear/new.html",
+            templateUrl: "views/gear/new.html",
             controller: "GearNewController"
         })
         .when("/:username/gear/:id/edit",
         {
-            templateUrl: "features/gear/edit.html",
+            templateUrl: "views/gear/edit.html",
             controller: "GearEditController"
         })
         /*
@@ -222,42 +222,42 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/reports",
         {
-            templateUrl: "features/reports/reports-list.html",
+            templateUrl: "views/reports/reports-list.html",
             controller: "ReportListController"
         })
         .when("/:username/reports/new",
         {
-            templateUrl: "features/reports/reports-new.html",
+            templateUrl: "views/reports/reports-new.html",
             controller: "NewReportController"
         })
         .when("/:username/reports/:reportId",
         {
-            templateUrl: "features/reports/reports-edit.html",
+            templateUrl: "views/reports/reports-edit.html",
             controller: "EditReportController"
         })
         .when("/:username/reports/:reportId/timeOfYear",
         {
-            templateUrl: "features/reports/reports-toy.html",
+            templateUrl: "views/reports/reports-toy.html",
             controller: "TimeOfYearReportController"
         })
         .when("/:username/reports/:reportId/spots",
         {
-            templateUrl: "features/reports/reports-spots.html",
+            templateUrl: "views/reports/reports-spots.html",
             controller: "SpotsReportController"
         })
         .when("/:username/reports/:reportId/presentations",
         {
-            templateUrl: "features/reports/reports-presentations.html",
+            templateUrl: "views/reports/reports-presentations.html",
             controller: "PresentationsReportController"
         })
         .when("/:username/reports/:reportId/moonphase",
             {
-                templateUrl: "features/reports/reports-moonphase.html",
+                templateUrl: "views/reports/reports-moonphase.html",
                 controller: "MoonPhaseReportController"
             })
         .when("/:username/reports/:reportId/condition",
             {
-                templateUrl: "features/reports/reports-condition.html",
+                templateUrl: "views/reports/reports-condition.html",
                 controller: "ConditionReportController"
             })
         /*
@@ -265,7 +265,7 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/searchResults/:searchId",
         {
-            templateUrl: "features/searchResults/list.html",
+            templateUrl: "views/searchResults/list.html",
             controller: "SearchResultsListController"
         })
         /*
@@ -273,17 +273,17 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/search/list",
         {
-            templateUrl: "features/search/list.html",
+            templateUrl: "views/search/list.html",
             controller: "SearchListController"
         })
         .when("/:username/search/new",
         {
-            templateUrl: "features/search/new.html",
+            templateUrl: "views/search/new.html",
             controller: "SearchNewController"
         })
         .when("/:username/search/:id/edit",
         {
-            templateUrl: "features/search/edit.html",
+            templateUrl: "views/search/edit.html",
             controller: "SearchEditController"
         })
         /*
@@ -291,46 +291,46 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
          */
         .when("/:username/trip/:tripId/fish/:fishId/photos/:photoIndex",
         {
-            templateUrl: "templates/fish/photo.html",
+            templateUrl: "views/fish/photo.html",
             controller: "FishPhotoController"
         })
         .when("/:username/trip/:tripId/fish/:fishId/photos",
         {
-            templateUrl: "templates/fish/photos.html",
+            templateUrl: "views/fish/photos.html",
             controller: "FishPhotosController"
         })
         .when("/:username/trip/:tripId/fish/list",
         {
-            templateUrl: "templates/fish/list.html",
+            templateUrl: "views/fish/list.html",
             controller: "FishListController"
         })
         .when("/:username/fish/list",
         {
-            templateUrl: "templates/fish/listFromHome.html",
+            templateUrl: "views/fish/listFromHome.html",
             controller: "FishHomeListController"
         })
         .when("/:username/trip/:tripId/fish/new",
         {
-            templateUrl: "templates/fish/new.html",
+            templateUrl: "views/fish/new.html",
             controller: "NewFishController"
         })
         .when("/:username/trip/:tripId/fish/:fishId/edit",
         {
-            templateUrl: "templates/fish/edit.html",
+            templateUrl: "views/fish/edit.html",
             controller: "EditFishController"
         })
         .when("/:username/trip/:tripId/fish/:fishId/share",
             {
-                templateUrl: "templates/fish/emailShare.html",
+                templateUrl: "views/fish/emailShare.html",
                 controller: "FishShareController"
             })
         .when("/:username/trip/:tripId/fish/:fishId/editFromHome",
         {
-            templateUrl: "templates/fish/editFromHome.html",
+            templateUrl: "views/fish/editFromHome.html",
             controller: "EditFishController"
         })
         .otherwise({
-            templateUrl: "templates/user/login.html",
+            templateUrl: "views/user/login.html",
             controller: "LoginController"
         })
     ;

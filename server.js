@@ -164,12 +164,12 @@ app.post('/spots/photo', function (req, res) {
     })
 });
 
-var spots = require('./public/features/spots/server.js');
-var presentations = require('./public/features/presentations/server.js');
-var gear = require('./public/features/gear/server.js');
-var fish = require('./public/features/spots/server.js');
-var search = require('./public/features/search/server.js');
-var searchResults = require('./public/features/searchResults/server.js');
+var spots = require('./public/views/spots/server.js');
+var presentations = require('./public/views/presentations/server.js');
+var gear = require('./public/views/gear/server.js');
+var fish = require('./public/views/spots/server.js');
+var search = require('./public/views/search/server.js');
+var searchResults = require('./public/views/searchResults/server.js');
 
 var connection_string = '127.0.0.1:27017/f360';
 
