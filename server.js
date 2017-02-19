@@ -263,65 +263,7 @@ app.delete('/api/:username/trip/:tripId/fish/:fishId/photos/:photoIndex', functi
     });
 });
 
-// Get all trips for username
-app.get('/api/:username/trip', function(req, res)
-{
-	db.trip.find({username: req.params.username}, function(err, trips)
-	{
-		res.json(trips);
-	});
-});
-
-// Get a specific trip for a username
-app.get('/api/:username/trip/:tripid', function(req, res)
-{
-	db.trip.findOne({_id: mongojs.ObjectId(req.params.tripid)}, function(err, trip)
-	{
-		res.json(trip);
-	});
-});
-
-// Create a new trip for username
-app.post('/api/:username/trip', function(req, res)
-{
-    req.body.type = "TRIP";
-    req.body.fishCount = 0;
-    db.trip.insert(req.body, function (err, newTrip)
-	{
-        res.json(newTrip);
-	});
-});
-
-// Update trip
-app.put('/api/:username/trip/:tripid', function(req, res)
-{
-	db.trip.findAndModify( {
-	   query: {_id:mongojs.ObjectId(req.params.tripid)},
-	   update: {
-		   spot:req.body.spot,
-		   title: req.body.title,
-		   start: req.body.start,
-		   startTime: req.body.startTime,
-		   end: req.body.end,
-		   endTime: req.body.endTime,
-		   notes: req.body.notes,
-		   type: "TRIP",
-		   username: req.body.username,
-		   lastUpdated: req.body.lastUpdated
-		}
-	}, function(err, trip){
-		res.json(trip);
-	});
-});
-
-// Delete trip
-app.delete('/api/:username/trip/:tripid', function(req, res)
-{
-	db.trip.remove({_id:mongojs.ObjectId(req.params.tripid)},
-	function(err, trip){
-		res.json(trip);
-	});
-});
+require("./app/services/trip.service.server")(app, db);
 
 /*
  * User
