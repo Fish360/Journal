@@ -154,6 +154,11 @@ f360.controller("NewFishController", function (WorldWeatherOnlineService, TidalS
 
 	$scope.create = function()
 	{
+		var newFishSpot = $scope.spots.find(function (spot) {
+			return spot._id == $scope.newFish.spot;
+		});
+		$scope.newFish.spotName = newFishSpot.name;
+
 		if(!validateSpecieSelection()){
 			return;
 		}
@@ -376,6 +381,12 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 		 $scope.editFish.waterTemperature *= 10.0;
 		 $scope.editFish.waterClarity *= 10.0;
 		 */
+
+		var editFishSpot = $scope.spots.find(function (spot) {
+			return spot._id == $scope.editFish.spot;
+		});
+
+		$scope.editFish.spotName = editFishSpot.name;
 		$scope.editFish.species = scientificName;
 		$scope.editFish["lastUpdated"] = new Date();
 		$http.put("api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish/"+$scope.fishId, $scope.editFish)

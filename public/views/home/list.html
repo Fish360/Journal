@@ -24,7 +24,7 @@
 	<tr ng-repeat="trip in trips | orderBy : 'lastUpdated' : true">
 		<td>
 			<a class="pull-right" href="#/{{username}}/trip/{{trip._id}}/edit">
-				<span class="glyphicon glyphicon-pencil"></span>
+				<span class="glyphicon glyphicon-cog"></span>
 			</a>
 			<a href="#/{{username}}/trip/{{trip._id}}/fish/list">
 				<span>{{trip.title}}</span><br/>

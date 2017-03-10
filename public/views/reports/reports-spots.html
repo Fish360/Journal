@@ -18,7 +18,9 @@
     <tbody>
     <tr ng-repeat="(spot, count) in spotMap">
         <td width="10%">
-            <div style="width: 100px;overflow: hidden;text-overflow: ellipsis;">{{spot}}</div>
+            <div style="width: 100px;overflow: hidden;text-overflow: ellipsis;">
+                {{spot}}
+            </div>
         </td>
         <td>
             <div class="f360-bar" style="width: {{count*100/max}}%">

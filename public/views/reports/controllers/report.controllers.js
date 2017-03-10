@@ -158,7 +158,7 @@
                     var max = -1;
                     for(var f in fishes) {
                         var fish = fishes[f];
-                        var spot = fish.spot;
+                        var spot = fish.spotName;
                         if(spotMap[spot]) {
                             spotMap[spot]++;
                         } else {

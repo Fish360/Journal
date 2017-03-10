@@ -25,19 +25,25 @@
 </div>
 <div class="row">
     <div class="col-xs-6">
-		Caught Date
-        <input ng-change="loadMoonPhase()" ng-model="newFish.caught" class="form-control" type="date"
+		<label for="caught-date">Caught Date</label>
+        <input ng-change="loadMoonPhase()"
+			   ng-model="newFish.caught"
+			   id="caught-date"
+			   class="form-control"
+			   type="date"
 			    min="{{newFish.minDate | date:'yyyy-MM-dd'}}"
 			    max="{{newFish.maxDate | date:'yyyy-MM-dd'}}"/>
     </div>
     <div class="col-xs-6">
-		Time
+		<label id="caught-time">Time</label>
         <input ng-model="newFish.caughtTime"
+			   id="caught-time"
 			   class="form-control"
 			   type="time" />
     </div>
 </div>
-Species
+
+<label>Species</label>
 <div angucomplete-alt
 	 id="ex1"
 	 placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}"
@@ -49,12 +55,15 @@ Species
 	 minlength="1"
 	 input-class="form-control"/>
 </div>
-Spots
+
+<label>Spots</label>
 <select ng-change="loadMoonPhase()"
 		ng-model="newFish.spot"
 		class="form-control"
 		placeholder="Species">
-    <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
+	<option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
+	<!--<option ng-repeat="spot in spots">{{spot.name}}</option>-->
+	<!--<option ng-repeat="spot in spots" value="{{spot}}">{{spot.name}}</option>-->
 </select>
 <br/>
 <div class="panel panel-default">
@@ -247,8 +256,12 @@ Spots
 		</div>
 	</div>
 </div>
-Notes
-<textarea ng-model="newFish.notes" class="form-control" placeholder="Notes">
+
+<label for="notes">Notes</label>
+<textarea ng-model="newFish.notes"
+		  id="notes"
+		  class="form-control"
+		  placeholder="Notes">
 
 </textarea>
 <input type="hidden" ng-model="newFish.trip_id"/>
