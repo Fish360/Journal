@@ -1,6 +1,5 @@
 ﻿<div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<!--<back-button></back-button>-->
 		<a	href="#/{{username}}/trip/list" class="btn btn-danger pull-left f360-navbar-button">
 			<span class="glyphicon glyphicon-chevron-left"></span>
 		</a>
@@ -13,31 +12,54 @@
 		</div>
 	</div>
 </div>
-Title
-<input ng-model="newTrip.title" class="form-control" placeholder="Title"/>
-Start Date/Time
+
+<label for="title">Title</label>
+<input ng-model="newTrip.title"
+	   id="title"
+	   class="form-control"
+	   placeholder="Title"/>
+
+<label for="start-date">Start Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="newTrip.start" class="form-control" type="date" ng-change="loadMarineWeather()" />
+        <input ng-model="newTrip.start"
+			   id="start-date"
+			   class="form-control"
+			   type="date"
+			   ng-change="loadMarineWeather()" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="newTrip.startTime" class="form-control" type="time" />
+        <input ng-model="newTrip.startTime"
+			   class="form-control"
+			   type="time" />
     </div>
 </div>
-End Date/Time
+
+<label for="end-date">End Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="newTrip.end" class="form-control" type="date" />
+        <input ng-model="newTrip.end"
+			   id="end-date"
+			   class="form-control"
+			   type="date" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="newTrip.endTime" class="form-control" type="time" />
+        <input ng-model="newTrip.endTime"
+			   class="form-control"
+			   type="time" />
     </div>
 </div>
-Spots:
-<select ng-model="newTrip.spot" ng-change="loadMarineWeather()" class="form-control" placeholder="Spot">
+
+<label for="spots">Spots:</label>
+<select ng-model="newTrip.spot"
+		id="spots"
+		ng-change="loadMarineWeather()"
+		class="form-control"
+		placeholder="Spot">
 	<option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 
+<!-- Sun and Moon -->
 <div class="panel panel-default">
 	<div class="panel-heading" data-toggle="collapse" data-target="#sunmoon">
 		<h3 class="panel-title">
@@ -47,36 +69,46 @@ Spots:
 	<div id="sunmoon" class="collapse">
 		<div class="panel-body">
 
-			<div ng-show="!newTrip.sunriseTime"
+			<div ng-show="!newTrip.weather"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<div ng-show="newTrip.sunriseTime">
+			<div ng-show="newTrip.weather">
 				<div class="row">
 					<div class="col-xs-6">
 						Sunrise
-						<input ng-model="newTrip.sunriseTime" class="form-control" type="text" readonly/>
+						<input ng-model="newTrip.weather[0].astronomy[0].sunrise"
+							   class="form-control"
+							   type="text" readonly/>
 					</div>
 					<div class="col-xs-6">
 						Sunset
-						<input ng-model="newTrip.sunsetTime" class="form-control" type="text" readonly/>
+						<input ng-model="newTrip.weather[0].astronomy[0].sunset"
+							   class="form-control"
+							   type="text" readonly/>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-6">
 						Moonrise
-						<input ng-model="newTrip.moonriseTime" class="form-control" type="text" readonly/>
+						<input ng-model="newTrip.weather[0].astronomy[0].moonrise"
+							   class="form-control"
+							   type="text" readonly/>
 					</div>
 					<div class="col-xs-6">
 						Moonset
-						<input ng-model="newTrip.moonsetTime" class="form-control" type="text" readonly/>
+						<input ng-model="newTrip.weather[0].astronomy[0].moonset"
+							   class="form-control"
+							   type="text" readonly/>
 					</div>
 				</div>
 
-				Moon Phase
-				<input ng-model="newTrip.moonphase" class="form-control" type="text" readonly/>
+				<!--Moon Phase-->
+				<!--<input ng-model="newTrip.moonphase"-->
+					   <!--class="form-control"-->
+					   <!--type="text" readonly/>-->
 			</div>
 		</div>
 	</div>
@@ -152,7 +184,7 @@ Spots:
 	</div>
 </div>
 
-Notes
+<label>Notes</label>
 <textarea ng-model="newTrip.notes" class="form-control" placeholder="Notes">
 
 </textarea>

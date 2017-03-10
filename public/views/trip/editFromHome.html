@@ -20,30 +20,103 @@
 		</div>
 	</div>
 </div>
-Title
-<input ng-model="editTrip.title" class="form-control" placeholder="Title"/>
-Start Date/Time
+
+<label for="title">Title</label>
+<input ng-model="editTrip.title"
+       id="title"
+       class="form-control"
+       placeholder="Title"/>
+
+<label for="start-date">Start Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="editTrip.start" class="form-control" type="date" />
+        <input ng-model="editTrip.start"
+               id="start-date"
+               class="form-control"
+               type="date" />
     </div>
     <div class="col-xs-6">
         <input ng-model="editTrip.startTime" class="form-control" type="time" />
     </div>
 </div>
-End Date/Time
+
+<label for="end-date">End Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="editTrip.end" class="form-control" type="date" />
+        <input ng-model="editTrip.end"
+               id="end-date"
+               class="form-control"
+               type="date" />
     </div>
     <div class="col-xs-6">
         <input ng-model="editTrip.endTime" class="form-control" type="time" />
     </div>
 </div>
-Spots
-<select  ng-change="loadMarineWeather()" ng-model="editTrip.spot" class="form-control" placeholder="Spot">
+
+<label for="spots">Spots</label>
+<select  ng-change="loadMarineWeather()"
+         id="spots"
+         ng-model="editTrip.spot"
+         class="form-control"
+         placeholder="Spot">
 	<option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
+
+<!-- Sun and Moon -->
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-target="#sunmoon">
+        <h3 class="panel-title">
+            Sun &amp; Moon
+        </h3>
+    </div>
+    <div id="sunmoon" class="collapse">
+        <div class="panel-body">
+
+            <div ng-show="!editTrip.weather"
+                 class="alert alert-success">
+                Please select a date and spot
+            </div>
+
+            <div ng-show="editTrip.weather">
+                <div class="row">
+                    <div class="col-xs-6">
+                        Sunrise
+                        <input ng-model="editTrip.weather[0].astronomy[0].sunrise"
+                               class="form-control"
+                               type="text" readonly/>
+                    </div>
+                    <div class="col-xs-6">
+                        Sunset
+                        <input ng-model="editTrip.weather[0].astronomy[0].sunset"
+                               class="form-control"
+                               type="text" readonly/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        Moonrise
+                        <input ng-model="editTrip.weather[0].astronomy[0].moonrise"
+                               class="form-control"
+                               type="text" readonly/>
+                    </div>
+                    <div class="col-xs-6">
+                        Moonset
+                        <input ng-model="editTrip.weather[0].astronomy[0].moonset"
+                               class="form-control"
+                               type="text" readonly/>
+                    </div>
+                </div>
+
+                <!--Moon Phase-->
+                <!--<input ng-model="editTrip.moonphase"-->
+                <!--class="form-control"-->
+                <!--type="text" readonly/>-->
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="panel panel-default">
     <div class="panel-heading" data-toggle="collapse" data-target="#weather-collapse">
         <h3 class="panel-title">
