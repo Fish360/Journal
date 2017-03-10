@@ -186,8 +186,11 @@
     </div>
 </div>
 
-Notes
-<textarea ng-model="editTrip.notes" class="form-control" placeholder="Notes"></textarea>
+<label for="notes">Notes</label>
+<textarea ng-model="editTrip.notes"
+          class="form-control"
+          id="notes"
+          placeholder="Notes"></textarea>
 
 <div ng-show="editTrip.images">
     Photos
@@ -196,14 +199,14 @@ Notes
     </a>
 </div>
 
-Upload Photo
+<label for="photo">Upload Photo</label>
 <form id="uploadForm"
       enctype="multipart/form-data"
       action="/trip/photo"
       method="post">
     <input type="hidden" name="username"  value="{{username}}"/>
     <input type="hidden" name="tripId"    value="{{editTrip._id}}"/>
-    <input type="file"   name="userPhoto" class="form-control"/>
+    <input type="file"   name="userPhoto" class="form-control" id="photo"/>
     <!--input type="submit" value="Upload Image" name="submit"-->
     <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
 </form>

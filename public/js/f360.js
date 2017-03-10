@@ -95,54 +95,51 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
         /*
          *	Trips
          */
-        /*
-         *   Trip Photos
-         */
-        .when("/:username/trip/:tripId/photos/:photoIndex",
-        {
-            templateUrl: "views/trip/photo.html",
-            controller: "TripPhotoController"
-        })
-        .when("/:username/trip/:tripId/photos",
-        {
-            templateUrl: "views/trip/photos.html",
-            controller: "TripPhotosController"
-        })
-        .when("/:username/trip/:tripId/photosFromHome/:photoIndex",
-        {
-            templateUrl: "views/trip/photoFromHome.html",
-            controller: "TripPhotoController"
-        })
-        .when("/:username/trip/:tripId/photosFromHome",
-        {
-            templateUrl: "views/trip/photosFromHome.html",
-            controller: "TripPhotosController"
-        })
         .when("/:username/trip/new",
         {
-            templateUrl: "views/trip/new.html",
+            templateUrl: "views/trip/templates/trip-new.html",
             controller: "NewTripController"
         })
         .when("/:username/trip/list",
         {
-            templateUrl: "views/trip/list.html",
+            templateUrl: "views/trip/templates/trip-list.html",
             controller: "TripListController"
         })
         .when("/:username/trip/:tripid/edit",
         {
-            templateUrl: "views/trip/edit.html",
+            templateUrl: "views/trip/templates/trip-edit.html",
             controller: "EditTripController"
         })
         .when("/:username/trip/:tripid/editFromHome",
         {
-            templateUrl: "views/trip/editFromHome.html",
+            templateUrl: "views/trip/templates/trip-edit-from-home.html",
             controller: "EditTripController"
         })
+        .when("/:username/trip/:tripId/photos/:photoIndex",
+            {
+                templateUrl: "views/trip/templates/trip-photo.html",
+                controller: "TripPhotoController"
+            })
+        .when("/:username/trip/:tripId/photos",
+            {
+                templateUrl: "views/trip/templates/trip-photo-list.html",
+                controller: "TripPhotosController"
+            })
+        .when("/:username/trip/:tripId/photosFromHome/:photoIndex",
+            {
+                templateUrl: "views/trip/templates/trip-photo-from-home.html",
+                controller: "TripPhotoController"
+            })
+        .when("/:username/trip/:tripId/photosFromHome",
+            {
+                templateUrl: "views/trip/templates/trip-photo-list-from-home.html",
+                controller: "TripPhotosController"
+            })
         .when("/:username/trip/:tripid/listFromHome",
-        {
-            templateUrl: "views/fish/listFromHome.html",
-            controller: "FishListController"
-        })
+            {
+                templateUrl: "views/fish/listFromHome.html",
+                controller: "FishListController"
+            })
         /*
          *	Spots
          */
