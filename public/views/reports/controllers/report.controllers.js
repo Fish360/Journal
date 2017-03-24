@@ -564,7 +564,11 @@
             type: "timeOfYear"
         };
 
-        loadSpecies();
+        function init () {
+            loadSpecies();
+            loadSpots();
+        }
+        init();
 
         function loadSpecies() {
             JSONLoaderFactory.readTextFile("../json/species.json", function(text){
@@ -572,37 +576,34 @@
               
             });
         }
-
-        function init () {
+        
+        function loadSpots() {
             SpotService.findAll($scope.username, function (spots) {
                 $scope.spots = spots;
             });
         }
-        init();
 
         function checkAndCreate(report){
             ReportsService
                 .findReportsByUsername($scope.username)
                 .then(function(response){
                     var resultSet = response.data;
-                    console.log(resultSet);
+                    // console.log(resultSet);
                     if(resultSet.length>=10){
-                      $location.url("/"+$scope.username+"/reports");
+                        $location.url("/"+$scope.username+"/reports");
                         alert("You have exceeded the limit. Kindly upgrade to Pro");
-
                     }
                     else{
                         createReport(report);
                     }
 
                 });
-
         }
 
         function createReport (report) {
 
             if(validateSpecieSelection(report)) {
-                    scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
+                scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
                 for(var i=0; i<species.length; i++) {
                     if(species[i].scientific === scientificName){
                         report["commonName"] = species[i].common;
@@ -615,21 +616,17 @@
                 .createReport ($scope.username, report)
                 .then(function(){
                     $location.url("/"+$scope.username+"/reports");
-                })
+                });
         }
-
-
 
         function validateSpecieSelection(report) {
             var isValidSpecies = (report.species === undefined)? false : true;
-
             if(!isValidSpecies){
-            return false;
-            } 
-
-            return true;
+                return false;
             }
+            return true;
         }
+    }
 
     function ReportListController ($routeParams, $scope, $location, ReportsService) {
         $scope.username = $routeParams.username;
