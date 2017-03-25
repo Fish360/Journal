@@ -2,9 +2,9 @@
 var braintree = require("braintree");
 var generatePassword = require('password-generator');
 var mongojs = require('mongojs');
-var express   = require('express');
-var app       = express(); 								// create our app w/ express
-var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 3000; 				// set the port
+var app       = require('./express');
+var express   = app.express;
+var port  	  = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
 var done = false;
