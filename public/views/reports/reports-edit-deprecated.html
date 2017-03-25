@@ -1,26 +1,21 @@
 <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
         <a	href="#/{{username}}/reports" class="btn btn-danger pull-left f360-navbar-button">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <a	class="btn btn-success pull-right f360-navbar-button"
-              ng-click="checkAndcreate(report)">
+              ng-click="updateReport(report)">
             <span class="glyphicon glyphicon-ok"></span>
         </a>
         <div class="navbar-header">
-            <span class="navbar-brand">New Report</span>
+            <span class="navbar-brand">Edit Report</span>
         </div>
     </div>
 </div>
-
-<label for="name">Report Name</label>
-<input ng-model="report.name"
-       id="name"
-       class="form-control"
-       placeholder="Report Name"/>
-
-<label for="type">Report Type</label>
-<select ng-model="report.type" class="form-control" id="type">
+Report Name
+<input ng-model="report.name" class="form-control" placeholder="Report Name"/>
+Report Type
+<select ng-model="report.type" class="form-control">
     <option value="timeOfYear">Time of Year</option>
     <option value="spots">Spots</option>
     <option value="presentations">Presentation</option>
@@ -28,40 +23,36 @@
     <option value="condition">Condition</option>
     <option value="tideSunMoonFish">Tide/Sun/Moon/Fish</option>
 </select>
-
-<label>Species</label>
-<div angucomplete-alt placeholder="Type for Species..." pause="100" selected-object="report.species"
+Species
+<div angucomplete-alt placeholder="{{report.commonName}} ({{report.species}})" pause="100" selected-object="report.species"
      local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight"
      title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
 </div>
 
 <div ng-if="report.type=='condition'">
-    <label for="spots">Spots:</label>
-    <select id="spots" ng-model="report.spot" class="form-control" placeholder="Spot">
+    Spot
+    <select  ng-model="report.spot" class="form-control" placeholder="Spot">
         <option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
     </select>
 </div>
-
-<label for="from-date">From Date/Time</label>
+From Date/Time
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="report.startDate" id="from-date" class="form-control" type="date" />
+        <input ng-model="report.startDate" class="form-control" type="date" />
     </div>
     <div class="col-xs-6">
         <input ng-model="report.startTime" class="form-control" type="time" />
     </div>
 </div>
-
-<label for="to-date">To Date/Time</label>
+To Date/Time
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="report.endDate" id="to-date" class="form-control" type="date" />
+        <input ng-model="report.endDate" class="form-control" type="date" />
     </div>
     <div class="col-xs-6">
         <input ng-model="report.endTime" class="form-control" type="time" />
     </div>
 </div>
-
 <div ng-if="report.type=='condition'">
     Air Temperature
     <div class="row">
@@ -97,7 +88,7 @@
     Water Temperature
     <div class="row">
         <div class="col-xs-6">
-            <input ng-model="report.minWaterTemp" class="form-control"  placeholder="max" />
+            <input ng-model="report.minWaterTemp" class="form-control"  placeholder="min" />
         </div>
         <div class="col-xs-6">
             <input ng-model="report.maxWaterTemp" class="form-control"  placeholder="max" />
@@ -107,8 +98,9 @@
     Sky
     <input ng-model="report.sky" class="form-control" placeholder="Sky "/>
 </div>
-
-<label for="notes">Notes</label>
-<textarea ng-model="newTrip.notes" id="notes" class="form-control" placeholder="Notes">
+Notes
+<textarea ng-model="newTrip.notes" class="form-control" placeholder="Notes">
 
 </textarea>
+
+<a ng-click="deleteReport(report)" class="btn btn-danger btn-block">Delete</a>

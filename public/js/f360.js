@@ -222,11 +222,13 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             templateUrl: "views/reports/reports-list.html",
             controller: "ReportListController"
         })
-        .when("/:username/reports/new",
-        {
-            templateUrl: "views/reports/reports-new.html",
-            controller: "NewReportController"
-        })
+        // .when("/:username/reports/new",
+        // {
+        //     // templateUrl: "views/reports/reports-new.html",
+        //     // controller: "NewReportController"
+        //     templateUrl: "views/reports/reports-edit.html",
+        //     controller: "EditReportController"
+        // })
         .when("/:username/reports/:reportId",
         {
             templateUrl: "views/reports/reports-edit.html",
@@ -248,15 +250,20 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             controller: "PresentationsReportController"
         })
         .when("/:username/reports/:reportId/moonphase",
-            {
-                templateUrl: "views/reports/reports-moonphase.html",
-                controller: "MoonPhaseReportController"
-            })
+        {
+            templateUrl: "views/reports/reports-moonphase.html",
+            controller: "MoonPhaseReportController"
+        })
         .when("/:username/reports/:reportId/condition",
-            {
-                templateUrl: "views/reports/reports-condition.html",
-                controller: "ConditionReportController"
-            })
+        {
+            templateUrl: "views/reports/reports-condition.html",
+            controller: "ConditionReportController"
+        })
+        .when("/:username/reports/:reportId/tideSunMoonFish",
+        {
+            templateUrl: "views/reports/reports-tideSunMoonFish.html",
+            controller: "TideSunMoonFishReportController"
+        })
         /*
          *	Search Results
          */

@@ -3,6 +3,7 @@
     f360.controller("NewReportController", NewReportController);
     f360.controller("EditReportController", EditReportController);
     f360.controller("TimeOfYearReportController", TimeOfYearReportController);
+    f360.controller("TideSunMoonFishReportController", TideSunMoonFishReportController);
     f360.controller("SpotsReportController", SpotsReportController);
     f360.controller("PresentationsReportController", PresentationsReportController);
     f360.controller("MoonPhaseReportController", MoonPhaseReportController);
@@ -30,6 +31,48 @@
         }
         init();
     }
+    
+    function TideSunMoonFishReportController($routeParams, $scope, ReportsService) {
+        $scope.username = $routeParams.username;
+        $scope.reportId = $routeParams.reportId;
+        $scope.report;
+
+        function init () {
+            ReportsService
+                .findReportById($scope.reportId)
+                .then(function(report){
+                    $scope.report = report.data;
+                    return ReportsService
+                        .runReportById($scope.reportId)
+                        // .then(function (response) {
+                        //     $scope.tides = response.heights;
+                        // });
+                })
+                .then(function (response) {
+                    var heights = response.data.heights;
+                    var extremes = response.data.extremes;
+                    var max = 0;
+                    var min = 0;
+                    extremes.forEach(function (extreme) {
+                        if(extreme.height > max) {
+                            max = extreme.height;
+                        }
+                        if(extreme.height < min) {
+                            min = extreme.height;
+                        }
+                    });
+                    var range = Math.abs(max) + Math.abs(min);
+                    $scope.range = range;
+                    $scope.tides = response.data.heights;
+                    console.log(response.data);
+                });
+        }
+        init();
+
+        // 0   2   4   2   0   -2  -4 -2  0
+        //     *   *   *       *   *   *
+        //     *   *
+    }
 
     function TimeOfYearReportController ($routeParams, $scope, ReportsService) {
         $scope.username = $routeParams.username;
@@ -41,8 +84,6 @@
                 .findReportById($scope.reportId)
                 .then(function(report){
                     $scope.report = report.data;
-                    console.log("watch start"+$scope.report.startDate )
-                    console.log("watch end"+$scope.report.endDate )
                     return ReportsService.runReportById($scope.reportId);
                 })
                 .then(function(response){
@@ -482,33 +523,43 @@
     }
 
 
-    function EditReportController ($routeParams, $scope, ReportsService, $location, JSONLoaderFactory,SpotService) {
+    function EditReportController ($routeParams, $scope, ReportsService, SpotService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;
         var reportId = $routeParams.reportId;
+        $scope.reportId = reportId;
         $scope.updateReport = updateReport;
         $scope.deleteReport = deleteReport;
-        loadSpecies();
+        $scope.createReport = createReport;
+        $scope.checkAndcreate = checkAndCreate;
+
+        function init () {
+            loadSpecies();
+            loadSpots();
+            if(reportId != 'new') {
+                loadReport(reportId);
+            }
+        }
+        init();
 
         function loadSpecies() {
             JSONLoaderFactory.readTextFile("../json/species.json", function(text){
                 $scope.species = JSON.parse(text);
-              
             });
         }
 
-
-        function init () {
+        function loadSpots() {
             SpotService.findAll($scope.username, function (spots) {
                 $scope.spots = spots;
-                ReportsService
-                    .findReportById(reportId)
-                    .then(function (response) {
-                        $scope.report = response.data;
-                    })
-            })
+            });
         }
 
-        init();
+        function loadReport(reportId) {
+            ReportsService
+                .findReportById(reportId)
+                .then(function (response) {
+                    $scope.report = response.data;
+                });
+        }
 
         function deleteReport (report) {
             ReportsService
@@ -547,17 +598,52 @@
 
         function validateSpecieSelection(report) {
             var isValidSpecies = (report.species === undefined)? false : true;
-
             if(!isValidSpecies){
-            return false;
-            } 
-
-            return true;
+               return false;
             }
+            return true;
         }
+
+        function createReport (report) {
+
+            if(validateSpecieSelection(report)) {
+                scientificName = (report.species.originalObject === undefined) ? report.species : report.species.originalObject["ScientificName"];
+                for(var i=0; i<species.length; i++) {
+                    if(species[i].scientific === scientificName){
+                        report["commonName"] = species[i].common;
+                    }
+                }
+                report.species = scientificName;
+            }
+
+            ReportsService
+                .createReport ($scope.username, report)
+                .then(function(){
+                    $location.url("/"+$scope.username+"/reports");
+                });
+        }
+
+        function checkAndCreate(report){
+            ReportsService
+                .findReportsByUsername($scope.username)
+                .then(function(response){
+                    var resultSet = response.data;
+                    // console.log(resultSet);
+                    if(resultSet.length>=10){
+                        $location.url("/"+$scope.username+"/reports");
+                        alert("You have exceeded the limit. Kindly upgrade to Pro");
+                    }
+                    else{
+                        createReport(report);
+                    }
+
+                });
+        }
+    }
 
     function NewReportController ($routeParams, $scope, ReportsService, SpotService, $location, JSONLoaderFactory) {
         $scope.username = $routeParams.username;
+
         $scope.createReport = createReport;
         $scope.checkAndcreate=checkAndCreate;
         $scope.report = {
@@ -573,7 +659,6 @@
         function loadSpecies() {
             JSONLoaderFactory.readTextFile("../json/species.json", function(text){
                 $scope.species = JSON.parse(text);
-              
             });
         }
         
