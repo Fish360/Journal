@@ -10,28 +10,38 @@
     </div>
 </div>
 
-<div ng-show="!tides" class="alert alert-success" role="alert">
+<div ng-show="!response.data.heights" class="alert alert-success" role="alert">
     No Results
 </div>
 
 <div class="col-xs-12" id="chart" style="padding-left: 0px; padding-right: 0px">
-    <div ng-repeat="tide in tides" style="float: left; height:200px; width: {{100/tides.length}}%; background-color: #EEEEFF">
-        <div class="top" style="height: 100px;position: relative;">
-            <div ng-if="tide.height > 0" style=" width:100%; position:absolute;bottom: 0px;;background: lightblue;height: {{(tide.height) * 200/range}}px;">
+    <div ng-repeat="tide in response.data.heights"
+         style="float: left; height:200px; width: {{100/response.data.heights.length}}%; background-color: #EEEEFF">
+        <div class="top"
+             style="height: 100px;position: relative;">
+            <div ng-if="tide.height > 0"
+                 style=" width:100%; position:absolute;bottom: 0px;;background: lightblue;height: {{(tide.height) * 200/response.range}}px;">
                 <div style="z-index: 20;-webkit-transform:rotate(-90deg);position: absolute;bottom:10px">{{tide.height}}</div>
             </div>
         </div>
-        <div class="bottom" style="height: 100px;position: relative;">
-            <div ng-if="tide.height <= 0" style=" width:100%; position: absolute;top: 0px;;background: lightblue;height: {{(-tide.height) * 200/range}}px;">
+        <div class="bottom"
+             style="height: 100px;position: relative;">
+            <div ng-if="tide.height <= 0"
+                 style=" width:100%; position: absolute;top: 0px;;background: lightblue;height: {{(-tide.height) * 200/response.range}}px;">
                 <div style="z-index: 20;position:absolute;top:15px;-webkit-transform:rotate(90deg)">{{tide.height}}</div>
             </div>
         </div>
     </div>
 </div>
 
-<!--{{range}}-->
+<!--<h3>Sun Moon</h3>-->
+<!--{{response.data.sunmoon}}-->
+<!--<h3>Extremes</h3>-->
+<!--{{response.data.extremes}}-->
+<!--<br/>-->
+<!--{{response.range}}-->
 <!--<br/>-->
 <!--<ol>-->
-    <!--<li ng-repeat="tide in tides">{{tide}}</li>-->
+    <!--<li ng-repeat="tide in response.data.heights">{{tide}}</li>-->
 <!--</ol>-->
 

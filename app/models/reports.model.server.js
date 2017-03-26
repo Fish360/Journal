@@ -2,6 +2,7 @@ var q = require("q");
 var promiseUtil = require("../utils/promiseUtil");
 var mongojs = require("mongojs");
 var tidalService = require('../services/tidal.service.server');
+var sunmoonService = require('../services/sunmoon.service.server');
 module.exports = function(db) {
     var api = {
         createReport: createReport,
@@ -32,6 +33,7 @@ module.exports = function(db) {
                     tidalService
                         .requestTidalInfo(startDate, latitude, longitude)
                         .then(function (tideInfo) {
+                            tideInfo.sunmoon = sunmoonService.findSunMoonPhase(startDate, latitude, longitude);
                             deferred.resolve(tideInfo);
                         });
                 });

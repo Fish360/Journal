@@ -1,18 +1,28 @@
-
+var app = require('../../express');
 var suncalc=require('suncalc');
-module.exports = function (app) {
-    app.get("/api/sunmoonphase/:date/latitude/:latitude/longitude/:longitude", findSunMoonPhaseInfo);
 
+app.get("/api/sunmoonphase/:date/latitude/:latitude/longitude/:longitude", findSunMoonPhaseInfo);
 
-    function findSunMoonPhaseInfo(req,res){
-        var response={};
-        var latitude=req.params.latitude;
-        var longitude=req.params.longitude;
-        var date=new Date(req.params.date);
-        date.setDate(date.getDate() + 1);
-        response.sundetails=suncalc.getTimes(date,latitude,longitude);
-        response.moondetails=suncalc.getMoonTimes(date,latitude,longitude);
-        response.moonphase=suncalc.getMoonIllumination(date);
-        return res.json(response);
-    }
+var api = {
+    findSunMoonPhase: findSunMoonPhase
+};
+
+module.exports = api;
+
+function findSunMoonPhase(date, latitude, longitude) {
+    var response = {
+        sundetails  : suncalc.getTimes(date, latitude, longitude),
+        moondetails : suncalc.getMoonTimes(date, latitude, longitude),
+        moonphase   : suncalc.getMoonIllumination(date)
+    };
+    return response;
+}
+
+function findSunMoonPhaseInfo(req,res){
+    var latitude=req.params.latitude;
+    var longitude=req.params.longitude;
+    var date=new Date(req.params.date);
+    date.setDate(date.getDate() + 1);
+    var response = findSunMoonPhase(date, latitude, longitude)
+    return res.json(response);
 }

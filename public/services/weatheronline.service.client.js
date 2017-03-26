@@ -17,8 +17,6 @@
         return api;
 
         function getMarineWeather(lat, long, date) {
-            // lat = "42.7497";
-            // long = "70.7971";
             var yyyy = date.getFullYear();
             var MM = date.getMonth() + 1;
             MM = MM < 10 ? "0"+MM : MM+"";

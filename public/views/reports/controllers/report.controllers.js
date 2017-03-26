@@ -32,7 +32,7 @@
         init();
     }
     
-    function TideSunMoonFishReportController($routeParams, $scope, ReportsService) {
+    function TideSunMoonFishReportController($routeParams, $scope, ReportsService, WorldWeatherOnlineService) {
         $scope.username = $routeParams.username;
         $scope.reportId = $routeParams.reportId;
         $scope.report;
@@ -49,8 +49,17 @@
                         // });
                 })
                 .then(function (response) {
+                    var latitude = response.data.requestLat;
+                    var longitude = response.data.requestLon;
+                    WorldWeatherOnlineService
+                        .getMarineWeather(latitude, longitude, new Date($scope.report.startDate))
+                        .then(function (res) {
+                            $scope.weather = res.data.data.weather;
+                        });
+
                     var heights = response.data.heights;
                     var extremes = response.data.extremes;
+//                    $scope.extremes = extremes;
                     var max = 0;
                     var min = 0;
                     extremes.forEach(function (extreme) {
@@ -62,8 +71,10 @@
                         }
                     });
                     var range = Math.abs(max) + Math.abs(min);
-                    $scope.range = range;
-                    $scope.tides = response.data.heights;
+                    response.max = max;
+                    response.min = min;
+                    response.range = range
+                    $scope.response = response;
                     console.log(response.data);
                 });
         }
