@@ -9,9 +9,9 @@
 			<span class="glyphicon glyphicon-ok"></span>
 		</a>
 
-		<a	ng-show="editTrip.images"
+		<a	ng-show="trip.images"
 			  class="btn btn-warning pull-right f360-navbar-button f360-nudge-left"
-			  href="#/{{username}}/trip/{{editTrip._id}}/photosFromHome">
+			  href="#/{{username}}/trip/{{trip._id}}/photosFromHome">
 			<span class="glyphicon glyphicon-camera"></span>
 		</a>
 
@@ -22,7 +22,7 @@
 </div>
 
 <label for="title">Title</label>
-<input ng-model="editTrip.title"
+<input ng-model="trip.title"
        id="title"
        class="form-control"
        placeholder="Title"/>
@@ -30,33 +30,33 @@
 <label for="start-date">Start Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="editTrip.start"
+        <input ng-model="trip.start"
                id="start-date"
                class="form-control"
                type="date" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="editTrip.startTime" class="form-control" type="time" />
+        <input ng-model="trip.startTime" class="form-control" type="time" />
     </div>
 </div>
 
 <label for="end-date">End Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="editTrip.end"
+        <input ng-model="trip.end"
                id="end-date"
                class="form-control"
                type="date" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="editTrip.endTime" class="form-control" type="time" />
+        <input ng-model="trip.endTime" class="form-control" type="time" />
     </div>
 </div>
 
 <label for="spots">Spots</label>
 <select  ng-change="loadMarineWeather()"
          id="spots"
-         ng-model="editTrip.spot"
+         ng-model="trip.spot"
          class="form-control"
          placeholder="Spot">
 	<option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
@@ -72,22 +72,22 @@
     <div id="sunmoon" class="collapse">
         <div class="panel-body">
 
-            <div ng-show="!editTrip.weather"
+            <div ng-show="!trip.weather"
                  class="alert alert-success">
                 Please select a date and spot
             </div>
 
-            <div ng-show="editTrip.weather">
+            <div ng-show="trip.weather">
                 <div class="row">
                     <div class="col-xs-6">
                         Sunrise
-                        <input ng-model="editTrip.weather[0].astronomy[0].sunrise"
+                        <input ng-model="trip.weather[0].astronomy[0].sunrise"
                                class="form-control"
                                type="text" readonly/>
                     </div>
                     <div class="col-xs-6">
                         Sunset
-                        <input ng-model="editTrip.weather[0].astronomy[0].sunset"
+                        <input ng-model="trip.weather[0].astronomy[0].sunset"
                                class="form-control"
                                type="text" readonly/>
                     </div>
@@ -96,20 +96,20 @@
                 <div class="row">
                     <div class="col-xs-6">
                         Moonrise
-                        <input ng-model="editTrip.weather[0].astronomy[0].moonrise"
+                        <input ng-model="trip.weather[0].astronomy[0].moonrise"
                                class="form-control"
                                type="text" readonly/>
                     </div>
                     <div class="col-xs-6">
                         Moonset
-                        <input ng-model="editTrip.weather[0].astronomy[0].moonset"
+                        <input ng-model="trip.weather[0].astronomy[0].moonset"
                                class="form-control"
                                type="text" readonly/>
                     </div>
                 </div>
 
                 <!--Moon Phase-->
-                <!--<input ng-model="editTrip.moonphase"-->
+                <!--<input ng-model="trip.moonphase"-->
                 <!--class="form-control"-->
                 <!--type="text" readonly/>-->
             </div>
@@ -125,41 +125,41 @@
     </div>
     <div id="weather-collapse" class="collapse">
         <div class="panel-body">
-            <div ng-show="!editTrip.weather"
+            <div ng-show="!trip.weather"
                  class="alert alert-success">
                 Please select a date and spot
             </div>
 
-            <table ng-if="editTrip.weather" class="table">
+            <table ng-if="trip.weather" class="table">
                 <tbody>
                 <tr>
                     <td>Air Temp. (min/max)</td>
-                    <td>{{editTrip.weather[0].mintempF}} &#8457; / {{editTrip.weather[0].maxtempF}} &#8457;</td>
+                    <td>{{trip.weather[0].mintempF}} &#8457; / {{trip.weather[0].maxtempF}} &#8457;</td>
                 </tr>
                 <tr>
                     <td>Wind</td>
-                    <td>{{editTrip.weather[0].hourly[0].windspeedMiles}} mph {{editTrip.weather[0].hourly[0].winddir16Point}}</td>
+                    <td>{{trip.weather[0].hourly[0].windspeedMiles}} mph {{trip.weather[0].hourly[0].winddir16Point}}</td>
                 </tr>
                 <tr>
                     <td>Pressure</td>
-                    <td>{{editTrip.weather[0].hourly[0].pressure}}</td>
+                    <td>{{trip.weather[0].hourly[0].pressure}}</td>
                 </tr>
                 <tr>
                     <td>Precipation</td>
-                    <td>{{editTrip.weather[0].hourly[0].precipMM}} mm</td>
+                    <td>{{trip.weather[0].hourly[0].precipMM}} mm</td>
                 </tr>
                 <tr>
                     <td>Sky</td>
                     <td>
-							<span ng-repeat="value in editTrip.weather[0].hourly[0].weatherDesc[0]">
+							<span ng-repeat="value in trip.weather[0].hourly[0].weatherDesc[0]">
 								{{value}}
 							</span>
-                        <img width="10%" ng-src={{editTrip.weather[0].hourly[0].weatherIconUrl[0].value}} />
+                        <img width="10%" ng-src={{trip.weather[0].hourly[0].weatherIconUrl[0].value}} />
                     </td>
                 </tr>
                 <tr>
                     <td>Water Temperature</td>
-                    <td>{{editTrip.weather[0].hourly[0].waterTemp_F}} &#8457;</td>
+                    <td>{{trip.weather[0].hourly[0].waterTemp_F}} &#8457;</td>
                 </tr>
                 </tbody>
             </table>
@@ -176,27 +176,27 @@
     <div id="tide" class="collapse">
         <div class="panel-body">
 
-            <div ng-show="!editTrip.spot || !editTrip.start"
+            <div ng-show="!trip.spot || !trip.start"
                  class="alert alert-success">
                 Please select a date and spot
             </div>
 
-            <f360-tide-chart date="{{editTrip.start}}" time="{{editTrip.startTime}}" spot="{{editTrip.spot}}" username="{{username}}"></f360-tide-chart>
+            <f360-tide-chart date="{{trip.start}}" time="{{trip.startTime}}" spot="{{trip.spot}}" username="{{username}}"></f360-tide-chart>
 
         </div>
     </div>
 </div>
 
 <label for="notes">Notes</label>
-<textarea ng-model="editTrip.notes"
+<textarea ng-model="trip.notes"
           class="form-control"
           id="notes"
           placeholder="Notes">
 </textarea>
 
-<div ng-show="editTrip.images">
+<div ng-show="trip.images">
 	Photos
-	<a href="#/{{username}}/trip/{{editTrip._id}}/photosFromHome" class="btn btn-success btn-block">
+	<a href="#/{{username}}/trip/{{trip._id}}/photosFromHome" class="btn btn-success btn-block">
 		View Photos
 	</a>
 </div>
@@ -207,13 +207,13 @@
 	  action="/trip/photo"
 	  method="post">
 	<input type="hidden" name="username" value="{{username}}"/>
-	<input type="hidden" name="tripId" value="{{editTrip._id}}"/>
+	<input type="hidden" name="tripId" value="{{trip._id}}"/>
 	<input type="file"   name="userPhoto" id="photo" class="form-control" />
 	<!--input type="submit" value="Upload Image" name="submit"-->
 	<button type="submit" class="btn btn-primary btn-block">Upload Image</button>
 </form>
 
-<!--a	href="#/{{editTrip.username}}/trip/{{editTrip._id}}/edit"-->
+<!--a	href="#/{{trip.username}}/trip/{{trip._id}}/edit"-->
 <button class="btn btn-danger btn-block f360-navbar-button" ng-click="remove()">
 	Delete
 </button>

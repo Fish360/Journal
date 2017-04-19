@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vendor/angularjs/1.5.6/angular.min.js"></script>
+    <script src="directives/f360-directives/f360-directives.js"></script>
+    <!--<script src="testDirectiveModule.js"></script>-->
+    <script src="test.js"></script>
+    <title>Title</title>
+</head>
+<body ng-app="TestApp">
+<h1>Test</h1>
+<div ng-controller="tideReportController as model">
+    <h2>F360 Tide Report Directive</h2>
+    <!--<test-hello></test-hello>-->
+
+    <f360-tide-report trip="model.trip" tides="model.tides"></f360-tide-report>
+
+    <h3>Trip from controller</h3>
+    {{model.trip}}
+
+    <!--<h3>Tides</h3>-->
+    <!--{{tides}}-->
+</div>
+</body>
+</html>

@@ -329,6 +329,8 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 				$http.get("api/user/" + $scope.username + "/trip/" + $scope.tripId + "/fish/" + $scope.fishId)
 					.success(function(fish)
 					{
+						fish.caught = new Date(fish.caught);
+						fish.caughtTime = new Date(fish.caught);
 						$scope.editFish = fish;
 						loadMoonPhase();
 					}).then(function(){
@@ -354,10 +356,12 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 				}
 			}
 		});
-	}
+	};
 
 	$scope.update = function()
 	{
+		$scope.editFish.caught.setHours($scope.editFish.caughtTime.getHours());
+		$scope.editFish.caught.setMinutes($scope.editFish.caughtTime.getMinutes());
 		if(!validateSpecieSelection()) {
 			return;
 		}
@@ -410,7 +414,7 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 				window.history.go(-1);
 
 			});
-	}
+	};
 
 	$scope.remove = function()
 	{
@@ -456,15 +460,17 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 					}
 
 					TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
-						SunMoonService.findSunMoonPhase($scope.editFish, spot, function (response) {
-							var phase = response.moonphase.phase;
-							$scope.editFish.moonphase = (phase < 0.25) ? "New Moon" : (phase < 0.5) ? "First Quarter"
-								: (phase < 0.75) ? "Full Moon" : "Last Quarter";
-							$scope.editFish.sunriseTime = moment(response.sundetails.sunrise).tz(offset.timeZoneId).format("HH:mm");
-							$scope.editFish.moonriseTime = moment(response.moondetails.rise).tz(offset.timeZoneId).format("HH:mm");
-							$scope.editFish.sunsetTime = moment(response.sundetails.sunset).tz(offset.timeZoneId).format("HH:mm");
-							$scope.editFish.moonsetTime = moment(response.moondetails.set).tz(offset.timeZoneId).format("HH:mm");
-						});
+						if(offset.status !== "INVALID_REQUEST") {
+							SunMoonService.findSunMoonPhase($scope.editFish, spot, function (response) {
+								var phase = response.moonphase.phase;
+								$scope.editFish.moonphase = (phase < 0.25) ? "New Moon" : (phase < 0.5) ? "First Quarter"
+									: (phase < 0.75) ? "Full Moon" : "Last Quarter";
+								$scope.editFish.sunriseTime = moment(response.sundetails.sunrise).tz(offset.timeZoneId).format("HH:mm");
+								$scope.editFish.moonriseTime = moment(response.moondetails.rise).tz(offset.timeZoneId).format("HH:mm");
+								$scope.editFish.sunsetTime = moment(response.sundetails.sunset).tz(offset.timeZoneId).format("HH:mm");
+								$scope.editFish.moonsetTime = moment(response.moondetails.set).tz(offset.timeZoneId).format("HH:mm");
+							});
+						}
 					});
 				}
 			});

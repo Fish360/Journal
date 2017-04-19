@@ -106,7 +106,11 @@ function findUTCOffset(req,res){
     var long=req.params.longitude;
     var date=req.params.date;
     timezone.data(lat, long, date, function (err, tz) {
-        res.json(tz.raw_response);
+        if(tz) {
+            res.json(tz.raw_response);
+        } else {
+            res.json({});
+        }
     });
     //res.json(tzwhere.tzOffsetAt(lat,long)/1000);
 }

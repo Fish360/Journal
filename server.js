@@ -68,6 +68,7 @@ var gear = require('./public/views/gear/server.js');
 var fish = require('./public/views/spots/server.js');
 var search = require('./public/views/search/server.js');
 var searchResults = require('./public/views/searchResults/server.js');
+var weatheronlineService = require('./app/services/world-weather-online.service.server');
 
 var connection_string = '127.0.0.1:27017/f360';
 

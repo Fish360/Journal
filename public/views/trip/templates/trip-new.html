@@ -14,7 +14,7 @@
 </div>
 
 <label for="title">Title</label>
-<input ng-model="newTrip.title"
+<input ng-model="trip.title"
 	   id="title"
 	   class="form-control"
 	   placeholder="Title"/>
@@ -22,14 +22,14 @@
 <label for="start-date">Start Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="newTrip.start"
+        <input ng-model="trip.start"
 			   id="start-date"
 			   class="form-control"
 			   type="date"
 			   ng-change="loadMarineWeather()" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="newTrip.startTime"
+        <input ng-model="trip.startTime"
 			   class="form-control"
 			   type="time" />
     </div>
@@ -38,20 +38,20 @@
 <label for="end-date">End Date/Time</label>
 <div class="row">
     <div class="col-xs-6">
-        <input ng-model="newTrip.end"
+        <input ng-model="trip.end"
 			   id="end-date"
 			   class="form-control"
 			   type="date" />
     </div>
     <div class="col-xs-6">
-        <input ng-model="newTrip.endTime"
+        <input ng-model="trip.endTime"
 			   class="form-control"
 			   type="time" />
     </div>
 </div>
 
 <label for="spots">Spots:</label>
-<select ng-model="newTrip.spot"
+<select ng-model="trip.spot"
 		id="spots"
 		ng-change="loadMarineWeather()"
 		class="form-control"
@@ -69,22 +69,22 @@
 	<div id="sunmoon" class="collapse">
 		<div class="panel-body">
 
-			<div ng-show="!newTrip.weather"
+			<div ng-show="!trip.weather"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<div ng-show="newTrip.weather">
+			<div ng-show="trip.weather">
 				<div class="row">
 					<div class="col-xs-6">
 						Sunrise
-						<input ng-model="newTrip.weather[0].astronomy[0].sunrise"
+						<input ng-model="trip.weather[0].astronomy[0].sunrise"
 							   class="form-control"
 							   type="text" readonly/>
 					</div>
 					<div class="col-xs-6">
 						Sunset
-						<input ng-model="newTrip.weather[0].astronomy[0].sunset"
+						<input ng-model="trip.weather[0].astronomy[0].sunset"
 							   class="form-control"
 							   type="text" readonly/>
 					</div>
@@ -93,20 +93,20 @@
 				<div class="row">
 					<div class="col-xs-6">
 						Moonrise
-						<input ng-model="newTrip.weather[0].astronomy[0].moonrise"
+						<input ng-model="trip.weather[0].astronomy[0].moonrise"
 							   class="form-control"
 							   type="text" readonly/>
 					</div>
 					<div class="col-xs-6">
 						Moonset
-						<input ng-model="newTrip.weather[0].astronomy[0].moonset"
+						<input ng-model="trip.weather[0].astronomy[0].moonset"
 							   class="form-control"
 							   type="text" readonly/>
 					</div>
 				</div>
 
 				<!--Moon Phase-->
-				<!--<input ng-model="newTrip.moonphase"-->
+				<!--<input ng-model="trip.moonphase"-->
 					   <!--class="form-control"-->
 					   <!--type="text" readonly/>-->
 			</div>
@@ -122,41 +122,41 @@
 	</div>
 	<div id="weather-collapse" class="collapse">
 		<div class="panel-body">
-			<div ng-show="!newTrip.weather"
+			<div ng-show="!trip.weather"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<table ng-if="newTrip.weather" class="table">
+			<table ng-if="trip.weather" class="table">
 				<tbody>
 				<tr>
 					<td>Air Temp. (min/max)</td>
-					<td>{{newTrip.weather[0].mintempF}} &#8457; / {{newTrip.weather[0].maxtempF}} &#8457;</td>
+					<td>{{trip.weather[0].mintempF}} &#8457; / {{trip.weather[0].maxtempF}} &#8457;</td>
 				</tr>
 				<tr>
 					<td>Wind</td>
-					<td>{{newTrip.weather[0].hourly[0].windspeedMiles}} mph {{newTrip.weather[0].hourly[0].winddir16Point}}</td>
+					<td>{{trip.weather[0].hourly[0].windspeedMiles}} mph {{trip.weather[0].hourly[0].winddir16Point}}</td>
 				</tr>
 				<tr>
 					<td>Pressure</td>
-					<td>{{newTrip.weather[0].hourly[0].pressure}}</td>
+					<td>{{trip.weather[0].hourly[0].pressure}}</td>
 				</tr>
 				<tr>
 					<td>Precipation</td>
-					<td>{{newTrip.weather[0].hourly[0].precipMM}} mm</td>
+					<td>{{trip.weather[0].hourly[0].precipMM}} mm</td>
 				</tr>
 				<tr>
 					<td>Sky</td>
 					<td>
-							<span ng-repeat="value in newTrip.weather[0].hourly[0].weatherDesc[0]">
+							<span ng-repeat="value in trip.weather[0].hourly[0].weatherDesc[0]">
 								{{value}}
 							</span>
-						<img width="10%" ng-src={{newTrip.weather[0].hourly[0].weatherIconUrl[0].value}} />
+						<img width="10%" ng-src={{trip.weather[0].hourly[0].weatherIconUrl[0].value}} />
 					</td>
 				</tr>
 				<tr>
 					<td>Water Temperature</td>
-					<td>{{newTrip.weather[0].hourly[0].waterTemp_F}} &#8457;</td>
+					<td>{{trip.weather[0].hourly[0].waterTemp_F}} &#8457;</td>
 				</tr>
 				</tbody>
 			</table>
@@ -173,18 +173,18 @@
 	<div id="tide" class="collapse">
 		<div class="panel-body">
 
-			<div ng-show="!newTrip.spot || !newTrip.start"
+			<div ng-show="!trip.spot || !trip.start"
 				 class="alert alert-success">
 				Please select a date and spot
 			</div>
 
-			<f360-tide-chart date="{{newTrip.start}}" time="{{newTrip.startTime}}" spot="{{newTrip.spot}}" username="{{username}}"></f360-tide-chart>
+			<f360-tide-chart date="{{trip.start}}" time="{{trip.startTime}}" spot="{{trip.spot}}" username="{{username}}"></f360-tide-chart>
 
 		</div>
 	</div>
 </div>
 
 <label>Notes</label>
-<textarea ng-model="newTrip.notes" class="form-control" placeholder="Notes">
+<textarea ng-model="trip.notes" class="form-control" placeholder="Notes">
 
 </textarea>

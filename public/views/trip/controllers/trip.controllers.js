@@ -43,16 +43,16 @@
 		init();
 
 		function loadMarineWeather(){
-			if ($scope.newTrip.spot) {
-				SpotService.findOne($scope.username, $scope.newTrip.spot, function (spot) {
+			if ($scope.trip.spot) {
+				SpotService.findOne($scope.username, $scope.trip.spot, function (spot) {
 					var tripTime;
 
-					if (spot.latitude && spot.longitude && $scope.newTrip.start)
+					if (spot.latitude && spot.longitude && $scope.trip.start)
 					{
-						var start = $scope.newTrip.start.replace(/-/g, '/');
-						if (typeof $scope.newTrip.startTime != "undefined")
+						var start = $scope.trip.start.replace(/-/g, '/');
+						if (typeof $scope.trip.startTime != "undefined")
 						{
-							tripTime = new Date(start + "T" + $scope.newTrip.startTime + ":00");
+							tripTime = new Date(start + "T" + $scope.trip.startTime + ":00");
 						}
 						else
 						{
@@ -63,7 +63,7 @@
 							.getMarineWeather(spot.latitude, spot.longitude, tripTime)
 							.then(
 								function (response) {
-									$scope.newTrip.weather = response.data.data.weather;
+									$scope.trip.weather = response.data.data.weather;
 								},
 								function (error) {
 									console.log(error);
@@ -75,9 +75,9 @@
 		}
 
 		function create() {
-			$scope.newTrip.username = $scope.username
-			$scope.newTrip["lastUpdated"] = new Date();
-			$http.post("api/" + $scope.username + "/trip", $scope.newTrip)
+			$scope.trip.username = $scope.username
+			$scope.trip["lastUpdated"] = new Date();
+			$http.post("api/" + $scope.username + "/trip", $scope.trip)
 			.success(function(trips)
 			{
 				$location.path($scope.username + "/trip/list");
@@ -94,7 +94,9 @@
 			$scope.spots = spots;
 			$http.get("api/" + $scope.username + "/trip/" + tripid)
 				.success(function (trip) {
-					$scope.editTrip = trip;
+					trip.start = new Date(trip.start);
+					trip.end   = new Date(trip.end);
+					$scope.trip = trip;
 					loadMarineWeather();
 				});
 		});
@@ -102,25 +104,25 @@
 		$scope.loadMarineWeather = loadMarineWeather;
 
 		function loadMarineWeather(){
-			if ($scope.editTrip.spot) {
+			if ($scope.trip.spot) {
 
-				SpotService.findOne($scope.username, $scope.editTrip.spot, function (spot) {
+				SpotService.findOne($scope.username, $scope.trip.spot, function (spot) {
 					var tripTime;
 					if (spot.latitude && spot.longitude) {
-						if ($scope.editTrip.startTime != undefined) {
-							tripTime = new Date($scope.editTrip.start + "T" + $scope.editTrip.startTime + ":00");
+						if ($scope.trip.startTime != undefined) {
+							tripTime = new Date($scope.trip.start + "T" + $scope.trip.startTime + ":00");
 						}
 						else {
 
-							tripTime = new Date($scope.editTrip.start);
+							tripTime = new Date($scope.trip.start);
 						}
 
-						if(!$scope.editTrip.weather) {
+						if(!$scope.trip.weather) {
 							WorldWeatherOnlineService
 								.getMarineWeather(spot.latitude, spot.longitude, tripTime)
 								.then(
 									function (response) {
-										$scope.editTrip.weather = response.data.data.weather;
+										$scope.trip.weather = response.data.data.weather;
 									},
 									function (error) {
 										console.log(error);
@@ -131,13 +133,13 @@
 
 		$scope.update = function()
 		{
-			$scope.editTrip.username = $scope.username;
-			$scope.editTrip["lastUpdated"] = new Date();
-			$http.put("api/"+$scope.username+"/trip/"+tripid, $scope.editTrip)
+			$scope.trip.username = $scope.username;
+			$scope.trip["lastUpdated"] = new Date();
+			$http.put("api/"+$scope.username+"/trip/"+tripid, $scope.trip)
 				.success(function(trip){
 					$location.path( $scope.username+"/trip/list" );
 				});
-		}
+		};
 
 		$scope.remove = function()
 		{

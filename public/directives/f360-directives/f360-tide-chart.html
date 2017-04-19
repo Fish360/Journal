@@ -1,50 +1,87 @@
-
 <div ng-init="max = Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))">
+    <div class="col-xs-12" id="chart" style="padding-left: 0px; padding-right: 0px">
+        <div ng-if="sunriseMinutes">
+            <i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunriseMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunrise}}</i>
+            <i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunsetMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunset}}</i>
+            <i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonriseMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonrise}}</i>
+            <i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonsetMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonset}}</i>
+        </div>
+        <div>
+            <span style="font-size: 1.5em;color:red;position: absolute;top:40px; z-index:1;left: {{fish.caughtMinutes}}%"
+                  ng-repeat="fish in fishes"
+                  class="glyphicon glyphicon-heart">{{fish.species}} {{fish.caughtTime | date : 'h:mm a'}}</span>
+        </div>
+        <div ng-repeat="tide in tides.heights"
+             style="float: left; height:200px; width: {{100/tides.heights.length}}%; background-color: {{$even ? '#ddd' : '#ccc'}}">
+            <div class="top"
+                 style="height: 100px;position: relative;">
+                <div ng-if="tide.height > 0"
+                     style=" width:100%; position:absolute;bottom: 0px;background: lightskyblue;height: {{(tide.height) * 200/range}}px;">
+                </div>
+                <!--<div ng-if="$even" style="left:-20px;z-index: 20;-webkit-transform:rotate(-90deg);position: absolute;bottom:10px;width:65px;color: white;text-shadow: 0px 0px 2px #000000;">-->
+                    <!--{{tide.date | date : 'h:mm a'}}-->
+                    <!--&lt;!&ndash;{{tide.height * 3.2 | number : 2}}'&ndash;&gt;-->
+                <!--</div>-->
+            </div>
+            <div class="bottom"
+                 style="height: 100px;position: relative;">
+                <div ng-if="tide.height <= 0"
+                     style=" width:100%; position: absolute;top: 0px;background: lightskyblue;height: {{(-tide.height) * 200/range}}px;">
+                </div>
+                <div ng-if="$even" style="left:-5px;z-index: 20;position:absolute;bottom:15px;-webkit-transform:rotate(45deg);width:65px;color: black;text-shadow: 0px 0px 2px #fff;">
+                    {{tide.date | date : 'h:mm a'}}
+                    <!--{{tide.height * 3.2 | number : 2}}'-->
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <table class="table" ng-show="tides.extremes">
-        <thead>
-            <tr>
-                <th>Hi/Lo</th>
-                <th style="text-align: right">Time</th>
-                <th style="text-align: right">Height</th>
+    <div>
+        <table class="table" ng-show="tides.extremes">
+            <thead>
+                <tr>
+                    <th>Hi/Lo</th>
+                    <th style="text-align: right">Time</th>
+                    <th style="text-align: right">Height</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="extreme in tides.extremes">
+                <td>
+                    {{extreme.type}}
+                </td>
+                <td style="text-align: right">
+                    {{extreme.date | date : 'h:mm a'}}
+                </td>
+                <td style="text-align: right">
+                    {{extreme.height * 3.2 | number : 2}}'
+                </td>
             </tr>
-        </thead>
-        <tbody>
 
-        <tr ng-repeat="extreme in tides.extremes">
-            <td>
-                {{extreme.type}}
-            </td>
-            <td style="text-align: right">
-                {{extreme.date | date : 'h:mm a'}}
-            </td>
-            <td style="text-align: right">
-                {{extreme.height * 3.2 | number : 2}}'
-            </td>
-        </tr>
+            </tbody>
+        </table>
 
-        </tbody>
-    </table>
-
-    {{Math.abs(tides.extremes[0].height)}}
-    {{Math.abs(tides.extremes[1].height)}}
-    {{Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))}}
-    <div ng-repeat="height in tides.heights" class="row" ng-class="{'f360-even-row': $index % 2 == 0, 'f360-odd-row': $index % 2 !== 0}">
-        <div class="col-xs-2" style="white-space: nowrap">
-            {{height.date | date : 'h:mm a'}}
-        </div>
-        <div class="col-xs-5" style="padding-right: 0px;">
-            <div ng-if="height.height < 0"
-                 style="text-shadow: 0px 0px 2px #000000;background-color: #1d9ce5; color: white;width: {{height.height * -1 / 1.08 * 100}}%"
-                 class="pull-right">
-                {{height.height * 3.2 | number : 2}}'
-            </div>
-        </div>
-        <div class="col-xs-5" style="padding-left: 0px;">
-            <div ng-if="height.height >= 0"
-                 style="text-shadow: 0px 0px 2px #000000; text-align:right; color: white;background-color: #1d9ce5; width: {{height.height / 1.08 * 100}}%">
-                {{height.height * 3.2 | number : 2}}'
-            </div>
-        </div>
+        <!--{{Math.abs(tides.extremes[0].height)}}-->
+        <!--{{Math.abs(tides.extremes[1].height)}}-->
+        <!--{{Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))}}-->
+        <!--<div ng-repeat="height in tides.heights" class="row" ng-class="{'f360-even-row': $index % 2 == 0, 'f360-odd-row': $index % 2 !== 0}">-->
+            <!--<div class="col-xs-2" style="white-space: nowrap">-->
+                <!--{{height.date | date : 'h:mm a'}}-->
+            <!--</div>-->
+            <!--<div class="col-xs-5" style="padding-right: 0px;">-->
+                <!--<div ng-if="height.height < 0"-->
+                     <!--style="text-shadow: 0px 0px 2px #000000;background-color: #1d9ce5; color: white;width: {{height.height * -1 / 1.08 * 100}}%"-->
+                     <!--class="pull-right">-->
+                    <!--{{height.height * 3.2 | number : 2}}'-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-5" style="padding-left: 0px;">-->
+                <!--<div ng-if="height.height >= 0"-->
+                     <!--style="text-shadow: 0px 0px 2px #000000; text-align:right; color: white;background-color: #1d9ce5; width: {{height.height / 1.08 * 100}}%">-->
+                    <!--{{height.height * 3.2 | number : 2}}'-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
