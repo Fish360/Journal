@@ -1,15 +1,20 @@
 <div ng-init="max = Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))">
     <div class="col-xs-12" id="chart" style="padding-left: 0px; padding-right: 0px">
         <div ng-if="sunriseMinutes">
-            <i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunriseMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunrise}}</i>
-            <i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunsetMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunset}}</i>
+            <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunriseMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunrise}}</i>-->
+            <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunsetMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunset}}</i>-->
+            <img src="../../img/sun-icon.png"
+                 style="width:20px;z-index:1;position: absolute;left:{{sunriseMinutes}}%;"/>
+            <span>{{trip.weather[0].astronomy[0].sunrise}}</span>
+            <img src="../../img/sun-icon.png"
+                 style="width:20px;z-index:1;position: absolute;left:{{sunsetMinutes}}%;"/>
+            <span>{{trip.weather[0].astronomy[0].sunset}}</span>
             <i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonriseMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonrise}}</i>
             <i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonsetMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonset}}</i>
         </div>
         <div>
-            <span style="font-size: 1.5em;color:red;position: absolute;top:40px; z-index:1;left: {{fish.caughtMinutes}}%"
-                  ng-repeat="fish in fishes"
-                  class="glyphicon glyphicon-heart">{{fish.species}} {{fish.caughtTime | date : 'h:mm a'}}</span>
+            <img src="/img/fish.png" style="width: 7%;position: absolute;top:40px; z-index:1;left: {{fish.caughtMinutes}}%"
+                  ng-repeat="fish in fishes"/>{{fish.species}} {{fish.caughtTime | date : 'h:mm a'}}
         </div>
         <div ng-repeat="tide in tides.heights"
              style="float: left; height:200px; width: {{100/tides.heights.length}}%; background-color: {{$even ? '#ddd' : '#ccc'}}">
