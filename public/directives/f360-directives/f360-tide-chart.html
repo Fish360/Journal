@@ -5,49 +5,47 @@
             <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunsetMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunset}}</i>-->
             <div style="z-index:1;position: absolute;left:{{sunriseMinutes}}%;">
                 <img src="../../img/sun-icon.png"
-                     style="width:20px;"/>
+                     style="width:25px;"/>
                 <span>{{trip.weather[0].astronomy[0].sunrise}}</span>
             </div>
             <div style="z-index:1;position: absolute;left:{{sunsetMinutes}}%;">
                 <img src="../../img/sun-icon.png"
-                     style="width:20px;"/>
+                     style="width:25px;"/>
                 <span>{{trip.weather[0].astronomy[0].sunset}}</span>
             </div>
             <!--<i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonriseMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonrise}}</i>-->
             <!--<i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonsetMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonset}}</i>-->
-            <div style="z-index:1;position: absolute;left:{{moonriseMinutes}}%;top:20px">
+            <div style="z-index:1;position: absolute;left:{{moonriseMinutes}}%;top:35px">
                 <img src="../../img/moon.png"
                      style="width:20px;"/>
                 <span>{{trip.weather[0].astronomy[0].moonrise}}</span>
             </div>
-            <div style="z-index:1;position: absolute;left:{{moonsetMinutes}}%;top:20px">
+            <div style="z-index:1;position: absolute;left:{{moonsetMinutes}}%;top:35px">
                 <img src="../../img/moon.png"
                      style="width:20px;"/>
                 <span>{{trip.weather[0].astronomy[0].moonset}}</span>
             </div>
         </div>
-        <div>
-            <img src="/img/fish.png" style="width: 7%;position: absolute;top:40px; z-index:1;left: {{fish.caughtMinutes}}%"
-                  ng-repeat="fish in fishes"/>{{fish.species}} {{fish.caughtTime | date : 'h:mm a'}}
+        <div ng-repeat="fish in fishes"
+             style="position: absolute;top:60px; z-index:1;left: {{fish.caughtMinutes}}%">
+            <img src="/img/fish.png"
+                 style="width: 20px;"/>
+            <span>{{fish.caughtTime | date : 'h:mm a'}}</span>
         </div>
         <div ng-repeat="tide in tides.heights"
              style="float: left; height:200px; width: {{100/tides.heights.length}}%; background-color: {{$even ? '#ddd' : '#ccc'}}">
             <div class="top"
                  style="height: 100px;position: relative;">
                 <div ng-if="tide.height > 0"
-                     style=" width:100%; position:absolute;bottom: 0px;background: lightskyblue;height: {{(tide.height) * 200/range}}px;">
+                     style="width:100%; position:absolute;bottom: 0px;background: lightskyblue;height: {{(tide.height) * 200/range}}px;">
                 </div>
-                <!--<div ng-if="$even" style="left:-20px;z-index: 20;-webkit-transform:rotate(-90deg);position: absolute;bottom:10px;width:65px;color: white;text-shadow: 0px 0px 2px #000000;">-->
-                    <!--{{tide.date | date : 'h:mm a'}}-->
-                    <!--&lt;!&ndash;{{tide.height * 3.2 | number : 2}}'&ndash;&gt;-->
-                <!--</div>-->
             </div>
             <div class="bottom"
                  style="height: 100px;position: relative;">
                 <div ng-if="tide.height <= 0"
                      style=" width:100%; position: absolute;top: 0px;background: lightskyblue;height: {{(-tide.height) * 200/range}}px;">
                 </div>
-                <div ng-if="$even" style="left:-5px;z-index: 20;position:absolute;bottom:15px;-webkit-transform:rotate(45deg);width:65px;color: black;text-shadow: 0px 0px 2px #fff;">
+                <div ng-if="$index%4 === 0" style="left:-5px;z-index: 20;position:absolute;bottom:15px;-webkit-transform:rotate(45deg);width:65px;color: black;text-shadow: 0px 0px 2px #fff;">
                     {{tide.date | date : 'h:mm a'}}
                     <!--{{tide.height * 3.2 | number : 2}}'-->
                 </div>
