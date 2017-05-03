@@ -3,31 +3,31 @@
         <div ng-if="sunriseMinutes">
             <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunriseMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunrise}}</i>-->
             <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunsetMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunset}}</i>-->
-            <div style="z-index:1;position: absolute;left:{{sunriseMinutes}}%;">
+            <div style="z-index:1;position: absolute;left:{{sunriseMinutes}}%;white-space: nowrap;">
                 <img src="../../img/sun-icon.png"
                      style="width:25px;"/>
                 <span>{{trip.weather[0].astronomy[0].sunrise}}</span>
             </div>
-            <div style="z-index:1;position: absolute;left:{{sunsetMinutes}}%;">
+            <div style="z-index:1;position: absolute;left:{{sunsetMinutes}}%;white-space: nowrap;">
                 <img src="../../img/sun-icon.png"
                      style="width:25px;"/>
                 <span>{{trip.weather[0].astronomy[0].sunset}}</span>
             </div>
             <!--<i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonriseMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonrise}}</i>-->
             <!--<i class="fa fa-moon-o" style="font-size: 1.5em;z-index:1;position: absolute;top:20px;left:{{moonsetMinutes}}%;color:white">{{trip.weather[0].astronomy[0].moonset}}</i>-->
-            <div style="z-index:1;position: absolute;left:{{moonriseMinutes}}%;top:35px">
+            <div style="z-index:1;position: absolute;left:{{moonriseMinutes}}%;top:35px;white-space: nowrap;">
                 <img src="../../img/moon.png"
                      style="width:20px;"/>
                 <span>{{trip.weather[0].astronomy[0].moonrise}}</span>
             </div>
-            <div style="z-index:1;position: absolute;left:{{moonsetMinutes}}%;top:35px">
+            <div style="z-index:1;position: absolute;left:{{moonsetMinutes}}%;top:35px;white-space: nowrap;">
                 <img src="../../img/moon.png"
                      style="width:20px;"/>
                 <span>{{trip.weather[0].astronomy[0].moonset}}</span>
             </div>
         </div>
         <div ng-repeat="fish in fishes"
-             style="position: absolute;top:60px; z-index:1;left: {{fish.caughtMinutes}}%">
+             style="position: absolute;top:60px; z-index:1;left: {{fish.caughtMinutes}}%;white-space: nowrap;">
             <img src="/img/fish.png"
                  style="width: 20px;"/>
             <span>{{fish.caughtTime | date : 'h:mm a'}}</span>
