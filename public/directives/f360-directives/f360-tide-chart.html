@@ -1,11 +1,11 @@
 <div ng-init="max = Math.max(Math.abs(tides.extremes[0].height), Math.abs(tides.extremes[1].height))">
-    <div ng-click="scrollLeft()" style="position: absolute;z-index: 3;top: 46%;">
+    <div ng-click="scrollLeft()" style="position: absolute;z-index: 3;">
         <i class="fa fa-chevron-circle-left fa-2x"></i>
     </div>
-    <div ng-click="scrollRight()" style="position: absolute;z-index: 3;top: 46%; right: 30px;">
+    <div ng-click="scrollRight()" style="position: absolute;z-index: 3;right: 30px;">
         <i class="fa fa-chevron-circle-right fa-2x"></i>
     </div>
-    <div>
+    <div style="text-align: center;font-weight: bolder;font-size: 1.5em;position: relative;top: -5px;">
         {{date | date}}
     </div>
     <div class="col-xs-12" id="chart" style="padding-left: 0px; padding-right: 0px">
