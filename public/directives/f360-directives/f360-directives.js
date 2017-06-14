@@ -18,12 +18,22 @@
     function f360TideChart(TidalService, SpotService, FishService) {
         function link(scope, element, attributes) {
 
+            scope.scrollLeft = function () {
+                scope.date.setDate(scope.date.getDate() - 1);
+                draw();
+            };
+
+            scope.scrollRight = function () {
+                scope.date.setDate(scope.date.getDate() + 1);
+                draw();
+            };
+
             scope.parseTime = function (timeString) {
                 alert(timeString);
             };
 
             attributes.$observe('date', function(value) {
-                scope.date = value;
+                scope.date = new Date(value.replace(/\"/g, ''));
                 draw();
             });
             attributes.$observe('spot', function(value) {
@@ -32,17 +42,18 @@
             });
             function draw() {
                 if(scope.date && scope.spot) {
-                    scope.date = scope.date.replace(/\"/g, '');
+                    // scope.date = scope.date.replace(/\"/g, '');
                     SpotService.findOne(attributes.username, scope.spot, function (spot) {
-                        var fishCaughtTime;
+                        // var fishCaughtTime;
                         if (spot.latitude && spot.longitude) {
-                            if (typeof scope.time != "undefined") {
-                                fishCaughtTime = new Date(scope.date + "T" + scope.time + ":00");
-                            }
-                            else {
-                                fishCaughtTime = new Date(scope.date);
-                            }
-                            var date = Math.round(fishCaughtTime.getTime() / 1000);
+                            // if (typeof scope.time != "undefined") {
+                            //     fishCaughtTime = new Date(scope.date + "T" + scope.time + ":00");
+                            // }
+                            // else {
+                            //     fishCaughtTime = new Date(scope.date);
+                            // }
+                            // var date = Math.round(fishCaughtTime.getTime() / 1000);
+                            var date = Math.round(scope.date.getTime() / 1000);
                             TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
                                 TidalService.findTidalInfo(date, spot, function (tides) {
                                     scope.tides = tides;
