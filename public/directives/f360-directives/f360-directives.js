@@ -15,17 +15,25 @@
         }
     }
 
-    function f360TideChart(TidalService, SpotService, FishService) {
+    function f360TideChart(TidalService, SpotService, FishService, WorldWeatherOnlineService) {
         function link(scope, element, attributes) {
 
+            scope.weatherIndex = 0;
+
             scope.scrollLeft = function () {
-                scope.date.setDate(scope.date.getDate() - 1);
-                draw();
+                // if(scope.weatherIndex > 0) {
+                    scope.weatherIndex--;
+                    scope.date.setDate(scope.date.getDate() - 1);
+                    draw();
+                // }
             };
 
             scope.scrollRight = function () {
-                scope.date.setDate(scope.date.getDate() + 1);
-                draw();
+                // if(scope.weatherIndex < 1) {
+                    scope.weatherIndex++;
+                    scope.date.setDate(scope.date.getDate() + 1);
+                    draw();
+                // }
             };
 
             scope.parseTime = function (timeString) {
@@ -54,6 +62,29 @@
                             // }
                             // var date = Math.round(fishCaughtTime.getTime() / 1000);
                             var date = Math.round(scope.date.getTime() / 1000);
+
+                            // spot.latitude = 43.3859;
+                            // spot.longitude = -70.5406;
+
+                            // WorldWeatherOnlineService
+                            //     .getMarineWeather(spot.latitude, spot.longitude, scope.date)
+                            //     .then(
+                            //         function (response) {
+                            //             scope.weather = response.data.data.weather;
+                            //
+                            //             if(scope.weather) {
+                            //                 var minutesInDay = 24 * 60;
+                            //                 scope.sunriseMinutes  = 100 * timeStringToMinutes(scope.weather[0].astronomy[0].sunrise) / minutesInDay;
+                            //                 scope.sunsetMinutes   = 100 * timeStringToMinutes(scope.weather[0].astronomy[0].sunset) / minutesInDay;
+                            //                 scope.moonriseMinutes = 100 * timeStringToMinutes(scope.weather[0].astronomy[0].moonrise) / minutesInDay;
+                            //                 scope.moonsetMinutes  = 100 * timeStringToMinutes(scope.weather[0].astronomy[0].moonset) / minutesInDay;
+                            //             }
+                            //         },
+                            //         function (error) {
+                            //             console.log(error);
+                            //         }
+                            //     );
+
                             TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
                                 TidalService.findTidalInfo(date, spot, function (tides) {
                                     scope.tides = tides;
@@ -75,12 +106,13 @@
                                     scope.min = min;
                                     scope.range = range;
 
-                                    if(scope.trip) {
+                                    if(scope.trip && scope.trip.weather) {
                                         var minutesInDay = 24 * 60;
-                                        scope.sunriseMinutes  = 100 * timeStringToMinutes(scope.trip.weather[0].astronomy[0].sunrise) / minutesInDay;
-                                        scope.sunsetMinutes   = 100 * timeStringToMinutes(scope.trip.weather[0].astronomy[0].sunset) / minutesInDay;
-                                        scope.moonriseMinutes = 100 * timeStringToMinutes(scope.trip.weather[0].astronomy[0].moonrise) / minutesInDay;
-                                        scope.moonsetMinutes  = 100 * timeStringToMinutes(scope.trip.weather[0].astronomy[0].moonset) / minutesInDay;
+                                        var astronomy = scope.trip.weather[0].astronomy[0];
+                                        scope.sunriseMinutes  = 100 * timeStringToMinutes(astronomy.sunrise) / minutesInDay;
+                                        scope.sunsetMinutes   = 100 * timeStringToMinutes(astronomy.sunset) / minutesInDay;
+                                        scope.moonriseMinutes = 100 * timeStringToMinutes(astronomy.moonrise) / minutesInDay;
+                                        scope.moonsetMinutes  = 100 * timeStringToMinutes(astronomy.moonset) / minutesInDay;
                                         FishService
                                             .findFishForTrip(scope.username, scope.trip._id)
                                             .then(function (fish) {

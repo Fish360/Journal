@@ -9,7 +9,7 @@
         {{date | date}}
     </div>
     <div class="col-xs-12" id="chart" style="padding-left: 0px; padding-right: 0px">
-        <div ng-if="sunriseMinutes">
+        <div ng-if="sunriseMinutes && weatherIndex === 0">
             <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunriseMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunrise}}</i>-->
             <!--<i class="fa fa-sun-o"  style="font-size: 1.5em;z-index:1;position: absolute;left:{{sunsetMinutes}}%;color:yellow">{{trip.weather[0].astronomy[0].sunset}}</i>-->
             <div style="z-index:1;position: absolute;left:{{sunriseMinutes}}%;white-space: nowrap;">
