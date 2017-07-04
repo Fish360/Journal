@@ -190,10 +190,14 @@ app.post("/api/:username/trip/:tripId/fish/:fishId/share", function (req, res) {
 // Get all fish for a given trip ID
 app.get("/api/user/:username/trip/:tripid/fish", function(req, res)
 {
-	db.fish.find({trip_id: mongojs.ObjectId(req.params.tripid)}, function(err, fishes)
-	{
-		res.json(fishes);
-	});
+	if(req.params.tripid === "undefined") {
+        res.json([]);
+	} else {
+        db.fish.find({trip_id: mongojs.ObjectId(req.params.tripid)}, function(err, fishes)
+        {
+            res.json(fishes);
+        });
+	}
 });
 // Get all fish for a user
 app.get("/api/allFish/:username", function(req, res)
