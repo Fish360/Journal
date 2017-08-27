@@ -45,6 +45,21 @@ f360.directive('backButton', function () {
 
 f360.config(["$routeProvider", function ($routeProvider, $http) {
     $routeProvider
+        .when("/:username/admin", {
+            templateUrl: "views/admin/templates/admin.template.view.html",
+            controller: "adminController",
+            controllerAs: "model"
+        })
+        .when("/:username/admin/user", {
+            templateUrl: "views/admin/templates/user-list.template.view.html",
+            controller: "userListController",
+            controllerAs: "model"
+        })
+        .when("/:username/admin/user/:userId", {
+            templateUrl: "views/admin/templates/user-edit.template.view.html",
+            controller: "userEditController",
+            controllerAs: "model"
+        })
         .when("/",
         {
             templateUrl: "views/user/login2.html",

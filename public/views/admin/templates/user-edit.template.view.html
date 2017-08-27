@@ -1,0 +1,21 @@
+<h1>User Edit</h1>
+<a href="#{{model.username}}/admin/user">
+    <span class="glyphicon glyphicon-chevron-left"></span></a>
+<a href="#{{model.username}}/home">
+    <span class="glyphicon glyphicon-home"></span>
+</a>
+<a href="#{{model.username}}/admin">
+    <span class="glyphicon glyphicon-briefcase"></span>
+</a>
+<br/>
+<label>Username</label>
+<input ng-model="model.user.username"
+       class="form-control"/>
+
+<label>First Name</label>
+<input ng-model="model.user.firstName"
+       class="form-control"/>
+
+<label>Last Name</label>
+<input ng-model="model.user.lastName"
+       class="form-control"/>

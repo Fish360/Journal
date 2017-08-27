@@ -1,7 +1,10 @@
+var mongojs = require("mongojs");
 module.exports = function (app, db) {
 
     app.post("/api/user", registerUser);
     app.put("/api/user/:username", updateProfile);
+    app.get("/api/admin/user", findAllUsers);
+    app.get("/api/admin/user/:userId", findUserById);
     app.get("/api/user/:username", findUserByUsername);
     app.get("/api/user/:username/:password", findUserByCredentials);
     app.post("/api/user/:username/preferences", findUserPreferences);
@@ -48,6 +51,22 @@ module.exports = function (app, db) {
         db.user.find({username: req.params.username}, function(err, user)
         {
             res.json(user);
+        });
+    }
+
+    function findUserById(req, res)
+    {
+        db.user.find({_id: mongojs.ObjectId(req.params.userId)},{username: 1, firstName: 1, lastName: 1}, function(err, users)
+        {
+            res.json(users[0]);
+        });
+    }
+
+    function findAllUsers(req, res)
+    {
+        db.user.find({},{username: 1, firstName: 1, lastName: 1}, function(err, users)
+        {
+            res.json(users);
         });
     }
 
