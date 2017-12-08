@@ -1,6 +1,6 @@
 
 (function () {
-    f30.service('DatabaseService', DatabaseService);
+    f360.service('DatabaseService', DatabaseService);
 
     function DatabaseService($http) {
         var api = this;
