@@ -66,7 +66,7 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
                 "controllerAs": "model",
                 "resolve": {
                 "user": "checkAdmin"
-            })
+            }})
         .when("/:username/admin", {
             templateUrl: "views/admin/templates/admin.template.view.html",
             controller: "adminController",
