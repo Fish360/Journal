@@ -45,6 +45,28 @@ f360.directive('backButton', function () {
 
 f360.config(["$routeProvider", function ($routeProvider, $http) {
     $routeProvider
+
+
+        .when("/admin/database", {
+            "templateUrl": "views/admin/templates/database/admin-database.view.client.html"
+        })
+        .when("/admin/database/backup", {
+            "templateUrl": "views/admin/templates/database/admin-database-backup.view.client.html",
+            "controller": "DatabaseController",
+            "controllerAs": "model"
+        })
+        .when("/admin/database/restore", {
+            "templateUrl": "views/admin/templates/database/admin-database-restore.view.client.html",
+            "controller": "DatabaseController",
+            "controllerAs": "model"
+        })
+        .when("/admin/database/migrate", {
+            "templateUrl": "views/admin/templates/database/admin-database-migrate.view.client.html",
+                "controller": "DatabaseController",
+                "controllerAs": "model",
+                "resolve": {
+                "user": "checkAdmin"
+            })
         .when("/:username/admin", {
             templateUrl: "views/admin/templates/admin.template.view.html",
             controller: "adminController",

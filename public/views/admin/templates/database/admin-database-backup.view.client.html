@@ -1,0 +1,16 @@
+<label for="environment">Environment</label>
+<select ng-model="model.environment"
+        id="environment"
+        class="form-control">
+  <option>LOCAL</option>
+  <option>DEV</option>
+  <option>DEMO</option>
+  <option>QA</option>
+  <option>PROD</option>
+</select>
+
+<a ng-click="backup(model.environment)"
+   ng-disabled="model.environment==null"
+   class="btn btn-success btn-block">
+  Backup and Download
+</a>

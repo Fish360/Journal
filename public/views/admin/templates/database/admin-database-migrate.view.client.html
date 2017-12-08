@@ -1,0 +1,25 @@
+<label for="from">From</label>
+<select ng-model="model.from"
+        id="from"
+        class="form-control">
+  <option>LOCAL</option>
+  <option>DEV</option>
+  <option>DEMO</option>
+  <option>QA</option>
+  <option>PROD</option>
+</select>
+<label for="to">To</label>
+<select ng-model="model.to"
+        id="to"
+        class="form-control">
+  <option>LOCAL</option>
+  <option>DEV</option>
+  <option>DEMO</option>
+  <option>QA</option>
+  <option>PROD</option>
+</select>
+<button ng-click="migrate(model.from, model.to)"
+        ng-disabled="model.from==null || model.to==null"
+        class="btn btn-success btn-block">Migrate
+</button>
+

@@ -1,0 +1,16 @@
+<label for="environment">Environment</label>
+<select ng-model="model.environment"
+        id="environment"
+        class="form-control">
+  <option>LOCAL</option>
+  <option>DEV</option>
+  <option>DEMO</option>
+  <option>QA</option>
+  <option>PROD</option>
+</select>
+<input type="file" file-model="myFile"/>
+<button ng-click="uploadFile(model.environment)"
+        ng-disabled="model.environment==null || myFile==null"
+        class="btn btn-success btn-block">Upload and Restore
+</button>
+
