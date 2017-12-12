@@ -72,12 +72,8 @@ var weatheronlineService = require('./app/services/world-weather-online.service.
 
 var connection_string = '127.0.0.1:27017/f360';
 
-if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
-	connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-	process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-	process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-	process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-	process.env.OPENSHIFT_APP_NAME;
+if(process.env.MONGODB_URI) {
+	connection_string = process.env.MONGODB_URI;
 }
 
 var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search', 'report']);
