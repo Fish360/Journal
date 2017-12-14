@@ -124,7 +124,7 @@ module.exports = function (app, db) {
         var username = req.body.username;
         var imageTranformationParams = {quality: "auto"};
 
-        savePhotoToCloudinaryAndMaintainList(req.files.userPhoto.path, imageTranformationParams, db.spot, spotId,
+        savePhotoToCloudinaryAndMaintainList(req.files.userPhoto.path, imageTranformationParams, db.spots, spotId,
             function () {
                 res.redirect("/#/" + username + "/spots/" + spotId + "/photos");
             });
