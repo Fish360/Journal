@@ -157,7 +157,7 @@ module.exports = function (app, db) {
             if (res != undefined && res.url != undefined) {
                 console.log("within update block")
                 console.log(collection.find());
-                collection.update({_id: mongojs.ObjectId(dbIdValue)}, {addToSet: {"images": res.url}});
+                collection.update({_id: mongojs.ObjectId(dbIdValue)}, {$addToSet: {"images": res.url}});
             }
             callback();
         });
