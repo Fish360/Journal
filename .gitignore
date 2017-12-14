@@ -4,3 +4,4 @@ public/uploads
 .idea/
 Thumbs.db
 package-lock.json
+.env
