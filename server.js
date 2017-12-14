@@ -7,7 +7,17 @@ var express   = app.express;
 var port  	  = process.env.PORT || 3000;
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var multer = require("multer");
+var cloudinary = require('cloudinary');
+var fs = require('fs');
 var done = false;
+
+
+cloudinary.config({
+	cloud_name: 'hthwldovr',
+	api_key: '334989942584451',
+	api_secret: '3gYNmailNoNkDbBQSWD7tLj_f7k'
+});
+
 
 //var crypto= require('crypto');
 //var bcrypt= require('bcrypt');
@@ -338,3 +348,4 @@ app.get('/api/datadir', function(req, res){
 require("./app/app.js")(app, db);
 
 app.listen(port, ipaddress);
+

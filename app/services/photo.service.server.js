@@ -1,6 +1,18 @@
 module.exports = function (app, db) {
 
     var mongojs = require('mongojs');
+    var cloudinary = require('cloudinary');
+
+    var fs = require('fs');
+    cloudinary.config({
+        cloud_name: 'hthwldovr',
+        api_key: '334989942584451',
+        api_secret: '3gYNmailNoNkDbBQSWD7tLj_f7k'
+    });
+
+
+  //  var fs = require('fs');
+
 
     var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
     var ncp = require('ncp').ncp;
@@ -66,9 +78,21 @@ module.exports = function (app, db) {
     app.post('/profile/photo', function (req, res) {
         var username = req.body.username;
         var userId = req.body.userId;
-        savePhoto("user", userId, req, function () {
-            res.redirect("/#/" + username + "/profile");
-        });
+
+        // savePhoto("user", userId, req, function () {
+        //     res.redirect("/#/" + username + "/profile");
+        // });
+        
+        cloudinary.v2.uploader.upload(req.files.userPhoto.path,
+            function(error, result){
+                console.log(result)
+                db.user.update({username: username},
+                    {imageLink : result.public_id})
+            });
+        
+
+        res.redirect("/#/" + username + "/profile");
+
     });
 
     app.post('/trip/photo', function (req, res) {
