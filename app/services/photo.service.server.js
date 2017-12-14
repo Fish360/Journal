@@ -92,7 +92,7 @@ module.exports = function (app, db) {
         var imageTranformationParams = {quality: "auto"};
         savePhotoToCloudinaryAndMaintainList(req.files.userPhoto.path, imageTranformationParams, db.trip, tripId,
             function () {
-                res.redirect("/#/" + username + "/trip/" + tripId + "/trip/photo");
+                res.redirect("/#/" + username + "/trip/" + tripId + "/photos");
             });
 
     });
