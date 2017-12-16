@@ -5,7 +5,7 @@ var q = require('q');
 app.get('/api/weather/marine', getMarineWeatherWebService);
 
 var key = "2662b0449e6940d494801430172802";
-var baseUrl = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=API_KEY&format=json&includelocation=yes&tide=yes&tp=24&q=LATLONG&date=DATE";
+var baseUrl = "https://api.worldweatheronline.com/premium/v1/marine.ashx?key=API_KEY&format=json&includelocation=yes&tide=yes&tp=24&q=LATLONG&date=DATE";
 var basePath = "/premium/v1/marine.ashx?key=API_KEY&format=json&includelocation=yes&tide=TIDE&tp=24&q=LATLONG&date=DATE";
 
 var api = {

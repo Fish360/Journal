@@ -254,7 +254,8 @@ f360.controller("NewFishController", function (WorldWeatherOnlineService, TidalS
 				else {
 					fishCaughtTime = new Date($scope.newFish.caught);
 				}
-
+				console.log(scope.newFish.caught);
+				console.log(fishCaughtTime);
 				WorldWeatherOnlineService
 					.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
 					.then(
@@ -439,7 +440,7 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 				var fishCaughtTime;
 				if (spot.latitude && spot.longitude) {
 					if ($scope.editFish.caughtTime != undefined) {
-						fishCaughtTime = new Date($scope.editFish.caught + "T" + $scope.editFish.caughtTime + ":00");
+						fishCaughtTime = combineDateAndTime($scope.editFish.caught, $scope.editFish.caughtTime);
 					}
 					else {
 						fishCaughtTime = new Date($scope.editFish.caught);
@@ -476,6 +477,18 @@ f360.controller("EditFishController", function (WorldWeatherOnlineService, Tidal
 			});
 		}
 	}
+
+	combineDateAndTime = function(date, time) {
+		timeString = time.getHours() + ':' + time.getMinutes() + ':00';
+
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1; // Jan is 0, dec is 11
+		var day = date.getDate();
+		var dateString = '' + year + '-' + month + '-' + day;
+		var combined = new Date(dateString + ' ' + timeString);
+
+		return combined;
+	};
 
 	function validateSpecieSelection() {
 		var isValidSpecies = ($scope.editFish.species === undefined)? false : true;
