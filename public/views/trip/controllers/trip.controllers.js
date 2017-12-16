@@ -38,6 +38,7 @@
 		function init() {
 			SpotService.findAll($scope.username, function (spots) {
 				$scope.spots = spots;
+				$scope.trip= {};
 			});
 		}
 		init();
@@ -49,16 +50,8 @@
 
 					if (spot.latitude && spot.longitude && $scope.trip.start)
 					{
-						// var start = $scope.trip.start.replace(/-/g, '/');
-						// if (typeof $scope.trip.startTime != "undefined")
-						// {
-						// 	tripTime = new Date(start + "T" + $scope.trip.startTime + ":00");
-						// }
-						// else
-						// {
-							tripTime = new Date($scope.trip.start);
-						// }
 
+						tripTime = new Date($scope.trip.start);
 						WorldWeatherOnlineService
 							.getMarineWeather(spot.latitude, spot.longitude, tripTime)
 							.then(
