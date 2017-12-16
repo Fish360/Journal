@@ -249,13 +249,11 @@ f360.controller("NewFishController", function (WorldWeatherOnlineService, TidalS
 			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
 				var fishCaughtTime;
 				if (typeof $scope.newFish.caughtTime != "undefined") {
-					fishCaughtTime = new Date($scope.newFish.caught + "T" + $scope.newFish.caughtTime + ":00");
+					fishCaughtTime = combineDateAndTime($scope.newFish.caught, $scope.newFish.caughtTime);
 				}
 				else {
 					fishCaughtTime = new Date($scope.newFish.caught);
 				}
-				console.log(scope.newFish.caught);
-				console.log(fishCaughtTime);
 				WorldWeatherOnlineService
 					.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
 					.then(
