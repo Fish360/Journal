@@ -96,12 +96,28 @@
 				.success(function (trip) {
 					trip.start = new Date(trip.start);
 					trip.end   = new Date(trip.end);
+					trip.startTime = new Date(trip.startTime);
+					trip.endTime = new Date(trip.endTime);
 					$scope.trip = trip;
 					loadMarineWeather();
 				});
 		});
 
+		combineDateAndTime = function(date, time) {
+			timeString = time.getHours() + ':' + time.getMinutes() + ':00';
+
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1; // Jan is 0, dec is 11
+			var day = date.getDate();
+			var dateString = '' + year + '-' + month + '-' + day;
+			var combined = new Date(dateString + ' ' + timeString);
+
+			return combined;
+		};
+
 		$scope.loadMarineWeather = loadMarineWeather;
+
+
 
 		function loadMarineWeather(){
 			if ($scope.trip.spot) {
@@ -110,7 +126,7 @@
 					var tripTime;
 					if (spot.latitude && spot.longitude) {
 						if ($scope.trip.startTime != undefined) {
-							tripTime = new Date($scope.trip.start + "T" + $scope.trip.startTime + ":00");
+							tripTime = combineDateAndTime($scope.trip.start, $scope.trip.startTime);
 						}
 						else {
 
