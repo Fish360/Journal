@@ -14,13 +14,13 @@ module.exports = function (app, db) {
     //  var fs = require('fs');
 
 
-    var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
-    var ncp = require('ncp').ncp;
-    ncp(localDataDir, __dirname + "/../../public/uploads", function (err) {
-        if (err) {
-            return console.error(err);
-        }
-    });
+    //var localDataDir = process.env.OPENSHIFT_DATA_DIR || "../data";
+    //var ncp = require('ncp').ncp;
+    //ncp(localDataDir, __dirname + "/../../public/uploads", function (err) {
+    //    if (err) {
+    //        return console.error(err);
+    //    }
+    //});
 
     //function savePhoto(entityName, entityId, req, callback) {
     //    ncp(__dirname + '/../../public/uploads', localDataDir, function (err) {
