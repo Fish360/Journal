@@ -355,6 +355,11 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             templateUrl: "views/fish/new.html",
             controller: "NewFishController"
         })
+        .when("/:username/fish/new",
+            {
+                templateUrl: "views/fish/newFish.html",
+                controller: "NewFishFromHomeController"
+            })
         .when("/:username/trip/:tripId/fish/:fishId/edit",
         {
             templateUrl: "views/fish/edit.html",
