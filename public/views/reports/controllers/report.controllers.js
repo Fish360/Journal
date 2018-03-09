@@ -364,9 +364,10 @@
 
 
                         var options = {
+                            legend: {position: 'none'},
                             chart: {
-                                title: 'MoonPhase Report',
-                                subtitle: 'MoonPhase vs FishCount',
+                                title: '',
+                                subtitle: '',
 
 
                             },
