@@ -41,7 +41,7 @@ Species
 	 local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
 
 Spots
-<select ng-change="loadMoonPhase()" ng-model="editFish.spot" class="form-control" placeholder="Species">
+<select ng-change="loadMoonPhase()" ng-model="editFish.spot" class="form-control" placeholder="Spot">
 	<option ng-repeat="spot in spots" value="{{spot._id}}">{{spot.name}}</option>
 </select>
 
