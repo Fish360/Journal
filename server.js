@@ -67,6 +67,7 @@ app.post('/:entity/photo', function (req, res) {
 */
 
 var spots = require('./public/views/spots/server.js');
+var spotgroups = require('./public/views/spots/server.js');
 var presentations = require('./public/views/presentations/server.js');
 var gear = require('./public/views/gear/server.js');
 var fish = require('./public/views/spots/server.js');
@@ -80,7 +81,7 @@ if(process.env.MONGODB_URI) {
 	connection_string = process.env.MONGODB_URI;
 }
 
-var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search', 'report']);
+var db = mongojs(connection_string, ['user', 'trip', 'fish', 'spots', 'gear', 'presentations', 'search', 'report','spotgroups']);
 var userModel=require("./app/models/user.model.server.js")(db);
 var mandrill  = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('EW3Z7X-JJDSZwb1DigccCA');
@@ -88,6 +89,7 @@ var email     = require('./modules/email/email.js')(app, mandrill_client, db, ge
 
 presentations(app, db, mongojs);
 spots(app, db, mongojs);
+spotgroups(app, db, mongojs);
 gear(app, db, mongojs);
 search(app, db, mongojs);
 searchResults(app, db, mongojs);
