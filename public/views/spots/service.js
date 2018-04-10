@@ -50,6 +50,24 @@ f360.factory('SpotService', function($http){
 	};
 });
 
+f360.factory('SpeciesService', function($http){
+
+	var addspecies = function(listofspecies) {
+		this.multiplespecies = listofspecies;
+
+	};
+
+	var getspecies = function() {
+		return this.multiplespecies;
+
+	};
+
+
+	return {
+		addspecies : addspecies,
+		getspecies : getspecies
+	};
+});
 
 f360.factory("LocationService", function ($http)
 {

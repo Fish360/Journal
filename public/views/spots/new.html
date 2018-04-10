@@ -27,11 +27,30 @@ Name
 
     </div>
     <div class="col-xs-4">
-        <a href="#/{{username}}/spots/newgroup" class="btn btn-success f360-navbar-button" style="top:24px">
+        <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="createnewgroup()">
             <span class="glyphicon glyphicon-plus"></span>
         </a>
     </div>
 </div>
+
+<div ng-show="choicevaluegroup">
+
+
+    <div class="row">
+        <div class="col-xs-8">
+            Group Name
+            <input ng-model="newSpotGroup.groupname" class="form-control" placeholder="Enter new spot group name" type="text"/>
+        </div>
+        <div class="col-xs-4">
+            <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="addnewgroup()">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
 <div class="row">
     <div class="col-xs-6">
         Latitude
@@ -63,9 +82,54 @@ Water
     <option value="Salt water">Salt water</option>
     <option value="Fresh water">Fresh water</option>
 </select>
-Species
-<div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newSpot.species" 
-local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
+<!--
+<div class="row">
+    <div class="col-xs-6">
+        <label for="ex1" style="font-weight:normal">Species</label>
+        <div id="ex1"><p>Click on the button to add species to this spot</p></div>
+        &lt;!&ndash;<div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newSpot.species"
+             local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>&ndash;&gt;
+    </div>
+    <div class="col-xs-6">
+        <a href="#/{{username}}/spots/addspecies" class="btn btn-success f360-navbar-button" style="top:24px">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+</div>
+-->
+<div class="row">
+    <div class="col-xs-8">
+        <label for="ex1" style="font-weight:normal">Species</label>
+        <div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newSpot.species"
+             local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
+    </div>
+    <div class="col-xs-4">
+        <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="add(newSpot.species)">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-8">
+        <div class="container-fluid">
+            <ul class="list-group no-underline">
+                <li ng-repeat="specie in addedspecies" class="list-group-item white-border">
+
+                    <a href="#" style="padding-left: 0px">{{specie.title}}</a>
+
+                    <a href ng-click="deletespecie(specie)">
+                        <span class="glyphicon glyphicon-trash pull-right rightmargin-fivepx"></span></a>
+
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-xs-4">
+    </div>
+</div>
 Notes
 <textarea ng-model="newSpot.notes" class="form-control" placeholder="Notes">
 

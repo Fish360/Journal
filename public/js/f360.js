@@ -205,6 +205,16 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
                 templateUrl: "views/spots/newgroup.html",
                 controller: "SpotNewGroupController"
             })
+        .when("/:username/spots/addspecies",
+            {
+                templateUrl: "views/spots/addspecies.html",
+                controller: "AddSpeciesController"
+            })
+        .when("/:username/spots/editspecies",
+            {
+                templateUrl: "views/spots/editspecies.html",
+                controller: "EditSpeciesController"
+            })
         .when("/:username/spots/:id/edit",
         {
             templateUrl: "views/spots/edit.html",

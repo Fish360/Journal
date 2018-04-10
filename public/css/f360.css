@@ -122,3 +122,15 @@ textarea.form-control {
 .f360-odd-row {
     background-color: #dddddd;
 }
+
+.white-border{
+    border-color: white;
+}
+
+.white-color{
+    color:white;
+}
+
+.black-color{
+    color:black;
+}
