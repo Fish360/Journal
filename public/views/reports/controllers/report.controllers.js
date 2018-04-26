@@ -418,7 +418,7 @@
                         }
 
                         var monthinwords=monthNames[month];
-                        var timeKey = monthinwords+","+year;
+                        var timeKey = monthinwords+" "+year;
                         fishMap[timeKey] = 0;
                         currentDate.setMonth(currentDate.getMonth()+1);
                     }
@@ -511,9 +511,10 @@
                         }
 
                         var options = {
+                            legend: {position: 'none'},
                             chart: {
-                                title: 'Condition Report',
-                                subtitle: 'Condition vs FishCount',
+                                title: '', //title: 'Condition Report',
+                                subtitle: '', //subtitle: 'Condition vs FishCount'
                                 
 
                             },
