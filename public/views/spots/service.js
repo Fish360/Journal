@@ -8,9 +8,20 @@ f360.factory('SpotService', function($http){
 		.success(callback);
 	};
 
+	var createGroup = function(username, spotgroup, callback) {
+		console.log(spotgroup);
+		$http.post("/api/"+username+"/spotgroups", spotgroup)
+			.success(callback);
+	};
+
 	var findAll = function(username, callback) {
 	    $http.get("/api/"+username+"/spots")
 		.success(callback);
+	};
+
+	var findAllGroups = function(username, callback) {
+		$http.get("/api/"+username+"/spotgroups")
+			.success(callback);
 	};
 	
 	var findOne = function (username, id, callback) {
@@ -30,8 +41,10 @@ f360.factory('SpotService', function($http){
 		
 	return {
 		create : create,
+		createGroup:createGroup,
 		findOne: findOne,
 		findAll : findAll,
+		findAllGroups : findAllGroups,
 		update : update,
 		remove : remove
 	};

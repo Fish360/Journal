@@ -64,6 +64,9 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 		});
 	}
 
+
+
+
 	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
 		$scope.defaultSpecies = defaultSpecies;
 		$scope.newSpot.species = defaultSpecies.species;
@@ -124,7 +127,45 @@ $scope.getCurrentLocationDetails = function () {
 		return true;
 	}
 
+	function findSpotGroups() {
+		SpotService.findAllGroups($scope.username, function (spotgroups) {
+			$scope.spotgroups = spotgroups;
+
+		});
+	}
+	findSpotGroups();
+
 });
+
+f360.controller("SpotNewGroupController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService, JSONLoaderFactory, UserPreferenceService)
+{
+	$scope.username = $routeParams.username;
+	$scope.newSpotGroup = {};
+
+
+	$scope.create = function()
+	{
+
+		if(typeof $scope.newSpotGroup != "undefined") {
+			$scope.newSpotGroup.username = $scope.username;
+
+			SpotService.createGroup($scope.username, $scope.newSpotGroup, function () {
+				console.log("new spot group created");
+				window.history.go(-1);
+			});
+		}
+	}
+
+
+
+
+
+
+
+});
+
+
+
 
 f360.controller("SpotEditController", function ($scope, $routeParams, $http, $location, SpotService,JSONLoaderFactory)
 {
@@ -177,6 +218,15 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
 
 		return true;
 	}
+
+
+	function findSpotGroups() {
+		SpotService.findAllGroups($scope.username, function (spotgroups) {
+			$scope.spotgroups = spotgroups;
+
+		});
+	}
+	findSpotGroups();
 
 //    console.log("SpotEditController" + SpotService);
 	/*

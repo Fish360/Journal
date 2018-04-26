@@ -15,6 +15,24 @@
 Name
 <input ng-model="newSpot.name" class="form-control" placeholder="Name" type="text"/>
 <div class="row">
+    <div class="col-xs-8">
+        <label for="spotgroups" style="font-weight:normal">Group</label>
+        <select ng-model="newSpot.spotgroup"
+                id="spotgroups"
+                class="form-control"
+                placeholder="Group">
+            <option ng-repeat="spotgroup in spotgroups" value="{{spotgroup._id}}">{{spotgroup.groupname}}</option>
+        </select>
+
+
+    </div>
+    <div class="col-xs-4">
+        <a href="#/{{username}}/spots/newgroup" class="btn btn-success f360-navbar-button" style="top:24px">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+</div>
+<div class="row">
     <div class="col-xs-6">
         Latitude
         <input ng-model="newSpot.latitude" class="form-control" placeholder="0.00" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]" />
@@ -35,7 +53,7 @@ City
     </div>
     <div class="col-xs-6">
         ZIP
-        <input ng-model="newSpot.zip" class="form-control" placeholder="01234" type="text" pattern="[0-9a-zA-Z]*" />
+        <input ng-model="newSpot.zip" class="form-control" placeholder="01234" type="text" pattern="[0-9a-zA-Z]*"/>
     </div>
 </div>
 Country
