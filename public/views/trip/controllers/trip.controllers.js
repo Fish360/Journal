@@ -78,7 +78,7 @@
 		}
 	}
 
-	function EditTripController(WorldWeatherOnlineService,$scope, $routeParams, $http, $location,SpotService)
+	function EditTripController(WorldWeatherOnlineService,$scope, $routeParams, $http, $location,SpotService,SunMoonService, TidalService)
 	{
 		$scope.username = $routeParams.username;
 		var tripid = $routeParams.tripid;
@@ -122,9 +122,11 @@
 							tripTime = combineDateAndTime($scope.trip.start, $scope.trip.startTime);
 						}
 						else {
-
 							tripTime = new Date($scope.trip.start);
+
 						}
+
+                        // var date = Math.round(tripTime.getTime() / 1000);   //added the date for the trip..
 
 						if(!$scope.trip.weather) {
 							WorldWeatherOnlineService
@@ -137,7 +139,17 @@
 										console.log(error);
 									}
 								);
-						}}}
+						}
+						TidalService.getUTCOffset(tripTime, spot.latitude, spot.longitude, function (offset) {
+							if(offset.status !== "INVALID_REQUEST") {
+								SunMoonService.findSunMoonPhase2(tripTime, spot.latitude, spot.longitude, function (response) {
+									var phase = response.moonphase.phase;
+									$scope.trip.moonPhase = (phase < 0.25) ? "New Moon" : (phase < 0.5) ? "First Quarter"
+										: (phase < 0.75) ? "Full Moon" : "Last Quarter";
+								});
+							}
+						});
+					}}
 				);}}
 
 		$scope.update = function()

@@ -105,7 +105,7 @@ $scope.getCurrentLocationDetails = function () {
 	        $scope.newSpot.street = response.address.neighbourhood;
 	        $scope.newSpot.city = response.address.city;
 	        $scope.newSpot.state = response.address.state;
-	        $scope.newSpot.zip = parseInt(response.address.postcode,10);
+	        $scope.newSpot.zip = response.address.postcode;
 	        $scope.newSpot.country = response.address.country_code.toUpperCase();    
         });
     })
