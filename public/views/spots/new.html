@@ -14,6 +14,14 @@
 </div>
 Name
 <input ng-model="newSpot.name" class="form-control" placeholder="Name" type="text"/>
+
+Start Date
+<div class="row">
+    <div class ="col-xs-12">
+        <input ng-model="newSpot.start" id="start-date" class="form-control" type="date" ng-change="loadMarineWeather()" />
+    </div>
+</div>
+
 <div class="row">
     <div class="col-xs-6">
         Latitude
@@ -45,9 +53,61 @@ Water
     <option value="Salt water">Salt water</option>
     <option value="Fresh water">Fresh water</option>
 </select>
+
+<div></div>
+
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-target="#weather-collapse">
+            Marine Weather
+    </div>
+    <div id="weather-collapse" class="collapse">
+        <div class="panel-body">
+            <div ng-show="!newSpot.weather"
+                 class="alert alert-success">
+                Please select a date
+            </div>
+
+            <table ng="newSpot.weather" class="table">
+                <tbody>
+                <tr>
+                    <td>Air Temp. (min/max)</td>
+                    <td>{{newSpot.weather[0].mintempF}} &#8457; / {{newSpot.weather[0].maxtempF}} &#8457;</td>
+                </tr>
+                <tr>
+                    <td>Wind</td>
+                    <td>{{newSpot.weather[0].hourly[0].windspeedMiles}} mph {{newSpot.weather[0].hourly[0].winddir16Point}}</td>
+                </tr>
+                <tr>
+                    <td>Pressure</td>
+                    <td>{{newSpot.weather[0].hourly[0].pressure}}</td>
+                </tr>
+                <tr>
+                    <td>Precipation</td>
+                    <td>{{newSpot.weather[0].hourly[0].precipMM}} mm</td>
+                </tr>
+                <tr>
+                    <td>Sky</td>
+                    <td>
+							<span ng-repeat="value in newSpot.weather[0].hourly[0].weatherDesc[0]">
+								{{value}}
+							</span>
+                        <img width="10%" ng-src={{newSpot.weather[0].hourly[0].weatherIconUrl[0].value}} />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Water Temperature</td>
+                    <td>{{newSpot.weather[0].hourly[0].waterTemp_F}} &#8457;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 Species
-<div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newSpot.species" 
-local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
+    <div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newSpot.species"
+local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
+    </div>
 Notes
 <textarea ng-model="newSpot.notes" class="form-control" placeholder="Notes">
 

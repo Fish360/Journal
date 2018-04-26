@@ -51,10 +51,17 @@ f360.controller("SpotListController", function ($scope, $routeParams, $http, Spo
 	});
 });
 
-f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService, JSONLoaderFactory, UserPreferenceService)
+f360.controller("SpotNewController", function ($scope, $routeParams, $http, $location, SpotService, GeolocationService, LocationService, JSONLoaderFactory, UserPreferenceService, WorldWeatherOnlineService, $filter)
 {
 	$scope.username = $routeParams.username;
 	$scope.newSpot = {};
+    var date = new Date();
+    var dateString = ('0' + (date.getMonth() + 1)).slice(-2) + "/"
+        + ('0' + date.getDate()).slice(-2)+ "/"
+        + date.getFullYear();
+    $scope.newSpot.start = new Date(dateString);
+    $scope.loadMarineWeather = loadMarineWeather;
+
 	loadSpecies();
 
 	function loadSpecies() {
@@ -83,7 +90,7 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 					$scope.newSpot["commonName"] = species[i].common;
 
 			$scope.newSpot.species = scientificName;	
-			}	
+			}
 		}
 
 		if(typeof $scope.newSpot != "undefined") {
@@ -102,7 +109,7 @@ $scope.getCurrentLocationDetails = function () {
         $scope.newSpot.longitude = geoposition.coords.longitude;
 
       	LocationService.getZipCodeFromLogLat(geoposition.coords, function (response) {
-	        $scope.newSpot.street = response.address.neighbourhood;
+	        $scope.newSpot.street = response.address.road;
 	        $scope.newSpot.city = response.address.city;
 	        $scope.newSpot.state = response.address.state;
 	        $scope.newSpot.zip = response.address.postcode;
@@ -123,6 +130,26 @@ $scope.getCurrentLocationDetails = function () {
 
 		return true;
 	}
+
+    function loadMarineWeather(){
+        if ($scope.newSpot.start) {
+                var tripTime;
+                if ($scope.newSpot.latitude && $scope.newSpot.longitude && $scope.newSpot.start)
+                {
+                    // tripTime = new Date($scope.newSpot.start);
+                    WorldWeatherOnlineService
+                        .getMarineWeather($scope.newSpot.latitude, $scope.newSpot.longitude, $scope.newSpot.start)
+                        .then(
+                            function (response) {
+                                $scope.newSpot.weather = response.data.data.weather;
+                            },
+                            function (error) {
+                                console.log(error);
+                            }
+                        );
+                }
+        }
+    }
 
 });
 
