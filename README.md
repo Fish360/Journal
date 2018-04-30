@@ -1,3 +1,7 @@
+The project description for `Fish360` app can be found at :
+
+https://docs.google.com/document/d/1iyJGMfHFBoXA_qdo9V3w1S8rcX7yrOUaH9G4JOxRDYA/edit?ts=5ae11b2d
+
 The OpenShift `nodejs` cartridge documentation can be found at:
 
 https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-nodejs/README.md
