@@ -33,7 +33,7 @@ f360.controller("FishPhotoController", function ($scope, $routeParams, $http, Sp
 f360.controller("FishHomeListController", function ($scope, $routeParams, $http, UserPreferenceService)
 {
 	$scope.username = $routeParams.username;
-	$scope.tripId = $routeParams.tripId;
+	//$scope.tripId = $routeParams.tripId;
 	$http.get("api/allFish/"+$scope.username)
 		.success(function(fish)
 		{
@@ -299,6 +299,216 @@ f360.peakeSorter = function(heights) {
 	});
 	return peaks;
 }
+
+f360.controller("NewFishFromHomeController", function (WorldWeatherOnlineService, TidalService, $scope, $routeParams, $http, $location, SunMoonService, SpotService, GearService, TripService, PresentationsService, JSONLoaderFactory, UserPreferenceService)
+{
+	$scope.speciess = species;
+	$scope.username = $routeParams.username;
+	$scope.tripId = "1a2b3c1a2b3c1a2b3c1a2b3c";
+
+	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
+		$scope.defaultSpecies = defaultSpecies;
+		$scope.newFish.species = defaultSpecies.species;
+		$scope.newFish["commonName"] = defaultSpecies.commonName;
+		var date = new Date();
+		var datestr = ('0' + date.getDate()).slice(-2)+"/"+ ('0' + (date.getMonth() + 1)).slice(-2) +"/"+date.getFullYear();
+		var hr = date.getHours();
+		var ampm = "AM";
+		if( hr > 12 ) {
+			hr -= 12;
+			ampm = "PM";
+		}
+		var timestr = ('0' + date.getHours()).slice(-2)+":"+('0' + date.getMinutes()).slice(-2)+" "+ampm;
+		$scope.newFish.caught = new Date(datestr);
+
+		//var timestr= new moment ().format("HH:mm a");
+		$scope.newFish.caughtTime = new Date();
+
+	});
+
+	loadSpecies();
+
+	function loadSpecies() {
+		JSONLoaderFactory.readTextFile("../json/species.json", function(text){
+			$scope.species = JSON.parse(text);
+
+		});
+	}
+
+/*	TripService.findOne($scope.username, $scope.tripId, function(trip){
+		if(trip.start !== undefined) {
+			var dateParts = (trip.start).split("-");
+			var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+			var tripDate = moment(date).format("YYYY-MM-DD");
+			console.log("trip start and end");
+			console.log(trip.start);
+			console.log(trip.end);
+			$scope.newFish.minDate=trip.start.toString();
+			console.log($scope.newFish.minDate);
+
+			if(!trip.end)
+				trip.end = trip.start;
+
+			$scope.newFish.maxDate= trip.end.toString();
+			console.log($scope.newFish.maxDate);
+
+			if(tripDate>=trip.start && tripDate<=trip.end)
+			{
+				$scope.newFish.caught = tripDate;
+			}
+			else{
+				alert("Fish Caught date must be within Trip Date range");
+			}
+
+
+		}
+	});*/
+
+	SpotService.findAll($scope.username, function (spots) {
+		$scope.spots = spots;
+	});
+
+	GearService.findAll($scope.username, function(gears)
+	{
+		$scope.gears = gears;
+	});
+
+	PresentationsService.findAll($scope.username, function(presentations)
+	{
+		$scope.presentations = presentations;
+	});
+
+	$scope.create = function()
+	{
+		var newFishSpot = $scope.spots.find(function (spot) {
+			return spot._id == $scope.newFish.spot;
+		});
+		//$scope.newFish.spotName = newFishSpot.name;
+		$scope.newFish.spotName = "default spot";
+
+		if(!validateSpecieSelection()){
+			return;
+		}
+
+		var url = "api/user/"+$scope.username+"/trip/"+$scope.tripId+"/fish";
+
+		$scope.newFish["lastUpdated"] = new Date();
+		if($scope.newFish.species.originalObject !== undefined) {
+			var	scientificName = ($scope.newFish.species.originalObject === undefined) ? $scope.newFish.species : $scope.newFish.species.originalObject["ScientificName"];
+
+			for(var i=0; i<species.length; i++)
+				if(species[i].scientific == scientificName)
+					$scope.newFish["commonName"] = species[i].common;
+
+			$scope.newFish.species = scientificName;
+		}
+
+		$http.post(url, $scope.newFish)
+			.success(function(trips)
+			{
+				var preferences = {
+					species : $scope.newFish.species
+				};
+
+//				var user = localStorage.getItem("user");
+//				if(user != null && user != "" && user != "null") {
+//					user = JSON.parse(user);
+//					user.preferences = preferences;
+//				}
+//				localStorage.setItem("user", JSON.stringify(user));
+//				url = "api/user/"+$scope.username+"/preferences";
+//				$http.post(url, preferences);
+//				$location.path( $scope.username+"/trip/"+$scope.tripId+"/fish/list" );
+
+//				$location.replace(); // <----
+
+				window.history.go(-1);
+//				history.back();
+			});
+	}
+
+	$scope.newFish = {};
+	$scope.newFish.species = "";
+	var user = localStorage.getItem("user");
+	if(user && user != "undefined") {
+		user = JSON.parse(user);
+//		$scope.newFish.species = user.preferences.species;
+	}
+
+//	SpotService.findAll($scope.username, function (response) {
+//	    $scope.newFish.spots = response;
+//	});
+
+/*	function validateFishDates(){
+		var caughtDate=$scope.newFish.caught;
+		console.log(caughtDate);
+		var trip = TripService.findOne($scope.username,$scope.tripId,function(trip){
+			if(trip.start<=caughtDate && trip.end >= caughtDate){
+				return true;
+			}
+			else{
+				alert("Fish Caught date must be within trip range");
+				//$location.url("/"+$scope.username+"/trip/"+$scope.tripId+"/fish/new");
+				return false;
+			}
+		});
+		//console.log(trip);
+		//return true;
+	}*/
+
+	function validateSpecieSelection() {
+		var isValidSpecies = ($scope.newFish.species === undefined)? false : true;
+		if(!isValidSpecies){
+			alert("Please enter valid specie");
+			return false;
+		}
+		var isValidSelectionOfSpecies = ($scope.newFish.species.originalObject === undefined && $scope.newFish.commonName === undefined)? false : true;
+		if(!isValidSelectionOfSpecies){
+			alert("Please enter valid specie");
+			return false;
+		}
+
+		return true;
+	}
+
+/*	$scope.loadMoonPhase = function(){
+		if ($scope.newFish.spot && $scope.newFish.caught) {
+			SpotService.findOne($scope.username, $scope.newFish.spot, function (spot) {
+				var fishCaughtTime;
+				if (typeof $scope.newFish.caughtTime != "undefined") {
+					fishCaughtTime = combineDateAndTime($scope.newFish.caught, $scope.newFish.caughtTime);
+				}
+				else {
+					fishCaughtTime = new Date($scope.newFish.caught);
+				}
+				WorldWeatherOnlineService
+					.getMarineWeather(spot.latitude, spot.longitude, fishCaughtTime)
+					.then(
+						function (response) {
+							$scope.newFish.weather = response.data.data.weather;
+						},
+						function (error) {
+							console.log(error);
+						}
+					);
+
+				var date = Math.round(fishCaughtTime.getTime() / 1000);
+				TidalService.getUTCOffset(date, spot.latitude, spot.longitude, function (offset) {
+					SunMoonService.findSunMoonPhase2($scope.newFish.caught, spot.latitude, spot.longitude, function (response) {
+						var phase = response.moonphase.phase;
+						$scope.newFish.moonphase = (phase < 0.25) ? "New Moon" : (phase < 0.5) ? "First Quarter"
+							: (phase < 0.75) ? "Full Moon" : "Last Quarter";
+						$scope.newFish.sunriseTime = moment(response.sundetails.sunrise).tz(offset.timeZoneId).format("HH:mm");
+						$scope.newFish.moonriseTime = moment(response.moondetails.rise).tz(offset.timeZoneId).format("HH:mm");
+						$scope.newFish.sunsetTime = moment(response.sundetails.sunset).tz(offset.timeZoneId).format("HH:mm");
+						$scope.newFish.moonsetTime = moment(response.moondetails.set).tz(offset.timeZoneId).format("HH:mm");
+					});
+				});
+			});
+		}
+	}*/
+});
+
 
 f360.controller("EditFishController", function (WorldWeatherOnlineService, TidalService, $scope, $routeParams, $http, $location, SpotService, GearService, PresentationsService, JSONLoaderFactory,TripService,SunMoonService)
 {

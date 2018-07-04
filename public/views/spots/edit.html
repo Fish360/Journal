@@ -15,6 +15,43 @@
 Name
 <input ng-model="spot.name" class="form-control" placeholder="Name" type="text"/>
 <div class="row">
+    <div class="col-xs-8">
+        <label for="spotgroups" style="font-weight:normal">Group</label>
+        <select ng-model="spot.spotgroup"
+                id="spotgroups"
+                class="form-control"
+                placeholder="Group">
+            <option ng-repeat="spotgroup in spotgroups" value="{{spotgroup._id}}">{{spotgroup.groupname}}</option>
+        </select>
+
+
+    </div>
+    <div class="col-xs-4">
+        <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="createnewgroup()">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+    </div>
+</div>
+
+<div ng-show="choicevaluegroup">
+
+
+    <div class="row">
+        <div class="col-xs-8">
+            Group Name
+            <input ng-model="newSpotGroup.groupname" class="form-control" placeholder="Enter new spot group name" type="text"/>
+        </div>
+        <div class="col-xs-4">
+            <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="addnewgroup()">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
     <div class="col-xs-6">
         Latitude
         <input ng-model="spot.latitude" class="form-control" placeholder="0.00" type="number" pattern="[0-9]*.[0-9][0-9][0-9][0-9]" />
@@ -45,9 +82,50 @@ Water
     <option value="Salt water">Salt water</option>
     <option value="Fresh water">Fresh water</option>
 </select>
-Species
-<div angucomplete-alt id="ex1"  placeholder="{{spot.species ? spot.commonName + ' (' + spot.species + ')' : 'Type for Species...'}}" pause="100" selected-object="spot.species" local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/> </div>
+<!--<div class="row">
+    <div class="col-xs-8">
+        <label for="ex1" style="font-weight:normal">Species</label>
+        <div angucomplete-alt id="ex1"  placeholder="{{spot.species ? spot.commonName + ' (' + spot.species + ')' : 'Type for Species...'}}" pause="100" selected-object="spot.species" local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
+    </div>
+    <div class="col-xs-4">
+        <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="sharespecies()">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+    </div>
+</div>-->
+<div class="row">
+    <div class="col-xs-8">
+        <label for="ex1" style="font-weight:normal">Species</label>
+        <div angucomplete-alt id="ex1" placeholder="{{defaultSpecies.species === undefined ? 'Type of Species...' : defaultSpecies.commonName+ ' (' + defaultSpecies.species + ')'}}" pause="100" selected-object="newSpot.species"
+             local-data="species" search-fields="CommonName,BracesLeft,ScientificName,Braces,BracesRight" title-field="CommonName,BracesLeft,ScientificName,BracesRight"  minlength="1" input-class="form-control"/>
+    </div>
+    <div class="col-xs-4">
+        <a class="btn btn-success f360-navbar-button" style="top:24px" ng-click="add(newSpot.species)">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-xs-8">
+        <div class="container-fluid">
+            <ul class="list-group no-underline">
+                <li ng-repeat="specie in addedspecies" class="list-group-item white-border">
+
+                    <a href="#" style="padding-left: 0px">{{specie.title}}</a>
+
+                    <a href ng-click="deletespecie(specie)">
+                        <span class="glyphicon glyphicon-trash pull-right rightmargin-fivepx"></span></a>
+
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-xs-4">
+    </div>
+</div>
 Notes
 <textarea ng-model="spot.notes" class="form-control" placeholder="Notes"></textarea>
 

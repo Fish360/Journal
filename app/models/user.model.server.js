@@ -1,5 +1,5 @@
 var q = require("q");
-var bcrypt=require("bcrypt");
+var bcrypt=require("bcryptjs");
 var mongojs = require("mongojs");
 module.exports = function(db) {
     var api = {

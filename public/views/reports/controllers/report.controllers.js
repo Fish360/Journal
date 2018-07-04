@@ -119,7 +119,7 @@
                         }
                         var year  = currentDate.getFullYear();
                         var monthinwords=monthNames[month];
-                        var timeKey = monthinwords+","+year;
+                        var timeKey = monthinwords+" "+year;
 
                         fishMap[timeKey] = 0;
                         currentDate.setMonth(currentDate.getMonth()+1);
@@ -173,9 +173,10 @@
 
 
                         var options = {
+                            legend: {position: 'none'},
                             chart: {
-                                title: 'Time Of Year Report',
-                                subtitle: 'TimeOfYear vs FishCount',
+                                title: '',
+                                subtitle: '',
 
 
                             },
@@ -363,9 +364,10 @@
 
 
                         var options = {
+                            legend: {position: 'none'},
                             chart: {
-                                title: 'MoonPhase Report',
-                                subtitle: 'MoonPhase vs FishCount',
+                                title: '',
+                                subtitle: '',
 
 
                             },
@@ -418,7 +420,7 @@
                         }
 
                         var monthinwords=monthNames[month];
-                        var timeKey = monthinwords+","+year;
+                        var timeKey = monthinwords+" "+year;
                         fishMap[timeKey] = 0;
                         currentDate.setMonth(currentDate.getMonth()+1);
                     }
@@ -511,9 +513,10 @@
                         }
 
                         var options = {
+                            legend: {position: 'none'},
                             chart: {
-                                title: 'Condition Report',
-                                subtitle: 'Condition vs FishCount',
+                                title: '', //title: 'Condition Report',
+                                subtitle: '', //subtitle: 'Condition vs FishCount'
                                 
 
                             },

@@ -71,6 +71,18 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 		});
 	}
 
+
+	function gettingnames() {
+        var data = $scope.addedspecies;
+		$scope.newSpot.speciesObjects = data;
+		for(var k=0;k<data.length;k++){
+			datascientifname.push(data[k].originalObject["ScientificName"]);
+			datacommonname.push(data[k].originalObject["CommonName"]);
+		}
+
+	}
+
+
 	UserPreferenceService.findOneDefaultSpecies($scope.username, function(defaultSpecies){
 		$scope.defaultSpecies = defaultSpecies;
 		$scope.newSpot.species = defaultSpecies.species;
@@ -79,8 +91,8 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 
 	$scope.create = function()
 	{
-		
-		if(validateSpecieSelection()){
+		//commenting for now to check multiple species functionality
+		/*if(validateSpecieSelection()){
 			if($scope.newSpot.species.originalObject !== undefined) {
 			var scientificName = ($scope.newSpot.species.originalObject === undefined) ? $scope.newSpot.species : $scope.newSpot.species.originalObject["ScientificName"];
 			$scope.newSpot["lastUpdated"] = new Date();
@@ -88,11 +100,7 @@ f360.controller("SpotNewController", function ($scope, $routeParams, $http, $loc
 			for(var i=0; i<species.length; i++)
 				if(species[i].scientific == scientificName)
 					$scope.newSpot["commonName"] = species[i].common;
-
-			$scope.newSpot.species = scientificName;	
-			}
-		}
-
+		}*/
 		if(typeof $scope.newSpot != "undefined") {
 			$scope.newSpot.username = $scope.username;
 			$scope.newSpot["lastUpdated"] = new Date();
@@ -150,12 +158,17 @@ $scope.getCurrentLocationDetails = function () {
                 }
         }
     }
-
 });
 
-f360.controller("SpotEditController", function ($scope, $routeParams, $http, $location, SpotService,JSONLoaderFactory)
+
+f360.controller("SpotEditController", function ($scope, $routeParams, $http, $location, SpotService,JSONLoaderFactory, SpeciesService)
 {
     $scope.username = $routeParams.username;
+	var datascientifname = [];
+	var datacommonname = [];
+	var addedspecies = [];
+	$scope.newSpotGroup = {};
+	$scope.choicevaluegroup = false;
     loadSpecies();
 
 	function loadSpecies() {
@@ -167,11 +180,32 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
 
     SpotService.findOne($scope.username, $routeParams.id, function (response) {
         $scope.spot = response;
+		$scope.addedspecies = $scope.spot.speciesObjects;
+
 //        console.log(response);
     });
 
+
+
+
+	function gettingnames() {
+		var data = $scope.addedspecies;
+		$scope.spot.speciesObjects = data;
+		for(var k=0;k<data.length;k++){
+			datascientifname.push(data[k].originalObject["ScientificName"]);
+			datacommonname.push(data[k].originalObject["CommonName"]);
+		}
+
+	}
+
+	
+
+	
+
     $scope.update = function () {
-    	if(validateSpecieSelection()) {
+
+		//commenting for now to check multiple species functionality
+    	/*if(validateSpecieSelection()) {
 			var scientificName = ($scope.spot.species.originalObject === undefined) ? $scope.spot.species : $scope.spot.species.originalObject["ScientificName"];
 			
 			for(var i=0; i<species.length; i++) {
@@ -181,7 +215,15 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
 			}
 
 			$scope.spot.species = scientificName;
-		}
+		}*/
+
+		//adding new code
+		gettingnames();
+		$scope.spot["commonName"] = datacommonname;
+		$scope.spot.species = datascientifname;
+		//ending new code
+
+
         console.log($scope.spot);
 		$scope.spot["lastUpdated"] = new Date();
 		SpotService.update($scope.username, $routeParams.id, $scope.spot, function (response) {
@@ -204,6 +246,50 @@ f360.controller("SpotEditController", function ($scope, $routeParams, $http, $lo
 
 		return true;
 	}
+
+
+	function findSpotGroups() {
+		SpotService.findAllGroups($scope.username, function (spotgroups) {
+			$scope.spotgroups = spotgroups;
+
+		});
+	}
+	findSpotGroups();
+
+	$scope.createnewgroup = function () {
+		$scope.choicevaluegroup = true;
+	}
+
+	$scope.addnewgroup = function () {
+		if(typeof $scope.newSpotGroup != "undefined") {
+			$scope.newSpotGroup.username = $scope.username;
+
+			SpotService.createGroup($scope.username, $scope.newSpotGroup, function () {
+				console.log("new spot group created");
+				$scope.choicevaluegroup = false;
+			});
+		}
+		findSpotGroups();
+	}
+
+	$scope.add = function add(specie) {
+		if($scope.addedspecies.indexOf(specie) == -1){
+			$scope.addedspecies.push(specie);
+			$scope.$broadcast('angucomplete-alt:clearInput');
+		}
+		else{
+			window.alert("You have already added this species. Please change your selection");
+		}
+	}
+
+	$scope.deletespecie = function deletespecie(specie) {
+		$scope.addedspecies.splice($scope.addedspecies.indexOf(specie),1);
+
+	}
+
+	$scope.addedspecies =addedspecies;
+
+
 
 //    console.log("SpotEditController" + SpotService);
 	/*

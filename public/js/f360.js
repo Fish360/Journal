@@ -200,6 +200,21 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             templateUrl: "views/spots/new.html",
             controller: "SpotNewController"
         })
+        .when("/:username/spots/newgroup",
+            {
+                templateUrl: "views/spots/newgroup.html",
+                controller: "SpotNewGroupController"
+            })
+        .when("/:username/spots/addspecies",
+            {
+                templateUrl: "views/spots/addspecies.html",
+                controller: "AddSpeciesController"
+            })
+        .when("/:username/spots/editspecies",
+            {
+                templateUrl: "views/spots/editspecies.html",
+                controller: "EditSpeciesController"
+            })
         .when("/:username/spots/:id/edit",
         {
             templateUrl: "views/spots/edit.html",
@@ -355,6 +370,11 @@ f360.config(["$routeProvider", function ($routeProvider, $http) {
             templateUrl: "views/fish/new.html",
             controller: "NewFishController"
         })
+        .when("/:username/fish/new",
+            {
+                templateUrl: "views/fish/newFish.html",
+                controller: "NewFishFromHomeController"
+            })
         .when("/:username/trip/:tripId/fish/:fishId/edit",
         {
             templateUrl: "views/fish/edit.html",
